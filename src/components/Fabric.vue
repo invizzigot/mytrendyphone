@@ -1,0 +1,3570 @@
+<template>
+  <div class="flex flex-col items-center py-5">
+    <div class="flex w-[500px]">
+      <div class="w-1/4">
+        <div class="relative mb-2">
+          <div class="w-10 h-10 mx-auto relative">
+            <div
+              v-if="counter === 1"
+              v-motion
+              :initial="{ opacity: 0, scale: 0 }"
+              :enter="{ opacity: 1, scale: 1 }"
+              :delay="300"
+              class="absolute z-20 w-10 h-10 mx-auto bg-gray-400 border-2 border-gray-200 rounded-full text-lg text-white flex items-center"
+            >
+              <span class="text-center text-white w-full">
+                <svg
+                  class="w-full fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    opacity="0.5"
+                    d="M14.0516 2C15.7318 1.99999 17.0627 1.99997 18.1043 2.14245C19.1762 2.28908 20.0438 2.59803 20.728 3.29418C21.4122 3.99033 21.7159 4.87308 21.86 5.9637C22 7.02342 22 8.37752 22 10.087V10.0871V13.913V13.913C22 15.6225 22 16.9766 21.86 18.0363C21.7159 19.1269 21.4122 20.0097 20.728 20.7058C20.0438 21.402 19.1762 21.7109 18.1043 21.8575C17.0627 22 15.7318 22 14.0517 22H14.0516H13.9484H13.9483C12.2681 22 10.9373 22 9.89575 21.8575C8.82382 21.7109 7.95621 21.402 7.27199 20.7058C6.58778 20.0097 6.28413 19.1269 6.14001 18.0363C5.99998 16.9766 5.99999 15.6225 6 13.913V13.9129V10.087V10.087C5.99999 8.3775 5.99998 7.02343 6.14001 5.9637C6.28413 4.87308 6.58778 3.99033 7.27199 3.29418C7.95621 2.59803 8.82382 2.28908 9.89575 2.14245C10.9373 1.99997 12.2682 1.99999 13.9484 2H13.9484H14.0516H14.0516Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    d="M12 18.25C11.5858 18.25 11.25 18.5858 11.25 19C11.25 19.4142 11.5858 19.75 12 19.75H17C17.4142 19.75 17.75 19.4142 17.75 19C17.75 18.5858 17.4142 18.25 17 18.25H12Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    d="M2 14.5C2 13.0955 2 12.3933 2.33706 11.8889C2.48298 11.6705 2.67048 11.483 2.88886 11.3371C3.39331 11 4.09554 11 5.5 11C6.90446 11 7.60669 11 8.11114 11.3371C8.32952 11.483 8.51702 11.6705 8.66294 11.8889C9 12.3933 9 13.0955 9 14.5V18.5C9 19.9045 9 20.6067 8.66294 21.1111C8.51702 21.3295 8.32952 21.517 8.11114 21.6629C7.60669 22 6.90446 22 5.5 22C4.09554 22 3.39331 22 2.88886 21.6629C2.67048 21.517 2.48298 21.3295 2.33706 21.1111C2 20.6067 2 19.9045 2 18.5V14.5Z"
+                    fill="#1C274C"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            <div
+              class="absolute w-10 h-10 mx-auto bg-white rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center"
+            >
+              <span class="text-center text-white w-full">
+                <svg
+                  class="w-full fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    opacity="0.5"
+                    d="M14.0516 2C15.7318 1.99999 17.0627 1.99997 18.1043 2.14245C19.1762 2.28908 20.0438 2.59803 20.728 3.29418C21.4122 3.99033 21.7159 4.87308 21.86 5.9637C22 7.02342 22 8.37752 22 10.087V10.0871V13.913V13.913C22 15.6225 22 16.9766 21.86 18.0363C21.7159 19.1269 21.4122 20.0097 20.728 20.7058C20.0438 21.402 19.1762 21.7109 18.1043 21.8575C17.0627 22 15.7318 22 14.0517 22H14.0516H13.9484H13.9483C12.2681 22 10.9373 22 9.89575 21.8575C8.82382 21.7109 7.95621 21.402 7.27199 20.7058C6.58778 20.0097 6.28413 19.1269 6.14001 18.0363C5.99998 16.9766 5.99999 15.6225 6 13.913V13.9129V10.087V10.087C5.99999 8.3775 5.99998 7.02343 6.14001 5.9637C6.28413 4.87308 6.58778 3.99033 7.27199 3.29418C7.95621 2.59803 8.82382 2.28908 9.89575 2.14245C10.9373 1.99997 12.2682 1.99999 13.9484 2H13.9484H14.0516H14.0516Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    d="M12 18.25C11.5858 18.25 11.25 18.5858 11.25 19C11.25 19.4142 11.5858 19.75 12 19.75H17C17.4142 19.75 17.75 19.4142 17.75 19C17.75 18.5858 17.4142 18.25 17 18.25H12Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    d="M2 14.5C2 13.0955 2 12.3933 2.33706 11.8889C2.48298 11.6705 2.67048 11.483 2.88886 11.3371C3.39331 11 4.09554 11 5.5 11C6.90446 11 7.60669 11 8.11114 11.3371C8.32952 11.483 8.51702 11.6705 8.66294 11.8889C9 12.3933 9 13.0955 9 14.5V18.5C9 19.9045 9 20.6067 8.66294 21.1111C8.51702 21.3295 8.32952 21.517 8.11114 21.6629C7.60669 22 6.90446 22 5.5 22C4.09554 22 3.39331 22 2.88886 21.6629C2.67048 21.517 2.48298 21.3295 2.33706 21.1111C2 20.6067 2 19.9045 2 18.5V14.5Z"
+                    fill="#1C274C"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          v-if="counter === 1"
+          v-motion
+          :initial="{ opacity: 0, scale: 0, top: 0 }"
+          :enter="{ opacity: 1, scale: 1, marginTop: -10 }"
+          :delay="300"
+          class="text-sm text-center font-bold"
+        >
+          Choose Device
+        </div>
+      </div>
+
+      <div class="w-1/4">
+        <div class="relative mb-2">
+          <div
+            class="absolute flex align-center items-center align-middle content-center"
+            style="
+              width: calc(90% - 2.5rem - 1rem);
+              top: 50%;
+              transform: translate(-50%, -50%);
+            "
+          >
+            <div
+              class="w-full bg-gray-50 rounded-3xl shadow-xl ring-1 ring-slate-500/50 items-center align-middle align-center flex-1"
+            >
+              <div class="w-full bg-gray-100 py-1 rounded mx-auto"></div>
+            </div>
+          </div>
+          <div class="w-10 h-10 mx-auto relative">
+            <div
+              v-if="counter === 2"
+              v-motion
+              :initial="{ opacity: 0, scale: 0 }"
+              :enter="{ opacity: 1, scale: 1 }"
+              :delay="300"
+              class="absolute z-20 w-10 h-10 mx-auto bg-gray-400 border-2 border-gray-200 rounded-full text-lg text-white flex items-center"
+            >
+              <span class="text-center text-white w-full">
+                <svg
+                  class="w-full fill-current"
+                  width="30px"
+                  height="30px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.97883 9.68508C2.99294 8.89073 2 8.49355 2 8C2 7.50645 2.99294 7.10927 4.97883 6.31492L7.7873 5.19153C9.77318 4.39718 10.7661 4 12 4C13.2339 4 14.2268 4.39718 16.2127 5.19153L19.0212 6.31492C21.0071 7.10927 22 7.50645 22 8C22 8.49355 21.0071 8.89073 19.0212 9.68508L16.2127 10.8085C14.2268 11.6028 13.2339 12 12 12C10.7661 12 9.77318 11.6028 7.7873 10.8085L4.97883 9.68508Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M2 8C2 8.49355 2.99294 8.89073 4.97883 9.68508L7.7873 10.8085C9.77318 11.6028 10.7661 12 12 12C13.2339 12 14.2268 11.6028 16.2127 10.8085L19.0212 9.68508C21.0071 8.89073 22 8.49355 22 8C22 7.50645 21.0071 7.10927 19.0212 6.31492L16.2127 5.19153C14.2268 4.39718 13.2339 4 12 4C10.7661 4 9.77318 4.39718 7.7873 5.19153L4.97883 6.31492C2.99294 7.10927 2 7.50645 2 8Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    opacity="0.7"
+                    d="M5.76613 10L4.97883 10.3149C2.99294 11.1093 2 11.5065 2 12C2 12.4935 2.99294 12.8907 4.97883 13.6851L7.7873 14.8085C9.77318 15.6028 10.7661 16 12 16C13.2339 16 14.2268 15.6028 16.2127 14.8085L19.0212 13.6851C21.0071 12.8907 22 12.4935 22 12C22 11.5065 21.0071 11.1093 19.0212 10.3149L18.2339 10L16.2127 10.8085C14.2268 11.6028 13.2339 12 12 12C10.7661 12 9.77318 11.6028 7.7873 10.8085L5.76613 10Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    opacity="0.4"
+                    d="M5.76613 14L4.97883 14.3149C2.99294 15.1093 2 15.5065 2 16C2 16.4935 2.99294 16.8907 4.97883 17.6851L7.7873 18.8085C9.77318 19.6028 10.7661 20 12 20C13.2339 20 14.2268 19.6028 16.2127 18.8085L19.0212 17.6851C21.0071 16.8907 22 16.4935 22 16C22 15.5065 21.0071 15.1093 19.0212 14.3149L18.2339 14L16.2127 14.8085C14.2268 15.6028 13.2339 16 12 16C10.7661 16 9.77318 15.6028 7.7873 14.8085L5.76613 14Z"
+                    fill="#1C274C"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            <div
+              class="absolute w-10 h-10 mx-auto bg-white rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center"
+            >
+              <span class="text-center text-white w-full">
+                <svg
+                  class="w-full fill-current"
+                  width="30px"
+                  height="30px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.97883 9.68508C2.99294 8.89073 2 8.49355 2 8C2 7.50645 2.99294 7.10927 4.97883 6.31492L7.7873 5.19153C9.77318 4.39718 10.7661 4 12 4C13.2339 4 14.2268 4.39718 16.2127 5.19153L19.0212 6.31492C21.0071 7.10927 22 7.50645 22 8C22 8.49355 21.0071 8.89073 19.0212 9.68508L16.2127 10.8085C14.2268 11.6028 13.2339 12 12 12C10.7661 12 9.77318 11.6028 7.7873 10.8085L4.97883 9.68508Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M2 8C2 8.49355 2.99294 8.89073 4.97883 9.68508L7.7873 10.8085C9.77318 11.6028 10.7661 12 12 12C13.2339 12 14.2268 11.6028 16.2127 10.8085L19.0212 9.68508C21.0071 8.89073 22 8.49355 22 8C22 7.50645 21.0071 7.10927 19.0212 6.31492L16.2127 5.19153C14.2268 4.39718 13.2339 4 12 4C10.7661 4 9.77318 4.39718 7.7873 5.19153L4.97883 6.31492C2.99294 7.10927 2 7.50645 2 8Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    opacity="0.7"
+                    d="M5.76613 10L4.97883 10.3149C2.99294 11.1093 2 11.5065 2 12C2 12.4935 2.99294 12.8907 4.97883 13.6851L7.7873 14.8085C9.77318 15.6028 10.7661 16 12 16C13.2339 16 14.2268 15.6028 16.2127 14.8085L19.0212 13.6851C21.0071 12.8907 22 12.4935 22 12C22 11.5065 21.0071 11.1093 19.0212 10.3149L18.2339 10L16.2127 10.8085C14.2268 11.6028 13.2339 12 12 12C10.7661 12 9.77318 11.6028 7.7873 10.8085L5.76613 10Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    opacity="0.4"
+                    d="M5.76613 14L4.97883 14.3149C2.99294 15.1093 2 15.5065 2 16C2 16.4935 2.99294 16.8907 4.97883 17.6851L7.7873 18.8085C9.77318 19.6028 10.7661 20 12 20C13.2339 20 14.2268 19.6028 16.2127 18.8085L19.0212 17.6851C21.0071 16.8907 22 16.4935 22 16C22 15.5065 21.0071 15.1093 19.0212 14.3149L18.2339 14L16.2127 14.8085C14.2268 15.6028 13.2339 16 12 16C10.7661 16 9.77318 15.6028 7.7873 14.8085L5.76613 14Z"
+                    fill="#1C274C"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          v-if="counter === 2"
+          v-motion
+          :initial="{ opacity: 0, scale: 0, top: 0 }"
+          :enter="{ opacity: 1, scale: 1, marginTop: -10 }"
+          :delay="300"
+          class="text-sm text-center font-bold"
+        >
+          Select Layout
+        </div>
+      </div>
+
+      <div class="w-1/4">
+        <div class="relative mb-2">
+          <div
+            class="absolute flex align-center items-center align-middle content-center"
+            style="
+              width: calc(90% - 2.5rem - 1rem);
+              top: 50%;
+              transform: translate(-50%, -50%);
+            "
+          >
+            <div
+              class="w-full bg-gray-50 rounded-3xl shadow-xl ring-1 ring-slate-500/50 items-center align-middle align-center flex-1"
+            >
+              <div class="w-full bg-gray-100 py-1 rounded mx-auto"></div>
+            </div>
+          </div>
+          <div class="w-10 h-10 mx-auto relative">
+            <div
+              v-if="counter === 3"
+              v-motion
+              :initial="{ opacity: 0, scale: 0 }"
+              :enter="{ opacity: 1, scale: 1 }"
+              :delay="300"
+              class="absolute z-20 w-10 h-10 mx-auto bg-gray-400 border-2 border-gray-200 rounded-full text-lg text-white flex items-center"
+            >
+              <span class="text-center text-white w-full">
+                <svg
+                  class="w-full fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    opacity="0.5"
+                    d="M9.77778 21H14.2222C17.3433 21 18.9038 21 20.0248 20.2646C20.51 19.9462 20.9267 19.5371 21.251 19.0607C22 17.9601 22 16.4279 22 13.3636C22 10.2994 22 8.76721 21.251 7.6666C20.9267 7.19014 20.51 6.78104 20.0248 6.46268C19.3044 5.99013 18.4027 5.82123 17.022 5.76086C16.3631 5.76086 15.7959 5.27068 15.6667 4.63636C15.4728 3.68489 14.6219 3 13.6337 3H10.3663C9.37805 3 8.52715 3.68489 8.33333 4.63636C8.20412 5.27068 7.63685 5.76086 6.978 5.76086C5.59733 5.82123 4.69555 5.99013 3.97524 6.46268C3.48995 6.78104 3.07328 7.19014 2.74902 7.6666C2 8.76721 2 10.2994 2 13.3636C2 16.4279 2 17.9601 2.74902 19.0607C3.07328 19.5371 3.48995 19.9462 3.97524 20.2646C5.09624 21 6.65675 21 9.77778 21Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    d="M17.5562 9.27246C17.096 9.27246 16.7229 9.63877 16.7229 10.0906C16.7229 10.5425 17.096 10.9088 17.5562 10.9088H18.6673C19.1276 10.9088 19.5007 10.5425 19.5007 10.0906C19.5007 9.63877 19.1276 9.27246 18.6673 9.27246H17.5562Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12.0007 9.27246C9.69946 9.27246 7.83398 11.104 7.83398 13.3634C7.83398 15.6227 9.69946 17.4543 12.0007 17.4543C14.3018 17.4543 16.1673 15.6227 16.1673 13.3634C16.1673 11.104 14.3018 9.27246 12.0007 9.27246ZM12.0007 10.9088C10.6199 10.9088 9.50065 12.0078 9.50065 13.3634C9.50065 14.719 10.6199 15.8179 12.0007 15.8179C13.3814 15.8179 14.5007 14.719 14.5007 13.3634C14.5007 12.0078 13.3814 10.9088 12.0007 10.9088Z"
+                    fill="#1C274C"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            <div
+              class="absolute w-10 h-10 mx-auto bg-white rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center"
+            >
+              <span class="text-center text-white w-full">
+                <svg
+                  class="w-full fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    opacity="0.5"
+                    d="M9.77778 21H14.2222C17.3433 21 18.9038 21 20.0248 20.2646C20.51 19.9462 20.9267 19.5371 21.251 19.0607C22 17.9601 22 16.4279 22 13.3636C22 10.2994 22 8.76721 21.251 7.6666C20.9267 7.19014 20.51 6.78104 20.0248 6.46268C19.3044 5.99013 18.4027 5.82123 17.022 5.76086C16.3631 5.76086 15.7959 5.27068 15.6667 4.63636C15.4728 3.68489 14.6219 3 13.6337 3H10.3663C9.37805 3 8.52715 3.68489 8.33333 4.63636C8.20412 5.27068 7.63685 5.76086 6.978 5.76086C5.59733 5.82123 4.69555 5.99013 3.97524 6.46268C3.48995 6.78104 3.07328 7.19014 2.74902 7.6666C2 8.76721 2 10.2994 2 13.3636C2 16.4279 2 17.9601 2.74902 19.0607C3.07328 19.5371 3.48995 19.9462 3.97524 20.2646C5.09624 21 6.65675 21 9.77778 21Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    d="M17.5562 9.27246C17.096 9.27246 16.7229 9.63877 16.7229 10.0906C16.7229 10.5425 17.096 10.9088 17.5562 10.9088H18.6673C19.1276 10.9088 19.5007 10.5425 19.5007 10.0906C19.5007 9.63877 19.1276 9.27246 18.6673 9.27246H17.5562Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12.0007 9.27246C9.69946 9.27246 7.83398 11.104 7.83398 13.3634C7.83398 15.6227 9.69946 17.4543 12.0007 17.4543C14.3018 17.4543 16.1673 15.6227 16.1673 13.3634C16.1673 11.104 14.3018 9.27246 12.0007 9.27246ZM12.0007 10.9088C10.6199 10.9088 9.50065 12.0078 9.50065 13.3634C9.50065 14.719 10.6199 15.8179 12.0007 15.8179C13.3814 15.8179 14.5007 14.719 14.5007 13.3634C14.5007 12.0078 13.3814 10.9088 12.0007 10.9088Z"
+                    fill="#1C274C"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          v-if="counter === 3"
+          v-motion
+          :initial="{ opacity: 0, scale: 0, top: 0 }"
+          :enter="{ opacity: 1, scale: 1, marginTop: -10 }"
+          :delay="300"
+          class="text-sm text-center font-bold"
+        >
+          Upload Images
+        </div>
+      </div>
+
+      <div class="w-1/4">
+        <div class="relative mb-2">
+          <div
+            class="absolute flex align-center items-center align-middle content-center"
+            style="
+              width: calc(90% - 2.5rem - 1rem);
+              top: 50%;
+              transform: translate(-50%, -50%);
+            "
+          >
+            <div
+              class="w-full bg-gray-50 rounded-3xl shadow-xl ring-1 ring-slate-500/50 items-center align-middle align-center flex-1"
+            >
+              <div class="w-full bg-gray-100 py-1 rounded mx-auto"></div>
+            </div>
+          </div>
+          <div class="w-10 h-10 mx-auto relative">
+            <div
+              v-if="counter === 4"
+              v-motion
+              :initial="{ opacity: 0, scale: 0 }"
+              :enter="{ opacity: 1, scale: 1 }"
+              :delay="300"
+              class="absolute z-20 w-10 h-10 mx-auto bg-gray-400 border-2 border-gray-200 rounded-full text-lg text-white flex items-center"
+            >
+              <span class="text-center text-white w-full">
+                <svg
+                  class="w-full fill-current"
+                  width="24px"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="0.5"
+                    d="M3 10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H13C16.7712 2 18.6569 2 19.8284 3.17157C21 4.34315 21 6.22876 21 10V14C21 17.7712 21 19.6569 19.8284 20.8284C18.6569 22 16.7712 22 13 22H11C7.22876 22 5.34315 22 4.17157 20.8284C3 19.6569 3 17.7712 3 14V10Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M7.25 12C7.25 11.5858 7.58579 11.25 8 11.25H16C16.4142 11.25 16.75 11.5858 16.75 12C16.75 12.4142 16.4142 12.75 16 12.75H8C7.58579 12.75 7.25 12.4142 7.25 12Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M7.25 8C7.25 7.58579 7.58579 7.25 8 7.25H16C16.4142 7.25 16.75 7.58579 16.75 8C16.75 8.41421 16.4142 8.75 16 8.75H8C7.58579 8.75 7.25 8.41421 7.25 8Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M7.25 16C7.25 15.5858 7.58579 15.25 8 15.25H13C13.4142 15.25 13.75 15.5858 13.75 16C13.75 16.4142 13.4142 16.75 13 16.75H8C7.58579 16.75 7.25 16.4142 7.25 16Z"
+                    fill="#1C274C"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            <div
+              class="absolute w-10 h-10 mx-auto bg-white rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center"
+            >
+              <span class="text-center text-white w-full">
+                <svg
+                  class="w-full fill-current"
+                  width="24px"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="0.5"
+                    d="M3 10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H13C16.7712 2 18.6569 2 19.8284 3.17157C21 4.34315 21 6.22876 21 10V14C21 17.7712 21 19.6569 19.8284 20.8284C18.6569 22 16.7712 22 13 22H11C7.22876 22 5.34315 22 4.17157 20.8284C3 19.6569 3 17.7712 3 14V10Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M7.25 12C7.25 11.5858 7.58579 11.25 8 11.25H16C16.4142 11.25 16.75 11.5858 16.75 12C16.75 12.4142 16.4142 12.75 16 12.75H8C7.58579 12.75 7.25 12.4142 7.25 12Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M7.25 8C7.25 7.58579 7.58579 7.25 8 7.25H16C16.4142 7.25 16.75 7.58579 16.75 8C16.75 8.41421 16.4142 8.75 16 8.75H8C7.58579 8.75 7.25 8.41421 7.25 8Z"
+                    fill="#1C274C"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M7.25 16C7.25 15.5858 7.58579 15.25 8 15.25H13C13.4142 15.25 13.75 15.5858 13.75 16C13.75 16.4142 13.4142 16.75 13 16.75H8C7.58579 16.75 7.25 16.4142 7.25 16Z"
+                    fill="#1C274C"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          v-if="counter === 4"
+          v-motion
+          :initial="{ opacity: 0, scale: 0, top: 0 }"
+          :enter="{ opacity: 1, scale: 1, marginTop: -10 }"
+          :delay="300"
+          class="text-sm font-bold text-center"
+        >
+          Add Text
+        </div>
+      </div>
+
+      <div class="w-1/4">
+        <div class="relative mb-2">
+          <div
+            class="absolute flex align-center items-center align-middle content-center"
+            style="
+              width: calc(90% - 2.5rem - 1rem);
+              top: 50%;
+              transform: translate(-50%, -50%);
+            "
+          >
+            <div
+              class="w-full bg-gray-50 rounded-3xl shadow-xl ring-1 ring-slate-500/50 items-center align-middle align-center flex-1"
+            >
+              <div class="w-full bg-gray-100 py-1 rounded mx-auto"></div>
+            </div>
+          </div>
+          <div class="w-10 h-10 mx-auto relative">
+            <div
+              v-if="counter === 5"
+              v-motion
+              :initial="{ opacity: 0, scale: 0 }"
+              :enter="{ opacity: 1, scale: 1 }"
+              :delay="300"
+              class="absolute z-20 w-10 h-10 mx-auto bg-gray-400 border-2 border-gray-200 rounded-full text-lg text-white flex items-center"
+            >
+              <span class="text-center text-white w-full">
+                <svg
+                  class="w-full fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    opacity="0.4"
+                    d="M19.24 5.58006H18.84L15.46 2.20006C15.19 1.93006 14.75 1.93006 14.47 2.20006C14.2 2.47006 14.2 2.91006 14.47 3.19006L16.86 5.58006H7.14L9.53 3.19006C9.8 2.92006 9.8 2.48006 9.53 2.20006C9.26 1.93006 8.82 1.93006 8.54 2.20006L5.17 5.58006H4.77C3.87 5.58006 2 5.58006 2 8.14006C2 9.11006 2.2 9.75006 2.62 10.1701C2.86 10.4201 3.15 10.5501 3.46 10.6201C3.75 10.6901 4.06 10.7001 4.36 10.7001H19.64C19.95 10.7001 20.24 10.6801 20.52 10.6201C21.36 10.4201 22 9.82006 22 8.14006C22 5.58006 20.13 5.58006 19.24 5.58006Z"
+                    fill="#292D32"
+                  />
+                  <path
+                    d="M19.6609 10.7001H4.36094C4.07094 10.7001 3.75094 10.6901 3.46094 10.6101L4.72094 18.3001C5.01094 20.0201 5.76094 22.0001 9.09094 22.0001H14.7009C18.0709 22.0001 18.6709 20.3101 19.0309 18.4201L20.5409 10.6101C20.2609 10.6801 19.9609 10.7001 19.6609 10.7001ZM14.8809 15.0501L11.6309 18.0501C11.4909 18.1801 11.3009 18.2501 11.1209 18.2501C10.9309 18.2501 10.7409 18.1801 10.5909 18.0301L9.09094 16.5301C8.80094 16.2401 8.80094 15.7601 9.09094 15.4701C9.38094 15.1801 9.86094 15.1801 10.1509 15.4701L11.1409 16.4601L13.8609 13.9501C14.1609 13.6701 14.6409 13.6901 14.9209 13.9901C15.2109 14.3001 15.1909 14.7701 14.8809 15.0501Z"
+                    fill="#292D32"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            <div
+              class="absolute w-10 h-10 mx-auto bg-white rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center"
+            >
+              <span class="text-center text-white w-full">
+                <svg
+                  class="w-full fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    opacity="0.4"
+                    d="M19.24 5.58006H18.84L15.46 2.20006C15.19 1.93006 14.75 1.93006 14.47 2.20006C14.2 2.47006 14.2 2.91006 14.47 3.19006L16.86 5.58006H7.14L9.53 3.19006C9.8 2.92006 9.8 2.48006 9.53 2.20006C9.26 1.93006 8.82 1.93006 8.54 2.20006L5.17 5.58006H4.77C3.87 5.58006 2 5.58006 2 8.14006C2 9.11006 2.2 9.75006 2.62 10.1701C2.86 10.4201 3.15 10.5501 3.46 10.6201C3.75 10.6901 4.06 10.7001 4.36 10.7001H19.64C19.95 10.7001 20.24 10.6801 20.52 10.6201C21.36 10.4201 22 9.82006 22 8.14006C22 5.58006 20.13 5.58006 19.24 5.58006Z"
+                    fill="#292D32"
+                  />
+                  <path
+                    d="M19.6609 10.7001H4.36094C4.07094 10.7001 3.75094 10.6901 3.46094 10.6101L4.72094 18.3001C5.01094 20.0201 5.76094 22.0001 9.09094 22.0001H14.7009C18.0709 22.0001 18.6709 20.3101 19.0309 18.4201L20.5409 10.6101C20.2609 10.6801 19.9609 10.7001 19.6609 10.7001ZM14.8809 15.0501L11.6309 18.0501C11.4909 18.1801 11.3009 18.2501 11.1209 18.2501C10.9309 18.2501 10.7409 18.1801 10.5909 18.0301L9.09094 16.5301C8.80094 16.2401 8.80094 15.7601 9.09094 15.4701C9.38094 15.1801 9.86094 15.1801 10.1509 15.4701L11.1409 16.4601L13.8609 13.9501C14.1609 13.6701 14.6409 13.6901 14.9209 13.9901C15.2109 14.3001 15.1909 14.7701 14.8809 15.0501Z"
+                    fill="#292D32"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          v-if="counter === 5"
+          v-motion
+          :initial="{ opacity: 0, scale: 0, top: 0 }"
+          :enter="{ opacity: 1, scale: 1, marginTop: -10 }"
+          :delay="300"
+          class="text-sm font-bold text-center"
+        >
+          Finish
+        </div>
+      </div>
+    </div>
+    <!-- <Fabric></Fabric> -->
+    <div class="relative flex flex-row items-center">
+      <div
+        class="relative flex flex-col items-center bg-slate-100/50 w-[380px] h-[605px] rounded-3xl shadow-xl ring-1 ring-slate-900/5"
+      >
+        <div
+          class="absolute flex flex-col items-center overflow-hidden justify-center ring-1 ring-slate-900/5 w-[395px] h-[620px] rounded-3xl ml-[0px] mt-[-7px] bg-fit bg-bottom bg-no-repeat"
+        >
+          <div
+            class="flex flex-row gap-10 items-start"
+            :style="{
+              transform: `translateX(${position}px)`,
+              transitionDuration: '500ms',
+            }"
+          >
+            <div v-motion-pop class="relative w-[360px] h-[560px]">
+              <div class="flex flex-col ml-2 mt-4 items-left">
+                <p
+                  class="font-inter text-base mt-2 font-semibold leading-2 text-slate-700"
+                >
+                  Step one
+                </p>
+                <h1
+                  class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+                >
+                  Product
+                </h1>
+                <p
+                  class="font-inter my-2 text-base font-medium text-left leading-7 text-slate-700"
+                >
+                  Choose product to customize.
+                </p>
+              </div>
+              <div
+                class="relative bg-transparent w-[305px] h-[395px] mt-0 rounded-3xl shadow-xl ring-1 ring-slate-900/5"
+                style="transform: translateZ(0px); opacity: 1"
+              >
+                <div
+                  class="absolute flex flex-col items-start bg-slate-50 ring-1 ring-slate-900/5 w-[290px] h-[380px] rounded-2xl ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
+                >
+                  <div class="pt-5 space-y-5">
+                    <div>
+                      <label
+                        for=""
+                        class="font-inter text-md font-semibold mt- px-4 leading-7 text-slate-700"
+                        >Device type</label
+                      >
+                      <div class="mt-2">
+                        <select
+                          @change="getPhoneModels(selectedBrand)"
+                          v-model="selectedBrand"
+                          class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-xl focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
+                        >
+                          <option selected value="">Select Device</option>
+                          <option selected value="1">Phone Device</option>
+                          <option selected value="2">Tablet Device</option>
+                          <option selected value="4">Gadget Device</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div>
+                      <label
+                        for=""
+                        class="font-inter text-md font-semibold mt-2 px-4 leading-7 text-slate-700"
+                        >Product brand</label
+                      >
+                      <div class="mt-2">
+                        <select
+                          @change="getPhoneModels(selectedBrand)"
+                          v-model="selectedBrand"
+                          class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-xl focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
+                        >
+                          <option selected value="">Select Model</option>
+                          <option
+                            v-for="brand in brands"
+                            :key="brand.id"
+                            :value="brand.id"
+                          >
+                            {{ brand.title }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-start m-2 notvalid">
+                      <label
+                        for=""
+                        class="font-inter text-md font-semibold mt-2 px-4 leading-7 text-slate-700"
+                        >Product model</label
+                      >
+                      <div class="mt-2">
+                        <select
+                          @change="getPhoneCase(selectedModel)"
+                          v-model="selectedModel"
+                          ref="phoneModel"
+                          id="phoneModel"
+                          name="phoneModel"
+                          disabled
+                          class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-xl focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
+                        >
+                          <option selected value="">Select Model</option>
+                          <option
+                            v-for="model in models"
+                            :key="model.id"
+                            :value="model.id"
+                          >
+                            {{ model.title }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-start m-2 valid">
+                      <label
+                        for=""
+                        class="font-inter text-md font-semibold mt-2 px-4 leading-7 text-slate-700"
+                        >Type of case</label
+                      >
+                      <div class="mt-2">
+                        <select
+                          @change="addPhoneToCanvas(selectedCaseType)"
+                          v-model="selectedCaseType"
+                          class="w-[250px] m-3 p-2 bg-slate-100 text-slate-700 focus:bg-slate-50 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-xl focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
+                          disabled
+                          ref="phoneCase"
+                          id="phoneCase"
+                          name="phoneCase"
+                        >
+                          <option selected value="">Select Case</option>
+                          <option
+                            v-for="(caseType, index) in casesTypes"
+                            :key="caseType.id"
+                            :value="index"
+                          >
+                            {{ caseType.title }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="absolute right-[50px] -bottom-1 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+              >
+                <div
+                  @click="nextClick"
+                  class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                >
+                  <p
+                    class="text-center text-base font-inter font-bold text-slate-100"
+                  >
+                    Next
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="relative w-[360px] p-2 h-[560px]">
+              <div class="flex flex-col ml-2 mt-0 items-left">
+                <p
+                  class="font-inter text-base mt-0 font-semibold leading-2 text-slate-700"
+                >
+                  Step Two
+                </p>
+                <h1
+                  class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+                >
+                  Layout
+                </h1>
+                <p
+                  class="font-inter my-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
+                >
+                  Select mask layout design.
+                </p>
+              </div>
+              <div
+                class="bg-transparent w-[305px] h-[345px] mt-2 rounded-3xl shadow-xl ring-1 ring-slate-900/5"
+                style="transform: translateZ(0px); opacity: 1"
+              >
+                <div
+                  class="absolute flex flex-col bg-slate-50 ring-1 ring-slate-900/5 w-[290px] h-[330px] rounded-2xl ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
+                >
+                  <div
+                    class="flex flex-col mt-[30px] items-center w-[320px] h-[300px]"
+                  >
+                    <div
+                      class="flex flex-row mt-[50px] w-[220px] gap-8 items-center"
+                    >
+                      <div
+                        @click="addCollage1(1)"
+                        class="relative w-[50px] h-[50px]"
+                      >
+                        <div
+                          v-if="activeIndex === 1"
+                          v-motion-pop
+                          class="absolute -left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[60px] h-[75px] border-slate-600"
+                        ></div>
+                        <img
+                          class=" "
+                          src="/src/assets/images/phoneColection.png"
+                        />
+                      </div>
+                      <div
+                        @click="addCollage(2)"
+                        class="relative w-[50px] h-[50px]"
+                      >
+                        <div
+                          v-if="activeIndex === 2"
+                          v-motion-pop
+                          class="absolute -left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[60px] h-[75px] border-slate-600"
+                        ></div>
+                        <img
+                          class=""
+                          src="/src/assets/images/phoneColection1.png"
+                        />
+                      </div>
+                      <div
+                        @click="addCollage3(3)"
+                        class="relative w-[50px] h-[50px]"
+                      >
+                        <div
+                          v-if="activeIndex === 3"
+                          v-motion-pop
+                          class="absolute -left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[60px] h-[75px] border-slate-600"
+                        ></div>
+                        <img
+                          class=""
+                          src="/src/assets/images/phoneColection2.png"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-row mt-[50px] w-[220px] gap-8 items-center"
+                    >
+                      <div
+                        @click="addCollage4(4)"
+                        class="relative w-[50px] h-[50px]"
+                      >
+                        <div
+                          v-if="activeIndex === 4"
+                          v-motion-pop
+                          class="absolute -left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[60px] h-[75px] border-slate-600"
+                        ></div>
+                        <img
+                          class=""
+                          src="/src/assets/images/phoneColection4.png"
+                        />
+                      </div>
+                      <div
+                        @click="addCollage5(5)"
+                        class="relative w-[50px] h-[50px]"
+                      >
+                        <div
+                          v-if="activeIndex === 5"
+                          v-motion-pop
+                          class="absolute -left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[60px] h-[75px] border-slate-600"
+                        ></div>
+                        <img
+                          class=""
+                          src="/src/assets/images/phoneColection5.png"
+                        />
+                      </div>
+                      <div
+                        @click="addCollage6(6)"
+                        class="relative w-[50px] h-[50px]"
+                      >
+                        <div
+                          v-if="activeIndex === 6"
+                          v-motion-pop
+                          class="absolute -left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[60px] h-[75px] border-slate-600"
+                        ></div>
+                        <img
+                          class=""
+                          src="/src/assets/images/phoneColection6.png"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="absolute left-[10px] -bottom-1 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+              >
+                <div
+                  @click="backClick"
+                  class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                >
+                  <p
+                    class="text-center text-base font-inter font-bold text-slate-100"
+                  >
+                    Back
+                  </p>
+                </div>
+              </div>
+              <div
+                class="absolute right-[60px] -bottom-1 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+              >
+                <div
+                  @click="nextClick"
+                  class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                >
+                  <p
+                    class="text-center text-base font-inter font-bold text-slate-100"
+                  >
+                    Next
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="relative w-[360px] p-2 h-[560px]">
+              <div class="flex flex-col ml-2 mt-4 items-left">
+                <p
+                  class="font-inter text-base mt-4 font-semibold leading-2 text-slate-700"
+                >
+                  Step three
+                </p>
+                <h1
+                  class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+                >
+                  Add Images
+                </h1>
+                <p
+                  class="font-inter my-5 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
+                >
+                  Upload your images to customize.
+                </p>
+              </div>
+              <div
+                class="bg-transparent absolute w-[305px] h-[206px] mt-2 rounded-3xl shadow-xl ring-1 ring-slate-900/5"
+                style="transform: translateZ(0px); opacity: 1"
+              >
+                <div
+                  class="absolute flex flex-col items-start bg-slate-50 ring-1 ring-slate-900/5 w-[290px] h-[190px] rounded-2xl ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
+                >
+                  <div class="pt-0 space-y-5">
+                    <div class="flex flex-col items-start m-2">
+                      <div
+                        class="absolute left-[40%] -bottom-10 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+                      >
+                        <div
+                          class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                        >
+                          <p
+                            @click="addButton"
+                            class="px-1 mb-2 animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
+                          >
+                            +
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="relative w-[300px] h-fit flex flex-row items-center flex-wrap"
+                      >
+                        <div
+                          v-motion
+                          :initial="{ opacity: 0, scale: 0 }"
+                          :enter="{ opacity: 1, scale: 1 }"
+                          :variants="{ custom: { scale: 1 } }"
+                          :delay="300"
+                          class="relative m-1 w-[80px] h-[80px]"
+                          v-for="(image, index) in uploadedImages"
+                          :key="image.id"
+                        >
+                          <!-- <span>{{ image.id }}</span> -->
+                          <img
+                            class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
+                            :src="image.url"
+                            :key="image.id"
+                            alt="Uploaded Image"
+                          />
+                        </div>
+                      </div>
+                      <input
+                        id="uploadButton"
+                        type="file"
+                        ref="uploadButton"
+                        style="display: none"
+                        @change="handleImageUpload"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="absolute left-[10px] -bottom-1 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+              >
+                <div
+                  @click="backClick"
+                  class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                >
+                  <p
+                    class="text-center text-base font-inter font-bold text-slate-100"
+                  >
+                    Back
+                  </p>
+                </div>
+              </div>
+              <div
+                class="absolute right-[60px] -bottom-1 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+              >
+                <div
+                  @click="nextClick"
+                  class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                >
+                  <p
+                    class="text-center text-base font-inter font-bold text-slate-100"
+                  >
+                    Next
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="relative w-[360px] p-2 h-[560px]">
+              <div class="flex flex-col ml-2 mt-0 items-left">
+                <p
+                  class="font-inter text-base mt-0 font-semibold leading-2 text-slate-700"
+                >
+                  Step four
+                </p>
+                <h1
+                  class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+                >
+                  Add Text
+                </h1>
+                <p
+                  class="font-inter my-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
+                >
+                  Add custom text to your design.
+                </p>
+              </div>
+              <div
+                class="bg-transparent w-[305px] h-[345px] mt-2 rounded-3xl shadow-xl ring-1 ring-slate-900/5"
+                style="transform: translateZ(0px); opacity: 1"
+              >
+                <div
+                  class="absolute flex flex-col items-start bg-slate-50 ring-1 ring-slate-900/5 w-[290px] h-[330px] rounded-2xl ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
+                >
+                  <div class="pt-0 space-y-5">
+                    <div class="flex flex-col items-start gap-3 m-2">
+                      <div class="flex flex-col">
+                        <span
+                          class="font-inter ml-4 mt-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
+                        >
+                          Enter text:
+                        </span>
+                        <input
+                          class="w-[250px] m-3 mt-2 p-2 bg-slate-50/40 text-gray-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-md focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
+                          type="text"
+                          v-model="inputText"
+                        />
+                      </div>
+
+                      <div class="flex flex-col gap-5">
+                        <p
+                          class="font-inter ml-4 pt-4 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
+                        >
+                          Font & color:
+                        </p>
+                        <select
+                          v-model="textFamily"
+                          class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-md focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
+                        >
+                          <option selected value="">Select font</option>
+                          <option selected value="Pacifico">Pacifico</option>
+                          <option selected value="Calligraffitti">
+                            Calligraffitti
+                          </option>
+                        </select>
+                      </div>
+
+                      <div
+                        class="relative w-[300px] h-[10px] flex flex-row items-center flex-wrap"
+                      ></div>
+                      <div class="flex flex-row">
+                        <div
+                          class="relative w-[30px] h-[30px] m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
+                        >
+                          <div
+                            v-if="activeIndexColor === 1"
+                            v-motion-pop
+                            class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
+                          ></div>
+
+                          <div
+                            @click="addFontColor('red', 1)"
+                            class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-red-100 bg-red-600"
+                          ></div>
+                        </div>
+                        <div
+                          class="relative w-[30px] h-[30px] m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
+                        >
+                          <div
+                            v-if="activeIndexColor === 2"
+                            v-motion-pop
+                            class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
+                          ></div>
+
+                          <div
+                            @click="addFontColor('orange', 2)"
+                            class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-orange-100 bg-orange-600"
+                          ></div>
+                        </div>
+
+                        <div
+                          @click="addFontColor('yellow', 3)"
+                          class="relative w-[30px] h-[30px] m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
+                        >
+                          <div
+                            v-if="activeIndexColor === 3"
+                            v-motion-pop
+                            class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
+                          ></div>
+
+                          <div
+                            class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-yellow-100 bg-yellow-600"
+                          ></div>
+                        </div>
+                        <div
+                          @click="addFontColor('green', 4)"
+                          class="relative w-[30px] h-[30px] m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
+                        >
+                          <div
+                            v-if="activeIndexColor === 4"
+                            v-motion-pop
+                            class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
+                          ></div>
+
+                          <div
+                            class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-green-100 bg-green-600"
+                          ></div>
+                        </div>
+                        <div
+                          @click="addFontColor('blue', 5)"
+                          class="relative w-[30px] h-[30px] m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
+                        >
+                          <div
+                            v-if="activeIndexColor === 5"
+                            v-motion-pop
+                            class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
+                          ></div>
+
+                          <div
+                            class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-blue-100 bg-blue-600"
+                          ></div>
+                        </div>
+                        <div
+                          @click="addFontColor('purple', 6)"
+                          class="relative w-[30px] h-[30px] m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
+                        >
+                          <div
+                            v-if="activeIndexColor === 6"
+                            v-motion-pop
+                            class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
+                          ></div>
+                          <div
+                            class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-violet-100 bg-violet-600"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="flex flex-row">
+                        <div
+                          @click="addFontColor('black', 7)"
+                          class="relative w-[30px] h-[30px] mt-0 m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
+                        >
+                          <div
+                            v-if="activeIndexColor === 7"
+                            v-motion-pop
+                            class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
+                          ></div>
+                          <div
+                            class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-gray-100 bg-gray-900"
+                          ></div>
+                        </div>
+                        <div
+                          @click="addFontColor('white', 8)"
+                          class="relative w-[30px] h-[30px] mt-0 m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
+                        >
+                          <div
+                            v-if="activeIndexColor === 8"
+                            v-motion-pop
+                            class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
+                          ></div>
+                          <div
+                            class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-gray-100 bg-gray-200"
+                          ></div>
+                        </div>
+
+                        <div
+                          @click="addFontColor('gray', 9)"
+                          class="relative w-[30px] h-[30px] mt-0 m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
+                        >
+                          <div
+                            v-if="activeIndexColor === 9"
+                            v-motion-pop
+                            class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
+                          ></div>
+                          <div
+                            class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-gray-100 bg-gray-400"
+                          ></div>
+                        </div>
+                        <div
+                          @click="addFontColor('pink', 10)"
+                          class="relative w-[30px] h-[30px] mt-0 m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
+                        >
+                          <div
+                            v-if="activeIndexColor === 10"
+                            v-motion-pop
+                            class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
+                          ></div>
+                          <div
+                            class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-pink-100 bg-pink-500"
+                          ></div>
+                        </div>
+                        <div
+                          @click="addFontColor('cyan', 11)"
+                          class="relative w-[30px] h-[30px] mt-0 m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
+                        >
+                          <div
+                            v-if="activeIndexColor === 11"
+                            v-motion-pop
+                            class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
+                          ></div>
+
+                          <div
+                            class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-blue-100 bg-cyan-500"
+                          ></div>
+                        </div>
+                        <div
+                          @click="addFontColor('violet', 12)"
+                          class="relative w-[30px] h-[30px] mt-0 m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
+                        >
+                          <div
+                            v-if="activeIndexColor === 12"
+                            v-motion-pop
+                            class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
+                          ></div>
+                          <div
+                            class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-violet-100 bg-violet-900"
+                          ></div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="mt-2 ml-[20%] px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+                      >
+                        <div
+                          @click="addTextCanvas"
+                          class="z-50 cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                        >
+                          <p
+                            class="text-center text-base font-inter font-bold text-slate-100"
+                          >
+                            Add Text
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="absolute left-[10px] -bottom-1 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+              >
+                <div
+                  @click="backClick"
+                  class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                >
+                  <p
+                    class="text-center text-base font-inter font-bold text-slate-100"
+                  >
+                    Back
+                  </p>
+                </div>
+              </div>
+              <div
+                class="absolute right-[60px] -bottom-1 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+              >
+                <div
+                  @click="nextClick"
+                  class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                >
+                  <p
+                    class="text-center text-base font-inter font-bold text-slate-100"
+                  >
+                    Next
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="relative w-[360px] p-2 h-[560px]">
+              <div class="flex flex-col ml- mt-4 items-left">
+                <p
+                  class="font-inter text-base mt-4 font-semibold leading-2 text-slate-700"
+                >
+                  Step five
+                </p>
+                <h1
+                  class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+                >
+                  Finish!
+                </h1>
+                <p
+                  class="font-inter w-[280px] my-5 text-base whitespace-wrap font-medium text-left leading-7 text-slate-700"
+                >
+                  Complete your custom case order! Order now and your order will
+                  be shipped on Tuesday, January 16, 2024!
+                </p>
+                <div
+                  v-motion-pop
+                  class="relative flex w-[300px] h-[300px] mt-3 flex-col items-center"
+                >
+                  <svg
+                    class="w-full fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="200"
+                    height="200"
+                  >
+                    <path
+                      opacity="0.4"
+                      d="M19.24 5.58006H18.84L15.46 2.20006C15.19 1.93006 14.75 1.93006 14.47 2.20006C14.2 2.47006 14.2 2.91006 14.47 3.19006L16.86 5.58006H7.14L9.53 3.19006C9.8 2.92006 9.8 2.48006 9.53 2.20006C9.26 1.93006 8.82 1.93006 8.54 2.20006L5.17 5.58006H4.77C3.87 5.58006 2 5.58006 2 8.14006C2 9.11006 2.2 9.75006 2.62 10.1701C2.86 10.4201 3.15 10.5501 3.46 10.6201C3.75 10.6901 4.06 10.7001 4.36 10.7001H19.64C19.95 10.7001 20.24 10.6801 20.52 10.6201C21.36 10.4201 22 9.82006 22 8.14006C22 5.58006 20.13 5.58006 19.24 5.58006Z"
+                      fill="#292D32"
+                    />
+                    <path
+                      d="M19.6609 10.7001H4.36094C4.07094 10.7001 3.75094 10.6901 3.46094 10.6101L4.72094 18.3001C5.01094 20.0201 5.76094 22.0001 9.09094 22.0001H14.7009C18.0709 22.0001 18.6709 20.3101 19.0309 18.4201L20.5409 10.6101C20.2609 10.6801 19.9609 10.7001 19.6609 10.7001ZM14.8809 15.0501L11.6309 18.0501C11.4909 18.1801 11.3009 18.2501 11.1209 18.2501C10.9309 18.2501 10.7409 18.1801 10.5909 18.0301L9.09094 16.5301C8.80094 16.2401 8.80094 15.7601 9.09094 15.4701C9.38094 15.1801 9.86094 15.1801 10.1509 15.4701L11.1409 16.4601L13.8609 13.9501C14.1609 13.6701 14.6409 13.6901 14.9209 13.9901C15.2109 14.3001 15.1909 14.7701 14.8809 15.0501Z"
+                      fill="#292D32"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              <div
+                class="absolute left-[10px] bottom-0 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+              >
+                <div
+                  @click="backClick"
+                  class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                >
+                  <p
+                    class="text-center text-base font-inter font-bold text-slate-100"
+                  >
+                    Back
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-[435px] h-[620px] mt-2">
+        <div
+          class="relative flex flex-col items-center mt-20 w-[435px] p-2 h-[560px]"
+        >
+          <!-- <div class="flex flex-col items-start ml-4">
+              <p
+                class="font-inter text-base mt-4 font-semibold leading-2 text-slate-700"
+              >
+                Step three
+              </p>
+              <h1
+                class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+              >
+                Customize
+              </h1>
+            </div> -->
+
+          <div class="w-[280px] -mt-6 h-[520px] flex flex-col items-center">
+            <canvas class="relative w-[320px] h-[520px]" ref="canvasRef">
+            </canvas>
+
+            <div
+              class="absolute left-[400px] top-[40px] gap-3 flex flex-col m-3"
+            >
+              <button @click="clearCanvas">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    d="M3 3V8M3 8H8M3 8L6 5.29168C7.59227 3.86656 9.69494 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.71683 21 4.13247 18.008 3.22302 14"
+                    stroke="#000000"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <button @click="zoomInSelectedImage">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"
+                  />
+                </svg>
+              </button>
+              <button @click="zoomOutSelectedImage">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM13.5 10.5h-6"
+                  />
+                </svg>
+              </button>
+              <button @click="bringForward">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75"
+                  />
+                </svg>
+              </button>
+              <button @click="sendBackwards">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m-6 3.75l3 3m0 0l3-3m-3 3V1.5m6 9h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75"
+                  />
+                </svg>
+              </button>
+              <button @click="exportToPNG">
+                <svg
+                  viewBox="0 0 32 32"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6"
+                >
+                  <path
+                    d="M 6 4 L 6 28 L 26 28 L 26 20 L 24 22 L 24 26 L 8 26 L 8 6 L 24 6 L 24 10 L 26 12 L 26 4 Z M 22.40625 11 L 21 12.40625 L 23.5625 15 L 13.90625 15 L 13.90625 17 L 23.5625 17 L 21 19.59375 L 22.40625 21 L 26.71875 16.71875 L 27.40625 16 L 26.71875 15.28125 Z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="flex flex-col">
+              <!-- <input
+        id="uploadButton"
+        class="w-[100px] h-[20px]"
+        type="file"
+        ref="fileInput"
+        @change="handleImageUpload"
+      /> -->
+
+              <!-- <input
+        id="uploadButton1"
+        class="w-[100px] h-[30px] hidden"
+        type="file"
+        ref="fileInput1"
+        @change="handleImageUpload1"
+      /> -->
+            </div>
+            <div class="absolute top-[40px] left-[15px] flex flex-col gap-3">
+              <div
+                class="relative w-[35px] h-[35px]"
+                v-for="(image, index) in uploadedImages"
+                :key="image.id"
+              >
+                <!-- <span>{{ image.id }}</span> -->
+                <img
+                  class="border-[2px] w-full h-full m-1 rounded-md border-gray-700/80"
+                  :src="image.url"
+                  :key="image.id"
+                  alt="Uploaded Image"
+                  @click="addClipPathToSelectedObject(index)"
+                />
+              </div>
+            </div>
+            <!-- <div class="flex flex-col">
+      <select @change="addPhoneToCanvas" v-model="selectedShape">
+        <option value="blank">Select Model</option>
+        <option value="xiaomi">Xiaomi</option>
+        <option value="samsung">Samsung</option>
+      </select>
+      <button @click="addPhoneToCanvas">Select Phone</button>
+    </div> -->
+            <!-- <select v-model="selectedImage">
+      <option v-for="image in images" :key="image.id" :value1="image.url">
+        {{ image.name }}
+      </option>
+    </select> -->
+            <!-- <button @click="exportToPNG">Export to PNG</button> -->
+            <!-- <button @click="handleImageUpload1">Add Canvas</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { fabric } from "fabric";
+import { ref } from "vue";
+
+export default {
+  data() {
+    return {
+      brands: [],
+      activeIndex: null,
+      activeIndexColor: null,
+      models: [],
+      fontColor: "",
+      casesTypes: [],
+      exportMaskClipImage: {},
+      exportPlaceholderImage: {},
+      inputText: "",
+
+      PhoneList: {
+        Apple: ["Iphone 12", "Iphone 13", "Iphone 14", "Iphone 15"],
+        Huawei: ["Mate 10", "Mate 20", "Mate 20 Pro"],
+        Samsung: ["Galaxy S22", "Galaxy A40 ", "Galaxy A52"],
+        Xiaomi: ["Redmi Note 11", "Xiaomi 12 pro", "Poco X5"],
+      },
+
+      counter: ref(1),
+      position: ref(830),
+
+      inputText: "",
+      textFamily: "",
+      selectedBrand: "",
+      selectedModel: "",
+      selectedCaseType: "",
+      selectedImage: [],
+      objectsWithName: [],
+      images: [
+        {
+          id: 1,
+          name: "xiaomi",
+          notch: "src/assets/images/xiaomi-notch.png",
+          back: "src/assets/images/xiaomi-back.png",
+        },
+        {
+          id: 2,
+          name: "samsung",
+          notch: "src/assets/images/s22transparent.png",
+          back: "src/assets/images/s22back.png",
+        },
+        // Add more images as needed
+      ],
+      canvas: null,
+      uploadedImages: [],
+      imageIndex: 1,
+    };
+  },
+
+  methods: {
+    setActiveItemIndex(key) {
+      this.activeIndex = key;
+      // Set the clicked item as active
+    },
+    setActiveColorIndex(key) {
+      this.activeIndexColor = key;
+      // Set the clicked item as active
+    },
+
+    moveLeft() {
+      this.position -= 400;
+    },
+    moveRight() {
+      this.position += 400;
+    },
+    incrementCounter() {
+      this.counter++;
+    },
+    decrementCounter() {
+      this.counter--;
+    },
+    nextClick() {
+      this.moveLeft();
+      this.incrementCounter();
+    },
+    backClick() {
+      this.moveRight();
+      this.decrementCounter();
+    },
+    addFontColor(fontcolor, index) {
+      this.fontColor = fontcolor;
+      this.setActiveColorIndex(index);
+    },
+
+    addTextCanvas() {
+      const selectedObject = this.canvas.getActiveObject();
+      if (!selectedObject || selectedObject.type === null) {
+        return;
+      }
+
+      if (selectedObject.type === "rect" && selectedObject.name === "pattern") {
+        console.log(selectedObject.left + selectedObject.width / 2);
+        console.log(selectedObject.top + selectedObject.height / 2);
+
+        const clipRect = new fabric.Rect({
+          width: selectedObject.width,
+          height: selectedObject.height,
+          top: selectedObject.top,
+          left: selectedObject.left,
+          absolutePositioned: true,
+          fill: "",
+          perPixelTargetFind: false,
+          globalCompositeOperation: "destination-out",
+          hasBorders: true,
+          borderColor: "#3ff4ff",
+          clipPath: selectedObject.clipPath,
+          evented: false,
+        });
+
+        const newText = new fabric.Text(this.inputText, {
+          // Set the properties for the text object here
+          left: selectedObject.left + selectedObject.width / 2,
+          top: selectedObject.top + selectedObject.height / 2,
+
+          // // scaleX: 0.12,
+          // //   scaleY: 0.12,
+          originX: "center",
+          originY: "center",
+          name: "text",
+          fontFamily: this.textFamily,
+          fontSize: 30,
+          // textAlign: "center",
+          // globalCompositeOperation: "source-atop",
+          clipPath: clipRect,
+          targetFindTolerance: 5,
+          selectable: true,
+          hasControls: true,
+          hasBorders: true,
+          perPixelTargetFind: true,
+          fill: this.fontColor,
+          // centerH: true,
+          //   centerV: true,
+        });
+        newText.setControlsVisibility({
+          bl: true,
+          br: false,
+          tl: false,
+          tr: false,
+          mb: false,
+          ml: false,
+          mr: false,
+          mt: false,
+          mtr: true,
+          customControl: false,
+          customControl2: false,
+          customControl3: true,
+        });
+
+        this.canvas.add(newText);
+        newText.visible = true;
+        // newText.center();
+        newText.selectable = true;
+        // this.canvas.add(newText);
+        this.canvas.moveTo(newText, 8);
+        this.canvas.setActiveObject(newText);
+
+        newText.on("mouse:down", (event) => {
+          const target = event.target;
+          if (target && target.selectable) {
+            this.canvas.setActiveObject(target);
+            this.canvas.renderAll();
+          }
+        });
+
+        // this.canvas.renderAll();
+
+        const objects = this.canvas.getObjects();
+        objects.forEach((obj, index) => {
+          if (obj && obj.type === "image" && obj.name === "transparent") {
+            this.canvas.remove(obj);
+            this.canvas.moveTo(obj, 9);
+          }
+        });
+
+        objects.forEach((obj, index) => {
+          console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
+        });
+
+        // this.canvas.renderAll();
+
+        // img.src = selectedImage.url;
+      }
+      if (
+        selectedObject.type === "circle" &&
+        selectedObject.name === "pattern"
+      ) {
+        console.log(selectedObject.left + selectedObject.width / 2);
+        console.log(selectedObject.top + selectedObject.height / 2);
+
+        const clipRect = new fabric.Circle({
+          width: selectedObject.width,
+          height: selectedObject.height,
+          top: selectedObject.top,
+          left: selectedObject.left,
+          radius: selectedObject.radius,
+          absolutePositioned: true,
+          fill: "",
+          perPixelTargetFind: false,
+          globalCompositeOperation: "destination-out",
+          hasBorders: true,
+          borderColor: "#3ff4ff",
+          clipPath: selectedObject.clipPath,
+          evented: false,
+        });
+
+        const newText = new fabric.Text(this.inputText, {
+          // Set the properties for the text object here
+          left: selectedObject.left + selectedObject.width / 2,
+          top: selectedObject.top + selectedObject.height / 2,
+
+          // // scaleX: 0.12,
+          // //   scaleY: 0.12,
+          originX: "center",
+          originY: "center",
+          name: "text",
+          fontFamily: this.textFamily,
+          fontSize: 30,
+          // textAlign: "center",
+          globalCompositeOperation: "source-atop",
+          clipPath: clipRect,
+          targetFindTolerance: 5,
+          selectable: true,
+          hasControls: true,
+          hasBorders: true,
+          perPixelTargetFind: true,
+          fill: this.fontColor,
+          // centerH: true,
+          //   centerV: true,
+        });
+        newText.setControlsVisibility({
+          bl: true,
+          br: false,
+          tl: false,
+          tr: false,
+          mb: false,
+          ml: false,
+          mr: false,
+          mt: false,
+          mtr: true,
+          customControl: false,
+          customControl2: false,
+          customControl3: true,
+        });
+
+        this.canvas.add(newText);
+        newText.visible = true;
+        // newText.center();
+        newText.selectable = true;
+        this.canvas.add(newText);
+        this.canvas.moveTo(newText, 8);
+        this.canvas.setActiveObject(newText);
+
+        newText.on("mouse:down", (event) => {
+          const target = event.target;
+          if (target && target.selectable) {
+            this.canvas.setActiveObject(target);
+            this.canvas.renderAll();
+          }
+        });
+
+        // this.canvas.renderAll();
+
+        const objects = this.canvas.getObjects();
+        objects.forEach((obj, index) => {
+          if (obj && obj.type === "image" && obj.name === "transparent") {
+            this.canvas.remove(obj);
+            this.canvas.moveTo(obj, 9);
+          }
+        });
+
+        objects.forEach((obj, index) => {
+          console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
+        });
+
+        // this.canvas.renderAll();
+
+        // img.src = selectedImage.url;
+      }
+    },
+
+    addPhoneToCanvas(caseType) {
+      this.exportMaskClipImage = this.casesTypes[caseType].image_draw_mask;
+      this.exportPlaceholderImage = this.casesTypes[caseType].image_placeholder;
+      console.log(this.casesTypes[caseType].image_placeholder);
+      console.log(this.casesTypes[caseType].image_draw_mask);
+
+      // Logic to add the selected shape to the canvas
+
+      const objects = this.canvas.getObjects();
+      objects.forEach((obj, index) => {
+        if (obj && obj.type === "image" && obj.name === "transparent") {
+          this.canvas.remove(obj);
+        }
+
+        if (obj && obj.type === "image" && obj.name === "back") {
+          this.canvas.remove(obj);
+        }
+
+        if (obj && obj.type === "rect" && obj.name === "blank") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "rect" && obj.name === "pattern") {
+          this.canvas.remove(obj);
+        }
+      });
+      // adding phome mask to cannvas
+
+      const fake = fabric.Image.fromURL(
+        "src/assets/images/transparentbackground.png",
+        (fakebackground) => {
+          // the scaleToHeight property is use to set the image height
+          console.log(fakebackground.height);
+          console.log(fakebackground.width);
+          fakebackground.scaleToHeight(320);
+          // scaleToWidth is use to set the image width
+          fakebackground.scaleToWidth(320);
+          fakebackground.name = "fakebackground";
+          fakebackground.selectable = false;
+          // background.globalCompositeOperation = "source-over";
+          fakebackground.evented = false;
+          this.canvas.add(fakebackground);
+          fakebackground.center();
+          this.canvas.moveTo(fakebackground, 1);
+
+          this.canvas.renderAll();
+        },
+        { crossOrigin: "anonymous" }
+      );
+
+      const back = fabric.Image.fromURL(
+        this.casesTypes[caseType].image_placeholder,
+        (background) => {
+          // the scaleToHeight property is use to set the image height
+          console.log(background.height);
+          console.log(background.width);
+          background.scaleToHeight(320);
+          // scaleToWidth is use to set the image width
+          background.scaleToWidth(320);
+          background.name = "back";
+          background.selectable = false;
+          // background.globalCompositeOperation = "source-over";
+          background.evented = false;
+          this.canvas.add(background);
+          background.center();
+          this.canvas.moveTo(background, 2);
+
+          this.canvas.renderAll();
+        },
+        { crossOrigin: "anonymous" }
+      );
+
+      const trans = fabric.Image.fromURL(
+        this.casesTypes[caseType].image_draw_mask,
+        (img) => {
+          // the scaleToHeight property is use to set the image height
+          img.scaleToHeight(320);
+          // scaleToWidth is use to set the image width
+          img.scaleToWidth(320);
+          img.left;
+          img.top;
+          img.evented = false;
+          img.selectable = false;
+          img.evented = false;
+          img.name = "transparent";
+          // img.opacity = 0.5;
+          img.objectCaching = false;
+
+          img.targetFindTolerance = 5;
+
+          img.perPixelTargetFind = true;
+          // img.globalCompositeOperation = "destination-out";
+          this.canvas.add(img);
+
+          img.center();
+          this.canvas.moveTo(img, 1);
+          this.canvas.renderAll();
+        },
+        { crossOrigin: "anonymous" }
+      );
+    },
+
+    addUploadedImageToCanvas(index) {
+      const selectedImage = this.uploadedImages[index];
+      const img = new Image();
+      img.onload = () => {
+        const fabricImg = new fabric.Image(img, {
+          // Set the properties for the fabric image here
+          left: 200,
+          top: 100,
+          scaleX: 0.1,
+          scaleY: 0.1,
+          selectable: true,
+          hasControls: true,
+          hasBorders: true,
+          perPixelTargetFind: true,
+          // globalCompositeOperation: "xor",
+          centerH: true,
+          centerV: true,
+          name: "canvas image",
+        });
+        this.canvas.add(fabricImg);
+        this.canvas.moveTo(fabricImg, 2);
+        this.canvas.setActiveObject(fabricImg);
+        // this.canvas.renderAll();
+      };
+      img.src = selectedImage.url;
+    },
+
+    addClipPathToSelectedObject(index) {
+      const selectedObject = this.canvas.getActiveObject();
+      if (!selectedObject || selectedObject.type === null) {
+        return;
+      }
+
+      if (selectedObject.type === "rect" && selectedObject.name === "pattern") {
+        const selectedImage = this.uploadedImages[index];
+        const img = new Image();
+        // adding image to canvas
+        img.onload = () => {
+          const clipRect = new fabric.Rect({
+            width: selectedObject.width,
+            height: selectedObject.height,
+            top: selectedObject.top,
+            left: selectedObject.left,
+            absolutePositioned: true,
+            fill: "",
+            perPixelTargetFind: false,
+            opacity: 1,
+            // globalCompositeOperation: "destination-out",
+            hasBorders: true,
+            borderColor: "#3ff4ff",
+            clipPath: selectedObject.clipPath,
+            evented: false,
+          });
+
+          const fabricImg = new fabric.Image(img, {
+            left: selectedObject.left + selectedObject.width / 2,
+            top: selectedObject.top + selectedObject.height / 2,
+
+            scaleX: 0.12,
+            scaleY: 0.12,
+            originX: "center",
+            originY: "center",
+            cornerSize: this.canvas.width * 0.05,
+            clickable: true,
+            targetFindTolerance: 5,
+            selectable: true,
+            hasControls: true,
+            hasBorders: true,
+            perPixelTargetFind: true,
+            centerH: true,
+            centerV: true,
+            name: "canvas image",
+            clipPath: clipRect,
+            globalCompositeOperation: "source-atop",
+          });
+
+          console.log(selectedImage.width);
+          console.log(selectedImage.height);
+          fabricImg.setControlsVisibility({
+            bl: true,
+            br: false,
+            tl: false,
+            tr: false,
+            mb: false,
+            ml: false,
+            mr: false,
+            mt: false,
+            mtr: true,
+            customControl: false,
+            customControl2: false,
+            customControl3: true,
+          });
+
+          this.canvas.add(fabricImg);
+
+          this.canvas.moveTo(fabricImg, 4);
+
+          const objects = this.canvas.getObjects();
+          objects.forEach((obj, index) => {
+            if (obj && obj.type === "image" && obj.name === "transparent") {
+              this.canvas.remove(obj);
+              this.canvas.moveTo(obj, 9);
+            }
+          });
+
+          objects.forEach((obj, index) => {
+            console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
+          });
+
+          // this.canvas.renderAll();
+        };
+        img.src = selectedImage.url;
+        img.width = selectedImage.width;
+        img.height = selectedImage.height;
+      }
+      if (
+        selectedObject.type === "circle" &&
+        selectedObject.name === "pattern"
+      ) {
+        const selectedImage = this.uploadedImages[index];
+        const img = new Image();
+        // adding image to canvas
+        img.onload = () => {
+          const clipRect = new fabric.Circle({
+            width: selectedObject.width,
+            height: selectedObject.height,
+            top: selectedObject.top,
+            left: selectedObject.left,
+            right: selectedObject.right,
+            radius: selectedObject.radius,
+            absolutePositioned: true,
+            fill: "",
+            perPixelTargetFind: false,
+            // globalCompositeOperation: "destination-out",
+            hasBorders: true,
+            borderColor: "#3ff4ff",
+            clipPath: selectedObject.clipPath,
+            evented: false,
+          });
+
+          const fabricImg = new fabric.Image(img, {
+            left: selectedObject.left + selectedObject.width / 2,
+            top: selectedObject.top + selectedObject.height / 2,
+
+            scaleX: 0.12,
+            scaleY: 0.12,
+            originX: "center",
+            originY: "center",
+            cornerSize: this.canvas.width * 0.05,
+            clickable: true,
+            targetFindTolerance: 5,
+            selectable: true,
+            hasControls: true,
+            hasBorders: true,
+            perPixelTargetFind: true,
+            centerH: true,
+            centerV: true,
+            name: "canvas image",
+            clipPath: clipRect,
+            // globalCompositeOperation: "source-atop",
+          });
+
+          console.log(selectedImage.width);
+          console.log(selectedImage.height);
+          fabricImg.setControlsVisibility({
+            bl: true,
+            br: false,
+            tl: false,
+            tr: false,
+            mb: false,
+            ml: false,
+            mr: false,
+            mt: false,
+            mtr: true,
+            customControl: false,
+            customControl2: false,
+            customControl3: true,
+          });
+
+          this.canvas.add(fabricImg);
+
+          this.canvas.moveTo(fabricImg, 4);
+
+          const objects = this.canvas.getObjects();
+          objects.forEach((obj, index) => {
+            if (obj && obj.type === "image" && obj.name === "transparent") {
+              this.canvas.remove(obj);
+              this.canvas.moveTo(obj, 9);
+            }
+          });
+
+          objects.forEach((obj, index) => {
+            console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
+          });
+
+          // this.canvas.renderAll();
+        };
+        img.src = selectedImage.url;
+        img.width = selectedImage.width;
+        img.height = selectedImage.height;
+      }
+    },
+
+    clearInput1() {
+      this.$refs.fileInput1.value = null;
+    },
+    clearInput() {
+      this.$refs.fileInput.value = null;
+    },
+
+    addCollage(key) {
+      if (
+        this.selectedBrand === "" ||
+        this.selectedModel === "" ||
+        this.selectedCaseType === ""
+      ) {
+        return;
+      }
+
+      this.setActiveItemIndex(key);
+      const objects = this.canvas.getObjects();
+      objects.forEach((obj, index) => {
+        if (obj && obj.type === "rect" && obj.name === "pattern") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "image" && obj.name === "canvas image") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "text" && obj.name === "text") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "circle" && obj.name === "pattern") {
+          this.canvas.remove(obj);
+        }
+      });
+
+      var rectangle = new fabric.Rect({
+        top: 23,
+        left: 120,
+        width: 210,
+        height: 215,
+        selectable: true,
+        name: "pattern",
+        hasControls: true,
+        hoverCursor: "pointer",
+        hasBorders: false,
+        cornerStyle: "round",
+        fill: "rgba(5, 5, 5, 0.01)",
+        // strokeDashArray: [8, 16],
+        globalCompositeOperation: "source-atop",
+        // stroke: "black",
+        lockMovementX: true,
+        lockMovementY: true,
+      });
+      rectangle.setControlsVisibility({
+        customControl: true,
+        customControl2: false,
+        customControl3: false,
+        bl: false,
+        br: false,
+        tl: false,
+        tr: false,
+        mb: false,
+        ml: false,
+        mr: false,
+        mt: false,
+        mtr: false,
+      });
+
+      var rectangle2 = new fabric.Rect({
+        top: 240,
+        left: 120,
+        width: 210,
+        height: 240,
+        selectable: true,
+        name: "pattern",
+        hasControls: true,
+        hasBorders: false,
+        cornerStyle: "round",
+        fill: "rgba(5, 5, 5, 0.01)",
+        stroke: "black",
+        strokeWidth: 2,
+        strokeDashArray: [10, 10],
+
+        globalCompositeOperation: "source-atop",
+        hoverCursor: "pointer",
+        // stroke: "black",
+        lockMovementX: true,
+        lockMovementY: true,
+      });
+      rectangle2.setControlsVisibility({
+        customControl: true,
+        customControl2: false,
+        customControl3: false,
+        bl: false,
+        br: false,
+        tl: false,
+        tr: false,
+        mb: false,
+        ml: false,
+        mr: false,
+        mt: false,
+        mtr: false,
+      });
+
+      // rectangle.on("mousedblclick", function (options) {
+      //   uploadButton1.click();
+      // });
+
+      rectangle.on("mouse:down", (event) => {
+        const target = event.target;
+        if (target && target.selectable) {
+          this.canvas.setActiveObject(target);
+          // this.canvas.renderAll();
+        }
+      });
+
+      rectangle2.on("mouse:down", (event) => {
+        const target = event.target;
+        if (target && target.selectable) {
+          this.canvas.setActiveObject(target);
+          // this.canvas.renderAll();
+        }
+      });
+      // rectangle2.on("mousedblclick", function (options) {
+      //   uploadButton.click();
+      // });
+
+      this.canvas.add(rectangle, rectangle2);
+      this.canvas.moveTo(rectangle, 2);
+      this.canvas.moveTo(rectangle2, 3);
+      // this.canvas.renderAll();
+    },
+    addCollage1(key) {
+      if (
+        this.selectedBrand === "" ||
+        this.selectedModel === "" ||
+        this.selectedCaseType === ""
+      ) {
+        return;
+      }
+
+      this.setActiveItemIndex(key);
+      const objects = this.canvas.getObjects();
+      objects.forEach((obj, index) => {
+        if (obj && obj.type === "rect" && obj.name === "pattern") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "image" && obj.name === "canvas image") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "text" && obj.name === "text") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "circle" && obj.name === "pattern") {
+          this.canvas.remove(obj);
+        }
+      });
+
+      var rectangle0 = new fabric.Rect({
+        top: 30,
+        left: 115,
+        width: 215,
+        height: 435,
+
+        name: "pattern",
+        selectable: true,
+        hasControls: true,
+        hasBorders: false,
+        hoverCursor: "pointer",
+        fill: "rgba(5, 5, 5, 0.01)",
+        hoverColor: "blue",
+        visible: true,
+        cornerStyle: "round",
+        rx: 20, // Horizontal radius for rounded corners
+        ry: 20,
+        strokeDashArray: [10, 10],
+        globalCompositeOperation: "source-atop",
+
+        stroke: "black",
+        strokeWidth: 2,
+        strokeDashArray: [10, 10], // Set the stroke dash pattern for a dashed line
+
+        // ActiveSelection: true,
+        lockMovementX: true, // Object cannot be moved horizontally
+        lockMovementY: true, // Object cannot be moved vertically
+      });
+
+      // rectangle0.scaleToHeight(100);
+      // rectangle0.scaleToWidth(100);
+
+      rectangle0.setControlsVisibility({
+        customControl: true,
+        customControl2: false,
+        customControl3: false,
+
+        bl: false,
+        br: false,
+        tl: false,
+        tr: false,
+        mb: false,
+        ml: false,
+        mr: false,
+        mt: false,
+        mtr: false,
+      });
+
+      rectangle0.on("mousedblclick", function (options) {});
+      this.canvas.setActiveObject(rectangle0);
+      rectangle0.fire("mouse:down", function (options) {});
+
+      rectangle0.on("mouse:down", (event) => {
+        const target = event.target;
+        if (target && target.selectable) {
+          this.canvas.setActiveObject(target);
+          // this.canvas.renderAll();
+        }
+      });
+
+      this.canvas.add(rectangle0);
+      this.canvas.moveTo(rectangle0, 2);
+      this.canvas.renderAll();
+    },
+
+    addCollage3(key) {
+      if (
+        this.selectedBrand === "" ||
+        this.selectedModel === "" ||
+        this.selectedCaseType === ""
+      ) {
+        return;
+      }
+
+      this.setActiveItemIndex(key);
+      const objects = this.canvas.getObjects();
+      objects.forEach((obj, index) => {
+        if (obj && obj.type === "rect" && obj.name === "pattern") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "image" && obj.name === "canvas image") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "text" && obj.name === "text") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "circle" && obj.name === "pattern") {
+          this.canvas.remove(obj);
+        }
+      });
+
+      var rectangle = new fabric.Rect({
+        top: 23,
+        left: 120,
+        width: 220,
+        height: 150,
+        selectable: true,
+        name: "pattern",
+        hasControls: true,
+        hoverCursor: "pointer",
+        hasBorders: false,
+        cornerStyle: "round",
+        fill: "rgba(5, 5, 5, 0.01)",
+        stroke: "black",
+        strokeWidth: 2,
+        strokeDashArray: [10, 10],
+        globalCompositeOperation: "source-atop",
+        // stroke: "black",
+        lockMovementX: true,
+        lockMovementY: true,
+      });
+      rectangle.setControlsVisibility({
+        customControl: true,
+        customControl2: false,
+        customControl3: false,
+        bl: false,
+        br: false,
+        tl: false,
+        tr: false,
+        mb: false,
+        ml: false,
+        mr: false,
+        mt: false,
+        mtr: false,
+      });
+
+      var rectangle2 = new fabric.Rect({
+        top: 327,
+        left: 110,
+        width: 220,
+        height: 150,
+        selectable: true,
+        name: "pattern",
+        hasControls: true,
+        hasBorders: false,
+        cornerStyle: "round",
+        fill: "rgba(5, 5, 5, 0.01)",
+        stroke: "black",
+        strokeWidth: 2,
+        strokeDashArray: [10, 10],
+        // globalCompositeOperation: "source-atop",
+        hoverCursor: "pointer",
+
+        // stroke: "black",
+        lockMovementX: true,
+        lockMovementY: true,
+      });
+      rectangle2.setControlsVisibility({
+        customControl: true,
+        customControl2: false,
+        customControl3: false,
+        bl: false,
+        br: false,
+        tl: false,
+        tr: false,
+        mb: false,
+        ml: false,
+        mr: false,
+        mt: false,
+        mtr: false,
+      });
+      var rectangle3 = new fabric.Rect({
+        top: 175,
+        left: 120,
+        width: 210,
+        height: 150,
+        selectable: true,
+        name: "pattern",
+        hasControls: true,
+        hasBorders: false,
+        cornerStyle: "round",
+        fill: "rgba(5, 5, 5, 0.01)",
+
+        // globalCompositeOperation: "source-atop",
+        hoverCursor: "pointer",
+        // stroke: "black",
+        lockMovementX: true,
+        lockMovementY: true,
+      });
+      rectangle3.setControlsVisibility({
+        customControl: true,
+        customControl2: false,
+        customControl3: false,
+        bl: false,
+        br: false,
+        tl: false,
+        tr: false,
+        mb: false,
+        ml: false,
+        mr: false,
+        mt: false,
+        mtr: false,
+      });
+
+      // rectangle.on("mousedblclick", function (options) {
+      //   uploadButton1.click();
+      // });
+
+      rectangle.on("mouse:down", (event) => {
+        const target = event.target;
+        if (target && target.selectable) {
+          this.canvas.setActiveObject(target);
+          // this.canvas.renderAll();
+        }
+      });
+
+      rectangle2.on("mouse:down", (event) => {
+        const target = event.target;
+        if (target && target.selectable) {
+          this.canvas.setActiveObject(target);
+          // this.canvas.renderAll();
+        }
+      });
+      rectangle3.on("mouse:down", (event) => {
+        const target = event.target;
+        if (target && target.selectable) {
+          this.canvas.setActiveObject(target);
+          // this.canvas.renderAll();
+        }
+      });
+      // rectangle2.on("mousedblclick", function (options) {
+      //   uploadButton.click();
+      // });
+
+      this.canvas.add(rectangle, rectangle2, rectangle3);
+      this.canvas.moveTo(rectangle, 2);
+      this.canvas.moveTo(rectangle2, 3);
+      this.canvas.moveTo(rectangle3, 4);
+      // this.canvas.renderAll();
+    },
+    addCollage4(key) {
+      if (
+        this.selectedBrand === "" ||
+        this.selectedModel === "" ||
+        this.selectedCaseType === ""
+      ) {
+        return;
+      }
+
+      this.setActiveItemIndex(key);
+      const objects = this.canvas.getObjects();
+      objects.forEach((obj, index) => {
+        if (obj && obj.type === "rect" && obj.name === "pattern") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "image" && obj.name === "canvas image") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "text" && obj.name === "text") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "circle" && obj.name === "pattern") {
+          this.canvas.remove(obj);
+        }
+      });
+
+      var rectangle = new fabric.Rect({
+        top: 20,
+        left: 120,
+        width: 210,
+        height: 110,
+        selectable: true,
+        name: "pattern",
+        hasControls: true,
+        hoverCursor: "pointer",
+        hasBorders: false,
+        cornerStyle: "round",
+        fill: "rgba(5, 5, 5, 0.01)",
+        // strokeDashArray: [8, 16],
+        globalCompositeOperation: "source-atop",
+        // stroke: "black",
+        lockMovementX: true,
+        lockMovementY: true,
+      });
+      rectangle.setControlsVisibility({
+        customControl: true,
+        customControl2: false,
+        customControl3: false,
+        bl: false,
+        br: false,
+        tl: false,
+        tr: false,
+        mb: false,
+        ml: false,
+        mr: false,
+        mt: false,
+        mtr: false,
+      });
+
+      var rectangle2 = new fabric.Rect({
+        top: 132,
+        left: 110,
+        width: 220,
+        height: 110,
+        selectable: true,
+        name: "pattern",
+        hasControls: true,
+        hasBorders: false,
+        cornerStyle: "round",
+        fill: "rgba(5, 5, 5, 0.01)",
+        stroke: "black",
+        strokeWidth: 2,
+        strokeDashArray: [10, 10],
+        globalCompositeOperation: "source-atop",
+        hoverCursor: "pointer",
+
+        // stroke: "black",
+        lockMovementX: true,
+        lockMovementY: true,
+      });
+      rectangle2.setControlsVisibility({
+        customControl: true,
+        customControl2: false,
+        customControl3: false,
+        bl: false,
+        br: false,
+        tl: false,
+        tr: false,
+        mb: false,
+        ml: false,
+        mr: false,
+        mt: false,
+        mtr: false,
+      });
+      var rectangle3 = new fabric.Rect({
+        top: 243,
+        left: 120,
+        width: 210,
+        height: 110,
+        selectable: true,
+        name: "pattern",
+        hasControls: true,
+        hasBorders: false,
+        cornerStyle: "round",
+        fill: "rgba(5, 5, 5, 0.01)",
+        strokeDashArray: [10, 10],
+        globalCompositeOperation: "source-atop",
+        hoverCursor: "pointer",
+        // stroke: "black",
+        lockMovementX: true,
+        lockMovementY: true,
+      });
+      rectangle3.setControlsVisibility({
+        customControl: true,
+        customControl2: false,
+        customControl3: false,
+        bl: false,
+        br: false,
+        tl: false,
+        tr: false,
+        mb: false,
+        ml: false,
+        mr: false,
+        mt: false,
+        mtr: false,
+      });
+      var rectangle4 = new fabric.Rect({
+        top: 356,
+        left: 120,
+        width: 210,
+        height: 110,
+        selectable: true,
+        name: "pattern",
+        hasControls: true,
+        hasBorders: false,
+        cornerStyle: "round",
+        fill: "rgba(5, 5, 5, 0.01)",
+        stroke: "black",
+        strokeWidth: 2,
+        strokeDashArray: [10, 10],
+        globalCompositeOperation: "source-atop",
+        hoverCursor: "pointer",
+        // stroke: "black",
+        lockMovementX: true,
+        lockMovementY: true,
+      });
+      rectangle4.setControlsVisibility({
+        customControl: true,
+        customControl2: false,
+        customControl3: false,
+        bl: false,
+        br: false,
+        tl: false,
+        tr: false,
+        mb: false,
+        ml: false,
+        mr: false,
+        mt: false,
+        mtr: false,
+      });
+
+      // rectangle.on("mousedblclick", function (options) {
+      //   uploadButton1.click();
+      // });
+
+      rectangle.on("mouse:down", (event) => {
+        const target = event.target;
+        if (target && target.selectable) {
+          this.canvas.setActiveObject(target);
+          // this.canvas.renderAll();
+        }
+      });
+
+      rectangle2.on("mouse:down", (event) => {
+        const target = event.target;
+        if (target && target.selectable) {
+          this.canvas.setActiveObject(target);
+          // this.canvas.renderAll();
+        }
+      });
+      rectangle3.on("mouse:down", (event) => {
+        const target = event.target;
+        if (target && target.selectable) {
+          this.canvas.setActiveObject(target);
+          // this.canvas.renderAll();
+        }
+      });
+      rectangle4.on("mouse:down", (event) => {
+        const target = event.target;
+        if (target && target.selectable) {
+          this.canvas.setActiveObject(target);
+          // this.canvas.renderAll();
+        }
+      });
+      // rectangle2.on("mousedblclick", function (options) {
+      //   uploadButton.click();
+      // });
+
+      this.canvas.add(rectangle, rectangle2, rectangle3, rectangle4);
+      this.canvas.moveTo(rectangle, 2);
+      this.canvas.moveTo(rectangle2, 3);
+      this.canvas.moveTo(rectangle3, 4);
+      this.canvas.moveTo(rectangle4, 5);
+      // this.canvas.renderAll();
+    },
+    addCollage5(key) {
+      if (
+        this.selectedBrand === "" ||
+        this.selectedModel === "" ||
+        this.selectedCaseType === ""
+      ) {
+        return;
+      }
+
+      this.setActiveItemIndex(key);
+      const objects = this.canvas.getObjects();
+      objects.forEach((obj, index) => {
+        if (obj && obj.type === "rect" && obj.name === "pattern") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "image" && obj.name === "canvas image") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "text" && obj.name === "text") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "circle" && obj.name === "pattern") {
+          this.canvas.remove(obj);
+        }
+      });
+
+      var rectangle = new fabric.Rect({
+        top: 173,
+        left: 150,
+        width: 150,
+        height: 150,
+        selectable: true,
+        name: "pattern",
+        hasControls: true,
+        hoverCursor: "pointer",
+        hasBorders: false,
+        cornerStyle: "round",
+        fill: "rgba(5, 5, 5, 0.01)",
+        stroke: "black",
+        strokeWidth: 2,
+        strokeDashArray: [10, 10],
+        globalCompositeOperation: "source-atop",
+        // stroke: "black",
+        lockMovementX: true,
+        lockMovementY: true,
+      });
+      rectangle.setControlsVisibility({
+        customControl: true,
+        customControl2: false,
+        customControl3: false,
+        bl: false,
+        br: false,
+        tl: false,
+        tr: false,
+        mb: false,
+        ml: false,
+        mr: false,
+        mt: false,
+        mtr: false,
+      });
+
+      rectangle.on("mouse:down", (event) => {
+        const target = event.target;
+        if (target && target.selectable) {
+          this.canvas.setActiveObject(target);
+          // this.canvas.renderAll();
+        }
+      });
+
+      this.canvas.add(rectangle);
+
+      this.canvas.moveTo(rectangle, 2);
+
+      // this.canvas.renderAll();
+    },
+    addCollage6(key) {
+      if (
+        this.selectedBrand === "" ||
+        this.selectedModel === "" ||
+        this.selectedCaseType === ""
+      ) {
+        return;
+      }
+
+      this.setActiveItemIndex(key);
+      const objects = this.canvas.getObjects();
+      objects.forEach((obj, index) => {
+        if (obj && obj.type === "rect" && obj.name === "pattern") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "image" && obj.name === "canvas image") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "text" && obj.name === "text") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "circle" && obj.name === "pattern") {
+          this.canvas.remove(obj);
+        }
+      });
+
+      const circle = new fabric.Circle({
+        radius: 70, // Set the radius of the circle
+        top: 173,
+        left: 150,
+        width: 150,
+        height: 150,
+        selectable: true,
+        name: "pattern",
+        hasControls: true,
+        hoverCursor: "pointer",
+        hasBorders: false,
+        cornerStyle: "round",
+        fill: "rgba(5, 5, 5, 0.01)",
+        stroke: "black",
+        strokeWidth: 2,
+        strokeDashArray: [10, 10],
+        globalCompositeOperation: "source-atop",
+        // stroke: "black",
+
+        lockMovementX: true,
+        lockMovementY: true,
+      });
+
+      circle.setControlsVisibility({
+        customControl: true,
+        customControl2: false,
+        customControl3: false,
+        bl: false,
+        br: false,
+        tl: false,
+        tr: false,
+        mb: false,
+        ml: false,
+        mr: false,
+        mt: false,
+        mtr: false,
+      });
+
+      circle.on("mouse:down", (event) => {
+        const target = event.target;
+        if (target && target.selectable) {
+          this.canvas.setActiveObject(target);
+          // this.canvas.renderAll();
+        }
+      });
+
+      this.canvas.add(circle);
+
+      this.canvas.moveTo(circle, 2);
+
+      // this.canvas.renderAll();
+    },
+
+    removeAllRect() {
+      this.canvas.forEachObject(function (object) {
+        if (object.type === "rect") {
+          canvas.remove(object); // Remove the rectangle object from the canvas
+        }
+      });
+      canvas.renderAll();
+    },
+
+    async fetchBrandsData() {
+      try {
+        const response = await fetch(
+          "https://covers.mtpdev3.com/api/1.0/brands?language_code=eu&device_id=1"
+        );
+        const data = await response.json();
+        this.brands = data; // Update the brands data in the component
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    },
+
+    async fetchModelsData(brand) {
+      try {
+        const modelType = `https://covers.mtpdev3.com/api/1.0/models?language_code=eu&device_id=1&brand_id=${brand}`;
+
+        const response = await fetch(modelType);
+        const data = await response.json();
+        this.models = data; // Update the brands data in the component
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    },
+
+    async fetchCaseTypeData(model) {
+      try {
+        const caseType = `https://covers.mtpdev3.com/api/1.0/types?language_code=eu&model_id=${model}`;
+        const response = await fetch(caseType);
+        const data = await response.json();
+        this.casesTypes = data; // Update the brands data in the component
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    },
+
+    getPhoneModels(brand) {
+      const modelDropDown = this.$refs.phoneModel;
+
+      if (brand === "") {
+        modelDropDown.disabled = true;
+        modelDropDown.selectedIndex = 0;
+        return false;
+      }
+
+      modelDropDown.disabled = false;
+      this.fetchModelsData(brand);
+    },
+    getPhoneCase(model) {
+      const caseDropDown = this.$refs.phoneCase;
+      console.log(model);
+      if (model === "") {
+        caseDropDown.disabled = true;
+        caseDropDown.selectedIndex = 0;
+        return false;
+      }
+
+      caseDropDown.disabled = false;
+      this.fetchCaseTypeData(model);
+    },
+
+    addImageToCanvas() {
+      if (this.selectedImage) {
+        fabric.Image.fromURL(this.selectedImage, (img) => {
+          // Customize the image properties if needed
+          img.scaleToHeight(250);
+          // scaleToWidth is use to set the image width
+          img.scaleToWidth(250);
+
+          img.selectable = false;
+          this.canvas.clear();
+          this.canvas.moveTo(img, 1);
+          this.canvas.add(img);
+          img.center();
+
+          // this.canvas.renderAll();
+        });
+      }
+    },
+
+    handleImageUpload(event) {
+      const files = event.target.files;
+
+      const remainingSlots = 8 - this.uploadedImages.length;
+      const filesToUpload = Array.from(files).slice(0, remainingSlots);
+
+      for (let i = 0; i < filesToUpload.length; i++) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          this.uploadedImages.push({
+            url: e.target.result,
+            id: this.imageIndex + 1,
+          });
+          // console.log(this.imageIndex);
+          this.imageIndex = this.imageIndex + 1;
+          console.log(this.imageIndex);
+          // const img = new Image();
+          // img.onload = () => {
+          //   const clipRect2 = new fabric.Rect({
+          //     width: 500,
+          //     height: 260,
+          //     top: 250,
+          //     left: 0,
+          //     absolutePositioned: true,
+          //     cornerStyle: "round",
+          //     backgroundColor: "#00CCEE",
+          //     fill: "",
+          //     strokeWidth: 5,
+          //     stroke: "red",
+          //     hasBorders: true,
+          //     borderColor: "#3ff4ff",
+          //   });
+
+          //   const fabricImg = new fabric.Image(img, {
+          //     left: 200,
+          //     top: 300,
+          //     scaleX: 0.1,
+          //     scaleY: 0.1,
+          //     clipPath: clipRect2,
+          //     selectable: true,
+          //     hasControls: true,
+          //     hasBorders: true,
+          //     perPixelTargetFind: true,
+          //     centerH: true,
+          //     centerV: true,
+
+          //     name: "canvas image",
+          //   });
+
+          //   //  this.imageGroup.addWithUpdate(fabricImg);
+          //   //  this.canvas.moveTo(this.imageGroup,2);
+
+          //   this.canvas.add(fabricImg);
+
+          //   this.canvas.setActiveObject(fabricImg);
+          //   this.canvas.moveTo(fabricImg, this.imageIndex);
+          //   // fabric.Image.fromURL(
+          //   //   "src/assets/images/s22transparent.png",
+          //   //   (img) => {
+          //   //     // the scaleToHeight property is use to set the image height
+          //   //     img.scaleToHeight(250);
+          //   //     // scaleToWidth is use to set the image width
+          //   //     img.scaleToWidth(250);
+          //   //     img.left;
+          //   //     img.visible = true;
+          //   //     img.top;
+          //   //     img.selectable = false;
+          //   //     img.globalCompositeOperation = "destination-out";
+          //   //     this.canvas.add(img);
+          //   //     img.center();
+          //   //     this.canvas.moveTo(img, 10);
+          //   //     this.canvas.render();
+          //   //   }
+          //   // );
+          //   const objects = this.canvas.getObjects();
+          //   objects.forEach((obj, index) => {
+          //     console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
+          //   });
+          //   console.log(this.uploadedImages);
+          // };
+          // img.src = e.target.result;
+        };
+        reader.readAsDataURL(filesToUpload[i]);
+      }
+    },
+    handleImageUpload1(event) {
+      const files = event.target.files;
+
+      const remainingSlots = 8 - this.uploadedImages.length;
+      const filesToUpload = Array.from(files).slice(0, remainingSlots);
+
+      for (let i = 0; i < filesToUpload.length; i++) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          this.uploadedImages.push({
+            url: e.target.result,
+            id: this.imageIndex + 1,
+          });
+          console.log(this.imageIndex);
+          this.imageIndex = this.imageIndex + 1;
+          console.log(this.imageIndex);
+          const img = new Image();
+          img.onload = () => {
+            const clipRect2 = new fabric.Rect({
+              width: 500,
+              height: 250,
+              centerH: true,
+              centerH: true,
+              objectCaching: false,
+              top: 0,
+              left: 0,
+              absolutePositioned: true,
+
+              backgroundColor: "#00CCEE",
+              fill: "",
+              strokeWidth: 5,
+              stroke: "red",
+              hasBorders: true,
+              borderColor: "#3ff4ff",
+            });
+
+            const fabricImg = new fabric.Image(img, {
+              left: 200,
+              top: 100,
+              scaleX: 0.1,
+              scaleY: 0.1,
+              clickable: true,
+
+              // clipPath: clipRect2,
+              objectCaching: false,
+              selectable: true,
+              hasControls: true,
+              hasBorders: true,
+              perPixelTargetFind: true,
+              centerH: true,
+              centerV: true,
+              name: "canvas image",
+            });
+
+            //  this.imageGroup.addWithUpdate(fabricImg);
+            //  this.canvas.moveTo(this.imageGroup,2);
+
+            this.canvas.add(fabricImg);
+            this.canvas.setActiveObject(fabricImg);
+
+            this.canvas.moveTo(fabricImg, this.imageIndex);
+            // fabric.Image.fromURL(
+            //   "src/assets/images/s22transparent.png",
+            //   (img) => {
+            //     // the scaleToHeight property is use to set the image height
+            //     img.scaleToHeight(250);
+            //     // scaleToWidth is use to set the image width
+            //     img.scaleToWidth(250);
+            //     img.left;
+            //     img.visible = true;
+            //     img.top;
+            //     img.selectable = false;
+            //     img.globalCompositeOperation = "destination-out";
+            //     this.canvas.add(img);
+            //     img.center();
+            //     this.canvas.moveTo(img, 10);
+            //     this.canvas.render();
+            //   }
+            // );
+            const objects = this.canvas.getObjects();
+            objects.forEach((obj, index) => {
+              console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
+            });
+            console.log(this.uploadedImages);
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(filesToUpload[i]);
+      }
+    },
+
+    addButton() {
+      this.$refs.uploadButton.click();
+    },
+
+    selectImage(index) {
+      this.canvas.setActiveObject(this.canvas.item(index));
+      // this.canvas.renderAll();
+    },
+
+    exportToPNG() {
+      const objects = this.canvas.getObjects();
+
+      objects.forEach((obj, index) => {
+        if (obj && obj.type === "image" && obj.name === "transparent") {
+          obj.globalCompositeOperation = "destination-out";
+          console.log(obj.name);
+        }
+
+        if (obj && obj.type === "image" && obj.name === "back") {
+          this.canvas.remove(obj);
+
+          this.canvas.renderAll();
+        }
+
+        if (obj && obj.type === "image" && obj.name === "text") {
+          obj.globalCompositeOperation = "source-over";
+          console.log(obj.name);
+        }
+
+        if (obj && obj.type === "image" && obj.name === "canvas image") {
+          obj.globalCompositeOperation = "source-over";
+          console.log(obj.name);
+        }
+      });
+      // this.cropMask();
+      setTimeout(() => {
+        this.createLink();
+      }, 1000);
+    },
+
+    cropMask(caseType) {
+      console.log(this.exportMaskClipImage);
+
+      fabric.Image.fromURL(
+        this.exportPlaceholderImage,
+        (img) => {
+          // the scaleToHeight property is use to set the image height
+          img.scaleToHeight(320);
+          // scaleToWidth is use to set the image width
+          img.scaleToWidth(320);
+
+          img.visible = true;
+          img.center();
+          img.selectable = false;
+          img.globalCompositeOperation = "destination-out";
+
+          this.canvas.moveTo(img, 0);
+          // this.canvas.add(img);
+
+          img.center();
+          this.canvas.renderAll();
+          // this.canvas.renderAll();
+        },
+        { crossOrigin: "anonymous" }
+      );
+    },
+
+    createLink() {
+      // Export the canvas to a PNG image
+
+      const dataURL = this.canvas.toDataURL({
+        format: "png",
+        quality: 3,
+      });
+
+      // Create a link element to download the PNG image
+      const link = document.createElement("a");
+      link.href = dataURL;
+      link.download = "canvas_image.png";
+      // Trigger the download
+      link.click();
+    },
+
+    zoomInSelectedImage() {
+      // Get the selected object
+      const selectedObject = this.canvas.getActiveObject();
+      console.log(selectedObject.scaleX);
+      console.log(this.canvas.maxScaleLimit);
+      if (selectedObject && selectedObject.type === "image") {
+        if (selectedObject.scaleX <= 0.2) {
+          selectedObject.scaleX *= 1.1;
+          selectedObject.scaleY *= 1.1;
+          selectedObject.setCoords();
+          this.canvas.renderAll();
+        } else {
+          selectedObject.scaleX *= 1.0;
+          selectedObject.scaleY *= 1.0;
+          this.canvas.renderAll();
+        }
+      }
+    },
+    zoomOutSelectedImage() {
+      // Get the selected object
+      const selectedObject = this.canvas.getActiveObject();
+      if (selectedObject && selectedObject.type === "image") {
+        if (selectedObject.scaleX >= 0.1) {
+          selectedObject.scaleX *= 0.9;
+          selectedObject.scaleY *= 0.9;
+          this.canvas.renderAll();
+        } else {
+          selectedObject.scaleX *= 1.0;
+          selectedObject.scaleY *= 1.0;
+          this.canvas.renderAll();
+        }
+      }
+    },
+
+    render(ctx, left, top, styleOverride, fabricObject) {
+      fabric.Image.fromURL("src/assets/images/add-square.svg", function (img) {
+        img.scaleToWidth(32);
+        img.scaleToHeight(32);
+        ctx.drawImage(img._element, left - 16, top - 16, 32, 32);
+      });
+    },
+
+    bringForward() {
+      // Bring the selected object forward in the stack order
+      const selectedObject = this.canvas.getActiveObject();
+      if (selectedObject) {
+        this.canvas.bringForward(selectedObject);
+      }
+    },
+    sendBackwards() {
+      // Send the selected object backward in the stack order
+      const selectedObject = this.canvas.getActiveObject();
+      if (selectedObject) {
+        this.canvas.sendBackwards(selectedObject);
+      }
+    },
+    deleteSelectedImage() {
+      // Delete the selected image from the canvas
+      const selectedObject = this.canvas.getActiveObject();
+      if (selectedObject) {
+        // var index = this.canvas.getObjects().indexOf(selectedObject);
+        console.log(selectedObject.type);
+        // this.uploadedImages.splice(index - 2, 1);
+        // this.canvas.moveTo(selectedObject, 2);
+        this.canvas.remove(selectedObject);
+        this.canvas.renderAll();
+        // console.log(this.uploadedImages);
+        // this.imageIndex = this.imageIndex - 1;
+        // if (this.uploadedImages.length === 0) {
+        //   this.imageIndex = 1;
+        // }
+      }
+    },
+
+    clearCanvas() {
+      // Clear all objects from the canvas
+      const objects = this.canvas.getObjects();
+
+      // objects.forEach((obj, index) => {
+      //   if (obj && obj.type === "image" && obj.name === "canvas image") {
+      //     // this.canvas.remove(obj);
+      //     this.canvas.setActiveObject(obj);
+      //     this.canvas.bringToFront(obj);
+      //     this.canvas.moveTo(obj,10);
+      //     obj.clipPath = null;
+      //     console.log(obj.name);
+      //   }
+      // });
+
+      // objects.forEach((obj, index) => {
+      //   if (obj && obj.type === "image" && obj.name === "back") {
+      //     this.canvas.remove(obj);
+      //     this.canvas.renderAll();
+      //   }
+      // });
+
+      // objects.forEach((obj, index) => {
+      //   if (obj && obj.type === "image" && obj.name === "transparent") {
+      //     this.canvas.remove(obj);
+      //     this.canvas.renderAll();
+      //   }
+      // });
+
+      objects.forEach((obj, index) => {
+        this.canvas.renderAll();
+        console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
+      });
+    },
+  },
+  created() {
+    this.fetchBrandsData();
+    this.fetchModelsData();
+    this.fetchCaseTypeData();
+  },
+  mounted() {
+    this.canvas = new fabric.Canvas(
+      this.$refs.canvasRef,
+      {
+        width: 450,
+        height: 500,
+        // minScaleLimit: 0.1, // Set the minimum scale limit
+        // maxScaleLimit: 0.3, // Set the maximum scale limit
+        // backgroundColor: "gray",
+        getContext: "2d",
+        // cornerStyle: "round",
+        // objectCaching: true,
+        willReadFrequently: true,
+        // renderOnAddRemove: false,
+        // isDrawingMode: false,
+        // controlsAboveOverlay: true,
+
+        preserveObjectStacking: true,
+        selectable: false,
+        selection: false,
+      },
+      { passive: true }
+    );
+
+    // const ctx = this.canvas.getContext("2d");
+    // this.canvas.on("mousedown", () => {}, { passive: true });
+    this.canvas.on(
+      "object:added",
+      () => {
+        //workaround - selecting all objects to enable object controls
+
+        let objects = this.canvas.getObjects();
+        var selection = new fabric.ActiveSelection(objects, {
+          canvas: this.canvas,
+        });
+        this.canvas.discardActiveObject();
+        this.canvas.setActiveObject(selection); //selecting all objects...
+        this.canvas.discardActiveObject(); //...and deselecting them
+        // this.canvas.renderAll();
+      },
+      { passive: true }
+    );
+
+    this.canvas.on(
+      "object:moving",
+      (object) => {
+        //workaround - selecting all objects to enable object controls
+
+        // let objects = this.canvas.getObjects();
+        // var selection = new fabric.ActiveSelection(objects, {
+        //   canvas: this.canvas,
+        // });
+        // this.canvas.discardActiveObject();
+        // this.canvas.setActiveObject(selection); //selecting all objects...
+        // this.canvas.discardActiveObject(); //...and deselecting them
+
+        // object.target.hasControls = true;
+
+        // object.target.globalCompositeOperation = "destination-out";
+        // this.canvas.renderOnAddRemove = "true";
+        // this.canvas.renderAll();
+
+        object.target.selectable = true;
+        object.target.hasControls = true;
+        object.target.objectCaching = false;
+        object.target.perPixelTargetFind = true;
+        this.canvas.preserveObjectStacking = true;
+
+        object.target.setControlsVisibility({
+          bl: true,
+          br: false,
+          tl: false,
+          tr: false,
+          mb: false,
+          ml: false,
+          mr: false,
+          mt: false,
+          mtr: true,
+          customControl: false,
+          customControl2: false,
+          customControl3: true,
+        });
+        this.canvas.sendToBack(object.target);
+        this.canvas.moveTo(object.target, 8);
+        this.canvas.renderAll();
+        const objects = this.canvas.getObjects();
+        objects.forEach((obj, index) => {
+          if (obj && obj.type === "image" && obj.name === "transparent") {
+            //mask over image canvas
+            // obj.globalCompositeOperation = "destination-out";
+            this.canvas.remove(obj);
+            this.canvas.bringToFront(obj);
+          }
+        });
+
+        // objects.forEach((obj, index) => {
+        //   if (obj && obj.type === "image" && obj.name === "back") {
+        //     // obj.globalCompositeOperation = "destination-atop";
+        //     this.canvas.remove(obj);
+        //     this.canvas.moveTo(obj, 1);
+        //   }
+        // });
+
+        objects.forEach((obj, index) => {
+          console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
+        });
+      },
+      { passive: true }
+    );
+
+    const activeObject = this.canvas.getActiveObject();
+
+    // Check if an active object exists
+    if (activeObject) {
+      // Enable dragging for the active object
+      activeObject.selectable = true;
+      // this.canvas.renderAll();
+    }
+
+    const clipRect = new fabric.Rect({
+      width: 222,
+      height: 480,
+
+      rx: 20,
+      ry: 20,
+      top: -20,
+      left: 0,
+      name: "pattern",
+      // globalCompositeOperation: "destination-out",
+      selectable: false,
+      fill: "rgba(5, 255, 255, 0.01)",
+      strokeWidth: 2,
+      cornerStyle: "round",
+      strokeDashArray: [8, 16],
+      stroke: "rgba(5, 5, 5, 1)",
+      lockMovementX: true, // Object cannot be moved horizontally
+      lockMovementY: true, // Object cannot be moved vertically
+    });
+
+    this.canvas.add(clipRect);
+    clipRect.visible = true;
+    clipRect.center();
+    // this.canvas.clipPath = clipRect;
+    this.canvas.moveTo(clipRect, 1);
+
+    this.canvas.renderAll();
+
+    this.canvas.controlsAboveOverlay = true;
+
+    // this.canvas.renderAll();
+    // Create a custom control as an icon
+    const customControl = new fabric.Control({
+      x: 0,
+      y: 0,
+      offsetY: 0,
+      offsetX: 0,
+
+      // cursorStyle: "crosshair",
+      // actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      // actionName: "rotate",
+      // mouseUpHandler: this.zoomInSelectedImage,
+
+      render: this.render,
+    });
+
+    // Create a custom control as an icon
+    const customControl2 = new fabric.Control({
+      x: 0,
+      y: 0,
+      offsetY: 0,
+      offsetX: 0,
+
+      cursorStyle: "crosshair",
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: "rotate",
+      // mouseUpHandler: this.zoomInSelectedImage,
+
+      render: function (ctx, left, top, styleOverride, fabricObject) {
+        fabric.Image.fromURL("src/assets/images/zoom-in.svg", function (img) {
+          img.scaleToWidth(32);
+          img.scaleToHeight(32);
+          ctx.drawImage(img._element, left - 16, top - 16, 32, 32);
+        });
+      },
+    });
+
+    const customControl3 = new fabric.Control({
+      x: -0.5,
+      y: -0.5,
+      offsetY: 0,
+      offsetX: 0,
+      cursorStyle: "pointer",
+      mouseDownHandler: this.deleteSelectedImage,
+
+      render: function (ctx, left, top, styleOverride, fabricObject) {
+        fabric.Image.fromURL(
+          "src/assets/images/close-square-black.svg",
+          function (img) {
+            ctx.save();
+            // img.scaleToWidth(32);
+            // img.scaleToHeight(32);
+            ctx.drawImage(img._element, left - 16, top - 16, 32, 32);
+            ctx.restore();
+          }
+        );
+      },
+    });
+    const customControl4 = new fabric.Control({
+      x: -0.5,
+      y: -0.5,
+      offsetY: 0,
+      offsetX: 0,
+      cursorStyle: "pointer",
+      mouseDownHandler: this.zoomInSelectedImage,
+
+      render: function (ctx, left, top, styleOverride, fabricObject) {
+        fabric.Image.fromURL(
+          "src/assets/images/close-square-black.svg",
+          function (img) {
+            ctx.save();
+            // img.scaleToWidth(32);
+            // img.scaleToHeight(32);
+            ctx.drawImage(img._element, left - 16, top - 16, 32, 32);
+            ctx.restore();
+          }
+        );
+      },
+    });
+
+    fabric.Object.prototype.controls.customControl = customControl;
+    fabric.Object.prototype.controls.customControl2 = customControl2;
+    fabric.Object.prototype.controls.customControl3 = customControl3;
+    fabric.Object.prototype.transparentCorners = true;
+    fabric.Object.prototype.cornerColor = "black";
+    fabric.Object.prototype.borderColor = "rgba(5, 5, 5, 0.5)";
+    fabric.Object.prototype.cornerStyle = "circle";
+    fabric.Object.prototype.cornerSize = 16;
+    fabric.Object.prototype.strokeWidth = 2;
+    fabric.Object.prototype.centeredScaling = true;
+    // fabric.Object.prototype.evented = true;
+    fabric.Object.prototype.centeredRotation = true;
+    fabric.Object.prototype.perPixelTargetFind = true;
+    // fabric.Object.prototype.matrixCache = true;
+    fabric.Object.prototype.controls.mtr = new fabric.Control({
+      x: 0.5,
+      y: -0.5,
+      offsetY: 0,
+      offsetX: 0,
+
+      cursorStyle: "pointer",
+      actionHandler: fabric.controlsUtils.rotationWithSnapping,
+      actionName: "rotate",
+
+      render: function (ctx, left, top, styleOverride, fabricObject) {
+        fabric.Image.fromURL(
+          "src/assets/images/rotate-square.svg",
+          function (img) {
+            img.scaleToWidth(32);
+            img.scaleToHeight(32);
+            ctx.drawImage(img._element, left - 16, top - 16, 32, 32);
+          }
+        );
+      },
+    });
+    fabric.Object.prototype.controls.bl = new fabric.Control({
+      x: -0.5,
+      y: 0.5,
+      offsetY: 0,
+      offsetX: 0,
+      cursorStyle: "pointer",
+      actionHandler: fabric.controlsUtils.scalingEqually,
+      actionName: "scale",
+
+      render: function (ctx, left, top, styleOverride, fabricObject) {
+        fabric.Image.fromURL(
+          "src/assets/images/arrow-scale-square.svg",
+          function (img) {
+            img.scaleToWidth(32);
+            img.scaleToHeight(32);
+            ctx.drawImage(img._element, left - 16, top - 16, 32, 32);
+          }
+        );
+      },
+    });
+
+    // this.canvas.on("object:moving", function (object) {
+    //   object.target.setCoords();
+    //   this.canvas.renderAll();
+
+    // const canvasWidth = 550;
+
+    // const canvasHeight = 550;
+    // const objectLeft = object.target.aCoords.tl.x;
+    // const objectTop = object.target.oCoords.tl.y;
+    // const objectRight = object.target.oCoords.br.x;
+    // const objectBottom = object.target.oCoords.br.y;
+    // console.log(objectLeft);
+    // if (
+    //   objectLeft < 0 ||
+    //   objectTop < 0 ||
+    //   objectRight > canvasWidth ||
+    //   objectBottom > canvasHeight
+    // ) {
+    //   object.target.set({
+    //     top: 250,
+    //     left: 250,
+    //     fill: "red",
+    //     lockMovementX: true,
+    //     lockMovementY: true,
+    //   });
+    //   object.target.fire("mouseup");
+    //   this.canvas.discardActiveObject();
+    //   this.canvas.requestRenderAll();
+
+    //   object.target.set({
+    //     top: 250,
+    //     left: 250,
+    //     scaleX: 0.12,
+    //     scaleY: 0.12,
+    //     lockMovementX: false,
+    //     lockMovementY: false,
+    //   });
+    //   object.target.fire("mouseup");
+    //   this.canvas.dis;
+    //   this.canvas.requestRenderAll();
+    // } else {
+    //   console.log("Object OK");
+    // }
+    // });
+
+    // this.canvas.getObjects().forEach((obj, index) => {
+    //   console.log(`Item ${index}: ${obj.type} Name: ${obj.name}`);
+    // });
+  },
+};
+</script>
+
+<style scoped>
+/* .fabric {
+  position: absolute;
+  top: 10px;
+  width: 200px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
+
+/* canvas {
+  width: 50px;
+  height: 300px;
+  position: relative;
+ 
+  border-radius: 16px;
+
+} */
+/* .highlight {
+  background-color: gray;
+} */
+
+/* phonecanvas {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: aquamarine;
+} */
+</style>
