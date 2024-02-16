@@ -3164,16 +3164,16 @@ export default {
       // Clear all objects from the canvas
       const objects = this.canvas.getObjects();
 
-      // objects.forEach((obj, index) => {
-      //   if (obj && obj.type === "image" && obj.name === "canvas image") {
-      //     // this.canvas.remove(obj);
-      //     this.canvas.setActiveObject(obj);
-      //     this.canvas.bringToFront(obj);
-      //     this.canvas.moveTo(obj,10);
-      //     obj.clipPath = null;
-      //     console.log(obj.name);
-      //   }
-      // });
+      objects.forEach((obj, index) => {
+        if (obj && obj.type === "image" && obj.name === "canvas image") {
+          this.canvas.remove(obj);
+          // this.canvas.setActiveObject(obj);
+          // this.canvas.bringToFront(obj);
+          // this.canvas.moveTo(obj,10);
+          // obj.clipPath = null;
+          console.log(obj.name);
+        }
+      });
 
       // objects.forEach((obj, index) => {
       //   if (obj && obj.type === "image" && obj.name === "back") {
