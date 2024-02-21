@@ -558,6 +558,7 @@
                             v-for="brand in brands"
                             :key="brand.id"
                             :value="brand.id"
+                            :info="brand.title"
                           >
                             {{ brand.title }}
                           </option>
@@ -585,6 +586,7 @@
                             v-for="model in models"
                             :key="model.id"
                             :value="model.id"
+                            :data="model.value"
                           >
                             {{ model.title }}
                           </option>
@@ -795,7 +797,7 @@
                   class="font-inter text-base mt-4 font-semibold leading-2 text-slate-700"
                 >
                   Step three
-                </p> 
+                </p>
                 <h1
                   class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
                 >
@@ -807,84 +809,151 @@
                   Upload your images to customize.
                 </p>
               </div>
-               <div class="relative flex flex-row w-[300px] h-[50px] bg-transparent  " >
-                <div  @click="setActiveTabIndex(1)" v-motion-slide-top  :class="['relative transition-all bg-slate-700 w-[100px] ml-10 pt-1 h-[50px] rounded-t-xl font-inter my-5 text-base whitespace-nowrap font-medium text-center leading-7 text-slate-100 border-l-2 border-r-2 border-t-2 border-slate-900/5 shadow-xl',  { 'activeTab': activeTabIndex===1}  ]" >Images</div>
-                <div @click="setActiveTabIndex(2)"  :class="['relative transition-all bg-slate-700 w-[100px] ml-4 pt-1 h-[50px] rounded-t-xl font-inter my-5 text-base whitespace-nowrap font-medium text-center leading-7 text-slate-100 ring-1 ring-slate-900/5 border-l-2 border-r-2 border-t-2 border-slate-900/5 shadow-xl', { 'activeTab': activeTabIndex===2 }  ]"  >Templates</div>
-                
-              </div>
-              <div v-if="activeTabIndex===1"  v-motion-fade 
-              
-              class="bg-transparent relative w-[305px] h-[206px] mt-2 rounded-3xl shadow-md  "
-              
-            >
-             
               <div
-                class="absolute flex flex-col items-start bg-slate-50 border-l-2 border-r-2 border-b-2 border-slate-900/5 w-[290px] h-[190px] rounded-2xl ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
+                class="relative flex flex-row w-[300px] h-[50px] bg-transparent"
               >
-                <div class="pt-0 space-y-5">
-                  <div class="flex flex-col items-start m-2">
-                    <div
-                      class="absolute left-[40%] -bottom-10 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
-                    >
-                      <div
-                        class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
-                      >
-                        <p
-                          @click="addButton"
-                          class="px-1 mb-2 animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
-                        >
-                          +
-                        </p>
-                      </div>
-                    </div>
-                    <div 
-                      class="relative w-[300px] h-fit flex flex-row items-center flex-wrap"
-                    >
-                      <div
-                        v-motion
-                        :initial="{ opacity: 0, scale: 0 }"
-                        :enter="{ opacity: 1, scale: 1 }"
-                        :variants="{ custom: { scale: 1 } }"
-                        :delay="300"
-                        class="relative m-1 w-[80px] h-[80px]"
-                        v-for="(image, index) in uploadedImages"
-                        :key="image.id"
-                      >
-                        <!-- <span>{{ image.id }}</span> -->
-                        <img
-                          class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
-                          :src="image.url"
-                          :key="image.id"
-                          alt="Uploaded Image"
-                        />
-                      </div>
-                    </div>
-                    <input
-                      id="uploadButton"
-                      type="file"
-                      ref="uploadButton"
-                      style="display: none"
-                      @change="handleImageUpload"
-                    />
-                  </div>
+                <div
+                  @click="setActiveTabIndex(1)"
+                  v-motion-slide-top
+                  :class="[
+                    'relative transition-all bg-slate-700 w-[100px] ml-10 pt-1 h-[50px] rounded-t-xl font-inter my-5 text-base whitespace-nowrap font-medium text-center leading-7 text-slate-100 border-l-2 border-r-2 border-t-2 border-slate-900/5 shadow-xl',
+                    { activeTab: activeTabIndex === 1 },
+                  ]"
+                >
+                  Images
+                </div>
+                <div
+                  @click="setActiveTabIndex(2)"
+                  :class="[
+                    'relative transition-all bg-slate-700 w-[100px] ml-4 pt-1 h-[50px] rounded-t-xl font-inter my-5 text-base whitespace-nowrap font-medium text-center leading-7 text-slate-100 ring-1 ring-slate-900/5 border-l-2 border-r-2 border-t-2 border-slate-900/5 shadow-xl',
+                    { activeTab: activeTabIndex === 2 },
+                  ]"
+                >
+                Collections
                 </div>
               </div>
-            </div>
-
-              <div v-if="activeTabIndex===2"  v-motion-fade 
-              
-                class="bg-transparent relative w-[305px] h-[206px] mt-2 rounded-3xl shadow-md  "
-                
+              <div
+                v-if="activeTabIndex === 1"
+                v-motion-fade
+                class="bg-transparent relative w-[305px] h-[206px] mt-2 rounded-3xl shadow-md"
               >
-               
                 <div
                   class="absolute flex flex-col items-start bg-slate-50 border-l-2 border-r-2 border-b-2 border-slate-900/5 w-[290px] h-[190px] rounded-2xl ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
                 >
                   <div class="pt-0 space-y-5">
                     <div class="flex flex-col items-start m-2">
-                   
-                      
-                    
+                      <div
+                        class="absolute left-[40%] -bottom-10 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+                      >
+                        <div
+                          class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                        >
+                          <p
+                            @click="addButton"
+                            class="px-1 mb-2 animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
+                          >
+                            +
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="relative w-[300px] h-fit flex flex-row items-center flex-wrap"
+                      >
+                        <div
+                          v-motion
+                          :initial="{ opacity: 0, scale: 0 }"
+                          :enter="{ opacity: 1, scale: 1 }"
+                          :variants="{ custom: { scale: 1 } }"
+                          :delay="300"
+                          class="relative m-1 w-[80px] h-[80px]"
+                          v-for="(image, index) in uploadedImages"
+                          :key="image.id"
+                        >
+                          <!-- <span>{{ image.id }}</span> -->
+                          <img
+                            class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
+                            :src="image.url"
+                            :key="image.id"
+                            alt="Uploaded Image"
+                          />
+                        </div>
+                      </div>
+                      <input
+                        id="uploadButton"
+                        type="file"
+                        ref="uploadButton"
+                        style="display: none"
+                        @change="handleImageUpload"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                v-if="activeTabIndex === 2"
+                v-motion-fade
+                class="bg-transparent relative w-[305px] h-[206px] mt-2 rounded-3xl shadow-md"
+              >
+                <div
+                  class="absolute flex flex-col items-start bg-slate-50 border-l-2 border-r-2 border-b-2 border-slate-900/5 w-[290px] h-[190px] rounded-2xl ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
+                >
+                  <div class="pt-0 space-y-5">
+                    <div
+                        class="relative w-[300px] h-fit flex flex-row items-center flex-wrap"
+                      >
+                      <div
+                          v-motion
+                          :initial="{ opacity: 0, scale: 0 }"
+                          :enter="{ opacity: 1, scale: 1 }"
+                          :variants="{ custom: { scale: 1 } }"
+                          :delay="300"
+                          class="relative m-1 w-[80px] h-[80px]"
+                         
+                        >
+                          <!-- <span>{{ image.id }}</span> -->
+                          <img
+                            class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
+                            src="/src/assets/images/collection1.png"
+                            key="image.id"
+                            alt="Collection Image"
+                          />
+                        </div>
+                        <div
+                          v-motion
+                          :initial="{ opacity: 0, scale: 0 }"
+                          :enter="{ opacity: 1, scale: 1 }"
+                          :variants="{ custom: { scale: 1 } }"
+                          :delay="300"
+                          class="relative m-1 w-[80px] h-[80px]"
+                         
+                        >
+                          <!-- <span>{{ image.id }}</span> -->
+                          <img
+                            class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
+                            src="/src/assets/images/collection2.png"
+                            key="image.id"
+                            alt="Collection Image"
+                          />
+                        </div>
+                        <div
+                          v-motion
+                          :initial="{ opacity: 0, scale: 0 }"
+                          :enter="{ opacity: 1, scale: 1 }"
+                          :variants="{ custom: { scale: 1 } }"
+                          :delay="300"
+                          class="relative m-1 w-[80px] h-[80px]"
+                         
+                        >
+                          <!-- <span>{{ image.id }}</span> -->
+                          <img
+                            class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
+                            src="/src/assets/images/collection3.png"
+                            key="image.id"
+                            alt="Collection Image"
+                          />
+                        </div>
+
                     </div>
                   </div>
                 </div>
@@ -971,9 +1040,15 @@
                         >
                           <option selected value="">Select font</option>
                           <option selected value="Pacifico">Pacifico</option>
-                          <option selected value="Calligraffitti">Calligraffitti</option>
-                          <option selected value="Pixelify Sans">Pixelify Sans</option>
-                          <option selected value="Protest Riot">Protest Riot</option>
+                          <option selected value="Calligraffitti">
+                            Calligraffitti
+                          </option>
+                          <option selected value="Pixelify Sans">
+                            Pixelify Sans
+                          </option>
+                          <option selected value="Protest Riot">
+                            Protest Riot
+                          </option>
                           <option selected value="Foldit">Foldit</option>
                         </select>
                       </div>
@@ -1211,20 +1286,22 @@
                   Finish!
                 </h1>
                 <p
-                  class="font-inter w-[280px] my-5 text-base whitespace-wrap font-medium text-left leading-7 text-slate-700"
+                  class="font-inter w-[280px] my-5 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
                 >
-                   Orders placed before 3 pm on working days are dispatched the same day. Orders placed between 3 pm on Friday and 1 pm on Sunday will be dispatched on Sunday. 
+                  Orders placed before 3 pm on working days are dispatched the
+                  same day. Orders placed between 3 pm on Friday and 1 pm on
+                  Sunday will be dispatched on Sunday.
                 </p>
+                
                 <div
-                  
-                  class="relative flex  w-[300px] h-[300px] mt-3 flex-col items-center"
+                  class="relative flex w-[300px] h-[300px] mt-3 flex-col items-center"
                 >
                   <svg
                     class="w-full fill-current"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
-                    width="150"
-                    height="150"
+                    width="100"
+                    height="100"
                   >
                     <path
                       opacity="0.4"
@@ -1236,24 +1313,30 @@
                       fill="#292D32"
                     />
                   </svg>
+                  <div>
+                    <p class="whitespace-wrap font-extrabold text-sm text-center leading-12 text-slate-700  " >Total Price:</p>
+                    <p v-if="casesTypes[selectedCaseType] && casesTypes[selectedCaseType].price"  class="animate-pulse ml-3 px-2 py-0  whitespace-wrap font-extrabold text-3xl text-left leading-7 text-slate-400  " >{{ parseFloat(casesTypes[selectedCaseType].price).toFixed(2) }} <span class="animate-none -ml-1 text-justify text-2xl text-slate-700">€</span></p>
+                  </div>
 
                   <div
-                      class="relative left-[0] -top-2 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
-                    >
-                      <div
-                        class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
-                      >
-                        <p
-                          @click="generateUrl()"
-                          class="px-1 mb-2 animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
-                        >
-                          +
-                        </p>
-                      </div>
-                    </div>
+                    class="relative left-[0] top-2 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+                  >
+
                   
+
+                    <div
+                      class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                    >
+                    
+                      <p
+                        @click="generateUrl()"
+                        class="px-5 py-2 animate-pulse text-center text-[16px] font-inter font-bold leading-none tracking-tight text-slate-100"
+                      >
+                        Checkout
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                
               </div>
 
               <div
@@ -1455,7 +1538,7 @@ export default {
   data() {
     return {
       brands: [],
-      activeTabIndex:1,
+      activeTabIndex: 1,
       activeIndex: null,
       activeIndexColor: null,
       models: [],
@@ -1464,8 +1547,6 @@ export default {
       exportMaskClipImage: {},
       exportPlaceholderImage: {},
       inputText: "",
-
-
 
       counter: ref(1),
       position: ref(830),
@@ -1485,43 +1566,60 @@ export default {
   },
 
   methods: {
-  
-    generateUrl () {
+    generateUrl() {
       // Define the parameters
+      const baseUrl = "https://www.mytrendyphone.eu/shop/showbasket.html";
+      console.table(this.casesTypes[this.selectedCaseType]);
 
+      const brand = this.brands.find(
+        (brand) => brand.id === this.selectedBrand
+      ).title;
 
+      const model = this.models.find(
+        (model) => model.id === this.selectedModel
+      ).title;
+      const productId = this.casesTypes[this.selectedCaseType].dd_product_id;
+      const coverType = this.casesTypes[this.selectedCaseType].title;
 
-const baseUrl = 'https://www.mytrendyphone.eu/shop/showbasket.html';
+      const infoImage = this.casesTypes[this.selectedCaseType].info_image;
+      const imageSegment = infoImage.split("/");
+      const previewImageHash = imageSegment[imageSegment.length - 1].replace(
+        /\.png$/,
+        ""
+      );
+      const printImageHash = imageSegment[imageSegment.length - 1].replace(
+        /\.png$/,
+        ""
+      );
 
-const productId = '232761-PRINT';
-const previewImageHash = '76fa720e34ba40ba556f4f3da30b5c2a';
-const brand = 'Google';
-const model = 'Google Pixel 6 Pro';
-const coverType = 'TPU Case';
-const color = 'Transparent';
-const printImageHash = '76fa720e34ba40ba556f4f3da30b5c2a';
+      //  const productId = '232761-PRINT';
+      //  const previewImageHash = '76fa720e34ba40ba556f4f3da30b5c2a';
+      // const brand = 'Google';
+      // const model = 'Google Pixel 6 Pro';
+      //  const coverType = 'TPU Case';
+      const color = "Transparent";
+      //  const printImageHash = '76fa720e34ba40ba556f4f3da30b5c2a';
 
-const params = new URLSearchParams();
-params.set('ProductID', productId);
-params.set('Add', '1');
-params.set('AMOUNT', '1');
-params.set('Variantgroup1', 'i');
-params.set('variant1', previewImageHash);
-params.set('Variantgroup2', 'p');
-params.set('variant2', `${brand} ${model} - ${coverType} - ${color}`);
-params.set('Variantgroup3', 't');
-params.set('variant3', printImageHash);
-params.set('PostOrigin', 'productinfo');
+      const params = new URLSearchParams();
+      params.set("ProductID", productId);
+      params.set("Add", "1");
+      params.set("AMOUNT", "1");
+      params.set("Variantgroup1", "i");
+      params.set("variant1", previewImageHash);
+      params.set("Variantgroup2", "p");
+      params.set("variant2", `${brand} ${model} - ${coverType} - ${color}`);
+      params.set("Variantgroup3", "t");
+      params.set("variant3", printImageHash);
+      params.set("PostOrigin", "productinfo");
 
-const fullUrl = `${baseUrl}?${params.toString()}`;
+      const fullUrl = `${baseUrl}?${params.toString()}`;
 
-
-console.log(fullUrl);
-
-
+      console.log(fullUrl);
+      this.goToLink(fullUrl);
     },
-
-
+    goToLink(url) {
+  window.location.href = url;
+},
 
     setActiveTabIndex(key) {
       this.activeTabIndex = key;
@@ -1785,27 +1883,27 @@ console.log(fullUrl);
       });
       // adding phome mask to cannvas
 
-      const fake = fabric.Image.fromURL(
-        "src/assets/images/transparentbackground.png",
-        (fakebackground) => {
-          // the scaleToHeight property is use to set the image height
-          console.log(fakebackground.height);
-          console.log(fakebackground.width);
-          fakebackground.scaleToHeight(320);
-          // scaleToWidth is use to set the image width
-          fakebackground.scaleToWidth(320);
-          fakebackground.name = "fakebackground";
-          fakebackground.selectable = false;
-          // background.globalCompositeOperation = "source-over";
-          fakebackground.evented = false;
-          this.canvas.add(fakebackground);
-          fakebackground.center();
-          this.canvas.moveTo(fakebackground, 1);
+      // const fake = fabric.Image.fromURL(
+      //   "src/assets/images/transparentbackground.png",
+      //   (fakebackground) => {
+      //     // the scaleToHeight property is use to set the image height
+      //     console.log(fakebackground.height);
+      //     console.log(fakebackground.width);
+      //     fakebackground.scaleToHeight(320);
+      //     // scaleToWidth is use to set the image width
+      //     fakebackground.scaleToWidth(320);
+      //     fakebackground.name = "fakebackground";
+      //     fakebackground.selectable = false;
+      //     // background.globalCompositeOperation = "source-over";
+      //     fakebackground.evented = false;
+      //     this.canvas.add(fakebackground);
+      //     fakebackground.center();
+      //     this.canvas.moveTo(fakebackground, 1);
 
-          this.canvas.renderAll();
-        },
-        { crossOrigin: "anonymous" }
-      );
+      //     this.canvas.renderAll();
+      //   },
+      //   { crossOrigin: "anonymous" }
+      // );
 
       const back = fabric.Image.fromURL(
         this.casesTypes[caseType].image_placeholder,
@@ -1877,7 +1975,6 @@ console.log(fullUrl);
           centerH: true,
           centerV: true,
           name: "canvas image",
-          
         });
         this.canvas.add(fabricImg);
         this.canvas.moveTo(fabricImg, 2);
@@ -3084,8 +3181,6 @@ console.log(fullUrl);
     exportToPNG() {
       const objects = this.canvas.getObjects();
 
-      
-
       objects.forEach((obj, index) => {
         if (obj && obj.type === "rect" && obj.name === "pattern") {
           obj.strokeWidth = 0;
@@ -3118,7 +3213,6 @@ console.log(fullUrl);
           obj.globalCompositeOperation = "source-atop";
           console.log(obj.name);
         }
-        
       });
       // this.cropMask();
       setTimeout(() => {
@@ -3128,8 +3222,6 @@ console.log(fullUrl);
 
     cropMask(caseType) {
       console.log(this.exportMaskClipImage);
-
-      
 
       fabric.Image.fromURL(
         this.exportMaskClipImage,
@@ -3267,12 +3359,7 @@ console.log(fullUrl);
           // obj.clipPath = null;
           console.log(obj.name);
         }
-
-        
-
       });
-
-      
 
       // objects.forEach((obj, index) => {
       //   if (obj && obj.type === "image" && obj.name === "back") {
@@ -3522,7 +3609,7 @@ console.log(fullUrl);
             // img.scaleToWidth(32);
             // img.scaleToHeight(32);
             ctx.drawImage(img._element, left - 16, top - 16, 32, 32);
-            
+
             ctx.restore();
           }
         );
@@ -3638,14 +3725,12 @@ console.log(fullUrl);
 </script>
 
 <style scoped>
-
-.activeTab{
+.activeTab {
   background-color: white;
   color: #000;
-  -moz-transition:color .3s ease-in;
-    -o-transition:color .3s ease-in;
-    -webkit-transition:color .3s ease-in;
-  
+  -moz-transition: color 0.3s ease-in;
+  -o-transition: color 0.3s ease-in;
+  -webkit-transition: color 0.3s ease-in;
 }
 /* .fabric {
   position: absolute;
