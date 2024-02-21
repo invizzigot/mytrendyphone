@@ -795,7 +795,7 @@
                   class="font-inter text-base mt-4 font-semibold leading-2 text-slate-700"
                 >
                   Step three
-                </p>
+                </p> 
                 <h1
                   class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
                 >
@@ -807,58 +807,84 @@
                   Upload your images to customize.
                 </p>
               </div>
+               <div class="relative flex flex-row w-[300px] h-[50px] bg-transparent  " >
+                <div  @click="setActiveTabIndex(1)" v-motion-slide-top  :class="['relative transition-all bg-slate-700 w-[100px] ml-10 pt-1 h-[50px] rounded-t-xl font-inter my-5 text-base whitespace-nowrap font-medium text-center leading-7 text-slate-100 border-l-2 border-r-2 border-t-2 border-slate-900/5 shadow-xl',  { 'activeTab': activeTabIndex===1}  ]" >Images</div>
+                <div @click="setActiveTabIndex(2)"  :class="['relative transition-all bg-slate-700 w-[100px] ml-4 pt-1 h-[50px] rounded-t-xl font-inter my-5 text-base whitespace-nowrap font-medium text-center leading-7 text-slate-100 ring-1 ring-slate-900/5 border-l-2 border-r-2 border-t-2 border-slate-900/5 shadow-xl', { 'activeTab': activeTabIndex===2 }  ]"  >Templates</div>
+                
+              </div>
+              <div v-if="activeTabIndex===1"  v-motion-fade 
+              
+              class="bg-transparent relative w-[305px] h-[206px] mt-2 rounded-3xl shadow-md  "
+              
+            >
+             
               <div
-                class="bg-transparent absolute w-[305px] h-[206px] mt-2 rounded-3xl shadow-xl ring-1 ring-slate-900/5"
-                style="transform: translateZ(0px); opacity: 1"
+                class="absolute flex flex-col items-start bg-slate-50 border-l-2 border-r-2 border-b-2 border-slate-900/5 w-[290px] h-[190px] rounded-2xl ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
               >
+                <div class="pt-0 space-y-5">
+                  <div class="flex flex-col items-start m-2">
+                    <div
+                      class="absolute left-[40%] -bottom-10 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+                    >
+                      <div
+                        class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                      >
+                        <p
+                          @click="addButton"
+                          class="px-1 mb-2 animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
+                        >
+                          +
+                        </p>
+                      </div>
+                    </div>
+                    <div 
+                      class="relative w-[300px] h-fit flex flex-row items-center flex-wrap"
+                    >
+                      <div
+                        v-motion
+                        :initial="{ opacity: 0, scale: 0 }"
+                        :enter="{ opacity: 1, scale: 1 }"
+                        :variants="{ custom: { scale: 1 } }"
+                        :delay="300"
+                        class="relative m-1 w-[80px] h-[80px]"
+                        v-for="(image, index) in uploadedImages"
+                        :key="image.id"
+                      >
+                        <!-- <span>{{ image.id }}</span> -->
+                        <img
+                          class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
+                          :src="image.url"
+                          :key="image.id"
+                          alt="Uploaded Image"
+                        />
+                      </div>
+                    </div>
+                    <input
+                      id="uploadButton"
+                      type="file"
+                      ref="uploadButton"
+                      style="display: none"
+                      @change="handleImageUpload"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              <div v-if="activeTabIndex===2"  v-motion-fade 
+              
+                class="bg-transparent relative w-[305px] h-[206px] mt-2 rounded-3xl shadow-md  "
+                
+              >
+               
                 <div
-                  class="absolute flex flex-col items-start bg-slate-50 ring-1 ring-slate-900/5 w-[290px] h-[190px] rounded-2xl ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
+                  class="absolute flex flex-col items-start bg-slate-50 border-l-2 border-r-2 border-b-2 border-slate-900/5 w-[290px] h-[190px] rounded-2xl ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
                 >
                   <div class="pt-0 space-y-5">
                     <div class="flex flex-col items-start m-2">
-                      <div
-                        class="absolute left-[40%] -bottom-10 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
-                      >
-                        <div
-                          class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
-                        >
-                          <p
-                            @click="addButton"
-                            class="px-1 mb-2 animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
-                          >
-                            +
-                          </p>
-                        </div>
-                      </div>
-                      <div
-                        class="relative w-[300px] h-fit flex flex-row items-center flex-wrap"
-                      >
-                        <div
-                          v-motion
-                          :initial="{ opacity: 0, scale: 0 }"
-                          :enter="{ opacity: 1, scale: 1 }"
-                          :variants="{ custom: { scale: 1 } }"
-                          :delay="300"
-                          class="relative m-1 w-[80px] h-[80px]"
-                          v-for="(image, index) in uploadedImages"
-                          :key="image.id"
-                        >
-                          <!-- <span>{{ image.id }}</span> -->
-                          <img
-                            class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
-                            :src="image.url"
-                            :key="image.id"
-                            alt="Uploaded Image"
-                          />
-                        </div>
-                      </div>
-                      <input
-                        id="uploadButton"
-                        type="file"
-                        ref="uploadButton"
-                        style="display: none"
-                        @change="handleImageUpload"
-                      />
+                   
+                      
+                    
                     </div>
                   </div>
                 </div>
@@ -945,9 +971,10 @@
                         >
                           <option selected value="">Select font</option>
                           <option selected value="Pacifico">Pacifico</option>
-                          <option selected value="Calligraffitti">
-                            Calligraffitti
-                          </option>
+                          <option selected value="Calligraffitti">Calligraffitti</option>
+                          <option selected value="Pixelify Sans">Pixelify Sans</option>
+                          <option selected value="Protest Riot">Protest Riot</option>
+                          <option selected value="Foldit">Foldit</option>
                         </select>
                       </div>
 
@@ -1186,19 +1213,18 @@
                 <p
                   class="font-inter w-[280px] my-5 text-base whitespace-wrap font-medium text-left leading-7 text-slate-700"
                 >
-                  Complete your custom case order! Order now and your order will
-                  be shipped on Tuesday, January 16, 2024!
+                   Orders placed before 3 pm on working days are dispatched the same day. Orders placed between 3 pm on Friday and 1 pm on Sunday will be dispatched on Sunday. 
                 </p>
                 <div
-                  v-motion-pop
-                  class="relative flex w-[300px] h-[300px] mt-3 flex-col items-center"
+                  
+                  class="relative flex  w-[300px] h-[300px] mt-3 flex-col items-center"
                 >
                   <svg
                     class="w-full fill-current"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
-                    width="200"
-                    height="200"
+                    width="150"
+                    height="150"
                   >
                     <path
                       opacity="0.4"
@@ -1210,7 +1236,24 @@
                       fill="#292D32"
                     />
                   </svg>
+
+                  <div
+                      class="relative left-[0] -top-2 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+                    >
+                      <div
+                        class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                      >
+                        <p
+                          @click="generateUrl()"
+                          class="px-1 mb-2 animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
+                        >
+                          +
+                        </p>
+                      </div>
+                    </div>
+                  
                 </div>
+                
               </div>
 
               <div
@@ -1412,6 +1455,7 @@ export default {
   data() {
     return {
       brands: [],
+      activeTabIndex:1,
       activeIndex: null,
       activeIndexColor: null,
       models: [],
@@ -1421,12 +1465,7 @@ export default {
       exportPlaceholderImage: {},
       inputText: "",
 
-      PhoneList: {
-        Apple: ["Iphone 12", "Iphone 13", "Iphone 14", "Iphone 15"],
-        Huawei: ["Mate 10", "Mate 20", "Mate 20 Pro"],
-        Samsung: ["Galaxy S22", "Galaxy A40 ", "Galaxy A52"],
-        Xiaomi: ["Redmi Note 11", "Xiaomi 12 pro", "Poco X5"],
-      },
+
 
       counter: ref(1),
       position: ref(830),
@@ -1438,21 +1477,7 @@ export default {
       selectedCaseType: "",
       selectedImage: [],
       objectsWithName: [],
-      images: [
-        {
-          id: 1,
-          name: "xiaomi",
-          notch: "src/assets/images/xiaomi-notch.png",
-          back: "src/assets/images/xiaomi-back.png",
-        },
-        {
-          id: 2,
-          name: "samsung",
-          notch: "src/assets/images/s22transparent.png",
-          back: "src/assets/images/s22back.png",
-        },
-        // Add more images as needed
-      ],
+
       canvas: null,
       uploadedImages: [],
       imageIndex: 1,
@@ -1460,6 +1485,49 @@ export default {
   },
 
   methods: {
+  
+    generateUrl () {
+      // Define the parameters
+
+
+
+const baseUrl = 'https://www.mytrendyphone.eu/shop/showbasket.html';
+
+const productId = '232761-PRINT';
+const previewImageHash = '76fa720e34ba40ba556f4f3da30b5c2a';
+const brand = 'Google';
+const model = 'Google Pixel 6 Pro';
+const coverType = 'TPU Case';
+const color = 'Transparent';
+const printImageHash = '76fa720e34ba40ba556f4f3da30b5c2a';
+
+const params = new URLSearchParams();
+params.set('ProductID', productId);
+params.set('Add', '1');
+params.set('AMOUNT', '1');
+params.set('Variantgroup1', 'i');
+params.set('variant1', previewImageHash);
+params.set('Variantgroup2', 'p');
+params.set('variant2', `${brand} ${model} - ${coverType} - ${color}`);
+params.set('Variantgroup3', 't');
+params.set('variant3', printImageHash);
+params.set('PostOrigin', 'productinfo');
+
+const fullUrl = `${baseUrl}?${params.toString()}`;
+
+
+console.log(fullUrl);
+
+
+    },
+
+
+
+    setActiveTabIndex(key) {
+      this.activeTabIndex = key;
+      // Set the clicked item as active
+    },
+
     setActiveItemIndex(key) {
       this.activeIndex = key;
       // Set the clicked item as active
@@ -1532,7 +1600,7 @@ export default {
           fontFamily: this.textFamily,
           fontSize: 30,
           // textAlign: "center",
-          // globalCompositeOperation: "source-atop",
+          globalCompositeOperation: "source-atop",
           clipPath: clipRect,
           targetFindTolerance: 5,
           selectable: true,
@@ -1754,7 +1822,7 @@ export default {
           background.evented = false;
           this.canvas.add(background);
           background.center();
-          this.canvas.moveTo(background, 2);
+          this.canvas.moveTo(background, 0);
 
           this.canvas.renderAll();
         },
@@ -1809,6 +1877,7 @@ export default {
           centerH: true,
           centerV: true,
           name: "canvas image",
+          
         });
         this.canvas.add(fabricImg);
         this.canvas.moveTo(fabricImg, 2);
@@ -2290,7 +2359,7 @@ export default {
         stroke: "black",
         strokeWidth: 2,
         strokeDashArray: [10, 10],
-        // globalCompositeOperation: "source-atop",
+        globalCompositeOperation: "source-atop",
         hoverCursor: "pointer",
 
         // stroke: "black",
@@ -2323,7 +2392,7 @@ export default {
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
 
-        // globalCompositeOperation: "source-atop",
+        globalCompositeOperation: "source-atop",
         hoverCursor: "pointer",
         // stroke: "black",
         lockMovementX: true,
@@ -2930,23 +2999,23 @@ export default {
           console.log(this.imageIndex);
           const img = new Image();
           img.onload = () => {
-            const clipRect2 = new fabric.Rect({
-              width: 500,
-              height: 250,
-              centerH: true,
-              centerH: true,
-              objectCaching: false,
-              top: 0,
-              left: 0,
-              absolutePositioned: true,
+            // const clipRect2 = new fabric.Rect({
+            //   width: 500,
+            //   height: 250,
+            //   centerH: true,
+            //   centerH: true,
+            //   objectCaching: false,
+            //   top: 0,
+            //   left: 0,
+            //   absolutePositioned: true,
 
-              backgroundColor: "#00CCEE",
-              fill: "",
-              strokeWidth: 5,
-              stroke: "red",
-              hasBorders: true,
-              borderColor: "#3ff4ff",
-            });
+            //   backgroundColor: "#00CCEE",
+            //   fill: "",
+            //   strokeWidth: 5,
+            //   stroke: "red",
+            //   hasBorders: true,
+            //   borderColor: "#3ff4ff",
+            // });
 
             const fabricImg = new fabric.Image(img, {
               left: 200,
@@ -3015,27 +3084,41 @@ export default {
     exportToPNG() {
       const objects = this.canvas.getObjects();
 
+      
+
       objects.forEach((obj, index) => {
+        if (obj && obj.type === "rect" && obj.name === "pattern") {
+          obj.strokeWidth = 0;
+          this.canvas.renderAll();
+        }
+
+        if (obj && obj.type === "circle" && obj.name === "pattern") {
+          obj.strokeWidth = 0;
+          this.canvas.renderAll();
+        }
+
         if (obj && obj.type === "image" && obj.name === "transparent") {
-          obj.globalCompositeOperation = "destination-out";
+          // obj.globalCompositeOperation = "destination-out";
           console.log(obj.name);
         }
 
         if (obj && obj.type === "image" && obj.name === "back") {
-          this.canvas.remove(obj);
+          // obj.globalCompositeOperation = "source-atop";
+          // this.canvas.remove(obj);
 
           this.canvas.renderAll();
         }
 
         if (obj && obj.type === "image" && obj.name === "text") {
-          obj.globalCompositeOperation = "source-over";
+          obj.globalCompositeOperation = "source-atop";
           console.log(obj.name);
         }
 
         if (obj && obj.type === "image" && obj.name === "canvas image") {
-          obj.globalCompositeOperation = "source-over";
+          obj.globalCompositeOperation = "source-atop";
           console.log(obj.name);
         }
+        
       });
       // this.cropMask();
       setTimeout(() => {
@@ -3046,8 +3129,10 @@ export default {
     cropMask(caseType) {
       console.log(this.exportMaskClipImage);
 
+      
+
       fabric.Image.fromURL(
-        this.exportPlaceholderImage,
+        this.exportMaskClipImage,
         (img) => {
           // the scaleToHeight property is use to set the image height
           img.scaleToHeight(320);
@@ -3057,7 +3142,7 @@ export default {
           img.visible = true;
           img.center();
           img.selectable = false;
-          img.globalCompositeOperation = "destination-out";
+          img.globalCompositeOperation = "source-atop";
 
           this.canvas.moveTo(img, 0);
           // this.canvas.add(img);
@@ -3173,7 +3258,21 @@ export default {
           // obj.clipPath = null;
           console.log(obj.name);
         }
+
+        if (obj && obj.type === "text" && obj.name === "text") {
+          this.canvas.remove(obj);
+          // this.canvas.setActiveObject(obj);
+          // this.canvas.bringToFront(obj);
+          // this.canvas.moveTo(obj,10);
+          // obj.clipPath = null;
+          console.log(obj.name);
+        }
+
+        
+
       });
+
+      
 
       // objects.forEach((obj, index) => {
       //   if (obj && obj.type === "image" && obj.name === "back") {
@@ -3423,6 +3522,7 @@ export default {
             // img.scaleToWidth(32);
             // img.scaleToHeight(32);
             ctx.drawImage(img._element, left - 16, top - 16, 32, 32);
+            
             ctx.restore();
           }
         );
@@ -3538,6 +3638,15 @@ export default {
 </script>
 
 <style scoped>
+
+.activeTab{
+  background-color: white;
+  color: #000;
+  -moz-transition:color .3s ease-in;
+    -o-transition:color .3s ease-in;
+    -webkit-transition:color .3s ease-in;
+  
+}
 /* .fabric {
   position: absolute;
   top: 10px;
