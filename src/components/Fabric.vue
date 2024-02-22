@@ -1562,6 +1562,7 @@ export default {
       canvas: null,
       uploadedImages: [],
       imageIndex: 1,
+      offsetCollage: 55,
     };
   },
 
@@ -1857,6 +1858,13 @@ export default {
     },
 
     addPhoneToCanvas(caseType) {
+      console.log(this.casesTypes[this.selectedCaseType].title);
+      if(this.casesTypes[this.selectedCaseType].title=== 'Flip Case') {
+        this.offsetCollage= this.offsetCollage+50;
+       
+      } else{
+        this.offsetCollage= 0;
+      } ;
       this.exportMaskClipImage = this.casesTypes[caseType].image_draw_mask;
       this.exportPlaceholderImage = this.casesTypes[caseType].image_placeholder;
       console.log(this.casesTypes[caseType].image_placeholder);
@@ -2195,8 +2203,8 @@ export default {
 
       var rectangle = new fabric.Rect({
         top: 23,
-        left: 120,
-        width: 210,
+        left: 115 + this.offsetCollage,
+        width: 215,
         height: 215,
         selectable: true,
         name: "pattern",
@@ -2228,8 +2236,8 @@ export default {
 
       var rectangle2 = new fabric.Rect({
         top: 240,
-        left: 120,
-        width: 210,
+        left: 115  + this.offsetCollage,
+        width: 215,
         height: 240,
         selectable: true,
         name: "pattern",
@@ -2318,7 +2326,7 @@ export default {
 
       var rectangle0 = new fabric.Rect({
         top: 30,
-        left: 115,
+        left: 115 + this.offsetCollage,
         width: 215,
         height: 435,
 
@@ -2409,8 +2417,8 @@ export default {
 
       var rectangle = new fabric.Rect({
         top: 23,
-        left: 120,
-        width: 220,
+        left: 115  + this.offsetCollage,
+        width: 215,
         height: 150,
         selectable: true,
         name: "pattern",
@@ -2444,8 +2452,8 @@ export default {
 
       var rectangle2 = new fabric.Rect({
         top: 327,
-        left: 110,
-        width: 220,
+        left: 115  + this.offsetCollage,
+        width: 215,
         height: 150,
         selectable: true,
         name: "pattern",
@@ -2479,8 +2487,8 @@ export default {
       });
       var rectangle3 = new fabric.Rect({
         top: 175,
-        left: 120,
-        width: 210,
+        left: 115  + this.offsetCollage,
+        width: 215,
         height: 150,
         selectable: true,
         name: "pattern",
@@ -2574,8 +2582,8 @@ export default {
 
       var rectangle = new fabric.Rect({
         top: 20,
-        left: 120,
-        width: 210,
+        left: 115  + this.offsetCollage,
+        width: 215,
         height: 110,
         selectable: true,
         name: "pattern",
@@ -2607,8 +2615,8 @@ export default {
 
       var rectangle2 = new fabric.Rect({
         top: 132,
-        left: 110,
-        width: 220,
+        left: 115  + this.offsetCollage,
+        width: 215,
         height: 110,
         selectable: true,
         name: "pattern",
@@ -2642,8 +2650,8 @@ export default {
       });
       var rectangle3 = new fabric.Rect({
         top: 243,
-        left: 120,
-        width: 210,
+        left: 115  + this.offsetCollage,
+        width: 215,
         height: 110,
         selectable: true,
         name: "pattern",
@@ -2674,8 +2682,8 @@ export default {
       });
       var rectangle4 = new fabric.Rect({
         top: 356,
-        left: 120,
-        width: 210,
+        left: 115  + this.offsetCollage,
+        width: 215,
         height: 110,
         selectable: true,
         name: "pattern",
@@ -2779,7 +2787,7 @@ export default {
 
       var rectangle = new fabric.Rect({
         top: 173,
-        left: 150,
+        left: 150  + this.offsetCollage,
         width: 150,
         height: 150,
         selectable: true,
@@ -2855,7 +2863,7 @@ export default {
       const circle = new fabric.Circle({
         radius: 70, // Set the radius of the circle
         top: 173,
-        left: 150,
+        left: 150  + this.offsetCollage,
         width: 150,
         height: 150,
         selectable: true,
@@ -3385,6 +3393,7 @@ export default {
     this.fetchBrandsData();
     this.fetchModelsData();
     this.fetchCaseTypeData();
+    
   },
   mounted() {
     this.canvas = new fabric.Canvas(
