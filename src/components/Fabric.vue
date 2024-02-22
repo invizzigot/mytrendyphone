@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center py-5">
-    <div class="flex w-[500px]">
+    <div class="flex w-[425px] md:w-[500px] h-[80px]">
       <div class="w-1/4">
         <div class="relative mb-2">
           <div class="w-10 h-10 mx-auto relative">
@@ -71,11 +71,11 @@
           v-if="counter === 1"
           v-motion
           :initial="{ opacity: 0, scale: 0, top: 0 }"
-          :enter="{ opacity: 1, scale: 1, marginTop: -10 }"
+          :enter="{ opacity: 1, scale: 1, marginTop: -5 }"
           :delay="300"
           class="text-sm text-center font-bold"
         >
-          Choose Device
+          Device
         </div>
       </div>
 
@@ -179,11 +179,11 @@
           v-if="counter === 2"
           v-motion
           :initial="{ opacity: 0, scale: 0, top: 0 }"
-          :enter="{ opacity: 1, scale: 1, marginTop: -10 }"
+          :enter="{ opacity: 1, scale: 1, marginTop: -5 }"
           :delay="300"
           class="text-sm text-center font-bold"
         >
-          Select Layout
+          Layout
         </div>
       </div>
 
@@ -275,11 +275,11 @@
           v-if="counter === 3"
           v-motion
           :initial="{ opacity: 0, scale: 0, top: 0 }"
-          :enter="{ opacity: 1, scale: 1, marginTop: -10 }"
+          :enter="{ opacity: 1, scale: 1, marginTop: -5 }"
           :delay="300"
           class="text-sm text-center font-bold"
         >
-          Upload Images
+          Images
         </div>
       </div>
 
@@ -389,11 +389,11 @@
           v-if="counter === 4"
           v-motion
           :initial="{ opacity: 0, scale: 0, top: 0 }"
-          :enter="{ opacity: 1, scale: 1, marginTop: -10 }"
+          :enter="{ opacity: 1, scale: 1, marginTop: -5 }"
           :delay="300"
           class="text-sm font-bold text-center"
         >
-          Add Text
+          Text
         </div>
       </div>
 
@@ -473,7 +473,7 @@
           v-if="counter === 5"
           v-motion
           :initial="{ opacity: 0, scale: 0, top: 0 }"
-          :enter="{ opacity: 1, scale: 1, marginTop: -10 }"
+          :enter="{ opacity: 1, scale: 1, marginTop: -5 }"
           :delay="300"
           class="text-sm font-bold text-center"
         >
@@ -482,7 +482,7 @@
       </div>
     </div>
     <!-- <Fabric></Fabric> -->
-    <div class="relative flex flex-row items-center">
+    <div class="relative flex flex-col lg:flex-row items-center">
       <div
         class="relative flex flex-col items-center bg-slate-100/50 w-[380px] h-[605px] rounded-3xl shadow-xl ring-1 ring-slate-900/5"
       >
@@ -829,7 +829,7 @@
                     { activeTab: activeTabIndex === 2 },
                   ]"
                 >
-                Collections
+                  Collections
                 </div>
               </div>
               <div
@@ -900,60 +900,56 @@
                 >
                   <div class="pt-0 space-y-5">
                     <div
-                        class="relative w-[300px] h-fit flex flex-row items-center flex-wrap"
-                      >
+                      class="relative w-[300px] h-fit flex flex-row items-center flex-wrap"
+                    >
                       <div
-                          v-motion
-                          :initial="{ opacity: 0, scale: 0 }"
-                          :enter="{ opacity: 1, scale: 1 }"
-                          :variants="{ custom: { scale: 1 } }"
-                          :delay="300"
-                          class="relative m-1 w-[80px] h-[80px]"
-                         
-                        >
-                          <!-- <span>{{ image.id }}</span> -->
-                          <img
-                            class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
-                            src="/src/assets/images/collection1.png"
-                            key="image.id"
-                            alt="Collection Image"
-                          />
-                        </div>
-                        <div
-                          v-motion
-                          :initial="{ opacity: 0, scale: 0 }"
-                          :enter="{ opacity: 1, scale: 1 }"
-                          :variants="{ custom: { scale: 1 } }"
-                          :delay="300"
-                          class="relative m-1 w-[80px] h-[80px]"
-                         
-                        >
-                          <!-- <span>{{ image.id }}</span> -->
-                          <img
-                            class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
-                            src="/src/assets/images/collection2.png"
-                            key="image.id"
-                            alt="Collection Image"
-                          />
-                        </div>
-                        <div
-                          v-motion
-                          :initial="{ opacity: 0, scale: 0 }"
-                          :enter="{ opacity: 1, scale: 1 }"
-                          :variants="{ custom: { scale: 1 } }"
-                          :delay="300"
-                          class="relative m-1 w-[80px] h-[80px]"
-                         
-                        >
-                          <!-- <span>{{ image.id }}</span> -->
-                          <img
-                            class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
-                            src="/src/assets/images/collection3.png"
-                            key="image.id"
-                            alt="Collection Image"
-                          />
-                        </div>
-
+                        v-motion
+                        :initial="{ opacity: 0, scale: 0 }"
+                        :enter="{ opacity: 1, scale: 1 }"
+                        :variants="{ custom: { scale: 1 } }"
+                        :delay="300"
+                        class="relative m-1 w-[80px] h-[80px]"
+                      >
+                        <!-- <span>{{ image.id }}</span> -->
+                        <img
+                          class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
+                          src="/src/assets/images/collection1.png"
+                          key="image.id"
+                          alt="Collection Image"
+                        />
+                      </div>
+                      <div
+                        v-motion
+                        :initial="{ opacity: 0, scale: 0 }"
+                        :enter="{ opacity: 1, scale: 1 }"
+                        :variants="{ custom: { scale: 1 } }"
+                        :delay="300"
+                        class="relative m-1 w-[80px] h-[80px]"
+                      >
+                        <!-- <span>{{ image.id }}</span> -->
+                        <img
+                          class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
+                          src="/src/assets/images/collection2.png"
+                          key="image.id"
+                          alt="Collection Image"
+                        />
+                      </div>
+                      <div
+                        v-motion
+                        :initial="{ opacity: 0, scale: 0 }"
+                        :enter="{ opacity: 1, scale: 1 }"
+                        :variants="{ custom: { scale: 1 } }"
+                        :delay="300"
+                        class="relative m-1 w-[80px] h-[80px]"
+                      >
+                        <!-- <span>{{ image.id }}</span> -->
+                        <img
+                          class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
+                          src="/src/assets/images/collection3.png"
+                          key="image.id"
+                          alt="Collection Image"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1285,18 +1281,38 @@
                 >
                   Finish!
                 </h1>
+
                 <p
+                  v-if="
+                    casesTypes[selectedCaseType] &&
+                    casesTypes[selectedCaseType].price
+                  "
                   class="font-inter w-[280px] my-5 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
                 >
                   Orders placed before 3 pm on working days are dispatched the
                   same day. Orders placed between 3 pm on Friday and 1 pm on
                   Sunday will be dispatched on Sunday.
                 </p>
-                
+                <p
+                  v-else="
+                    casesTypes[selectedCaseType] &&
+                    casesTypes[selectedCaseType].price
+                  "
+                  class="font-inter w-[280px] my-5 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+                >
+                  In order to complete this step, you have to select product to
+                  customize on first step. <br />Go back and start to customize
+                  your device.
+                </p>
+
                 <div
                   class="relative flex w-[300px] h-[300px] mt-3 flex-col items-center"
                 >
                   <svg
+                    v-if="
+                      casesTypes[selectedCaseType] &&
+                      casesTypes[selectedCaseType].price
+                    "
                     class="w-full fill-current"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -1313,21 +1329,104 @@
                       fill="#292D32"
                     />
                   </svg>
+
+                  <svg
+                    v-else="
+                      casesTypes[selectedCaseType] &&
+                      casesTypes[selectedCaseType].price
+                    "
+                    class="w-full fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="100"
+                    height="100"
+                  >
+                    <defs id="defs2" />
+
+                    <path
+                      opacity="0.4"
+                      d="m 17.24,3.5825 h -0.4 L 13.46,0.20249998 c -0.27,-0.27 -0.71,-0.27 -0.99,0 -0.27,0.27 -0.27,0.71 0,0.99000002 l 2.39,2.39 H 5.1400001 l 2.39,-2.39 c 0.27,-0.27000002 0.27,-0.71000002 0,-0.99000002 -0.27,-0.27 -0.71,-0.27 -0.99,0 l -3.37,3.38000002 h -0.4 c -0.9,0 -2.76999998079071,0 -2.76999998079071,2.56 0,0.97 0.20000000079071,1.61 0.62000000079071,2.03004 0.24,0.25 0.52999998,0.38 0.83999998,0.45 0.29,0.07 0.6,0.08 0.9,0.08 H 17.64 c 0.31,0 0.6,-0.02 0.88,-0.08 0.84,-0.2 1.48,-0.80004 1.48,-2.48004 0,-2.56 -1.87,-2.56 -2.76,-2.56 z"
+                      fill="#292d32"
+                      id="path1"
+                      style="display: inline"
+                    />
+                    <path
+                      d="M 17.6609,8.70254 H 2.3609401 c -0.29,0 -0.61,-0.01 -0.9,-0.09 l 1.26,7.69 c 0.29,1.72 1.04,3.7 4.37,3.7 H 12.7009 c 3.37,0 3.97,-1.69 4.33,-3.58 l 1.51,-7.81 c -0.28,0.07 -0.58,0.09 -0.88,0.09 z"
+                      fill="#292d32"
+                      id="path2"
+                      style="display: inline"
+                      sodipodi:nodetypes="ssccssccs"
+                    />
+                    <rect
+                      style="fill: #f9f9f9; stroke-width: 0.0334252"
+                      id="rect2"
+                      width="6.6733665"
+                      height="1.4472374"
+                      x="-5.2211137"
+                      y="16.370911"
+                      ry="0.69866574"
+                      transform="rotate(-42.921289)"
+                    />
+                    <rect
+                      style="fill: #f9f9f9; stroke-width: 0.0334252"
+                      id="rect2-5"
+                      width="6.6733665"
+                      height="1.4472374"
+                      x="13.488276"
+                      y="2.4306953"
+                      ry="0.69866574"
+                      transform="rotate(42.88728)"
+                    />
+                  </svg>
+
                   <div>
-                    <p class="whitespace-wrap font-extrabold text-sm text-center leading-12 text-slate-700  " >Total Price:</p>
-                    <p v-if="casesTypes[selectedCaseType] && casesTypes[selectedCaseType].price"  class="animate-pulse ml-3 px-2 py-0  whitespace-wrap font-extrabold text-3xl text-left leading-7 text-slate-400  " >{{ parseFloat(casesTypes[selectedCaseType].price).toFixed(2) }} <span class="animate-none -ml-1 text-justify text-2xl text-slate-700">€</span></p>
+                    <p
+                      v-if="
+                        casesTypes[selectedCaseType] &&
+                        casesTypes[selectedCaseType].price
+                      "
+                      class="whitespace-wrap font-extrabold text-sm text-center leading-12 text-slate-700"
+                    >
+                      Total Price:
+                    </p>
+                    <p
+                      v-else="
+                        casesTypes[selectedCaseType] &&
+                        casesTypes[selectedCaseType].price
+                      "
+                      class="whitespace-wrap font-extrabold text-md text-left -ml-3 leading-12 text-slate-700"
+                    >
+                      No item selected!
+                    </p>
+                    <p
+                      v-if="
+                        casesTypes[selectedCaseType] &&
+                        casesTypes[selectedCaseType].price
+                      "
+                      class="animate-pulse ml-3 px-2 py-0 whitespace-wrap font-extrabold text-3xl text-left leading-7 text-slate-400"
+                    >
+                      {{
+                        parseFloat(casesTypes[selectedCaseType].price).toFixed(
+                          2
+                        )
+                      }}
+                      <span
+                        class="animate-none -ml-1 text-justify text-2xl text-slate-700"
+                        >€</span
+                      >
+                    </p>
                   </div>
 
                   <div
+                    v-if="
+                      casesTypes[selectedCaseType] &&
+                      casesTypes[selectedCaseType].price
+                    "
                     class="relative left-[0] top-2 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
                   >
-
-                  
-
                     <div
                       class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
                     >
-                    
                       <p
                         @click="generateUrl()"
                         class="px-5 py-2 animate-pulse text-center text-[16px] font-inter font-bold leading-none tracking-tight text-slate-100"
@@ -1379,7 +1478,7 @@
             </canvas>
 
             <div
-              class="absolute left-[400px] top-[40px] gap-3 flex flex-col m-3"
+              class="absolute left-[380px] top-[40px] gap-3 flex flex-col m-3"
             >
               <button @click="clearCanvas">
                 <svg
@@ -1619,8 +1718,8 @@ export default {
       this.goToLink(fullUrl);
     },
     goToLink(url) {
-  window.location.href = url;
-},
+      window.location.href = url;
+    },
 
     setActiveTabIndex(key) {
       this.activeTabIndex = key;
@@ -1859,12 +1958,11 @@ export default {
 
     addPhoneToCanvas(caseType) {
       console.log(this.casesTypes[this.selectedCaseType].title);
-      if(this.casesTypes[this.selectedCaseType].title=== 'Flip Case') {
-        this.offsetCollage= this.offsetCollage+50;
-       
-      } else{
-        this.offsetCollage= 0;
-      } ;
+      if (this.casesTypes[this.selectedCaseType].title === "Flip Case") {
+        this.offsetCollage = this.offsetCollage + 50;
+      } else {
+        this.offsetCollage = 0;
+      }
       this.exportMaskClipImage = this.casesTypes[caseType].image_draw_mask;
       this.exportPlaceholderImage = this.casesTypes[caseType].image_placeholder;
       console.log(this.casesTypes[caseType].image_placeholder);
@@ -1924,6 +2022,7 @@ export default {
           background.scaleToWidth(320);
           background.name = "back";
           background.selectable = false;
+          background.opacity = 0;
           // background.globalCompositeOperation = "source-over";
           background.evented = false;
           this.canvas.add(background);
@@ -1931,6 +2030,10 @@ export default {
           this.canvas.moveTo(background, 0);
 
           this.canvas.renderAll();
+          background.animate("opacity", 1, {
+            duration: 500,
+            onChange: this.canvas.renderAll.bind(this.canvas),
+          });
         },
         { crossOrigin: "anonymous" }
       );
@@ -1944,6 +2047,7 @@ export default {
           img.scaleToWidth(320);
           img.left;
           img.top;
+          img.opacity= 0;
           img.evented = false;
           img.selectable = false;
           img.evented = false;
@@ -1960,6 +2064,10 @@ export default {
           img.center();
           this.canvas.moveTo(img, 1);
           this.canvas.renderAll();
+          img.animate("opacity", 1, {
+            duration: 500,
+            onChange: this.canvas.renderAll.bind(this.canvas),
+          });
         },
         { crossOrigin: "anonymous" }
       );
@@ -2208,6 +2316,7 @@ export default {
         height: 215,
         selectable: true,
         name: "pattern",
+        opacity: 0,
         hasControls: true,
         hoverCursor: "pointer",
         hasBorders: false,
@@ -2236,12 +2345,13 @@ export default {
 
       var rectangle2 = new fabric.Rect({
         top: 240,
-        left: 115  + this.offsetCollage,
+        left: 115 + this.offsetCollage,
         width: 215,
         height: 240,
         selectable: true,
         name: "pattern",
         hasControls: true,
+        opacity:0,
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
@@ -2296,6 +2406,14 @@ export default {
       this.canvas.add(rectangle, rectangle2);
       this.canvas.moveTo(rectangle, 2);
       this.canvas.moveTo(rectangle2, 3);
+      rectangle.animate("opacity", 1, {
+            duration: 500,
+            onChange: this.canvas.renderAll.bind(this.canvas),
+          });
+          rectangle2.animate("opacity", 1, {
+            duration: 500,
+            onChange: this.canvas.renderAll.bind(this.canvas),
+          });
       // this.canvas.renderAll();
     },
     addCollage1(key) {
@@ -2417,12 +2535,13 @@ export default {
 
       var rectangle = new fabric.Rect({
         top: 23,
-        left: 115  + this.offsetCollage,
+        left: 115 + this.offsetCollage,
         width: 215,
         height: 150,
         selectable: true,
         name: "pattern",
         hasControls: true,
+        opacity:0,
         hoverCursor: "pointer",
         hasBorders: false,
         cornerStyle: "round",
@@ -2452,12 +2571,13 @@ export default {
 
       var rectangle2 = new fabric.Rect({
         top: 327,
-        left: 115  + this.offsetCollage,
+        left: 115 + this.offsetCollage,
         width: 215,
         height: 150,
         selectable: true,
         name: "pattern",
         hasControls: true,
+        opacity: 0,
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
@@ -2487,12 +2607,13 @@ export default {
       });
       var rectangle3 = new fabric.Rect({
         top: 175,
-        left: 115  + this.offsetCollage,
+        left: 115 + this.offsetCollage,
         width: 215,
         height: 150,
         selectable: true,
         name: "pattern",
         hasControls: true,
+        opacity:0,
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
@@ -2552,6 +2673,18 @@ export default {
       this.canvas.moveTo(rectangle, 2);
       this.canvas.moveTo(rectangle2, 3);
       this.canvas.moveTo(rectangle3, 4);
+      rectangle.animate("opacity", 1, {
+            duration: 300,
+            onChange: this.canvas.renderAll.bind(this.canvas),
+          });
+          rectangle2.animate("opacity", 1, {
+            duration: 600,
+            onChange: this.canvas.renderAll.bind(this.canvas),
+          });
+          rectangle3.animate("opacity", 1, {
+            duration: 900,
+            onChange: this.canvas.renderAll.bind(this.canvas),
+          });
       // this.canvas.renderAll();
     },
     addCollage4(key) {
@@ -2582,12 +2715,13 @@ export default {
 
       var rectangle = new fabric.Rect({
         top: 20,
-        left: 115  + this.offsetCollage,
+        left: 115 + this.offsetCollage,
         width: 215,
         height: 110,
         selectable: true,
         name: "pattern",
         hasControls: true,
+        opacity:0,
         hoverCursor: "pointer",
         hasBorders: false,
         cornerStyle: "round",
@@ -2615,12 +2749,13 @@ export default {
 
       var rectangle2 = new fabric.Rect({
         top: 132,
-        left: 115  + this.offsetCollage,
+        left: 115 + this.offsetCollage,
         width: 215,
         height: 110,
         selectable: true,
         name: "pattern",
         hasControls: true,
+        opacity:0,
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
@@ -2650,12 +2785,13 @@ export default {
       });
       var rectangle3 = new fabric.Rect({
         top: 243,
-        left: 115  + this.offsetCollage,
+        left: 115 + this.offsetCollage,
         width: 215,
         height: 110,
         selectable: true,
         name: "pattern",
         hasControls: true,
+        opacity:0,
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
@@ -2682,12 +2818,13 @@ export default {
       });
       var rectangle4 = new fabric.Rect({
         top: 356,
-        left: 115  + this.offsetCollage,
+        left: 115 + this.offsetCollage,
         width: 215,
         height: 110,
         selectable: true,
         name: "pattern",
         hasControls: true,
+        opacity:0,
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
@@ -2757,6 +2894,22 @@ export default {
       this.canvas.moveTo(rectangle2, 3);
       this.canvas.moveTo(rectangle3, 4);
       this.canvas.moveTo(rectangle4, 5);
+      rectangle.animate("opacity", 1, {
+            duration: 200,
+            onChange: this.canvas.renderAll.bind(this.canvas),
+          });
+          rectangle2.animate("opacity", 1, {
+            duration: 400,
+            onChange: this.canvas.renderAll.bind(this.canvas),
+          });
+          rectangle3.animate("opacity", 1, {
+            duration: 600,
+            onChange: this.canvas.renderAll.bind(this.canvas),
+          });
+          rectangle4.animate("opacity", 1, {
+            duration: 600,
+            onChange: this.canvas.renderAll.bind(this.canvas),
+          });
       // this.canvas.renderAll();
     },
     addCollage5(key) {
@@ -2787,7 +2940,7 @@ export default {
 
       var rectangle = new fabric.Rect({
         top: 173,
-        left: 150  + this.offsetCollage,
+        left: 150 + this.offsetCollage,
         width: 150,
         height: 150,
         selectable: true,
@@ -2798,6 +2951,7 @@ export default {
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
         stroke: "black",
+        opacity: 0,
         strokeWidth: 2,
         strokeDashArray: [10, 10],
         globalCompositeOperation: "source-atop",
@@ -2829,7 +2983,10 @@ export default {
       });
 
       this.canvas.add(rectangle);
-
+      rectangle.animate("opacity", 1, {
+            duration: 500,
+            onChange: this.canvas.renderAll.bind(this.canvas),
+          });
       this.canvas.moveTo(rectangle, 2);
 
       // this.canvas.renderAll();
@@ -2863,12 +3020,13 @@ export default {
       const circle = new fabric.Circle({
         radius: 70, // Set the radius of the circle
         top: 173,
-        left: 150  + this.offsetCollage,
+        left: 150 + this.offsetCollage,
         width: 150,
         height: 150,
         selectable: true,
         name: "pattern",
         hasControls: true,
+        opacity: 0,
         hoverCursor: "pointer",
         hasBorders: false,
         cornerStyle: "round",
@@ -2909,7 +3067,10 @@ export default {
       this.canvas.add(circle);
 
       this.canvas.moveTo(circle, 2);
-
+      circle.animate("opacity", 1, {
+            duration: 500,
+            onChange: this.canvas.renderAll.bind(this.canvas),
+          });
       // this.canvas.renderAll();
     },
 
@@ -3393,7 +3554,6 @@ export default {
     this.fetchBrandsData();
     this.fetchModelsData();
     this.fetchCaseTypeData();
-    
   },
   mounted() {
     this.canvas = new fabric.Canvas(
