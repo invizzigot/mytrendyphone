@@ -530,14 +530,14 @@
                       >
                       <div class="mt-2">
                         <select
-                          @change="getPhoneModels(selectedBrand)"
-                          v-model="selectedBrand"
+                          @change="getDeviceType(selectedType)"
+                          v-model="selectedType"
                           class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-xl focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
                         >
                           <option selected value="">Select Device</option>
-                          <option selected value="1">Phone Device</option>
-                          <option selected value="2">Tablet Device</option>
-                          <option selected value="4">Gadget Device</option>
+                          <option >Phone Device</option>
+                          <option >Tablet Device</option>
+                          <option >Gadget Device</option>
                         </select>
                       </div>
                     </div>
@@ -551,9 +551,13 @@
                         <select
                           @change="getPhoneModels(selectedBrand)"
                           v-model="selectedBrand"
+                          ref="phoneBrand"
+                          id="phoneBrand"
+                          name="phoneBrand"
+                          disabled
                           class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-xl focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
                         >
-                          <option selected value="">Select Model</option>
+                          <option selected value="">Select Brand</option>
                           <option
                             v-for="brand in brands"
                             :key="brand.id"
@@ -1477,7 +1481,7 @@
             <canvas class="relative w-[320px] h-[520px]" ref="canvasRef">
             </canvas>
 
-            <div
+            <div v-motion-slide-left :delay="600"
               class="absolute left-[380px] top-[40px] gap-3 flex flex-col m-3"
             >
               <button @click="clearCanvas">
@@ -1592,13 +1596,14 @@
       /> -->
             </div>
             <div class="absolute top-[40px] left-[15px] flex flex-col gap-3">
-              <div
+              <div 
                 class="relative w-[35px] h-[35px]"
                 v-for="(image, index) in uploadedImages"
                 :key="image.id"
               >
                 <!-- <span>{{ image.id }}</span> -->
                 <img
+                  
                   class="border-[2px] w-full h-full m-1 rounded-md border-gray-700/80"
                   :src="image.url"
                   :key="image.id"
@@ -1652,6 +1657,7 @@ export default {
 
       inputText: "",
       textFamily: "",
+      selectedType:"",
       selectedBrand: "",
       selectedModel: "",
       selectedCaseType: "",
@@ -1957,6 +1963,9 @@ export default {
     },
 
     addPhoneToCanvas(caseType) {
+      this.clearAllCanvas();
+      this.activeIndex = 0;
+
       console.log(this.casesTypes[this.selectedCaseType].title);
       if (this.casesTypes[this.selectedCaseType].title === "Flip Case") {
         this.offsetCollage = this.offsetCollage + 50;
@@ -3118,6 +3127,19 @@ export default {
       }
     },
 
+    getDeviceType(type) {
+      const brandDropDown = this.$refs.phoneBrand;
+
+      if (type === "") {
+        brandDropDown.disabled = true;
+        brandDropDown.selectedIndex = 0;
+        return false;
+      }
+
+      brandDropDown.disabled = false;
+      
+    },
+
     getPhoneModels(brand) {
       const modelDropDown = this.$refs.phoneModel;
 
@@ -3549,6 +3571,58 @@ export default {
         console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
       });
     },
+    clearAllCanvas() {
+      // Clear all objects from the canvas
+      const objects = this.canvas.getObjects();
+
+      objects.forEach((obj, index) => {
+        if (obj && obj.type === "image" && obj.name === "canvas image") {
+          this.canvas.remove(obj);
+          // this.canvas.setActiveObject(obj);
+          // this.canvas.bringToFront(obj);
+          // this.canvas.moveTo(obj,10);
+          // obj.clipPath = null;
+          console.log(obj.name);
+        }
+
+        if (obj && obj.type === "text" && obj.name === "text") {
+          this.canvas.remove(obj);
+          // this.canvas.setActiveObject(obj);
+          // this.canvas.bringToFront(obj);
+          // this.canvas.moveTo(obj,10);
+          // obj.clipPath = null;
+          console.log(obj.name);
+        }
+
+        if (obj && obj.type === "circle" && obj.name === "pattern") {
+          this.canvas.remove(obj);
+        }
+        if (obj && obj.type === "rect" && obj.name === "pattern") {
+          this.canvas.remove(obj);
+        }
+
+      });
+
+      // objects.forEach((obj, index) => {
+      //   if (obj && obj.type === "image" && obj.name === "back") {
+      //     this.canvas.remove(obj);
+      //     this.canvas.renderAll();
+      //   }
+      // });
+
+      // objects.forEach((obj, index) => {
+      //   if (obj && obj.type === "image" && obj.name === "transparent") {
+      //     this.canvas.remove(obj);
+      //     this.canvas.renderAll();
+      //   }
+      // });
+
+      objects.forEach((obj, index) => {
+        this.canvas.renderAll();
+        console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
+      });
+    },
+
   },
   created() {
     this.fetchBrandsData();
@@ -3683,6 +3757,7 @@ export default {
       top: -20,
       left: 0,
       name: "pattern",
+      opacity:0,
       // globalCompositeOperation: "destination-out",
       selectable: false,
       fill: "rgba(5, 255, 255, 0.01)",
@@ -3701,6 +3776,10 @@ export default {
     this.canvas.moveTo(clipRect, 1);
 
     this.canvas.renderAll();
+    clipRect.animate("opacity", 1, {
+            duration: 1000,
+            onChange: this.canvas.renderAll.bind(this.canvas),
+          });
 
     this.canvas.controlsAboveOverlay = true;
 
