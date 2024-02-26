@@ -3182,7 +3182,7 @@ export default {
 
       modelDropDown.disabled = false;
       this.fetchModelsData(brand);
-      this.selectedModelel='';
+      this.selectedModel='';
       this.selectedCaseType='';
     },
     getPhoneCase(model) {
