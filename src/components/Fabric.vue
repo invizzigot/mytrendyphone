@@ -534,10 +534,10 @@
                           v-model="selectedType"
                           class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-xl focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
                         >
-                          <option selected value="">Select Device</option>
-                          <option >Phone Device</option>
-                          <option >Tablet Device</option>
-                          <option >Gadget Device</option>
+                          <option value="">Select Device</option>
+                          <option value="1" >Phone Device</option>
+                          <option value="2" >Tablet Device</option>
+                          <option value="4">Gadget Device</option>
                         </select>
                       </div>
                     </div>
@@ -557,7 +557,7 @@
                           disabled
                           class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-xl focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
                         >
-                          <option selected value="">Select Brand</option>
+                          <option disabled value="">Select Brand</option>
                           <option
                             v-for="brand in brands"
                             :key="brand.id"
@@ -613,7 +613,7 @@
                           id="phoneCase"
                           name="phoneCase"
                         >
-                          <option selected value="">Select Case</option>
+                          <option value="">Select Case</option>
                           <option
                             v-for="(caseType, index) in casesTypes"
                             :key="caseType.id"
@@ -1039,17 +1039,25 @@
                           class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-md focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
                         >
                           <option selected value="">Select font</option>
+                          <option selected value="Roboto">Roboto</option>
+                        
+
+                          <option selected value="Montserrat">
+                            Montserrat
+                          </option>
+                          <option selected value="Nova Mono">Nova Mono</option>
+
+                          <option selected value="Dancing Script">
+                            Dancing Script
+                          </option>
+                          <option selected value="Caveat">
+                            Caveat
+                          </option>
                           <option selected value="Pacifico">Pacifico</option>
-                          <option selected value="Calligraffitti">
-                            Calligraffitti
-                          </option>
-                          <option selected value="Pixelify Sans">
-                            Pixelify Sans
-                          </option>
-                          <option selected value="Protest Riot">
-                            Protest Riot
-                          </option>
-                          <option selected value="Foldit">Foldit</option>
+                          <option selected value="Plaster">Plaster</option>
+                          <option selected value="Lobster">Lobster</option>
+                          <option selected value="Bangers">Bangers</option>
+                          <option selected value="Indie Flower">Indie Flower</option>
                         </select>
                       </div>
 
@@ -1968,10 +1976,17 @@ export default {
 
       console.log(this.casesTypes[this.selectedCaseType].title);
       if (this.casesTypes[this.selectedCaseType].title === "Flip Case") {
-        this.offsetCollage = this.offsetCollage + 50;
+        this.offsetCollage = this.offsetCollage - 50;
       } else {
         this.offsetCollage = 0;
       }
+      // if (this.selectedType === 2) {
+      //   console.table(this.selectedType)
+      //   this.offsetCollage = this.offsetCollage - 80;
+      //   console.log(`offset: ${this.offsetCollage} `);
+      // } else {
+      //   this.offsetCollage = 0;
+      // }
       this.exportMaskClipImage = this.casesTypes[caseType].image_draw_mask;
       this.exportPlaceholderImage = this.casesTypes[caseType].image_placeholder;
       console.log(this.casesTypes[caseType].image_placeholder);
@@ -2321,7 +2336,7 @@ export default {
       var rectangle = new fabric.Rect({
         top: 23,
         left: 115 + this.offsetCollage,
-        width: 215,
+        width: 240,
         height: 215,
         selectable: true,
         name: "pattern",
@@ -2355,7 +2370,7 @@ export default {
       var rectangle2 = new fabric.Rect({
         top: 240,
         left: 115 + this.offsetCollage,
-        width: 215,
+        width: 240,
         height: 240,
         selectable: true,
         name: "pattern",
@@ -3092,10 +3107,37 @@ export default {
       canvas.renderAll();
     },
 
-    async fetchBrandsData() {
+        getDeviceType(type) {
+      console.log(this.selectedType);
+      const brandDropDown = this.$refs.phoneBrand;
+      
+
+      this.fetchBrandsData();
+    this.fetchModelsData();
+    this.fetchCaseTypeData();
+
+      if (type === "") {
+        brandDropDown.disabled = true;
+        brandDropDown.selectedIndex = 0;
+        // selectCaseDropDown.disabled = true;
+        // selectCaseDropDown= selectCaseDropDown.selectedValue;
+        return false;
+      }
+
+      brandDropDown.disabled = false;
+      this.selectedBrand ='';
+      this.selectedModel='';
+      this.selectedCaseType='';
+      
+     
+      
+    },
+
+    async fetchBrandsData(typed) {
+     
       try {
         const response = await fetch(
-          "https://covers.mtpdev3.com/api/1.0/brands?language_code=eu&device_id=1"
+          `https://covers.mtpdev3.com/api/1.0/brands?language_code=eu&device_id=${this.selectedType}`
         );
         const data = await response.json();
         this.brands = data; // Update the brands data in the component
@@ -3106,7 +3148,7 @@ export default {
 
     async fetchModelsData(brand) {
       try {
-        const modelType = `https://covers.mtpdev3.com/api/1.0/models?language_code=eu&device_id=1&brand_id=${brand}`;
+        const modelType = `https://covers.mtpdev3.com/api/1.0/models?language_code=eu&device_id=${this.selectedType}&brand_id=${brand}`;
 
         const response = await fetch(modelType);
         const data = await response.json();
@@ -3127,18 +3169,7 @@ export default {
       }
     },
 
-    getDeviceType(type) {
-      const brandDropDown = this.$refs.phoneBrand;
 
-      if (type === "") {
-        brandDropDown.disabled = true;
-        brandDropDown.selectedIndex = 0;
-        return false;
-      }
-
-      brandDropDown.disabled = false;
-      
-    },
 
     getPhoneModels(brand) {
       const modelDropDown = this.$refs.phoneModel;
@@ -3151,6 +3182,8 @@ export default {
 
       modelDropDown.disabled = false;
       this.fetchModelsData(brand);
+      this.selectedModelel='';
+      this.selectedCaseType='';
     },
     getPhoneCase(model) {
       const caseDropDown = this.$refs.phoneCase;
@@ -3162,6 +3195,7 @@ export default {
       }
 
       caseDropDown.disabled = false;
+      this.selectedCaseType='';
       this.fetchCaseTypeData(model);
     },
 
@@ -3625,9 +3659,7 @@ export default {
 
   },
   created() {
-    this.fetchBrandsData();
-    this.fetchModelsData();
-    this.fetchCaseTypeData();
+   
   },
   mounted() {
     this.canvas = new fabric.Canvas(
