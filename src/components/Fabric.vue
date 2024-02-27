@@ -535,8 +535,8 @@
                           class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-xl focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
                         >
                           <option value="">Select Device</option>
-                          <option value="1" >Phone Device</option>
-                          <option value="2" >Tablet Device</option>
+                          <option value="1">Phone Device</option>
+                          <option value="2">Tablet Device</option>
                           <option value="4">Gadget Device</option>
                         </select>
                       </div>
@@ -692,6 +692,7 @@
                         class="relative w-[50px] h-[50px]"
                       >
                         <div
+                          d
                           v-if="activeIndex === 2"
                           v-motion-pop
                           class="absolute -left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[60px] h-[75px] border-slate-600"
@@ -1040,7 +1041,6 @@
                         >
                           <option selected value="">Select font</option>
                           <option selected value="Roboto">Roboto</option>
-                        
 
                           <option selected value="Montserrat">
                             Montserrat
@@ -1050,14 +1050,14 @@
                           <option selected value="Dancing Script">
                             Dancing Script
                           </option>
-                          <option selected value="Caveat">
-                            Caveat
-                          </option>
+                          <option selected value="Caveat">Caveat</option>
                           <option selected value="Pacifico">Pacifico</option>
                           <option selected value="Plaster">Plaster</option>
                           <option selected value="Lobster">Lobster</option>
                           <option selected value="Bangers">Bangers</option>
-                          <option selected value="Indie Flower">Indie Flower</option>
+                          <option selected value="Indie Flower">
+                            Indie Flower
+                          </option>
                         </select>
                       </div>
 
@@ -1489,7 +1489,9 @@
             <canvas class="relative w-[320px] h-[520px]" ref="canvasRef">
             </canvas>
 
-            <div v-motion-slide-left :delay="600"
+            <div
+              v-motion-slide-left
+              :delay="600"
               class="absolute left-[380px] top-[40px] gap-3 flex flex-col m-3"
             >
               <button @click="clearCanvas">
@@ -1574,7 +1576,7 @@
                   />
                 </svg>
               </button>
-              <button @click="exportToPNG">
+              <button @click="exportPNG">
                 <svg
                   viewBox="0 0 32 32"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1604,14 +1606,13 @@
       /> -->
             </div>
             <div class="absolute top-[40px] left-[15px] flex flex-col gap-3">
-              <div 
+              <div
                 class="relative w-[35px] h-[35px]"
                 v-for="(image, index) in uploadedImages"
                 :key="image.id"
               >
                 <!-- <span>{{ image.id }}</span> -->
                 <img
-                  
                   class="border-[2px] w-full h-full m-1 rounded-md border-gray-700/80"
                   :src="image.url"
                   :key="image.id"
@@ -1665,7 +1666,7 @@ export default {
 
       inputText: "",
       textFamily: "",
-      selectedType:"",
+      selectedType: "",
       selectedBrand: "",
       selectedModel: "",
       selectedCaseType: "",
@@ -1675,7 +1676,7 @@ export default {
       canvas: null,
       uploadedImages: [],
       imageIndex: 1,
-      offsetCollage: 55,
+      offsetCollage: 75,
     };
   },
 
@@ -1973,13 +1974,20 @@ export default {
     addPhoneToCanvas(caseType) {
       this.clearAllCanvas();
       this.activeIndex = 0;
-
+      console.table(this.selectedType);
       console.log(this.casesTypes[this.selectedCaseType].title);
       if (this.casesTypes[this.selectedCaseType].title === "Flip Case") {
-        this.offsetCollage = this.offsetCollage - 50;
+        this.offsetCollage = this.offsetCollage + 50;
       } else {
         this.offsetCollage = 0;
       }
+      // if (this.selectedType === '2') {
+      //   console.log(this.selectedType);
+      //   this.offsetCollage =  0;
+      // } else {
+      //   this.offsetCollage = 0;
+      // }
+
       // if (this.selectedType === 2) {
       //   console.table(this.selectedType)
       //   this.offsetCollage = this.offsetCollage - 80;
@@ -2038,21 +2046,28 @@ export default {
       const back = fabric.Image.fromURL(
         this.casesTypes[caseType].image_placeholder,
         (background) => {
-          // the scaleToHeight property is use to set the image height
-          console.log(background.height);
-          console.log(background.width);
-          background.scaleToHeight(320);
+                 // the scaleToHeight property is use to set the image height
+                 background.scaleToHeight(320);
           // scaleToWidth is use to set the image width
           background.scaleToWidth(320);
-          background.name = "back";
-          background.selectable = false;
+          background.left;
+          background.top;
           background.opacity = 0;
-          // background.globalCompositeOperation = "source-over";
           background.evented = false;
+          background.selectable = false;
+          background.evented = false;
+          background.name = "background";
+          // img.opacity = 0.5;
+          background.objectCaching = false;
+
+          background.targetFindTolerance = 5;
+
+          background.perPixelTargetFind = true;
+          // img.globalCompositeOperation = "destination-out";
           this.canvas.add(background);
+
           background.center();
           this.canvas.moveTo(background, 0);
-
           this.canvas.renderAll();
           background.animate("opacity", 1, {
             duration: 500,
@@ -2071,7 +2086,7 @@ export default {
           img.scaleToWidth(320);
           img.left;
           img.top;
-          img.opacity= 0;
+          img.opacity = 0;
           img.evented = false;
           img.selectable = false;
           img.evented = false;
@@ -2335,8 +2350,8 @@ export default {
 
       var rectangle = new fabric.Rect({
         top: 23,
-        left: 115 + this.offsetCollage,
-        width: 240,
+        left: 90 + this.offsetCollage,
+        width: 270,
         height: 215,
         selectable: true,
         name: "pattern",
@@ -2369,13 +2384,13 @@ export default {
 
       var rectangle2 = new fabric.Rect({
         top: 240,
-        left: 115 + this.offsetCollage,
-        width: 240,
+        left: 90 + this.offsetCollage,
+        width: 270,
         height: 240,
         selectable: true,
         name: "pattern",
         hasControls: true,
-        opacity:0,
+        opacity: 0,
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
@@ -2431,13 +2446,13 @@ export default {
       this.canvas.moveTo(rectangle, 2);
       this.canvas.moveTo(rectangle2, 3);
       rectangle.animate("opacity", 1, {
-            duration: 500,
-            onChange: this.canvas.renderAll.bind(this.canvas),
-          });
-          rectangle2.animate("opacity", 1, {
-            duration: 500,
-            onChange: this.canvas.renderAll.bind(this.canvas),
-          });
+        duration: 500,
+        onChange: this.canvas.renderAll.bind(this.canvas),
+      });
+      rectangle2.animate("opacity", 1, {
+        duration: 500,
+        onChange: this.canvas.renderAll.bind(this.canvas),
+      });
       // this.canvas.renderAll();
     },
     addCollage1(key) {
@@ -2468,8 +2483,8 @@ export default {
 
       var rectangle0 = new fabric.Rect({
         top: 30,
-        left: 115 + this.offsetCollage,
-        width: 215,
+        left: 90 + this.offsetCollage,
+        width: 270,
         height: 435,
 
         name: "pattern",
@@ -2559,13 +2574,13 @@ export default {
 
       var rectangle = new fabric.Rect({
         top: 23,
-        left: 115 + this.offsetCollage,
-        width: 215,
+        left: 90 + this.offsetCollage,
+        width: 270,
         height: 150,
         selectable: true,
         name: "pattern",
         hasControls: true,
-        opacity:0,
+        opacity: 0,
         hoverCursor: "pointer",
         hasBorders: false,
         cornerStyle: "round",
@@ -2595,8 +2610,8 @@ export default {
 
       var rectangle2 = new fabric.Rect({
         top: 327,
-        left: 115 + this.offsetCollage,
-        width: 215,
+        left: 90 + this.offsetCollage,
+        width: 270,
         height: 150,
         selectable: true,
         name: "pattern",
@@ -2631,13 +2646,13 @@ export default {
       });
       var rectangle3 = new fabric.Rect({
         top: 175,
-        left: 115 + this.offsetCollage,
-        width: 215,
+        left: 90 + this.offsetCollage,
+        width: 270,
         height: 150,
         selectable: true,
         name: "pattern",
         hasControls: true,
-        opacity:0,
+        opacity: 0,
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
@@ -2698,17 +2713,17 @@ export default {
       this.canvas.moveTo(rectangle2, 3);
       this.canvas.moveTo(rectangle3, 4);
       rectangle.animate("opacity", 1, {
-            duration: 300,
-            onChange: this.canvas.renderAll.bind(this.canvas),
-          });
-          rectangle2.animate("opacity", 1, {
-            duration: 600,
-            onChange: this.canvas.renderAll.bind(this.canvas),
-          });
-          rectangle3.animate("opacity", 1, {
-            duration: 900,
-            onChange: this.canvas.renderAll.bind(this.canvas),
-          });
+        duration: 300,
+        onChange: this.canvas.renderAll.bind(this.canvas),
+      });
+      rectangle2.animate("opacity", 1, {
+        duration: 600,
+        onChange: this.canvas.renderAll.bind(this.canvas),
+      });
+      rectangle3.animate("opacity", 1, {
+        duration: 900,
+        onChange: this.canvas.renderAll.bind(this.canvas),
+      });
       // this.canvas.renderAll();
     },
     addCollage4(key) {
@@ -2739,13 +2754,13 @@ export default {
 
       var rectangle = new fabric.Rect({
         top: 20,
-        left: 115 + this.offsetCollage,
-        width: 215,
+        left: 90 + this.offsetCollage,
+        width: 270,
         height: 110,
         selectable: true,
         name: "pattern",
         hasControls: true,
-        opacity:0,
+        opacity: 0,
         hoverCursor: "pointer",
         hasBorders: false,
         cornerStyle: "round",
@@ -2773,13 +2788,13 @@ export default {
 
       var rectangle2 = new fabric.Rect({
         top: 132,
-        left: 115 + this.offsetCollage,
-        width: 215,
+        left: 90 + this.offsetCollage,
+        width: 270,
         height: 110,
         selectable: true,
         name: "pattern",
         hasControls: true,
-        opacity:0,
+        opacity: 0,
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
@@ -2809,13 +2824,13 @@ export default {
       });
       var rectangle3 = new fabric.Rect({
         top: 243,
-        left: 115 + this.offsetCollage,
-        width: 215,
+        left: 90 + this.offsetCollage,
+        width: 270,
         height: 110,
         selectable: true,
         name: "pattern",
         hasControls: true,
-        opacity:0,
+        opacity: 0,
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
@@ -2842,13 +2857,13 @@ export default {
       });
       var rectangle4 = new fabric.Rect({
         top: 356,
-        left: 115 + this.offsetCollage,
-        width: 215,
+        left: 90 + this.offsetCollage,
+        width: 270,
         height: 110,
         selectable: true,
         name: "pattern",
         hasControls: true,
-        opacity:0,
+        opacity: 0,
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
@@ -2919,21 +2934,21 @@ export default {
       this.canvas.moveTo(rectangle3, 4);
       this.canvas.moveTo(rectangle4, 5);
       rectangle.animate("opacity", 1, {
-            duration: 200,
-            onChange: this.canvas.renderAll.bind(this.canvas),
-          });
-          rectangle2.animate("opacity", 1, {
-            duration: 400,
-            onChange: this.canvas.renderAll.bind(this.canvas),
-          });
-          rectangle3.animate("opacity", 1, {
-            duration: 600,
-            onChange: this.canvas.renderAll.bind(this.canvas),
-          });
-          rectangle4.animate("opacity", 1, {
-            duration: 600,
-            onChange: this.canvas.renderAll.bind(this.canvas),
-          });
+        duration: 200,
+        onChange: this.canvas.renderAll.bind(this.canvas),
+      });
+      rectangle2.animate("opacity", 1, {
+        duration: 400,
+        onChange: this.canvas.renderAll.bind(this.canvas),
+      });
+      rectangle3.animate("opacity", 1, {
+        duration: 600,
+        onChange: this.canvas.renderAll.bind(this.canvas),
+      });
+      rectangle4.animate("opacity", 1, {
+        duration: 600,
+        onChange: this.canvas.renderAll.bind(this.canvas),
+      });
       // this.canvas.renderAll();
     },
     addCollage5(key) {
@@ -3008,9 +3023,9 @@ export default {
 
       this.canvas.add(rectangle);
       rectangle.animate("opacity", 1, {
-            duration: 500,
-            onChange: this.canvas.renderAll.bind(this.canvas),
-          });
+        duration: 500,
+        onChange: this.canvas.renderAll.bind(this.canvas),
+      });
       this.canvas.moveTo(rectangle, 2);
 
       // this.canvas.renderAll();
@@ -3092,9 +3107,9 @@ export default {
 
       this.canvas.moveTo(circle, 2);
       circle.animate("opacity", 1, {
-            duration: 500,
-            onChange: this.canvas.renderAll.bind(this.canvas),
-          });
+        duration: 500,
+        onChange: this.canvas.renderAll.bind(this.canvas),
+      });
       // this.canvas.renderAll();
     },
 
@@ -3107,14 +3122,13 @@ export default {
       canvas.renderAll();
     },
 
-        getDeviceType(type) {
+    getDeviceType(type) {
       console.log(this.selectedType);
       const brandDropDown = this.$refs.phoneBrand;
-      
 
       this.fetchBrandsData();
-    this.fetchModelsData();
-    this.fetchCaseTypeData();
+      this.fetchModelsData();
+      this.fetchCaseTypeData();
 
       if (type === "") {
         brandDropDown.disabled = true;
@@ -3125,16 +3139,12 @@ export default {
       }
 
       brandDropDown.disabled = false;
-      this.selectedBrand ='';
-      this.selectedModel='';
-      this.selectedCaseType='';
-      
-     
-      
+      this.selectedBrand = "";
+      this.selectedModel = "";
+      this.selectedCaseType = "";
     },
 
     async fetchBrandsData(typed) {
-     
       try {
         const response = await fetch(
           `https://covers.mtpdev3.com/api/1.0/brands?language_code=eu&device_id=${this.selectedType}`
@@ -3169,8 +3179,6 @@ export default {
       }
     },
 
-
-
     getPhoneModels(brand) {
       const modelDropDown = this.$refs.phoneModel;
 
@@ -3182,8 +3190,8 @@ export default {
 
       modelDropDown.disabled = false;
       this.fetchModelsData(brand);
-      this.selectedModel='';
-      this.selectedCaseType='';
+      this.selectedModel = "";
+      this.selectedCaseType = "";
     },
     getPhoneCase(model) {
       const caseDropDown = this.$refs.phoneCase;
@@ -3195,7 +3203,7 @@ export default {
       }
 
       caseDropDown.disabled = false;
-      this.selectedCaseType='';
+      this.selectedCaseType = "";
       this.fetchCaseTypeData(model);
     },
 
@@ -3402,48 +3410,104 @@ export default {
       this.canvas.setActiveObject(this.canvas.item(index));
       // this.canvas.renderAll();
     },
-
-    exportToPNG() {
+    exportPNG() {
+      this.exportPreviewPNG();
+      setTimeout(() => {
+        this.exportPrintPNG();
+      }, 1000);
+      
+    },
+    exportPreviewPNG() {
       const objects = this.canvas.getObjects();
 
-      objects.forEach((obj, index) => {
-        if (obj && obj.type === "rect" && obj.name === "pattern") {
-          obj.strokeWidth = 0;
-          this.canvas.renderAll();
-        }
+            objects.forEach((obj, index) => {
+              if (obj && obj.type === "rect" && obj.name === "pattern") {
+                obj.strokeWidth = 0;
+                this.canvas.renderAll();
+              }
 
-        if (obj && obj.type === "circle" && obj.name === "pattern") {
-          obj.strokeWidth = 0;
-          this.canvas.renderAll();
-        }
+              if (obj && obj.type === "circle" && obj.name === "pattern") {
+                obj.strokeWidth = 0;
+                
+                // obj.fill= 'transparent';
+                // obj.globalCompositeOperation = null;
+                this.canvas.renderAll();
+              }
 
-        if (obj && obj.type === "image" && obj.name === "transparent") {
-          // obj.globalCompositeOperation = "destination-out";
-          console.log(obj.name);
-        }
+              if (obj && obj.type === "image" && obj.name === "transparent") {
+                // obj.globalCompositeOperation = "destination-out";
+                // obj.visible= false;
+                console.log(obj.name);
+                this.canvas.renderAll();
+              }
 
-        if (obj && obj.type === "image" && obj.name === "back") {
-          // obj.globalCompositeOperation = "source-atop";
-          // this.canvas.remove(obj);
+              if (obj && obj.type === "image" && obj.name === "background") {
+                // obj.globalCompositeOperation = "source-atop";
+                // obj.visible= false;
 
-          this.canvas.renderAll();
-        }
+                this.canvas.renderAll();
+              }
 
-        if (obj && obj.type === "image" && obj.name === "text") {
-          obj.globalCompositeOperation = "source-atop";
-          console.log(obj.name);
-        }
+              if (obj && obj.type === "image" && obj.name === "text") {
+                obj.globalCompositeOperation = "source-atop";
+                console.log(obj.name);
+              }
 
-        if (obj && obj.type === "image" && obj.name === "canvas image") {
-          obj.globalCompositeOperation = "source-atop";
-          console.log(obj.name);
-        }
-      });
+              if (obj && obj.type === "image" && obj.name === "canvas image") {
+                obj.globalCompositeOperation = "source-atop";
+                obj.visible= true;
+
+      this.canvas.renderAll();
+                console.log(obj.name);
+              }
+
+            });
       // this.cropMask();
       setTimeout(() => {
-        this.createLink();
+        this.createPreviewLink();
       }, 1000);
     },
+
+    exportPrintPNG() {
+      const objects = this.canvas.getObjects();
+      this.canvas.getObjects().forEach((obj) => {
+        if (obj.name === "pattern" ) {
+          obj.globalCompositeOperation = "source-atop";
+          obj.width = 240;
+          obj.height=215;
+        } else {
+          
+        }
+      });
+      this.canvas.getObjects().forEach((obj) => {
+        if (obj.name === "transparent" || obj.name === "background") {
+          // Show the object named 'canvas image'
+          obj.visible = false;
+        } else {
+          // Hide all other objects
+          obj.visible = true;
+        }
+      });
+      this.canvas.getObjects().forEach((obj) => {
+        if (obj.name === "canvas image") {
+          // Show the object named 'canvas image'
+          obj.globalCompositeOperation = null;
+        } else {
+          // Hide all other objects
+          
+        }
+      });
+
+      // Update the canvas to reflect the changes
+      this.canvas.renderAll();
+
+  
+      setTimeout(() => {
+        this.createPrintLink();
+      }, 1000);
+    },
+
+   
 
     cropMask(caseType) {
       console.log(this.exportMaskClipImage);
@@ -3472,7 +3536,7 @@ export default {
       );
     },
 
-    createLink() {
+    createPreviewLink() {
       // Export the canvas to a PNG image
 
       const dataURL = this.canvas.toDataURL({
@@ -3483,7 +3547,22 @@ export default {
       // Create a link element to download the PNG image
       const link = document.createElement("a");
       link.href = dataURL;
-      link.download = "canvas_image.png";
+      link.download = "preview_image.png";
+      // Trigger the download
+      link.click();
+    },
+    createPrintLink() {
+      // Export the canvas to a PNG image
+
+      const dataURL = this.canvas.toDataURL({
+        format: "png",
+        quality: 3,
+      });
+
+      // Create a link element to download the PNG image
+      const link = document.createElement("a");
+      link.href = dataURL;
+      link.download = "print_image.png";
       // Trigger the download
       link.click();
     },
@@ -3634,7 +3713,6 @@ export default {
         if (obj && obj.type === "rect" && obj.name === "pattern") {
           this.canvas.remove(obj);
         }
-
       });
 
       // objects.forEach((obj, index) => {
@@ -3656,11 +3734,8 @@ export default {
         console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
       });
     },
-
   },
-  created() {
-   
-  },
+  created() {},
   mounted() {
     this.canvas = new fabric.Canvas(
       this.$refs.canvasRef,
@@ -3789,7 +3864,7 @@ export default {
       top: -20,
       left: 0,
       name: "pattern",
-      opacity:0,
+      opacity: 0,
       // globalCompositeOperation: "destination-out",
       selectable: false,
       fill: "rgba(5, 255, 255, 0.01)",
@@ -3809,9 +3884,9 @@ export default {
 
     this.canvas.renderAll();
     clipRect.animate("opacity", 1, {
-            duration: 1000,
-            onChange: this.canvas.renderAll.bind(this.canvas),
-          });
+      duration: 1000,
+      onChange: this.canvas.renderAll.bind(this.canvas),
+    });
 
     this.canvas.controlsAboveOverlay = true;
 
