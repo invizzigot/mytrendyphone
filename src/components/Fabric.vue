@@ -2008,7 +2008,7 @@ export default {
           this.canvas.remove(obj);
         }
 
-        if (obj && obj.type === "image" && obj.name === "back") {
+        if (obj && obj.type === "image" && obj.name === "background") {
           this.canvas.remove(obj);
         }
 
@@ -3473,8 +3473,13 @@ export default {
       this.canvas.getObjects().forEach((obj) => {
         if (obj.name === "pattern" ) {
           obj.globalCompositeOperation = "source-atop";
+          obj.top = 23;
+
           obj.width = 240;
           obj.height=215;
+          obj.stroke= "black";
+        obj.strokeWidth= 2;
+        obj.strokeDashArray = [10, 10];
         } else {
           
         }
@@ -3854,7 +3859,7 @@ export default {
       activeObject.selectable = true;
       // this.canvas.renderAll();
     }
-
+    // Empty shape device 
     const clipRect = new fabric.Rect({
       width: 222,
       height: 480,
@@ -3867,7 +3872,7 @@ export default {
       opacity: 0,
       // globalCompositeOperation: "destination-out",
       selectable: false,
-      fill: "rgba(5, 255, 255, 0.01)",
+      fill: "rgba(5, 255, 255, 0.1)",
       strokeWidth: 2,
       cornerStyle: "round",
       strokeDashArray: [8, 16],
