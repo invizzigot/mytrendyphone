@@ -1793,7 +1793,8 @@ export default {
           absolutePositioned: true,
           fill: "",
           perPixelTargetFind: false,
-          globalCompositeOperation: "destination-out",
+          /// global why
+          // globalCompositeOperation: "destination-out",
           hasBorders: true,
           borderColor: "#3ff4ff",
           clipPath: selectedObject.clipPath,
@@ -2046,8 +2047,8 @@ export default {
       const back = fabric.Image.fromURL(
         this.casesTypes[caseType].image_placeholder,
         (background) => {
-                 // the scaleToHeight property is use to set the image height
-                 background.scaleToHeight(320);
+          // the scaleToHeight property is use to set the image height
+          background.scaleToHeight(320);
           // scaleToWidth is use to set the image width
           background.scaleToWidth(320);
           background.left;
@@ -2493,6 +2494,7 @@ export default {
         hasBorders: false,
         hoverCursor: "pointer",
         fill: "rgba(5, 5, 5, 0.01)",
+
         hoverColor: "blue",
         visible: true,
         cornerStyle: "round",
@@ -3415,53 +3417,57 @@ export default {
       setTimeout(() => {
         this.exportPrintPNG();
       }, 1000);
-      
+      // setTimeout(() => {
+      //   this.clearAllCanvas();
+      // }, 2000);
+      // setTimeout(() => {
+      //   this.addEmptyPhone();
+      // }, 2000);
     },
     exportPreviewPNG() {
       const objects = this.canvas.getObjects();
 
-            objects.forEach((obj, index) => {
-              if (obj && obj.type === "rect" && obj.name === "pattern") {
-                obj.strokeWidth = 0;
-                this.canvas.renderAll();
-              }
+      objects.forEach((obj, index) => {
+        if (obj && obj.type === "rect" && obj.name === "pattern") {
+          obj.strokeWidth = 0;
+          this.canvas.renderAll();
+        }
 
-              if (obj && obj.type === "circle" && obj.name === "pattern") {
-                obj.strokeWidth = 0;
-                
-                // obj.fill= 'transparent';
-                // obj.globalCompositeOperation = null;
-                this.canvas.renderAll();
-              }
+        if (obj && obj.type === "circle" && obj.name === "pattern") {
+          // obj.strokeWidth = 0;
 
-              if (obj && obj.type === "image" && obj.name === "transparent") {
-                // obj.globalCompositeOperation = "destination-out";
-                // obj.visible= false;
-                console.log(obj.name);
-                this.canvas.renderAll();
-              }
+          // obj.fill= 'transparent';
+          // obj.globalCompositeOperation = null;
+          this.canvas.renderAll();
+        }
 
-              if (obj && obj.type === "image" && obj.name === "background") {
-                // obj.globalCompositeOperation = "source-atop";
-                // obj.visible= false;
+        if (obj && obj.type === "image" && obj.name === "transparent") {
+          // obj.globalCompositeOperation = "destination-out";
+          // obj.visible= false;
+          console.log(obj.name);
+          this.canvas.renderAll();
+        }
 
-                this.canvas.renderAll();
-              }
+        if (obj && obj.type === "image" && obj.name === "background") {
+          // obj.globalCompositeOperation = "source-atop";
+          // obj.visible= false;
 
-              if (obj && obj.type === "image" && obj.name === "text") {
-                obj.globalCompositeOperation = "source-atop";
-                console.log(obj.name);
-              }
+          this.canvas.renderAll();
+        }
 
-              if (obj && obj.type === "image" && obj.name === "canvas image") {
-                obj.globalCompositeOperation = "source-atop";
-                obj.visible= true;
+        if (obj && obj.type === "image" && obj.name === "text") {
+          obj.globalCompositeOperation = "source-atop";
+          console.log(obj.name);
+        }
 
-      this.canvas.renderAll();
-                console.log(obj.name);
-              }
+        if (obj && obj.type === "image" && obj.name === "canvas image") {
+          obj.globalCompositeOperation = "source-atop";
+          obj.visible = true;
 
-            });
+          this.canvas.renderAll();
+          console.log(obj.name);
+        }
+      });
       // this.cropMask();
       setTimeout(() => {
         this.createPreviewLink();
@@ -3471,48 +3477,87 @@ export default {
     exportPrintPNG() {
       const objects = this.canvas.getObjects();
       this.canvas.getObjects().forEach((obj) => {
-        if (obj.name === "pattern" ) {
+        if (obj.name === "pattern") {
           obj.globalCompositeOperation = "source-atop";
-          obj.top = 23;
-
-          obj.width = 240;
-          obj.height=215;
-          obj.stroke= "black";
-        obj.strokeWidth= 2;
-        obj.strokeDashArray = [10, 10];
-        } else {
-          
+          // obj.fill = 'transparent';
+          // obj.left = 120;
+          // obj.width = 210;
+          // obj.center();
+          obj.fill = "rgba(5, 5, 5, 0.9)";
+          this.canvas.renderAll();
         }
       });
+
       this.canvas.getObjects().forEach((obj) => {
         if (obj.name === "transparent" || obj.name === "background") {
           // Show the object named 'canvas image'
+          // obj.globalCompositeOperation = "destination-in";
           obj.visible = false;
+          this.canvas.renderAll();
         } else {
-          // Hide all other objects
-          obj.visible = true;
+          return;
         }
       });
       this.canvas.getObjects().forEach((obj) => {
         if (obj.name === "canvas image") {
-          // Show the object named 'canvas image'
+          const clipRect = new fabric.Rect({
+           
+            originX: "left",
+            originY: "top",
+            width: 210,
+            height: 430,
+
+            rx: 20,
+            ry: 20,
+            top: 30,
+            left: 120,
+            fill: 'rgba(0, 0, 0, 1)',
+            backgroundColor: 'rgba(0, 0, 0, 0)',
+            name: "pattern",
+            clipName: "pattern",
+            opacity: 1,
+            globalCompositeOperation: 'destination-in',
+            selectable: false,
+            evented: false,
+            // fill: "rgba(255,255,255,1)",
+            // fillRule: 'nonzero',
+            strokeWidth: 2,
+            cornerStyle: "round",
+            strokeDashArray: [8, 16],
+            stroke: "rgba(5, 5, 5, 1)",
+            lockMovementX: true, // Object cannot be moved horizontally
+            lockMovementY: true, // Object cannot be moved vertically
+          });
+          clipRect.center();
+          this.canvas.add(clipRect);
+          this.canvas.backgroundImage = null;
+          this.canvas.renderAll();
+
+          this.canvas.clipPath= clipRect;
           obj.globalCompositeOperation = null;
+          this.canvas.renderAll();
         } else {
-          // Hide all other objects
-          
+          return;
+        }
+      });
+
+      this.canvas.getObjects().forEach((obj) => {
+        if (obj.name === "text") {
+          // Show the object named 'canvas image'
+          obj.globalCompositeOperation = 'destination-out';
+          this.canvas.renderAll();
+        } else {
+          return;
         }
       });
 
       // Update the canvas to reflect the changes
       this.canvas.renderAll();
 
-  
       setTimeout(() => {
         this.createPrintLink();
       }, 1000);
     },
-
-   
 
     cropMask(caseType) {
       console.log(this.exportMaskClipImage);
@@ -3739,6 +3784,42 @@ export default {
         console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
       });
     },
+    addEmptyPhone() {
+      setTimeout(() => {
+        // Empty shape device
+        const clipRect = new fabric.Rect({
+          width: 222,
+          height: 480,
+
+          rx: 20,
+          ry: 20,
+          top: -20,
+          left: 0,
+          name: "pattern",
+          opacity: 0,
+          // globalCompositeOperation: "destination-out",
+          selectable: false,
+          fill: "rgba(5, 255, 255, 0.01)",
+          strokeWidth: 2,
+          cornerStyle: "round",
+          strokeDashArray: [8, 16],
+          stroke: "rgba(5, 5, 5, 1)",
+          lockMovementX: true, // Object cannot be moved horizontally
+          lockMovementY: true, // Object cannot be moved vertically
+        });
+
+        this.canvas.add(clipRect);
+        clipRect.visible = true;
+        clipRect.center();
+        // this.canvas.clipPath = clipRect;
+        this.canvas.moveTo(clipRect, 1);
+
+        clipRect.animate("opacity", 1, {
+          duration: 1000,
+          onChange: this.canvas.renderAll.bind(this.canvas),
+        });
+      }, 1000);
+    },
   },
   created() {},
   mounted() {
@@ -3859,20 +3940,21 @@ export default {
       activeObject.selectable = true;
       // this.canvas.renderAll();
     }
-    // Empty shape device 
+    // Empty shape device
     const clipRect = new fabric.Rect({
-      width: 222,
-      height: 480,
+      width: 210,
+      height: 430,
 
       rx: 20,
       ry: 20,
-      top: -20,
+      top: 20,
       left: 0,
       name: "pattern",
       opacity: 0,
       // globalCompositeOperation: "destination-out",
       selectable: false,
-      fill: "rgba(5, 255, 255, 0.1)",
+      evented: false,
+      fill: "rgba(5, 255, 255, 0.01)",
       strokeWidth: 2,
       cornerStyle: "round",
       strokeDashArray: [8, 16],
