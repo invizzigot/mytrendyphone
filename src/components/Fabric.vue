@@ -2655,12 +2655,14 @@ export default {
         name: "pattern",
         hasControls: true,
         opacity: 0,
+        hoverCursor: "pointer",
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
-
+        stroke: "black",
+        strokeWidth: 0,
+        strokeDashArray: [10, 10],
         globalCompositeOperation: "source-atop",
-        hoverCursor: "pointer",
         // stroke: "black",
         lockMovementX: true,
         lockMovementY: true,
@@ -3182,6 +3184,7 @@ export default {
     },
 
     getPhoneModels(brand) {
+      console.log(brand);
       const modelDropDown = this.$refs.phoneModel;
 
       if (brand === "") {
@@ -3500,51 +3503,72 @@ export default {
       });
       this.canvas.getObjects().forEach((obj) => {
         if (obj.name === "canvas image") {
-          const clipRect = new fabric.Rect({
-           
-            originX: "left",
-            originY: "top",
-            width: 210,
-            height: 430,
+          console.log("type:" + this.selectedType.typeof);
+          console.log("brand:" + this.selectedBrand);
+          const createClipRect = (width, height, rx, ry, top, left) => {
+            const clipRect = new fabric.Rect({
+              originX: "left",
+              originY: "top",
+              width: width,
+              height: height,
+              rx: rx,
+              ry: ry,
+              top: top,
+              left: left,
+              fill: "rgba(0, 0, 0, 1)",
+              backgroundColor: "rgba(0, 0, 0, 0)",
+              name: "pattern",
+              clipName: "pattern",
+              opacity: 1,
+              globalCompositeOperation: "destination-in",
+              selectable: false,
+              evented: false,
+              strokeWidth: 2,
+              cornerStyle: "round",
+              strokeDashArray: [8, 16],
+              stroke: "rgba(5, 5, 5, 1)",
+              lockMovementX: true,
+              lockMovementY: true,
+            });
+            clipRect.center();
+            this.canvas.add(clipRect);
+            this.canvas.backgroundImage = null;
+            this.canvas.renderAll();
+            this.canvas.clipPath = clipRect;
+            obj.globalCompositeOperation = null;
+            this.canvas.renderAll();
+          };
 
-            rx: 20,
-            ry: 20,
-            top: 30,
-            left: 120,
-            fill: 'rgba(0, 0, 0, 1)',
-            backgroundColor: 'rgba(0, 0, 0, 0)',
-            name: "pattern",
-            clipName: "pattern",
-            opacity: 1,
-            globalCompositeOperation: 'destination-in',
-            selectable: false,
-            evented: false,
-            // fill: "rgba(255,255,255,1)",
-            // fillRule: 'nonzero',
-            strokeWidth: 2,
-            cornerStyle: "round",
-            strokeDashArray: [8, 16],
-            stroke: "rgba(5, 5, 5, 1)",
-            lockMovementX: true, // Object cannot be moved horizontally
-            lockMovementY: true, // Object cannot be moved vertically
-          });
-          clipRect.center();
-          this.canvas.add(clipRect);
-          this.canvas.backgroundImage = null;
-          this.canvas.renderAll();
+          switch (true) {
+            case this.selectedType == 2 && this.selectedBrand == 1:
+              console.log("tablet Samsung");
+              createClipRect(250, 395, 0, 0, 50, 100);
+              break;
+            case this.selectedType == 2 && this.selectedBrand == 2:
+              console.log("tablet Apple");
+              createClipRect(270, 360, 0, 0, 70, 90);
+              break;
+            case this.selectedType == 2 && this.selectedBrand == 3:
+              console.log("tablet Huawei");
+              createClipRect(250, 395, 0, 0, 50, 100);
+              break;
+            case this.selectedType == 1 && this.selectedBrand == 1:
+              console.log("phone");
+              createClipRect(210, 430, 20, 20, 30, 120);
+              break;
 
-          this.canvas.clipPath= clipRect;
-          obj.globalCompositeOperation = null;
-          this.canvas.renderAll();
-        } else {
-          return;
+            case this.casesTypes[this.selectedCaseType].title === "Flip Case":
+              console.log("phone Flip Case");
+              createClipRect(195, 385, 0, 0, 55, 180);
+              break;
+          }
         }
       });
 
       this.canvas.getObjects().forEach((obj) => {
         if (obj.name === "text") {
           // Show the object named 'canvas image'
-          obj.globalCompositeOperation = 'destination-out';
+          obj.globalCompositeOperation = null;
           this.canvas.renderAll();
         } else {
           return;
@@ -3974,6 +3998,34 @@ export default {
       duration: 1000,
       onChange: this.canvas.renderAll.bind(this.canvas),
     });
+
+    // const flipRect = new fabric.Rect({
+
+    //   width: 270,
+    //   height: 360,
+
+    //   top: 70,
+    //   left: 90,
+    //   name: "flip",
+    //   opacity: 0.5,
+    //   // globalCompositeOperation: "destination-out",
+    //   selectable: false,
+    //   evented: false,
+    //   fill: "rgba(5, 255, 5, 1)",
+    //   strokeWidth: 2,
+    //   cornerStyle: "round",
+    //   strokeDashArray: [8, 16],
+    //   stroke: "rgba(5, 5, 5, 1)",
+    //   lockMovementX: true, // Object cannot be moved horizontally
+    //   lockMovementY: true, // Object cannot be moved vertically
+    // });
+    // this.canvas.add(flipRect);
+    // flipRect.visible = true;
+    // // flipRect.center();
+    // // this.canvas.clipPath = clipRect;
+    // this.canvas.moveTo(flipRect, 1);
+
+    // this.canvas.renderAll();
 
     this.canvas.controlsAboveOverlay = true;
 
