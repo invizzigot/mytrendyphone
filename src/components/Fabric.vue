@@ -1494,7 +1494,7 @@
               :delay="600"
               class="absolute left-[380px] top-[40px] gap-3 flex flex-col m-3"
             >
-              <button @click="clearCanvas">
+              <button @click="resetCanvas">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -2946,11 +2946,11 @@ export default {
         onChange: this.canvas.renderAll.bind(this.canvas),
       });
       rectangle3.animate("opacity", 1, {
-        duration: 600,
+        duration: 400,
         onChange: this.canvas.renderAll.bind(this.canvas),
       });
       rectangle4.animate("opacity", 1, {
-        duration: 600,
+        duration: 400,
         onChange: this.canvas.renderAll.bind(this.canvas),
       });
       // this.canvas.renderAll();
@@ -3420,12 +3420,17 @@ export default {
       setTimeout(() => {
         this.exportPrintPNG();
       }, 1000);
-      // setTimeout(() => {
-      //   this.clearAllCanvas();
-      // }, 2000);
-      // setTimeout(() => {
-      //   this.addEmptyPhone();
-      // }, 2000);
+     
+     
+      
+      
+        this.resetAllCanvas();
+    
+    
+   
+      
+
+     
     },
     exportPreviewPNG() {
       const objects = this.canvas.getObjects();
@@ -3481,7 +3486,7 @@ export default {
       const objects = this.canvas.getObjects();
       this.canvas.getObjects().forEach((obj) => {
         if (obj.name === "pattern") {
-          obj.globalCompositeOperation = "source-atop";
+          // obj.globalCompositeOperation = "source-atop";
           // obj.fill = 'transparent';
           // obj.left = 120;
           // obj.width = 210;
@@ -3502,8 +3507,8 @@ export default {
         }
       });
       this.canvas.getObjects().forEach((obj) => {
-        if (obj.name === "canvas image") {
-          console.log("type:" + this.selectedType.typeof);
+        if (obj.name === "canvas image" ) {
+          console.log("type:" + this.selectedType);
           console.log("brand:" + this.selectedBrand);
           const createClipRect = (width, height, rx, ry, top, left) => {
             const clipRect = new fabric.Rect({
@@ -3562,6 +3567,8 @@ export default {
               createClipRect(195, 385, 0, 0, 55, 180);
               break;
           }
+        }   else {
+          return;
         }
       });
 
@@ -3570,6 +3577,63 @@ export default {
           // Show the object named 'canvas image'
           obj.globalCompositeOperation = null;
           this.canvas.renderAll();
+          const createClipRect = (width, height, rx, ry, top, left) => {
+            const clipRect = new fabric.Rect({
+              originX: "left",
+              originY: "top",
+              width: width,
+              height: height,
+              rx: rx,
+              ry: ry,
+              top: top,
+              left: left,
+              fill: "rgba(0, 0, 0, 1)",
+              backgroundColor: "rgba(0, 0, 0, 0)",
+              name: "pattern",
+              clipName: "pattern",
+              opacity: 1,
+              globalCompositeOperation: "destination-in",
+              selectable: false,
+              evented: false,
+              strokeWidth: 2,
+              cornerStyle: "round",
+              strokeDashArray: [8, 16],
+              stroke: "rgba(5, 5, 5, 1)",
+              lockMovementX: true,
+              lockMovementY: true,
+            });
+            clipRect.center();
+            this.canvas.add(clipRect);
+            this.canvas.backgroundImage = null;
+            this.canvas.renderAll();
+            this.canvas.clipPath = clipRect;
+            obj.globalCompositeOperation = null;
+            this.canvas.renderAll();
+          };
+
+          switch (true) {
+            case this.selectedType == 2 && this.selectedBrand == 1:
+              console.log("tablet Samsung");
+              createClipRect(250, 395, 0, 0, 50, 100);
+              break;
+            case this.selectedType == 2 && this.selectedBrand == 2:
+              console.log("tablet Apple");
+              createClipRect(270, 360, 0, 0, 70, 90);
+              break;
+            case this.selectedType == 2 && this.selectedBrand == 3:
+              console.log("tablet Huawei");
+              createClipRect(250, 395, 0, 0, 50, 100);
+              break;
+            case this.selectedType == 1 && this.selectedBrand == 1:
+              console.log("phone");
+              createClipRect(210, 430, 20, 20, 30, 120);
+              break;
+
+            case this.casesTypes[this.selectedCaseType].title === "Flip Case":
+              console.log("phone Flip Case");
+              createClipRect(195, 385, 0, 0, 55, 180);
+              break;
+          }
         } else {
           return;
         }
@@ -3739,6 +3803,8 @@ export default {
         }
       });
 
+ 
+
       // objects.forEach((obj, index) => {
       //   if (obj && obj.type === "image" && obj.name === "back") {
       //     this.canvas.remove(obj);
@@ -3807,21 +3873,90 @@ export default {
         this.canvas.renderAll();
         console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
       });
+      
     },
+
+    resetAllCanvas () {
+      setTimeout(() => {
+        // Clear all objects from the canvas
+        const objects = this.canvas.getObjects();
+
+objects.forEach((obj, index) => {
+  if (obj && obj.type === "image" && obj.name === "canvas image") {
+    this.canvas.remove(obj);
+   
+    console.log(obj.name);
+    
+  }
+
+  if (obj && obj.type === "image" && obj.name === "background") {
+    this.canvas.remove(obj);
+    
+    console.log(obj.name);
+    
+  }
+  if (obj && obj.type === "image" && obj.name === "transparent") {
+    this.canvas.remove(obj);
+    
+    console.log(obj.name);
+    
+  }
+
+  if (obj && obj.type === "text" && obj.name === "text") {
+    this.canvas.remove(obj);
+
+    console.log(obj.name);
+    
+  }
+
+  if (obj && obj.type === "circle" && obj.name === "pattern") {
+    this.canvas.remove(obj);
+    
+  }
+  if (obj && obj.type === "rect" && obj.name === "pattern") {
+    this.canvas.remove(obj);
+   
+  }
+  this.canvas.renderAll();
+});
+
+// objects.forEach((obj, index) => {
+//   if (obj && obj.type === "image" && obj.name === "back") {
+//     this.canvas.remove(obj);
+//     this.canvas.renderAll();
+//   }
+// });
+
+// objects.forEach((obj, index) => {
+//   if (obj && obj.type === "image" && obj.name === "transparent") {
+//     this.canvas.remove(obj);
+//     this.canvas.renderAll();
+//   }
+// });
+
+objects.forEach((obj, index) => {
+  this.canvas.renderAll();
+  console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
+});
+// this.addEmptyPhone();
+}, 5000);
+},
+
+
     addEmptyPhone() {
       setTimeout(() => {
         // Empty shape device
         const clipRect = new fabric.Rect({
-          width: 222,
-          height: 480,
+          width: 230,
+          height: 460,
 
           rx: 20,
           ry: 20,
           top: -20,
           left: 0,
           name: "pattern",
-          opacity: 0,
-          // globalCompositeOperation: "destination-out",
+          opacity: 1,
+          globalCompositeOperation: null,
           selectable: false,
           fill: "rgba(5, 255, 255, 0.01)",
           strokeWidth: 2,
@@ -3836,7 +3971,7 @@ export default {
         clipRect.visible = true;
         clipRect.center();
         // this.canvas.clipPath = clipRect;
-        this.canvas.moveTo(clipRect, 1);
+        this.canvas.moveTo(clipRect, 0);
 
         clipRect.animate("opacity", 1, {
           duration: 1000,
@@ -4222,9 +4357,7 @@ export default {
 .activeTab {
   background-color: white;
   color: #000;
-  -moz-transition: color 0.3s ease-in;
-  -o-transition: color 0.3s ease-in;
-  -webkit-transition: color 0.3s ease-in;
+ 
 }
 /* .fabric {
   position: absolute;
