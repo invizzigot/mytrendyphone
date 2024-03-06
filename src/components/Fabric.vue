@@ -1472,18 +1472,7 @@
         <div
           class="relative flex flex-col items-center mt-20 w-[435px] p-2 h-[560px]"
         >
-          <!-- <div class="flex flex-col items-start ml-4">
-              <p
-                class="font-inter text-base mt-4 font-semibold leading-2 text-slate-700"
-              >
-                Step three
-              </p>
-              <h1
-                class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
-              >
-                Customize
-              </h1>
-            </div> -->
+        
 
           <div class="w-[280px] -mt-6 h-[520px] flex flex-col items-center">
             <canvas class="relative w-[320px] h-[520px]" ref="canvasRef">
@@ -1589,21 +1578,7 @@
               </button>
             </div>
             <div class="flex flex-col">
-              <!-- <input
-        id="uploadButton"
-        class="w-[100px] h-[20px]"
-        type="file"
-        ref="fileInput"
-        @change="handleImageUpload"
-      /> -->
 
-              <!-- <input
-        id="uploadButton1"
-        class="w-[100px] h-[30px] hidden"
-        type="file"
-        ref="fileInput1"
-        @change="handleImageUpload1"
-      /> -->
             </div>
             <div class="absolute top-[40px] left-[15px] flex flex-col gap-3">
               <div
@@ -1621,21 +1596,7 @@
                 />
               </div>
             </div>
-            <!-- <div class="flex flex-col">
-      <select @change="addPhoneToCanvas" v-model="selectedShape">
-        <option value="blank">Select Model</option>
-        <option value="xiaomi">Xiaomi</option>
-        <option value="samsung">Samsung</option>
-      </select>
-      <button @click="addPhoneToCanvas">Select Phone</button>
-    </div> -->
-            <!-- <select v-model="selectedImage">
-      <option v-for="image in images" :key="image.id" :value1="image.url">
-        {{ image.name }}
-      </option>
-    </select> -->
-            <!-- <button @click="exportToPNG">Export to PNG</button> -->
-            <!-- <button @click="handleImageUpload1">Add Canvas</button> -->
+
           </div>
         </div>
       </div>
@@ -4290,33 +4251,5 @@ objects.forEach((obj, index) => {
   color: #000;
  
 }
-/* .fabric {
-  position: absolute;
-  top: 10px;
-  width: 200px;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-} */
 
-/* canvas {
-  width: 50px;
-  height: 300px;
-  position: relative;
- 
-  border-radius: 16px;
-
-} */
-/* .highlight {
-  background-color: gray;
-} */
-
-/* phonecanvas {
-  position: absolute;
-  left: 0;
-  right: 0;
-  background-color: aquamarine;
-} */
 </style>
