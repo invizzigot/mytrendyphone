@@ -4005,8 +4005,7 @@ objects.forEach((obj, index) => {
       { passive: true }
     );
 
-    // const ctx = this.canvas.getContext("2d");
-    // this.canvas.on("mousedown", () => {}, { passive: true });
+  
     this.canvas.on(
       "object:added",
       () => {
@@ -4019,7 +4018,7 @@ objects.forEach((obj, index) => {
         this.canvas.discardActiveObject();
         this.canvas.setActiveObject(selection); //selecting all objects...
         this.canvas.discardActiveObject(); //...and deselecting them
-        // this.canvas.renderAll();
+        
       },
       { passive: true }
     );
@@ -4027,21 +4026,7 @@ objects.forEach((obj, index) => {
     this.canvas.on(
       "object:moving",
       (object) => {
-        //workaround - selecting all objects to enable object controls
 
-        // let objects = this.canvas.getObjects();
-        // var selection = new fabric.ActiveSelection(objects, {
-        //   canvas: this.canvas,
-        // });
-        // this.canvas.discardActiveObject();
-        // this.canvas.setActiveObject(selection); //selecting all objects...
-        // this.canvas.discardActiveObject(); //...and deselecting them
-
-        // object.target.hasControls = true;
-
-        // object.target.globalCompositeOperation = "destination-out";
-        // this.canvas.renderOnAddRemove = "true";
-        // this.canvas.renderAll();
 
         object.target.selectable = true;
         object.target.hasControls = true;
@@ -4069,20 +4054,13 @@ objects.forEach((obj, index) => {
         const objects = this.canvas.getObjects();
         objects.forEach((obj, index) => {
           if (obj && obj.type === "image" && obj.name === "transparent") {
-            //mask over image canvas
-            // obj.globalCompositeOperation = "destination-out";
+          
             this.canvas.remove(obj);
             this.canvas.bringToFront(obj);
           }
         });
 
-        // objects.forEach((obj, index) => {
-        //   if (obj && obj.type === "image" && obj.name === "back") {
-        //     // obj.globalCompositeOperation = "destination-atop";
-        //     this.canvas.remove(obj);
-        //     this.canvas.moveTo(obj, 1);
-        //   }
-        // });
+
 
         objects.forEach((obj, index) => {
           console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
@@ -4164,7 +4142,7 @@ objects.forEach((obj, index) => {
 
     this.canvas.controlsAboveOverlay = true;
 
-    // this.canvas.renderAll();
+  
     // Create a custom control as an icon
     const customControl = new fabric.Control({
       x: 0,
@@ -4301,54 +4279,7 @@ objects.forEach((obj, index) => {
       },
     });
 
-    // this.canvas.on("object:moving", function (object) {
-    //   object.target.setCoords();
-    //   this.canvas.renderAll();
-
-    // const canvasWidth = 550;
-
-    // const canvasHeight = 550;
-    // const objectLeft = object.target.aCoords.tl.x;
-    // const objectTop = object.target.oCoords.tl.y;
-    // const objectRight = object.target.oCoords.br.x;
-    // const objectBottom = object.target.oCoords.br.y;
-    // console.log(objectLeft);
-    // if (
-    //   objectLeft < 0 ||
-    //   objectTop < 0 ||
-    //   objectRight > canvasWidth ||
-    //   objectBottom > canvasHeight
-    // ) {
-    //   object.target.set({
-    //     top: 250,
-    //     left: 250,
-    //     fill: "red",
-    //     lockMovementX: true,
-    //     lockMovementY: true,
-    //   });
-    //   object.target.fire("mouseup");
-    //   this.canvas.discardActiveObject();
-    //   this.canvas.requestRenderAll();
-
-    //   object.target.set({
-    //     top: 250,
-    //     left: 250,
-    //     scaleX: 0.12,
-    //     scaleY: 0.12,
-    //     lockMovementX: false,
-    //     lockMovementY: false,
-    //   });
-    //   object.target.fire("mouseup");
-    //   this.canvas.dis;
-    //   this.canvas.requestRenderAll();
-    // } else {
-    //   console.log("Object OK");
-    // }
-    // });
-
-    // this.canvas.getObjects().forEach((obj, index) => {
-    //   console.log(`Item ${index}: ${obj.type} Name: ${obj.name}`);
-    // });
+    
   },
 };
 </script>
