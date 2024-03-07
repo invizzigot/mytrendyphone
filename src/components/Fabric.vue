@@ -668,9 +668,21 @@
                   class="absolute flex flex-col bg-slate-50 ring-1 ring-slate-900/5 w-[290px] h-[330px] rounded-2xl ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
                 >
                   <div
+                    
                     class="flex flex-col mt-[30px] items-center w-[320px] h-[300px]"
                   >
-                    <div
+
+                  <p
+                  v-if="this.selectedType == ''" 
+                  
+                  class="font-inter w-[250px] my-5 px-4 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+                >
+                  In order to complete this step, you have to select product to
+                  customize on first step. <br />Go back and start to customize
+                  your device.
+                </p>
+
+                    <div v-if="this.selectedType == 1 || this.selectedType == 2"
                       class="flex flex-row mt-[50px] w-[220px] gap-8 items-center"
                     >
                       <div
@@ -718,6 +730,7 @@
                       </div>
                     </div>
                     <div
+                      v-if="this.selectedType == 1 || this.selectedType == 2"
                       class="flex flex-row mt-[50px] w-[220px] gap-8 items-center"
                     >
                       <div
@@ -760,6 +773,25 @@
                         <img
                           class=""
                           src="/src/assets/images/phoneColection6.png"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      v-if="this.selectedType == 4"
+                      class="flex flex-row mt-[50px] w-[220px] gap-8 items-center"
+                    >
+                      <div
+                        @click="addCollage1(7)"
+                        class="relative w-[50px] h-[50px]"
+                      >
+                        <div
+                          v-if="activeIndex === 7"
+                          v-motion-pop
+                          class="absolute -left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[60px] h-[75px] border-slate-600"
+                        ></div>
+                        <img
+                          class=""
+                          src="/src/assets/images/gadgetColection7.png"
                         />
                       </div>
                     </div>
@@ -1472,8 +1504,6 @@
         <div
           class="relative flex flex-col items-center mt-20 w-[435px] p-2 h-[560px]"
         >
-        
-
           <div class="w-[280px] -mt-6 h-[520px] flex flex-col items-center">
             <canvas class="relative w-[320px] h-[520px]" ref="canvasRef">
             </canvas>
@@ -1577,9 +1607,7 @@
                 </svg>
               </button>
             </div>
-            <div class="flex flex-col">
-
-            </div>
+            <div class="flex flex-col"></div>
             <div class="absolute top-[40px] left-[15px] flex flex-col gap-3">
               <div
                 class="relative w-[35px] h-[35px]"
@@ -1596,7 +1624,6 @@
                 />
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -1637,7 +1664,7 @@ export default {
       canvas: null,
       uploadedImages: [],
       imageIndex: 1,
-      offsetCollage: 75,
+      offsetCollage: 0,
     };
   },
 
@@ -2200,13 +2227,14 @@ export default {
           const clipRect = new fabric.Circle({
             width: selectedObject.width,
             height: selectedObject.height,
-            top: selectedObject.top,
-            left: selectedObject.left,
-            right: selectedObject.right,
+            top: selectedObject.top - 25,
+            left: selectedObject.left - 25,
+
             radius: selectedObject.radius,
             absolutePositioned: true,
             fill: "",
             perPixelTargetFind: false,
+            opacity: 1,
             // globalCompositeOperation: "destination-out",
             hasBorders: true,
             borderColor: "#3ff4ff",
@@ -2233,7 +2261,7 @@ export default {
             centerV: true,
             name: "canvas image",
             clipPath: clipRect,
-            // globalCompositeOperation: "source-atop",
+            globalCompositeOperation: "source-atop",
           });
 
           console.log(selectedImage.width);
@@ -2732,7 +2760,7 @@ export default {
         fill: "rgba(5, 5, 5, 0.01)",
         // strokeDashArray: [8, 16],
         globalCompositeOperation: "source-atop",
-        // stroke: "black",
+        stroke: "black",
         lockMovementX: true,
         lockMovementY: true,
       });
@@ -2796,13 +2824,13 @@ export default {
         name: "pattern",
         hasControls: true,
         opacity: 0,
+        hoverCursor: "pointer",
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
-        strokeDashArray: [10, 10],
+        // strokeDashArray: [8, 16],
         globalCompositeOperation: "source-atop",
-        hoverCursor: "pointer",
-        // stroke: "black",
+        stroke: "black",
         lockMovementX: true,
         lockMovementY: true,
       });
@@ -2829,14 +2857,12 @@ export default {
         name: "pattern",
         hasControls: true,
         opacity: 0,
+        hoverCursor: "pointer",
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
-        stroke: "black",
-        strokeWidth: 2,
-        strokeDashArray: [10, 10],
+        // strokeDashArray: [8, 16],
         globalCompositeOperation: "source-atop",
-        hoverCursor: "pointer",
         // stroke: "black",
         lockMovementX: true,
         lockMovementY: true,
@@ -3022,9 +3048,9 @@ export default {
       });
 
       const circle = new fabric.Circle({
-        radius: 70, // Set the radius of the circle
+        radius: 102, // Set the radius of the circle
         top: 173,
-        left: 150 + this.offsetCollage,
+        left: 150,
         width: 150,
         height: 150,
         selectable: true,
@@ -3381,17 +3407,8 @@ export default {
       setTimeout(() => {
         this.exportPrintPNG();
       }, 1000);
-     
-     
-      
-      
-        this.resetAllCanvas();
-    
-    
-   
-      
 
-     
+      this.resetAllCanvas();
     },
     exportPreviewPNG() {
       const objects = this.canvas.getObjects();
@@ -3447,12 +3464,14 @@ export default {
       const objects = this.canvas.getObjects();
       this.canvas.getObjects().forEach((obj) => {
         if (obj.name === "pattern") {
-          // obj.globalCompositeOperation = "source-atop";
+          obj.globalCompositeOperation = "source-atop";
           // obj.fill = 'transparent';
           // obj.left = 120;
           // obj.width = 210;
           // obj.center();
-          obj.fill = "rgba(5, 5, 5, 0.9)";
+          obj.fill = "rgba(5, 5, 5, 0.1)";
+          obj.strokeWidth = 0;
+
           this.canvas.renderAll();
         }
       });
@@ -3468,9 +3487,46 @@ export default {
         }
       });
       this.canvas.getObjects().forEach((obj) => {
-        if (obj.name === "canvas image" ) {
+        if (obj.name === "canvas image") {
           console.log("type:" + this.selectedType);
           console.log("brand:" + this.selectedBrand);
+          const createClipCircle = (width, height, top, left, radius) => {
+            const clipCircle = new fabric.Circle({
+              originX: "left",
+              originY: "top",
+              radius: radius, // Set the radius of the circle
+              top: top,
+              left: left,
+              width: width,
+              height: height,
+              fill: "rgba(0, 0, 0, 1)",
+              backgroundColor: "rgba(0, 0, 0, 0)",
+              name: "pattern",
+              clipName: "pattern",
+              opacity: 1,
+              globalCompositeOperation: "destination-in",
+              selectable: false,
+              evented: false,
+
+              strokeWidth: 2,
+              cornerStyle: "round",
+              strokeDashArray: [8, 16],
+              stroke: "rgba(5, 5, 5, 1)",
+              // stroke: "black",
+
+              lockMovementX: true,
+              lockMovementY: true,
+            });
+
+            clipCircle.center();
+            this.canvas.add(clipCircle);
+            this.canvas.backgroundImage = null;
+            this.canvas.renderAll();
+            this.canvas.clipPath = clipCircle;
+            obj.globalCompositeOperation = null;
+            this.canvas.renderAll();
+          };
+
           const createClipRect = (width, height, rx, ry, top, left) => {
             const clipRect = new fabric.Rect({
               originX: "left",
@@ -3518,9 +3574,30 @@ export default {
               console.log("tablet Huawei");
               createClipRect(250, 395, 0, 0, 50, 100);
               break;
-            case this.selectedType == 1 && this.selectedBrand == 1:
+            case (this.selectedType == 1 && this.selectedBrand == 1) ||
+              this.selectedBrand == 2 ||
+              this.selectedBrand == 3 ||
+              this.selectedBrand == 4 ||
+              this.selectedBrand == 7 ||
+              this.selectedBrand == 8 ||
+              this.selectedBrand == 12 ||
+              this.selectedBrand == 13 ||
+              this.selectedBrand == 18:
               console.log("phone");
               createClipRect(210, 430, 20, 20, 30, 120);
+              break;
+            case this.selectedType == 4 && this.selectedBrand == 14:
+              console.log("Gadget Device");
+              createClipRect(100, 100, 30, 30, 197, 175);
+              break;
+
+            case this.selectedType == 4 && this.selectedBrand == 15:
+              console.log("Gadget Device Ring");
+              createClipCircle(100, 100, 170, 175, 40);
+              break;
+            case this.selectedType == 4 && this.selectedBrand == 17:
+              console.log("Gadget Device Charger");
+              createClipCircle(150, 150, 173, 150, 102);
               break;
 
             case this.casesTypes[this.selectedCaseType].title === "Flip Case":
@@ -3528,7 +3605,7 @@ export default {
               createClipRect(195, 385, 0, 0, 55, 180);
               break;
           }
-        }   else {
+        } else {
           return;
         }
       });
@@ -3585,9 +3662,21 @@ export default {
               console.log("tablet Huawei");
               createClipRect(250, 395, 0, 0, 50, 100);
               break;
-            case this.selectedType == 1 && this.selectedBrand == 1:
+            case (this.selectedType == 1 && this.selectedBrand == 1) ||
+              this.selectedBrand == 2 ||
+              this.selectedBrand == 3 ||
+              this.selectedBrand == 4 ||
+              this.selectedBrand == 7 ||
+              this.selectedBrand == 8 ||
+              this.selectedBrand == 12 ||
+              this.selectedBrand == 13 ||
+              this.selectedBrand == 18:
               console.log("phone");
               createClipRect(210, 430, 20, 20, 30, 120);
+              break;
+            case this.selectedType == 4 && this.selectedBrand == 14:
+              console.log("Gadget Device");
+              createClipRect(150, 150, 0, 0, 173, 150);
               break;
 
             case this.casesTypes[this.selectedCaseType].title === "Flip Case":
@@ -3764,8 +3853,6 @@ export default {
         }
       });
 
- 
-
       // objects.forEach((obj, index) => {
       //   if (obj && obj.type === "image" && obj.name === "back") {
       //     this.canvas.remove(obj);
@@ -3834,75 +3921,67 @@ export default {
         this.canvas.renderAll();
         console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
       });
-      
     },
 
-    resetAllCanvas () {
+    resetAllCanvas() {
       setTimeout(() => {
         // Clear all objects from the canvas
         const objects = this.canvas.getObjects();
 
-objects.forEach((obj, index) => {
-  if (obj && obj.type === "image" && obj.name === "canvas image") {
-    this.canvas.remove(obj);
-   
-    console.log(obj.name);
-    
-  }
+        objects.forEach((obj, index) => {
+          if (obj && obj.type === "image" && obj.name === "canvas image") {
+            this.canvas.remove(obj);
 
-  if (obj && obj.type === "image" && obj.name === "background") {
-    this.canvas.remove(obj);
-    
-    console.log(obj.name);
-    
-  }
-  if (obj && obj.type === "image" && obj.name === "transparent") {
-    this.canvas.remove(obj);
-    
-    console.log(obj.name);
-    
-  }
+            console.log(obj.name);
+          }
 
-  if (obj && obj.type === "text" && obj.name === "text") {
-    this.canvas.remove(obj);
+          if (obj && obj.type === "image" && obj.name === "background") {
+            this.canvas.remove(obj);
 
-    console.log(obj.name);
-    
-  }
+            console.log(obj.name);
+          }
+          if (obj && obj.type === "image" && obj.name === "transparent") {
+            this.canvas.remove(obj);
 
-  if (obj && obj.type === "circle" && obj.name === "pattern") {
-    this.canvas.remove(obj);
-    
-  }
-  if (obj && obj.type === "rect" && obj.name === "pattern") {
-    this.canvas.remove(obj);
-   
-  }
-  this.canvas.renderAll();
-});
+            console.log(obj.name);
+          }
 
-// objects.forEach((obj, index) => {
-//   if (obj && obj.type === "image" && obj.name === "back") {
-//     this.canvas.remove(obj);
-//     this.canvas.renderAll();
-//   }
-// });
+          if (obj && obj.type === "text" && obj.name === "text") {
+            this.canvas.remove(obj);
 
-// objects.forEach((obj, index) => {
-//   if (obj && obj.type === "image" && obj.name === "transparent") {
-//     this.canvas.remove(obj);
-//     this.canvas.renderAll();
-//   }
-// });
+            console.log(obj.name);
+          }
 
-objects.forEach((obj, index) => {
-  this.canvas.renderAll();
-  console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
-});
-// this.addEmptyPhone();
-}, 5000);
-},
+          if (obj && obj.type === "circle" && obj.name === "pattern") {
+            this.canvas.remove(obj);
+          }
+          if (obj && obj.type === "rect" && obj.name === "pattern") {
+            this.canvas.remove(obj);
+          }
+          this.canvas.renderAll();
+        });
 
+        // objects.forEach((obj, index) => {
+        //   if (obj && obj.type === "image" && obj.name === "back") {
+        //     this.canvas.remove(obj);
+        //     this.canvas.renderAll();
+        //   }
+        // });
+
+        // objects.forEach((obj, index) => {
+        //   if (obj && obj.type === "image" && obj.name === "transparent") {
+        //     this.canvas.remove(obj);
+        //     this.canvas.renderAll();
+        //   }
+        // });
+
+        objects.forEach((obj, index) => {
+          this.canvas.renderAll();
+          console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
+        });
+        // this.addEmptyPhone();
+      }, 5000);
+    },
 
     addEmptyPhone() {
       setTimeout(() => {
@@ -3966,7 +4045,6 @@ objects.forEach((obj, index) => {
       { passive: true }
     );
 
-  
     this.canvas.on(
       "object:added",
       () => {
@@ -3979,7 +4057,6 @@ objects.forEach((obj, index) => {
         this.canvas.discardActiveObject();
         this.canvas.setActiveObject(selection); //selecting all objects...
         this.canvas.discardActiveObject(); //...and deselecting them
-        
       },
       { passive: true }
     );
@@ -3987,8 +4064,6 @@ objects.forEach((obj, index) => {
     this.canvas.on(
       "object:moving",
       (object) => {
-
-
         object.target.selectable = true;
         object.target.hasControls = true;
         object.target.objectCaching = false;
@@ -4015,13 +4090,10 @@ objects.forEach((obj, index) => {
         const objects = this.canvas.getObjects();
         objects.forEach((obj, index) => {
           if (obj && obj.type === "image" && obj.name === "transparent") {
-          
             this.canvas.remove(obj);
             this.canvas.bringToFront(obj);
           }
         });
-
-
 
         objects.forEach((obj, index) => {
           console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
@@ -4103,7 +4175,6 @@ objects.forEach((obj, index) => {
 
     this.canvas.controlsAboveOverlay = true;
 
-  
     // Create a custom control as an icon
     const customControl = new fabric.Control({
       x: 0,
@@ -4239,8 +4310,6 @@ objects.forEach((obj, index) => {
         );
       },
     });
-
-    
   },
 };
 </script>
@@ -4249,7 +4318,5 @@ objects.forEach((obj, index) => {
 .activeTab {
   background-color: white;
   color: #000;
- 
 }
-
 </style>
