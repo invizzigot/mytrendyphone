@@ -521,6 +521,33 @@
                 <div
                   class="absolute flex flex-col items-start bg-slate-50 ring-1 ring-slate-900/5 w-[290px] h-[380px] rounded-2xl ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
                 >
+                <div v-motion-pop v-if="this.alertMessageItemStock" class="absolute m-2 w-[270px] h-[345px] rounded-3xl shadow-xl ring-1 ring-slate-900/5 bg-slate-50 z-10" >
+                  
+                  <p
+                      
+                      class="font-inter w-[260px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+                    >Dear customer!<br/><br/>
+                    This type of case for selected phone model is currently out of stock and  currently unavailable.<br/><br/>
+                    Please select different case and start to
+                      customize your device.
+                    </p>
+                    <div
+                class="absolute left-[80px] bottom-5 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+              >
+                <div
+                  @click="alertMessageItemStockClose()"
+                  class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                >
+                  <p
+                    class="text-center text-base font-inter font-bold text-slate-100"
+                  >
+                    Close
+                  </p>
+                </div>
+              </div>
+                    
+
+                </div>
                   <div class="pt-5 space-y-5">
                     <div>
                       <label
@@ -627,7 +654,7 @@
                   </div>
                 </div>
               </div>
-              <div
+              <div v-if="this.nextButtonProduct"
                 class="absolute right-[50px] -bottom-1 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
               >
                 <div
@@ -668,21 +695,19 @@
                   class="absolute flex flex-col bg-slate-50 ring-1 ring-slate-900/5 w-[290px] h-[330px] rounded-2xl ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
                 >
                   <div
-                    
                     class="flex flex-col mt-[30px] items-center w-[320px] h-[300px]"
                   >
+                    <p
+                      v-if="this.selectedType == ''"
+                      class="font-inter w-[250px] my-5 px-4 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+                    >
+                      In order to complete this step, you have to select product
+                      to customize on first step. <br />Go back and start to
+                      customize your device.
+                    </p>
 
-                  <p
-                  v-if="this.selectedType == ''" 
-                  
-                  class="font-inter w-[250px] my-5 px-4 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
-                >
-                  In order to complete this step, you have to select product to
-                  customize on first step. <br />Go back and start to customize
-                  your device.
-                </p>
-
-                    <div v-if="this.selectedType == 1 || this.selectedType == 2"
+                    <div
+                      v-if="this.selectedType == 1 || this.selectedType == 2"
                       class="flex flex-row mt-[50px] w-[220px] gap-8 items-center"
                     >
                       <div
@@ -1505,8 +1530,7 @@
           class="relative flex flex-col items-center mt-20 w-[435px] p-2 h-[560px]"
         >
           <div class="w-[280px] -mt-6 h-[520px] flex flex-col items-center">
-            <canvas class="relative w-[320px] h-[520px]" ref="canvasRef">
-            </canvas>
+            <canvas class="relative" ref="canvasRef"> </canvas>
 
             <div
               v-motion-slide-left
@@ -1641,7 +1665,7 @@ export default {
       brands: [],
       activeTabIndex: 1,
       activeIndex: null,
-      activeIndexColor: null,
+      activeIndexColor: 7,
       models: [],
       fontColor: "",
       casesTypes: [],
@@ -1660,6 +1684,9 @@ export default {
       selectedCaseType: "",
       selectedImage: [],
       objectsWithName: [],
+      nextButtonProduct: true,
+      alertMessageItemStock: false,
+      itemStockCount:[],
 
       canvas: null,
       uploadedImages: [],
@@ -1669,6 +1696,39 @@ export default {
   },
 
   methods: {
+    alertMessageItemStockClose() {
+      this.alertMessageItemStock = false;
+    },
+   async fetchStockData(product_id) {
+    let headersList = {
+ "Accept": 'application/json',
+ "Control-Allow-Origin": "*",
+ "Authorization": "Basic OmRkZmRkYzdkLTVhNTEtNGExYy04NmQ0LTc4YTY2ZmFkNTY0Yg==",
+
+}
+
+let response = await fetch(`https://cors-anywhere.herokuapp.com/https://mytrendyphone.dk/admin/WEBAPI/v2/products/${product_id}`, { 
+  method: "GET",
+ 
+  headers: headersList
+});
+
+this.itemStockCount = await response.json();
+console.log(product_id);
+console.log(this.itemStockCount.stockCount);
+if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
+  this.nextButtonProduct = false;
+  this.alertMessageItemStock = true;
+}else {
+  this.alertMessageItemStock = false;
+  this.nextButtonProduct = true;
+}
+
+    },
+
+
+    
+
     generateUrl() {
       // Define the parameters
       const baseUrl = "https://www.mytrendyphone.eu/shop/showbasket.html";
@@ -1986,6 +2046,9 @@ export default {
       // }
       this.exportMaskClipImage = this.casesTypes[caseType].image_draw_mask;
       this.exportPlaceholderImage = this.casesTypes[caseType].image_placeholder;
+      console.log(this.casesTypes[caseType].dd_product_id);
+      this.fetchStockData(this.casesTypes[caseType].dd_product_id);
+
       console.log(this.casesTypes[caseType].image_placeholder);
       console.log(this.casesTypes[caseType].image_draw_mask);
 
@@ -2758,9 +2821,11 @@ export default {
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
-        // strokeDashArray: [8, 16],
-        globalCompositeOperation: "source-atop",
         stroke: "black",
+        strokeWidth: 2,
+        strokeDashArray: [10, 10],
+        globalCompositeOperation: "source-atop",
+        // stroke: "black",
         lockMovementX: true,
         lockMovementY: true,
       });
@@ -2791,12 +2856,10 @@ export default {
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
-        stroke: "black",
-        strokeWidth: 2,
-        strokeDashArray: [10, 10],
+        // stroke: "black",
+        // strokeWidth: 2,
+        // strokeDashArray: [10, 10],
         globalCompositeOperation: "source-atop",
-        hoverCursor: "pointer",
-
         // stroke: "black",
         lockMovementX: true,
         lockMovementY: true,
@@ -2828,9 +2891,11 @@ export default {
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
-        // strokeDashArray: [8, 16],
-        globalCompositeOperation: "source-atop",
         stroke: "black",
+        strokeWidth: 2,
+        strokeDashArray: [10, 10],
+        globalCompositeOperation: "source-atop",
+        // stroke: "black",
         lockMovementX: true,
         lockMovementY: true,
       });
@@ -2861,7 +2926,9 @@ export default {
         hasBorders: false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.01)",
-        // strokeDashArray: [8, 16],
+        // stroke: "black",
+        // strokeWidth: 2,
+        // strokeDashArray: [10, 10],
         globalCompositeOperation: "source-atop",
         // stroke: "black",
         lockMovementX: true,
@@ -3048,9 +3115,9 @@ export default {
       });
 
       const circle = new fabric.Circle({
-        radius: 102, // Set the radius of the circle
+        radius: 80, // Set the radius of the circle
         top: 173,
-        left: 150,
+        left: 150 + this.offsetCollage,
         width: 150,
         height: 150,
         selectable: true,
@@ -3220,8 +3287,9 @@ export default {
 
     handleImageUpload(event) {
       const files = event.target.files;
+      console.log(event);
 
-      const remainingSlots = 8 - this.uploadedImages.length;
+      const remainingSlots = 6 - this.uploadedImages.length;
       const filesToUpload = Array.from(files).slice(0, remainingSlots);
 
       for (let i = 0; i < filesToUpload.length; i++) {
@@ -3403,12 +3471,16 @@ export default {
       // this.canvas.renderAll();
     },
     exportPNG() {
-      this.exportPreviewPNG();
-      setTimeout(() => {
-        this.exportPrintPNG();
-      }, 1000);
+      this.checkCartData();
 
-      this.resetAllCanvas();
+      // this.exportPreviewPNG();
+      // // this.scaleUp();
+
+      // setTimeout(() => {
+      //   this.exportPrintPNG();
+      // }, 5000);
+
+      // this.resetAllCanvas();
     },
     exportPreviewPNG() {
       const objects = this.canvas.getObjects();
@@ -3454,7 +3526,7 @@ export default {
           console.log(obj.name);
         }
       });
-      // this.cropMask();
+      this.scaleUp();
       setTimeout(() => {
         this.createPreviewLink();
       }, 1000);
@@ -3672,7 +3744,7 @@ export default {
               this.selectedBrand == 13 ||
               this.selectedBrand == 18:
               console.log("phone");
-              createClipRect(210, 430, 20, 20, 30, 120);
+              createClipRect(2100, 2430, 20, 20, 30, 120);
               break;
             case this.selectedType == 4 && this.selectedBrand == 14:
               console.log("Gadget Device");
@@ -3695,6 +3767,41 @@ export default {
       setTimeout(() => {
         this.createPrintLink();
       }, 1000);
+    },
+    scaleUp() {
+      let scaleFactor = 4;
+      this.canvas.width = this.canvas.getWidth() * scaleFactor;
+      this.canvas.height = this.canvas.getHeight() * scaleFactor;
+      this.canvas.getObjects().forEach((object) => {
+        if (object.clipPath) {
+          object.clipPath.scale(scaleFactor * 2);
+        }
+        object.scaleX *= scaleFactor;
+        object.scaleY *= scaleFactor;
+        object.left *= scaleFactor;
+        object.top *= scaleFactor;
+        object.setCoords();
+        this.canvas.renderAll();
+      });
+    },
+
+    async checkCartData() {
+      try {
+        const response = await fetch(
+          "https://mytrendyphone.dk/admin/WEBAPI/v2/products/255656-PRINT",
+          {
+            method: "GET",
+            headers: {
+              Authorization:
+                "Basic OmRkZmRkYzdkLTVhNTEtNGExYy04NmQ0LTc4YTY2ZmFkNTY0Yg==",
+            },
+          }
+        );
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     },
 
     cropMask(caseType) {
@@ -4020,7 +4127,9 @@ export default {
       }, 1000);
     },
   },
-  created() {},
+  created() {
+    
+  },
   mounted() {
     this.canvas = new fabric.Canvas(
       this.$refs.canvasRef,
