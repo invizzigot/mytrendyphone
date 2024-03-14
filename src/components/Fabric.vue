@@ -1656,7 +1656,9 @@
 </template>
 
 <script>
+import axios  from 'axios';
 import { fabric } from "fabric";
+import fs from "fs";
 import { ref } from "vue";
 
 export default {
@@ -1692,10 +1694,63 @@ export default {
       uploadedImages: [],
       imageIndex: 1,
       offsetCollage: 0,
+      printImage: '',
+      previewImage: '',
     };
   },
 
   methods: {
+
+    dataURLtoBlob(dataurl) {
+    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+    while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new Blob([u8arr], { type: mime });
+},
+
+    pngUpload() {
+        
+
+     
+        const blob1 = this.dataURLtoBlob(this.previewImage);
+        const blob2 = this.dataURLtoBlob(this.printImage);
+
+      /* console.log(blob); */
+       
+        const dataFull = new FormData();
+        dataFull.append('file_preview', blob1, 'preview.png');
+        dataFull.append('file_print', blob2, 'print.png');
+       /*  const boundary = formData.getBoundary(); */
+     /*  console.log(boundary); */
+   const axiosConfig = {
+            withCredentials: true,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'multipart/form-data; boundary=${dataFull._boundary}',
+            },
+            timeout: 64000,
+        };
+       
+    axios.post('https://covers.mtpdev3.com/api/1.0/assetsblob',dataFull,axiosConfig)
+  .then(function (response) {
+    let data = response.data;
+    result.textContent = data.results[0].email;
+  })
+  .catch(function (error) {
+    // handle error
+    /* console.log(error); */
+  })
+  .finally(function () {
+    // always executed
+    console.log('I always Execued');
+  });
+    
+
+    
+},
+
     alertMessageItemStockClose() {
       this.alertMessageItemStock = false;
     },
@@ -3471,14 +3526,24 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
       // this.canvas.renderAll();
     },
     exportPNG() {
-      this.checkCartData();
+    
 
-      // this.exportPreviewPNG();
-      // // this.scaleUp();
+      this.exportPreviewPNG();
+      // this.scaleUp();
 
-      // setTimeout(() => {
-      //   this.exportPrintPNG();
-      // }, 5000);
+      setTimeout(() => {
+        this.exportPrintPNG();
+        
+      }, 5000);
+
+      setTimeout(() => {
+        this.pngUpload();
+        
+      }, 7000);
+
+      
+
+   
 
       // this.resetAllCanvas();
     },
@@ -3526,7 +3591,7 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
           console.log(obj.name);
         }
       });
-      this.scaleUp();
+      // this.scaleUp();
       setTimeout(() => {
         this.createPreviewLink();
       }, 1000);
@@ -3677,6 +3742,7 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
               createClipRect(195, 385, 0, 0, 55, 180);
               break;
           }
+          
         } else {
           return;
         }
@@ -3762,47 +3828,62 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
       });
 
       // Update the canvas to reflect the changes
+     
       this.canvas.renderAll();
 
+      
       setTimeout(() => {
+   
         this.createPrintLink();
       }, 1000);
     },
     scaleUp() {
-      let scaleFactor = 4;
-      this.canvas.width = this.canvas.getWidth() * scaleFactor;
-      this.canvas.height = this.canvas.getHeight() * scaleFactor;
-      this.canvas.getObjects().forEach((object) => {
-        if (object.clipPath) {
-          object.clipPath.scale(scaleFactor * 2);
-        }
-        object.scaleX *= scaleFactor;
-        object.scaleY *= scaleFactor;
-        object.left *= scaleFactor;
-        object.top *= scaleFactor;
-        object.setCoords();
-        this.canvas.renderAll();
-      });
-    },
+      const scaleFactor = 4; 
+      const center = new fabric.Point(this.canvas.width / 2, this.canvas.height / 2);
+      const offset = new fabric.Point(center.x * (scaleFactor - 1), center.y * (scaleFactor - 1));
+      this.canvas.set({
+        width: this.canvas.width * scaleFactor,
+        
+        height: this.canvas.height * scaleFactor
+    },  { backstoreOnly: true });
+    console.log(this.canvas.width);
+      this.canvas.getObjects().forEach(obj => {
+        // Scale all objects
+        obj.scaleX *= scaleFactor;
+        obj.scaleY *= scaleFactor;
 
-    async checkCartData() {
-      try {
-        const response = await fetch(
-          "https://mytrendyphone.dk/admin/WEBAPI/v2/products/255656-PRINT",
-          {
-            method: "GET",
-            headers: {
-              Authorization:
-                "Basic OmRkZmRkYzdkLTVhNTEtNGExYy04NmQ0LTc4YTY2ZmFkNTY0Yg==",
-            },
-          }
-        );
-        const data = await response.json();
-        console.log(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+        // If the object is a clip path, scale its path as well
+        if (obj.clipPath) {
+            obj.clipPath.scaleX *= scaleFactor;
+            obj.clipPath.scaleY *= scaleFactor;
+        }
+        obj.left += offset.x;
+        obj.top += offset.y;
+        obj.setCoords(); // Update object's coordinates
+    });
+
+    this.canvas.renderAll(); // Render the updated canvas
     },
+    bindObjectsToCanvasSize() {
+    const canvasWidth = this.canvas.width;
+    const canvasHeight = this.canvas.height;
+
+    this.canvas.getObjects().forEach(obj => {
+        // Calculate new positions relative to the canvas size
+        const leftRatio = obj.left / canvasWidth;
+        const topRatio = obj.top / canvasHeight;
+
+        // Update object's positions based on canvas size
+        obj.left = leftRatio * this.canvas.width;
+        obj.top = topRatio * this.canvas.height;
+
+        obj.setCoords(); // Update object's coordinates
+    });
+
+    this.canvas.renderAll(); // Render the updated canvas
+},
+
+  
 
     cropMask(caseType) {
       console.log(this.exportMaskClipImage);
@@ -3834,32 +3915,35 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
     createPreviewLink() {
       // Export the canvas to a PNG image
 
-      const dataURL = this.canvas.toDataURL({
+      this.previewImage = this.canvas.toDataURL({
         format: "png",
         quality: 3,
       });
+      
 
-      // Create a link element to download the PNG image
-      const link = document.createElement("a");
-      link.href = dataURL;
-      link.download = "preview_image.png";
-      // Trigger the download
-      link.click();
+      // // Create a link element to download the PNG image
+      // const link = document.createElement("a");
+      // link.href = dataURL;
+      // link.download = "preview_image.png";
+      // // Trigger the download
+      // link.click();
     },
     createPrintLink() {
       // Export the canvas to a PNG image
 
-      const dataURL = this.canvas.toDataURL({
+      this.printImage = this.canvas.toDataURL({
         format: "png",
         quality: 3,
       });
 
-      // Create a link element to download the PNG image
-      const link = document.createElement("a");
-      link.href = dataURL;
-      link.download = "print_image.png";
-      // Trigger the download
-      link.click();
+
+
+      // // Create a link element to download the PNG image
+      // const link = document.createElement("a");
+      // link.href = dataURL;
+      // link.download = "print_image.png";
+      // // Trigger the download
+      // link.click();
     },
 
     zoomInSelectedImage() {
