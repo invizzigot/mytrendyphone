@@ -1525,12 +1525,47 @@
           </div>
         </div>
       </div>
-      <div class="w-[435px] h-[620px] mt-2">
+      <div class="relative w-[435px] h-[620px] mt-2">
+        <div v-if="loading"  class="absolute flex flex-col items-center justify-center bg-white ml-3 w-[360px] h-[600px] z-50">
+          <div class=" animate-spin w-[50px] h-[50px]"><svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 width="50px" height="50px" viewBox="0 0 374.846 374.846"
+	 xml:space="preserve">
+<g>
+	<g>
+		<g>
+			<path d="M326.147,267.326c4.168-6.754,12.875-9.094,19.869-5.336l5.83,3.135c3.635,1.955,6.305,5.32,7.379,9.305
+				c1.076,3.984,0.461,8.236-1.695,11.754c-8.301,13.519-18.295,25.941-29.709,36.923c-2.805,2.692-6.531,4.188-10.397,4.188
+				c-0.242,0-0.482-0.006-0.726-0.018c-4.123-0.199-7.981-2.09-10.668-5.227l-4.309-5.025c-5.164-6.025-4.74-15.031,0.967-20.547
+				C311.678,287.793,319.573,277.984,326.147,267.326z"/>
+			<path d="M208.809,338.262c12.505-0.903,24.873-3.344,36.77-7.252c7.529-2.475,15.685,1.334,18.617,8.695l2.451,6.153
+				c1.529,3.839,1.408,8.138-0.334,11.884c-1.74,3.746-4.953,6.604-8.873,7.907c-8.094,2.687-16.451,4.843-24.848,6.407
+				c-7.112,1.328-14.377,2.254-21.592,2.754c-0.349,0.023-0.693,0.035-1.037,0.035c-3.759,0-7.396-1.412-10.175-3.979
+				c-3.034-2.802-4.78-6.73-4.823-10.859l-0.071-6.625C194.809,345.459,200.906,338.834,208.809,338.262z"/>
+			<path d="M89.693,312.596c5.039-6.135,13.984-7.276,20.404-2.612c10.135,7.36,21.16,13.435,32.773,18.053
+				c7.373,2.933,11.188,11.101,8.701,18.636l-2.072,6.287c-1.293,3.92-4.145,7.135-7.883,8.887
+				c-2.012,0.941-4.186,1.416-6.361,1.416c-1.867,0-3.738-0.35-5.512-1.049c-14.73-5.818-28.695-13.51-41.508-22.863
+				c-3.332-2.434-5.516-6.133-6.037-10.227c-0.52-4.097,0.672-8.224,3.291-11.41L89.693,312.596z"/>
+			<path d="M28.699,214.609l6.508-1.216c7.82-1.454,15.414,3.438,17.314,11.156c3.029,12.289,7.592,24.129,13.561,35.191
+				c3.766,6.979,1.449,15.686-5.289,19.867l-5.625,3.491c-2.398,1.487-5.141,2.257-7.912,2.257c-1.285,0-2.576-0.164-3.842-0.5
+				c-3.992-1.061-7.371-3.716-9.342-7.348c-7.602-14.012-13.387-29.016-17.193-44.598c-0.979-4.005-0.266-8.234,1.971-11.697
+				C21.087,217.753,24.648,215.365,28.699,214.609z"/>
+			<path d="M36.849,170.858h-6.727c-0.006,0-0.014,0-0.02,0c-8.287,0-15-6.715-15-15c0-1.219,0.143-2.404,0.418-3.539
+				c5.584-29.84,18.643-58.24,37.801-82.188C82.325,33.873,123.52,9.826,169.319,2.416C179.227,0.814,189.325,0,199.333,0
+				c25.752,0,51.313,5.385,74.813,15.67l11.687-11.688c2.413-2.412,5.909-3.389,9.225-2.574c3.313,0.812,5.961,3.299,6.981,6.555
+				l24.191,77.16c1.086,3.465,0.158,7.248-2.41,9.816c-2.567,2.568-6.35,3.496-9.815,2.41l-77.16-24.191
+				c-3.256-1.02-5.739-3.668-6.556-6.982c-0.813-3.312,0.162-6.811,2.576-9.223l13.013-13.014
+				c-15.021-4.963-30.656-7.473-46.685-7.473c-45.797,0-88.547,20.604-117.287,56.531c-15.309,19.135-25.793,41.84-30.322,65.662
+				C50.24,165.737,44.052,170.858,36.849,170.858z"/>
+		</g>
+	</g>
+</g>
+</svg></div>
+        </div>
         <div
-          class="relative flex flex-col items-center mt-20 w-[435px] p-2 h-[560px]"
+          class="relative flex flex-col items-center mt-20 w-[435px] p-2 h-[560px] "
         >
-          <div class="w-[280px] -mt-6 h-[520px] flex flex-col items-center">
-            <canvas class="relative" ref="canvasRef"> </canvas>
+          <div class="w-[280px] -mt-6 h-[520px] flex flex-col items-center overflow-hidden">
+            <canvas class="absolute " ref="canvasRef"> </canvas>
 
             <div
               v-motion-slide-left
@@ -1686,10 +1721,10 @@ export default {
       selectedCaseType: "",
       selectedImage: [],
       objectsWithName: [],
-      nextButtonProduct: true,
+      nextButtonProduct: false,
       alertMessageItemStock: false,
       itemStockCount:[],
-
+      loading:false,
       canvas: null,
       uploadedImages: [],
       imageIndex: 1,
@@ -1700,6 +1735,51 @@ export default {
   },
 
   methods: {
+
+    setDimensions(width) {
+      
+        let scale = width / this.canvas.getWidth(),
+            height = scale * this.canvas.getHeight();
+
+        this.canvas.setDimensions({
+            "width": width,
+            "height": height,
+            
+        });
+
+        this.canvas.calcOffset();
+        let objects = this.canvas.getObjects();
+        for (let i in objects) {
+            let scaleX = objects[i].scaleX;
+            let scaleY = objects[i].scaleY;
+            let left = objects[i].left;
+            let top = objects[i].top;
+
+            objects[i].scaleX = scaleX * scale;
+            objects[i].scaleY = scaleY * scale;
+            objects[i].left = left * scale;
+            objects[i].top = top * scale;
+
+            objects[i].setCoords();
+        }
+        this.canvas.getObjects().forEach(obj => {
+        if (obj.clipPath) {
+            // Resize the clip path based on the scaleFactor
+            obj.clipPath.scaleX *= scale;
+            obj.clipPath.scaleY *= scale;
+            obj.clipPath.left *= scale;
+            obj.clipPath.top *= scale;
+            obj.clipPath.setCoords(); // Update clip path coordinates
+        }
+    });
+        
+        
+    },
+
+   
+
+
+
 
     dataURLtoBlob(dataurl) {
     var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
@@ -1948,7 +2028,7 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
         // newText.center();
         newText.selectable = true;
         // this.canvas.add(newText);
-        this.canvas.moveTo(newText, 8);
+        this.canvas.moveTo(newText, 9);
         this.canvas.setActiveObject(newText);
 
         newText.on("mouse:down", (event) => {
@@ -1959,7 +2039,7 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
           }
         });
 
-        // this.canvas.renderAll();
+        this.canvas.renderAll();
 
         const objects = this.canvas.getObjects();
         objects.forEach((obj, index) => {
@@ -2290,6 +2370,7 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
             perPixelTargetFind: true,
             centerH: true,
             centerV: true,
+            fill: "rgba(5, 5, 5, 0,.01)",
             name: "canvas image",
             clipPath: clipRect,
             globalCompositeOperation: "source-atop",
@@ -2328,7 +2409,7 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
             console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
           });
 
-          // this.canvas.renderAll();
+          this.canvas.renderAll();
         };
         img.src = selectedImage.url;
         img.width = selectedImage.width;
@@ -2415,7 +2496,7 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
             console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
           });
 
-          // this.canvas.renderAll();
+          this.canvas.renderAll();
         };
         img.src = selectedImage.url;
         img.width = selectedImage.width;
@@ -3526,18 +3607,22 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
       // this.canvas.renderAll();
     },
     exportPNG() {
+      this.loading= true;
+      this.setDimensions(700);
     
 
       this.exportPreviewPNG();
-      // this.scaleUp();
+      
 
       setTimeout(() => {
+        
+        this.setDimensions(700);
         this.exportPrintPNG();
         
-      }, 5000);
+      }, 2000);
 
       setTimeout(() => {
-        this.pngUpload();
+        // this.pngUpload();
         
       }, 7000);
 
@@ -3666,8 +3751,7 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
 
           const createClipRect = (width, height, rx, ry, top, left) => {
             const clipRect = new fabric.Rect({
-              originX: "left",
-              originY: "top",
+           
               width: width,
               height: height,
               rx: rx,
@@ -3721,7 +3805,8 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
               this.selectedBrand == 13 ||
               this.selectedBrand == 18:
               console.log("phone");
-              createClipRect(210, 430, 20, 20, 30, 120);
+              createClipRect(350, 660, 30, 30, 40, 180);
+
               break;
             case this.selectedType == 4 && this.selectedBrand == 14:
               console.log("Gadget Device");
@@ -3917,7 +4002,7 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
 
       this.previewImage = this.canvas.toDataURL({
         format: "png",
-        quality: 3,
+        quality: 50,
       });
       
 
@@ -3933,7 +4018,7 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
 
       this.printImage = this.canvas.toDataURL({
         format: "png",
-        quality: 3,
+        quality: 50,
       });
 
 
@@ -4227,8 +4312,8 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
         // cornerStyle: "round",
         // objectCaching: true,
         willReadFrequently: true,
-        // renderOnAddRemove: false,
-        // isDrawingMode: false,
+        renderOnAddRemove: false,
+        // isDrawingMode: false,ex
         // controlsAboveOverlay: true,
 
         preserveObjectStacking: true,
@@ -4237,6 +4322,15 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
       },
       { passive: true }
     );
+
+    const rotateSquareImage = new Image();
+rotateSquareImage.src = "src/assets/images/rotate-square.svg";
+const scaleSquareImage = new Image();
+scaleSquareImage.src = "src/assets/images/arrow-scale-square.svg";
+const closeSquareImage = new Image();
+closeSquareImage.src = "src/assets/images/close-square-black.svg";
+
+
 
     this.canvas.on(
       "object:added",
@@ -4281,6 +4375,12 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
         this.canvas.moveTo(object.target, 8);
         this.canvas.renderAll();
         const objects = this.canvas.getObjects();
+        objects.forEach((obj, index) => {
+          if (obj && obj.type === "text" && obj.name === "text") {
+            // this.canvas.remove(obj);
+            this.canvas.bringToFront(obj);
+          }
+        });
         objects.forEach((obj, index) => {
           if (obj && obj.type === "image" && obj.name === "transparent") {
             this.canvas.remove(obj);
@@ -4413,16 +4513,9 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
       mouseDownHandler: this.deleteSelectedImage,
 
       render: function (ctx, left, top, styleOverride, fabricObject) {
-        fabric.Image.fromURL(
-          "src/assets/images/close-square-black.svg",
-          function (img) {
-            ctx.save();
-            // img.scaleToWidth(32);
-            // img.scaleToHeight(32);
-            ctx.drawImage(img._element, left - 16, top - 16, 32, 32);
-            ctx.restore();
-          }
-        );
+      
+            ctx.drawImage(closeSquareImage, left - 16, top - 16, 32, 32);
+      
       },
     });
     const customControl4 = new fabric.Control({
@@ -4440,7 +4533,7 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
             ctx.save();
             // img.scaleToWidth(32);
             // img.scaleToHeight(32);
-            ctx.drawImage(img._element, left - 16, top - 16, 32, 32);
+            ctx.drawImage(closeSquareImage, left - 16, top - 16, 32, 32);
 
             ctx.restore();
           }
@@ -4473,14 +4566,9 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
       actionName: "rotate",
 
       render: function (ctx, left, top, styleOverride, fabricObject) {
-        fabric.Image.fromURL(
-          "src/assets/images/rotate-square.svg",
-          function (img) {
-            img.scaleToWidth(32);
-            img.scaleToHeight(32);
-            ctx.drawImage(img._element, left - 16, top - 16, 32, 32);
-          }
-        );
+       
+            ctx.drawImage(rotateSquareImage, left - 16, top - 16, 32, 32);
+      
       },
     });
     fabric.Object.prototype.controls.bl = new fabric.Control({
@@ -4493,14 +4581,9 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
       actionName: "scale",
 
       render: function (ctx, left, top, styleOverride, fabricObject) {
-        fabric.Image.fromURL(
-          "src/assets/images/arrow-scale-square.svg",
-          function (img) {
-            img.scaleToWidth(32);
-            img.scaleToHeight(32);
-            ctx.drawImage(img._element, left - 16, top - 16, 32, 32);
-          }
-        );
+       
+            ctx.drawImage(scaleSquareImage, left - 16, top - 16, 32, 32);
+        
       },
     });
   },
