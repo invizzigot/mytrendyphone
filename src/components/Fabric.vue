@@ -521,33 +521,35 @@
                 <div
                   class="absolute flex flex-col items-start bg-slate-50 ring-1 ring-slate-900/5 w-[290px] h-[380px] rounded-2xl ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
                 >
-                <div v-motion-pop v-if="this.alertMessageItemStock" class="absolute m-2 w-[270px] h-[345px] rounded-3xl shadow-xl ring-1 ring-slate-900/5 bg-slate-50 z-10" >
-                  
-                  <p
-                      
+                  <div
+                    v-motion-pop
+                    v-if="this.alertMessageItemStock"
+                    class="absolute m-2 w-[270px] h-[345px] rounded-3xl shadow-xl ring-1 ring-slate-900/5 bg-slate-50 z-10"
+                  >
+                    <p
                       class="font-inter w-[260px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
-                    >Dear customer!<br/><br/>
-                    This type of case for selected phone model is currently out of stock and  currently unavailable.<br/><br/>
-                    Please select different case and start to
-                      customize your device.
+                    >
+                      Dear customer!<br /><br />
+                      This type of case for selected phone model is currently
+                      out of stock and currently unavailable.<br /><br />
+                      Please select different case and start to customize your
+                      device.
                     </p>
                     <div
-                class="absolute left-[80px] bottom-5 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
-              >
-                <div
-                  @click="alertMessageItemStockClose()"
-                  class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
-                >
-                  <p
-                    class="text-center text-base font-inter font-bold text-slate-100"
-                  >
-                    Close
-                  </p>
-                </div>
-              </div>
-                    
-
-                </div>
+                      class="absolute left-[80px] bottom-5 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+                    >
+                      <div
+                        @click="alertMessageItemStockClose()"
+                        class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                      >
+                        <p
+                          class="text-center text-base font-inter font-bold text-slate-100"
+                        >
+                          Close
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                   <div class="pt-5 space-y-5">
                     <div>
                       <label
@@ -654,7 +656,8 @@
                   </div>
                 </div>
               </div>
-              <div v-if="this.nextButtonProduct"
+              <div
+                v-if="this.nextButtonProduct"
                 class="absolute right-[50px] -bottom-1 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
               >
                 <div
@@ -1497,7 +1500,7 @@
                       class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
                     >
                       <p
-                        @click="generateUrl()"
+                        @click="exportPNG()"
                         class="px-5 py-2 animate-pulse text-center text-[16px] font-inter font-bold leading-none tracking-tight text-slate-100"
                       >
                         Checkout
@@ -1526,53 +1529,78 @@
         </div>
       </div>
       <div class="relative w-[435px] h-[620px] mt-2">
-        <div v-if="loading"  class="absolute flex flex-col items-center justify-center bg-white ml-3 w-[360px] h-[600px] z-50">
-          <div class=" animate-spin w-[50px] h-[50px]"><svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 width="50px" height="50px" viewBox="0 0 374.846 374.846"
-	 xml:space="preserve">
-<g>
-	<g>
-		<g>
-			<path d="M326.147,267.326c4.168-6.754,12.875-9.094,19.869-5.336l5.83,3.135c3.635,1.955,6.305,5.32,7.379,9.305
+        <div
+          v-if="loading"
+          class="absolute flex flex-col items-center justify-center bg-white ml-3 w-[380px] h-[600px] z-50"
+        >
+          <div class="animate-spin w-[50px] h-[50px]">
+            <svg
+              fill="#000000"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="50px"
+              height="50px"
+              viewBox="0 0 374.846 374.846"
+              xml:space="preserve"
+            >
+              <g>
+                <g>
+                  <g>
+                    <path
+                      d="M326.147,267.326c4.168-6.754,12.875-9.094,19.869-5.336l5.83,3.135c3.635,1.955,6.305,5.32,7.379,9.305
 				c1.076,3.984,0.461,8.236-1.695,11.754c-8.301,13.519-18.295,25.941-29.709,36.923c-2.805,2.692-6.531,4.188-10.397,4.188
 				c-0.242,0-0.482-0.006-0.726-0.018c-4.123-0.199-7.981-2.09-10.668-5.227l-4.309-5.025c-5.164-6.025-4.74-15.031,0.967-20.547
-				C311.678,287.793,319.573,277.984,326.147,267.326z"/>
-			<path d="M208.809,338.262c12.505-0.903,24.873-3.344,36.77-7.252c7.529-2.475,15.685,1.334,18.617,8.695l2.451,6.153
+				C311.678,287.793,319.573,277.984,326.147,267.326z"
+                    />
+                    <path
+                      d="M208.809,338.262c12.505-0.903,24.873-3.344,36.77-7.252c7.529-2.475,15.685,1.334,18.617,8.695l2.451,6.153
 				c1.529,3.839,1.408,8.138-0.334,11.884c-1.74,3.746-4.953,6.604-8.873,7.907c-8.094,2.687-16.451,4.843-24.848,6.407
 				c-7.112,1.328-14.377,2.254-21.592,2.754c-0.349,0.023-0.693,0.035-1.037,0.035c-3.759,0-7.396-1.412-10.175-3.979
-				c-3.034-2.802-4.78-6.73-4.823-10.859l-0.071-6.625C194.809,345.459,200.906,338.834,208.809,338.262z"/>
-			<path d="M89.693,312.596c5.039-6.135,13.984-7.276,20.404-2.612c10.135,7.36,21.16,13.435,32.773,18.053
+				c-3.034-2.802-4.78-6.73-4.823-10.859l-0.071-6.625C194.809,345.459,200.906,338.834,208.809,338.262z"
+                    />
+                    <path
+                      d="M89.693,312.596c5.039-6.135,13.984-7.276,20.404-2.612c10.135,7.36,21.16,13.435,32.773,18.053
 				c7.373,2.933,11.188,11.101,8.701,18.636l-2.072,6.287c-1.293,3.92-4.145,7.135-7.883,8.887
 				c-2.012,0.941-4.186,1.416-6.361,1.416c-1.867,0-3.738-0.35-5.512-1.049c-14.73-5.818-28.695-13.51-41.508-22.863
-				c-3.332-2.434-5.516-6.133-6.037-10.227c-0.52-4.097,0.672-8.224,3.291-11.41L89.693,312.596z"/>
-			<path d="M28.699,214.609l6.508-1.216c7.82-1.454,15.414,3.438,17.314,11.156c3.029,12.289,7.592,24.129,13.561,35.191
+				c-3.332-2.434-5.516-6.133-6.037-10.227c-0.52-4.097,0.672-8.224,3.291-11.41L89.693,312.596z"
+                    />
+                    <path
+                      d="M28.699,214.609l6.508-1.216c7.82-1.454,15.414,3.438,17.314,11.156c3.029,12.289,7.592,24.129,13.561,35.191
 				c3.766,6.979,1.449,15.686-5.289,19.867l-5.625,3.491c-2.398,1.487-5.141,2.257-7.912,2.257c-1.285,0-2.576-0.164-3.842-0.5
 				c-3.992-1.061-7.371-3.716-9.342-7.348c-7.602-14.012-13.387-29.016-17.193-44.598c-0.979-4.005-0.266-8.234,1.971-11.697
-				C21.087,217.753,24.648,215.365,28.699,214.609z"/>
-			<path d="M36.849,170.858h-6.727c-0.006,0-0.014,0-0.02,0c-8.287,0-15-6.715-15-15c0-1.219,0.143-2.404,0.418-3.539
+				C21.087,217.753,24.648,215.365,28.699,214.609z"
+                    />
+                    <path
+                      d="M36.849,170.858h-6.727c-0.006,0-0.014,0-0.02,0c-8.287,0-15-6.715-15-15c0-1.219,0.143-2.404,0.418-3.539
 				c5.584-29.84,18.643-58.24,37.801-82.188C82.325,33.873,123.52,9.826,169.319,2.416C179.227,0.814,189.325,0,199.333,0
 				c25.752,0,51.313,5.385,74.813,15.67l11.687-11.688c2.413-2.412,5.909-3.389,9.225-2.574c3.313,0.812,5.961,3.299,6.981,6.555
 				l24.191,77.16c1.086,3.465,0.158,7.248-2.41,9.816c-2.567,2.568-6.35,3.496-9.815,2.41l-77.16-24.191
 				c-3.256-1.02-5.739-3.668-6.556-6.982c-0.813-3.312,0.162-6.811,2.576-9.223l13.013-13.014
 				c-15.021-4.963-30.656-7.473-46.685-7.473c-45.797,0-88.547,20.604-117.287,56.531c-15.309,19.135-25.793,41.84-30.322,65.662
-				C50.24,165.737,44.052,170.858,36.849,170.858z"/>
-		</g>
-	</g>
-</g>
-</svg></div>
+				C50.24,165.737,44.052,170.858,36.849,170.858z"
+                    />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
         </div>
         <div
-          class="relative flex flex-col items-center mt-20 w-[435px] p-2 h-[560px] "
+          class="relative flex flex-col items-center mt-20 w-[435px] p-2 h-[560px]"
         >
-          <div class="w-[280px] -mt-6 h-[520px] flex flex-col items-center overflow-hidden">
-            <canvas class="absolute " ref="canvasRef"> </canvas>
+          <div
+            class="w-[380px] -mt-6 h-[520px] flex flex-col items-center overflow-hidden"
+          >
+            <canvas class="absolute" ref="canvasRef"> </canvas>
 
             <div
               v-motion-slide-left
               :delay="600"
-              class="absolute left-[380px] top-[40px] gap-3 flex flex-col m-3"
+              class="absolute left-[380px] top-[40px] gap-3 flex flex-col m-3 z-20"
             >
-              <button @click="resetCanvas">
+              <button @click="clearCanvas">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -1654,17 +1682,7 @@
                   />
                 </svg>
               </button>
-              <button @click="exportPNG">
-                <svg
-                  viewBox="0 0 32 32"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-6 h-6"
-                >
-                  <path
-                    d="M 6 4 L 6 28 L 26 28 L 26 20 L 24 22 L 24 26 L 8 26 L 8 6 L 24 6 L 24 10 L 26 12 L 26 4 Z M 22.40625 11 L 21 12.40625 L 23.5625 15 L 13.90625 15 L 13.90625 17 L 23.5625 17 L 21 19.59375 L 22.40625 21 L 26.71875 16.71875 L 27.40625 16 L 26.71875 15.28125 Z"
-                  />
-                </svg>
-              </button>
+              
             </div>
             <div class="flex flex-col"></div>
             <div class="absolute top-[40px] left-[15px] flex flex-col gap-3">
@@ -1691,7 +1709,7 @@
 </template>
 
 <script>
-import axios  from 'axios';
+import axios from "axios";
 import { fabric } from "fabric";
 import fs from "fs";
 import { ref } from "vue";
@@ -1704,7 +1722,7 @@ export default {
       activeIndex: null,
       activeIndexColor: 7,
       models: [],
-      fontColor: "",
+      fontColor: "black",
       casesTypes: [],
       exportMaskClipImage: {},
       exportPlaceholderImage: {},
@@ -1723,146 +1741,137 @@ export default {
       objectsWithName: [],
       nextButtonProduct: false,
       alertMessageItemStock: false,
-      itemStockCount:[],
-      loading:false,
+      itemStockCount: [],
+      loading: false,
       canvas: null,
       uploadedImages: [],
       imageIndex: 1,
       offsetCollage: 0,
-      printImage: '',
-      previewImage: '',
+      printImage: "",
+      previewImage: "",
     };
   },
 
   methods: {
-
     setDimensions(width) {
-      
-        let scale = width / this.canvas.getWidth(),
-            height = scale * this.canvas.getHeight();
+      let scale = width / this.canvas.getWidth(),
+        height = scale * this.canvas.getHeight();
 
-        this.canvas.setDimensions({
-            "width": width,
-            "height": height,
-            
-        });
+      this.canvas.setDimensions({
+        width: width,
+        height: height,
+      });
 
-        this.canvas.calcOffset();
-        let objects = this.canvas.getObjects();
-        for (let i in objects) {
-            let scaleX = objects[i].scaleX;
-            let scaleY = objects[i].scaleY;
-            let left = objects[i].left;
-            let top = objects[i].top;
+      this.canvas.calcOffset();
+      let objects = this.canvas.getObjects();
+      for (let i in objects) {
+        let scaleX = objects[i].scaleX;
+        let scaleY = objects[i].scaleY;
+        let left = objects[i].left;
+        let top = objects[i].top;
 
-            objects[i].scaleX = scaleX * scale;
-            objects[i].scaleY = scaleY * scale;
-            objects[i].left = left * scale;
-            objects[i].top = top * scale;
+        objects[i].scaleX = scaleX * scale;
+        objects[i].scaleY = scaleY * scale;
+        objects[i].left = left * scale;
+        objects[i].top = top * scale;
 
-            objects[i].setCoords();
-        }
-        this.canvas.getObjects().forEach(obj => {
+        objects[i].setCoords();
+      }
+      this.canvas.getObjects().forEach((obj) => {
         if (obj.clipPath) {
-            // Resize the clip path based on the scaleFactor
-            obj.clipPath.scaleX *= scale;
-            obj.clipPath.scaleY *= scale;
-            obj.clipPath.left *= scale;
-            obj.clipPath.top *= scale;
-            obj.clipPath.setCoords(); // Update clip path coordinates
+          // Resize the clip path based on the scaleFactor
+          obj.clipPath.scaleX *= scale;
+          obj.clipPath.scaleY *= scale;
+          obj.clipPath.left *= scale;
+          obj.clipPath.top *= scale;
+          obj.clipPath.setCoords(); // Update clip path coordinates
         }
-    });
-        
-        
+      });
     },
 
-   
-
-
-
-
     dataURLtoBlob(dataurl) {
-    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
-        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
-    while (n--) {
+      var arr = dataurl.split(","),
+        mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]),
+        n = bstr.length,
+        u8arr = new Uint8Array(n);
+      while (n--) {
         u8arr[n] = bstr.charCodeAt(n);
-    }
-    return new Blob([u8arr], { type: mime });
-},
+      }
+      return new Blob([u8arr], { type: mime });
+    },
 
     pngUpload() {
-        
-
-     
-        const blob1 = this.dataURLtoBlob(this.previewImage);
-        const blob2 = this.dataURLtoBlob(this.printImage);
+      const blob1 = this.dataURLtoBlob(this.previewImage);
+      const blob2 = this.dataURLtoBlob(this.printImage);
 
       /* console.log(blob); */
-       
-        const dataFull = new FormData();
-        dataFull.append('file_preview', blob1, 'preview.png');
-        dataFull.append('file_print', blob2, 'print.png');
-       /*  const boundary = formData.getBoundary(); */
-     /*  console.log(boundary); */
-   const axiosConfig = {
-            withCredentials: true,
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'multipart/form-data; boundary=${dataFull._boundary}',
-            },
-            timeout: 64000,
-        };
-       
-    axios.post('https://covers.mtpdev3.com/api/1.0/assetsblob',dataFull,axiosConfig)
-  .then(function (response) {
-    let data = response.data;
-    result.textContent = data.results[0].email;
-  })
-  .catch(function (error) {
-    // handle error
-    /* console.log(error); */
-  })
-  .finally(function () {
-    // always executed
-    console.log('I always Execued');
-  });
-    
 
-    
-},
+      const dataFull = new FormData();
+      dataFull.append("file_preview", blob1, "preview.png");
+      dataFull.append("file_print", blob2, "print.png");
+      /*  const boundary = formData.getBoundary(); */
+      /*  console.log(boundary); */
+      const axiosConfig = {
+        withCredentials: true,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "multipart/form-data; boundary=${dataFull._boundary}",
+        },
+        timeout: 64000,
+      };
+
+      axios
+        .post(
+          "https://covers.mtpdev3.com/api/1.0/assetsblob",
+          dataFull,
+          axiosConfig
+        )
+        .then(function (response) {
+          let data = response.data;
+          result.textContent = data.results[0].email;
+        })
+        .catch(function (error) {
+          // handle error
+          /* console.log(error); */
+        })
+        .finally(function () {
+          // always executed
+          console.log("I always Execued");
+        });
+    },
 
     alertMessageItemStockClose() {
       this.alertMessageItemStock = false;
     },
-   async fetchStockData(product_id) {
-    let headersList = {
- "Accept": 'application/json',
- "Control-Allow-Origin": "*",
- "Authorization": "Basic OmRkZmRkYzdkLTVhNTEtNGExYy04NmQ0LTc4YTY2ZmFkNTY0Yg==",
+    async fetchStockData(product_id) {
+      let headersList = {
+        Accept: "application/json",
+        "Control-Allow-Origin": "*",
+        Authorization:
+          "Basic OmRkZmRkYzdkLTVhNTEtNGExYy04NmQ0LTc4YTY2ZmFkNTY0Yg==",
+      };
 
-}
+      let response = await fetch(
+        `https://cors-anywhere.herokuapp.com/https://mytrendyphone.dk/admin/WEBAPI/v2/products/${product_id}`,
+        {
+          method: "GET",
 
-let response = await fetch(`https://cors-anywhere.herokuapp.com/https://mytrendyphone.dk/admin/WEBAPI/v2/products/${product_id}`, { 
-  method: "GET",
- 
-  headers: headersList
-});
+          headers: headersList,
+        }
+      );
 
-this.itemStockCount = await response.json();
-console.log(product_id);
-console.log(this.itemStockCount.stockCount);
-if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
-  this.nextButtonProduct = false;
-  this.alertMessageItemStock = true;
-}else {
-  this.alertMessageItemStock = false;
-  this.nextButtonProduct = true;
-}
-
+      this.itemStockCount = await response.json();
+      console.log(product_id);
+      console.log(this.itemStockCount.stockCount);
+      if (this.itemStockCount.stockCount <= 0 && this.itemStockCount != null) {
+        this.nextButtonProduct = false;
+        this.alertMessageItemStock = true;
+      } else {
+        this.alertMessageItemStock = false;
+        this.nextButtonProduct = true;
+      }
     },
-
-
-    
 
     generateUrl() {
       // Define the parameters
@@ -3607,28 +3616,23 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
       // this.canvas.renderAll();
     },
     exportPNG() {
-      this.loading= true;
+      this.loading = true;
       this.setDimensions(700);
-    
 
       this.exportPreviewPNG();
-      
 
       setTimeout(() => {
-        
         this.setDimensions(700);
         this.exportPrintPNG();
-        
       }, 2000);
 
       setTimeout(() => {
-        // this.pngUpload();
-        
-      }, 7000);
+        this.pngUpload();
+      }, 5000);
 
-      
-
-   
+      setTimeout(() => {
+        this.generateUrl();
+      }, 15000);
 
       // this.resetAllCanvas();
     },
@@ -3751,7 +3755,6 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
 
           const createClipRect = (width, height, rx, ry, top, left) => {
             const clipRect = new fabric.Rect({
-           
               width: width,
               height: height,
               rx: rx,
@@ -3827,7 +3830,6 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
               createClipRect(195, 385, 0, 0, 55, 180);
               break;
           }
-          
         } else {
           return;
         }
@@ -3913,47 +3915,54 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
       });
 
       // Update the canvas to reflect the changes
-     
+
       this.canvas.renderAll();
 
-      
       setTimeout(() => {
-   
         this.createPrintLink();
       }, 1000);
     },
     scaleUp() {
-      const scaleFactor = 4; 
-      const center = new fabric.Point(this.canvas.width / 2, this.canvas.height / 2);
-      const offset = new fabric.Point(center.x * (scaleFactor - 1), center.y * (scaleFactor - 1));
-      this.canvas.set({
-        width: this.canvas.width * scaleFactor,
-        
-        height: this.canvas.height * scaleFactor
-    },  { backstoreOnly: true });
-    console.log(this.canvas.width);
-      this.canvas.getObjects().forEach(obj => {
+      const scaleFactor = 4;
+      const center = new fabric.Point(
+        this.canvas.width / 2,
+        this.canvas.height / 2
+      );
+      const offset = new fabric.Point(
+        center.x * (scaleFactor - 1),
+        center.y * (scaleFactor - 1)
+      );
+      this.canvas.set(
+        {
+          width: this.canvas.width * scaleFactor,
+
+          height: this.canvas.height * scaleFactor,
+        },
+        { backstoreOnly: true }
+      );
+      console.log(this.canvas.width);
+      this.canvas.getObjects().forEach((obj) => {
         // Scale all objects
         obj.scaleX *= scaleFactor;
         obj.scaleY *= scaleFactor;
 
         // If the object is a clip path, scale its path as well
         if (obj.clipPath) {
-            obj.clipPath.scaleX *= scaleFactor;
-            obj.clipPath.scaleY *= scaleFactor;
+          obj.clipPath.scaleX *= scaleFactor;
+          obj.clipPath.scaleY *= scaleFactor;
         }
         obj.left += offset.x;
         obj.top += offset.y;
         obj.setCoords(); // Update object's coordinates
-    });
+      });
 
-    this.canvas.renderAll(); // Render the updated canvas
+      this.canvas.renderAll(); // Render the updated canvas
     },
     bindObjectsToCanvasSize() {
-    const canvasWidth = this.canvas.width;
-    const canvasHeight = this.canvas.height;
+      const canvasWidth = this.canvas.width;
+      const canvasHeight = this.canvas.height;
 
-    this.canvas.getObjects().forEach(obj => {
+      this.canvas.getObjects().forEach((obj) => {
         // Calculate new positions relative to the canvas size
         const leftRatio = obj.left / canvasWidth;
         const topRatio = obj.top / canvasHeight;
@@ -3963,12 +3972,10 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
         obj.top = topRatio * this.canvas.height;
 
         obj.setCoords(); // Update object's coordinates
-    });
+      });
 
-    this.canvas.renderAll(); // Render the updated canvas
-},
-
-  
+      this.canvas.renderAll(); // Render the updated canvas
+    },
 
     cropMask(caseType) {
       console.log(this.exportMaskClipImage);
@@ -4004,7 +4011,6 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
         format: "png",
         quality: 50,
       });
-      
 
       // // Create a link element to download the PNG image
       // const link = document.createElement("a");
@@ -4020,8 +4026,6 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
         format: "png",
         quality: 50,
       });
-
-
 
       // // Create a link element to download the PNG image
       // const link = document.createElement("a");
@@ -4075,18 +4079,33 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
 
     bringForward() {
       // Bring the selected object forward in the stack order
+  
       const selectedObject = this.canvas.getActiveObject();
-      if (selectedObject) {
-        this.canvas.bringForward(selectedObject);
-      }
+    if (selectedObject) {
+        const currentIndex = this.canvas.getObjects().indexOf(selectedObject);
+        console.log(currentIndex);
+        if (currentIndex < 9) {
+          this.canvas.bringForward(selectedObject);
+            this.canvas.renderAll();
+        }
+    }
+
+
+
+
     },
     sendBackwards() {
-      // Send the selected object backward in the stack order
-      const selectedObject = this.canvas.getActiveObject();
-      if (selectedObject) {
-        this.canvas.sendBackwards(selectedObject);
-      }
-    },
+    // Send the selected object backward in the stack order
+    const selectedObject = this.canvas.getActiveObject();
+    if (selectedObject) {
+        const currentIndex = this.canvas.getObjects().indexOf(selectedObject);
+        console.log(currentIndex);
+        if (currentIndex > 1) {
+            this.canvas.sendBackwards(selectedObject);
+            this.canvas.renderAll();
+        }
+    }
+},
     deleteSelectedImage() {
       // Delete the selected image from the canvas
       const selectedObject = this.canvas.getActiveObject();
@@ -4296,9 +4315,7 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
       }, 1000);
     },
   },
-  created() {
-    
-  },
+  created() {},
   mounted() {
     this.canvas = new fabric.Canvas(
       this.$refs.canvasRef,
@@ -4324,13 +4341,11 @@ if (this.itemStockCount.stockCount <= 0 && this.itemStockCount !=null) {
     );
 
     const rotateSquareImage = new Image();
-rotateSquareImage.src = "src/assets/images/rotate-square.svg";
-const scaleSquareImage = new Image();
-scaleSquareImage.src = "src/assets/images/arrow-scale-square.svg";
-const closeSquareImage = new Image();
-closeSquareImage.src = "src/assets/images/close-square-black.svg";
-
-
+    rotateSquareImage.src = "src/assets/images/rotate-square.svg";
+    const scaleSquareImage = new Image();
+    scaleSquareImage.src = "src/assets/images/arrow-scale-square.svg";
+    const closeSquareImage = new Image();
+    closeSquareImage.src = "src/assets/images/close-square-black.svg";
 
     this.canvas.on(
       "object:added",
@@ -4513,9 +4528,7 @@ closeSquareImage.src = "src/assets/images/close-square-black.svg";
       mouseDownHandler: this.deleteSelectedImage,
 
       render: function (ctx, left, top, styleOverride, fabricObject) {
-      
-            ctx.drawImage(closeSquareImage, left - 16, top - 16, 32, 32);
-      
+        ctx.drawImage(closeSquareImage, left - 16, top - 16, 32, 32);
       },
     });
     const customControl4 = new fabric.Control({
@@ -4566,9 +4579,7 @@ closeSquareImage.src = "src/assets/images/close-square-black.svg";
       actionName: "rotate",
 
       render: function (ctx, left, top, styleOverride, fabricObject) {
-       
-            ctx.drawImage(rotateSquareImage, left - 16, top - 16, 32, 32);
-      
+        ctx.drawImage(rotateSquareImage, left - 16, top - 16, 32, 32);
       },
     });
     fabric.Object.prototype.controls.bl = new fabric.Control({
@@ -4581,9 +4592,7 @@ closeSquareImage.src = "src/assets/images/close-square-black.svg";
       actionName: "scale",
 
       render: function (ctx, left, top, styleOverride, fabricObject) {
-       
-            ctx.drawImage(scaleSquareImage, left - 16, top - 16, 32, 32);
-        
+        ctx.drawImage(scaleSquareImage, left - 16, top - 16, 32, 32);
       },
     });
   },
