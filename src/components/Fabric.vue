@@ -1682,7 +1682,6 @@
                   />
                 </svg>
               </button>
-              
             </div>
             <div class="flex flex-col"></div>
             <div class="absolute top-[40px] left-[15px] flex flex-col gap-3">
@@ -2174,20 +2173,7 @@ export default {
       } else {
         this.offsetCollage = 0;
       }
-      // if (this.selectedType === '2') {
-      //   console.log(this.selectedType);
-      //   this.offsetCollage =  0;
-      // } else {
-      //   this.offsetCollage = 0;
-      // }
 
-      // if (this.selectedType === 2) {
-      //   console.table(this.selectedType)
-      //   this.offsetCollage = this.offsetCollage - 80;
-      //   console.log(`offset: ${this.offsetCollage} `);
-      // } else {
-      //   this.offsetCollage = 0;
-      // }
       this.exportMaskClipImage = this.casesTypes[caseType].image_draw_mask;
       this.exportPlaceholderImage = this.casesTypes[caseType].image_placeholder;
       console.log(this.casesTypes[caseType].dd_product_id);
@@ -2216,28 +2202,6 @@ export default {
         }
       });
       // adding phome mask to cannvas
-
-      // const fake = fabric.Image.fromURL(
-      //   "src/assets/images/transparentbackground.png",
-      //   (fakebackground) => {
-      //     // the scaleToHeight property is use to set the image height
-      //     console.log(fakebackground.height);
-      //     console.log(fakebackground.width);
-      //     fakebackground.scaleToHeight(320);
-      //     // scaleToWidth is use to set the image width
-      //     fakebackground.scaleToWidth(320);
-      //     fakebackground.name = "fakebackground";
-      //     fakebackground.selectable = false;
-      //     // background.globalCompositeOperation = "source-over";
-      //     fakebackground.evented = false;
-      //     this.canvas.add(fakebackground);
-      //     fakebackground.center();
-      //     this.canvas.moveTo(fakebackground, 1);
-
-      //     this.canvas.renderAll();
-      //   },
-      //   { crossOrigin: "anonymous" }
-      // );
 
       const back = fabric.Image.fromURL(
         this.casesTypes[caseType].image_placeholder,
@@ -2617,10 +2581,6 @@ export default {
         mtr: false,
       });
 
-      // rectangle.on("mousedblclick", function (options) {
-      //   uploadButton1.click();
-      // });
-
       rectangle.on("mouse:down", (event) => {
         const target = event.target;
         if (target && target.selectable) {
@@ -2636,9 +2596,6 @@ export default {
           // this.canvas.renderAll();
         }
       });
-      // rectangle2.on("mousedblclick", function (options) {
-      //   uploadButton.click();
-      // });
 
       this.canvas.add(rectangle, rectangle2);
       this.canvas.moveTo(rectangle, 2);
@@ -3415,9 +3372,9 @@ export default {
       if (this.selectedImage) {
         fabric.Image.fromURL(this.selectedImage, (img) => {
           // Customize the image properties if needed
-          img.scaleToHeight(250);
+          img.scaleToHeight(230);
           // scaleToWidth is use to set the image width
-          img.scaleToWidth(250);
+          img.scaleToWidth(230);
 
           img.selectable = false;
           this.canvas.clear();
@@ -3432,88 +3389,50 @@ export default {
 
     handleImageUpload(event) {
       const files = event.target.files;
-      console.log(event);
+      const file = files[0];
+      const maxSizeInBytes = 5 * 1024 * 1024;// 5 MB (example size limit)
+      const minWidth =  800; 
+      console.log(file);
+      console.log(file.size);
+      console.log(maxSizeInBytes);
 
       const remainingSlots = 6 - this.uploadedImages.length;
       const filesToUpload = Array.from(files).slice(0, remainingSlots);
+      if (
+        file &&
+        file.type.startsWith("image/") &&
+        file.size < maxSizeInBytes
+      ) {
+        for (let i = 0; i < filesToUpload.length; i++) {
+          const reader = new FileReader();
+       
+          reader.onload = (e) => {
+            const img = new Image();
+             img.src = e.target.result;
+              
+              img.onload = () =>{
+                const imageWidth = img.width;
+                console.log('Image width:', imageWidth);
+                if (imageWidth > minWidth) {
+                  this.uploadedImages.push({
+              url: e.target.result,
+              id: this.imageIndex + 1,
+            });
+            // console.log(this.imageIndex);
+            this.imageIndex = this.imageIndex + 1;
+            console.log(this.imageIndex);
+                } else {
+                  alert("Please select bigger image.");
+                }
 
-      for (let i = 0; i < filesToUpload.length; i++) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          this.uploadedImages.push({
-            url: e.target.result,
-            id: this.imageIndex + 1,
-          });
-          // console.log(this.imageIndex);
-          this.imageIndex = this.imageIndex + 1;
-          console.log(this.imageIndex);
-          // const img = new Image();
-          // img.onload = () => {
-          //   const clipRect2 = new fabric.Rect({
-          //     width: 500,
-          //     height: 260,
-          //     top: 250,
-          //     left: 0,
-          //     absolutePositioned: true,
-          //     cornerStyle: "round",
-          //     backgroundColor: "#00CCEE",
-          //     fill: "",
-          //     strokeWidth: 5,
-          //     stroke: "red",
-          //     hasBorders: true,
-          //     borderColor: "#3ff4ff",
-          //   });
-
-          //   const fabricImg = new fabric.Image(img, {
-          //     left: 200,
-          //     top: 300,
-          //     scaleX: 0.1,
-          //     scaleY: 0.1,
-          //     clipPath: clipRect2,
-          //     selectable: true,
-          //     hasControls: true,
-          //     hasBorders: true,
-          //     perPixelTargetFind: true,
-          //     centerH: true,
-          //     centerV: true,
-
-          //     name: "canvas image",
-          //   });
-
-          //   //  this.imageGroup.addWithUpdate(fabricImg);
-          //   //  this.canvas.moveTo(this.imageGroup,2);
-
-          //   this.canvas.add(fabricImg);
-
-          //   this.canvas.setActiveObject(fabricImg);
-          //   this.canvas.moveTo(fabricImg, this.imageIndex);
-          //   // fabric.Image.fromURL(
-          //   //   "src/assets/images/s22transparent.png",
-          //   //   (img) => {
-          //   //     // the scaleToHeight property is use to set the image height
-          //   //     img.scaleToHeight(250);
-          //   //     // scaleToWidth is use to set the image width
-          //   //     img.scaleToWidth(250);
-          //   //     img.left;
-          //   //     img.visible = true;
-          //   //     img.top;
-          //   //     img.selectable = false;
-          //   //     img.globalCompositeOperation = "destination-out";
-          //   //     this.canvas.add(img);
-          //   //     img.center();
-          //   //     this.canvas.moveTo(img, 10);
-          //   //     this.canvas.render();
-          //   //   }
-          //   // );
-          //   const objects = this.canvas.getObjects();
-          //   objects.forEach((obj, index) => {
-          //     console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
-          //   });
-          //   console.log(this.uploadedImages);
-          // };
-          // img.src = e.target.result;
-        };
-        reader.readAsDataURL(filesToUpload[i]);
+              }
+            
+            
+          };
+          reader.readAsDataURL(filesToUpload[i]);
+        }
+      } else {
+        alert("Selected file is not an image.");
       }
     },
     handleImageUpload1(event) {
@@ -3534,24 +3453,6 @@ export default {
           console.log(this.imageIndex);
           const img = new Image();
           img.onload = () => {
-            // const clipRect2 = new fabric.Rect({
-            //   width: 500,
-            //   height: 250,
-            //   centerH: true,
-            //   centerH: true,
-            //   objectCaching: false,
-            //   top: 0,
-            //   left: 0,
-            //   absolutePositioned: true,
-
-            //   backgroundColor: "#00CCEE",
-            //   fill: "",
-            //   strokeWidth: 5,
-            //   stroke: "red",
-            //   hasBorders: true,
-            //   borderColor: "#3ff4ff",
-            // });
-
             const fabricImg = new fabric.Image(img, {
               left: 200,
               top: 100,
@@ -3577,24 +3478,7 @@ export default {
             this.canvas.setActiveObject(fabricImg);
 
             this.canvas.moveTo(fabricImg, this.imageIndex);
-            // fabric.Image.fromURL(
-            //   "src/assets/images/s22transparent.png",
-            //   (img) => {
-            //     // the scaleToHeight property is use to set the image height
-            //     img.scaleToHeight(250);
-            //     // scaleToWidth is use to set the image width
-            //     img.scaleToWidth(250);
-            //     img.left;
-            //     img.visible = true;
-            //     img.top;
-            //     img.selectable = false;
-            //     img.globalCompositeOperation = "destination-out";
-            //     this.canvas.add(img);
-            //     img.center();
-            //     this.canvas.moveTo(img, 10);
-            //     this.canvas.render();
-            //   }
-            // );
+
             const objects = this.canvas.getObjects();
             objects.forEach((obj, index) => {
               console.log(`Item ${index}: ${obj.type} name: ${obj.name}`);
@@ -4079,33 +3963,29 @@ export default {
 
     bringForward() {
       // Bring the selected object forward in the stack order
-  
+
       const selectedObject = this.canvas.getActiveObject();
-    if (selectedObject) {
+      if (selectedObject) {
         const currentIndex = this.canvas.getObjects().indexOf(selectedObject);
         console.log(currentIndex);
         if (currentIndex < 9) {
           this.canvas.bringForward(selectedObject);
-            this.canvas.renderAll();
+          this.canvas.renderAll();
         }
-    }
-
-
-
-
+      }
     },
     sendBackwards() {
-    // Send the selected object backward in the stack order
-    const selectedObject = this.canvas.getActiveObject();
-    if (selectedObject) {
+      // Send the selected object backward in the stack order
+      const selectedObject = this.canvas.getActiveObject();
+      if (selectedObject) {
         const currentIndex = this.canvas.getObjects().indexOf(selectedObject);
         console.log(currentIndex);
         if (currentIndex > 1) {
-            this.canvas.sendBackwards(selectedObject);
-            this.canvas.renderAll();
+          this.canvas.sendBackwards(selectedObject);
+          this.canvas.renderAll();
         }
-    }
-},
+      }
+    },
     deleteSelectedImage() {
       // Delete the selected image from the canvas
       const selectedObject = this.canvas.getActiveObject();
