@@ -75,7 +75,7 @@
           :delay="300"
           class="text-sm text-center font-bold"
         >
-          Device
+        {{ dictionary.steper_device }}
         </div>
       </div>
 
@@ -183,7 +183,7 @@
           :delay="300"
           class="text-sm text-center font-bold"
         >
-          Layout
+        {{ dictionary.steper_layout }}
         </div>
       </div>
 
@@ -279,7 +279,7 @@
           :delay="300"
           class="text-sm text-center font-bold"
         >
-          Images
+        {{ dictionary.steper_image }}
         </div>
       </div>
 
@@ -393,7 +393,7 @@
           :delay="300"
           class="text-sm font-bold text-center"
         >
-          Text
+        {{ dictionary.steper_text }}
         </div>
       </div>
 
@@ -477,7 +477,7 @@
           :delay="300"
           class="text-sm font-bold text-center"
         >
-          Finish
+        {{ dictionary.steper_finish }}
         </div>
       </div>
     </div>
@@ -501,17 +501,17 @@
                 <p
                   class="font-inter text-base mt-2 font-semibold leading-2 text-slate-700"
                 >
-                  Step one
+                  {{ dictionary.step_one }} 
                 </p>
                 <h1
                   class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
                 >
-                  Product
+                {{ dictionary.step_one_title }} 
                 </h1>
                 <p
                   class="font-inter my-2 text-base font-medium text-left leading-7 text-slate-700"
                 >
-                  Choose product to customize.
+                {{ dictionary.step_one_description }} 
                 </p>
               </div>
               <div
@@ -529,11 +529,7 @@
                     <p
                       class="font-inter w-[260px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
                     >
-                      Dear customer!<br /><br />
-                      This type of case for selected phone model is currently
-                      out of stock and currently unavailable.<br /><br />
-                      Please select different case and start to customize your
-                      device.
+                      {{dictionary.alert_box_out_of_stock}}
                     </p>
                     <div
                       class="absolute left-[80px] bottom-5 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
@@ -545,7 +541,7 @@
                         <p
                           class="text-center text-base font-inter font-bold text-slate-100"
                         >
-                          Close
+                          {{dictionary.action_close}}
                         </p>
                       </div>
                     </div>
@@ -555,7 +551,7 @@
                       <label
                         for=""
                         class="font-inter text-md font-semibold mt- px-4 leading-7 text-slate-700"
-                        >Device type</label
+                        >{{ dictionary.device_type }} </label
                       >
                       <div class="mt-2">
                         <select
@@ -563,7 +559,7 @@
                           v-model="selectedType"
                           class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-xl focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
                         >
-                          <option value="">Select Device</option>
+                          <option value="">{{ dictionary.select_device }}</option>
                           <option value="1">Phone Device</option>
                           <option value="2">Tablet Device</option>
                           <option value="4">Gadget Device</option>
@@ -574,7 +570,7 @@
                       <label
                         for=""
                         class="font-inter text-md font-semibold mt-2 px-4 leading-7 text-slate-700"
-                        >Product brand</label
+                        >{{ dictionary.product_brand }}</label
                       >
                       <div class="mt-2">
                         <select
@@ -586,7 +582,7 @@
                           disabled
                           class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-xl focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
                         >
-                          <option disabled value="">Select Brand</option>
+                          <option disabled value="">{{ dictionary.select_brand }}</option>
                           <option
                             v-for="brand in brands"
                             :key="brand.id"
@@ -602,7 +598,7 @@
                       <label
                         for=""
                         class="font-inter text-md font-semibold mt-2 px-4 leading-7 text-slate-700"
-                        >Product model</label
+                        >{{ dictionary.product_model }}</label
                       >
                       <div class="mt-2">
                         <select
@@ -614,7 +610,7 @@
                           disabled
                           class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-xl focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
                         >
-                          <option selected value="">Select Model</option>
+                          <option selected value="">{{ dictionary.select_model }}</option>
                           <option
                             v-for="model in models"
                             :key="model.id"
@@ -630,7 +626,7 @@
                       <label
                         for=""
                         class="font-inter text-md font-semibold mt-2 px-4 leading-7 text-slate-700"
-                        >Type of case</label
+                        >{{ dictionary.type_of_case }}</label
                       >
                       <div class="mt-2">
                         <select
@@ -642,7 +638,7 @@
                           id="phoneCase"
                           name="phoneCase"
                         >
-                          <option value="">Select Case</option>
+                          <option value="">{{ dictionary.select_case }}</option>
                           <option
                             v-for="(caseType, index) in casesTypes"
                             :key="caseType.id"
@@ -657,7 +653,6 @@
                 </div>
               </div>
               <div
-                v-if="this.nextButtonProduct"
                 class="absolute right-[50px] -bottom-1 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
               >
                 <div
@@ -667,7 +662,7 @@
                   <p
                     class="text-center text-base font-inter font-bold text-slate-100"
                   >
-                    Next
+                  {{ dictionary.action_next }}
                   </p>
                 </div>
               </div>
@@ -677,17 +672,17 @@
                 <p
                   class="font-inter text-base mt-0 font-semibold leading-2 text-slate-700"
                 >
-                  Step Two
+                {{ dictionary.step_two }}
                 </p>
                 <h1
                   class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
                 >
-                  Layout
+                {{ dictionary.step_two_title }}
                 </h1>
                 <p
                   class="font-inter my-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
                 >
-                  Select mask layout design.
+                {{ dictionary.step_two_description }}
                 </p>
               </div>
               <div
@@ -704,9 +699,7 @@
                       v-if="this.selectedType == ''"
                       class="font-inter w-[250px] my-5 px-4 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
                     >
-                      In order to complete this step, you have to select product
-                      to customize on first step. <br />Go back and start to
-                      customize your device.
+                    {{ dictionary.alert_box_stepper }}
                     </p>
 
                     <div
@@ -837,7 +830,7 @@
                   <p
                     class="text-center text-base font-inter font-bold text-slate-100"
                   >
-                    Back
+                  {{ dictionary.action_back }}
                   </p>
                 </div>
               </div>
@@ -851,7 +844,7 @@
                   <p
                     class="text-center text-base font-inter font-bold text-slate-100"
                   >
-                    Next
+                  {{ dictionary.action_next }}
                   </p>
                 </div>
               </div>
@@ -861,22 +854,73 @@
                 <p
                   class="font-inter text-base mt-4 font-semibold leading-2 text-slate-700"
                 >
-                  Step three
+                {{ dictionary.step_three }}
                 </p>
                 <h1
                   class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
                 >
-                  Add Images
+                {{ dictionary.step_three_title }}
                 </h1>
                 <p
                   class="font-inter my-5 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
                 >
-                  Upload your images to customize.
+                {{ dictionary.step_three_description }}
                 </p>
               </div>
               <div
                 class="relative flex flex-row w-[300px] h-[50px] bg-transparent"
               >
+                <div
+                  v-motion-pop
+                  v-if="alertMessageImageType"
+                  class="absolute m-0 w-[305px] h-[300px] rounded-3xl shadow-xl ring-1 ring-slate-900/5 bg-slate-50 z-10"
+                >
+                  <p
+                    class="font-inter w-[300px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+                  >
+                    {{ dictionary.alert_box_file_type}}
+                  </p>
+                  <div
+                    class="absolute left-[80px] bottom-5 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+                  >
+                    <div
+                      @click="alertMessageImageTypeClose()"
+                      class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                    >
+                      <p
+                        class="text-center text-base font-inter font-bold text-slate-100"
+                      >
+                      {{ dictionary.action_close }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  v-motion-pop
+                  v-if="alertMessageImageTooSmall"
+                  class="absolute m-0 w-[305px] h-[300px] rounded-3xl shadow-xl ring-1 ring-slate-900/5 bg-slate-50 z-10"
+                >
+                  <p
+                    class="font-inter w-[300px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+                  >
+                  {{ dictionary.alert_box_image_size }}
+                  </p>
+                  <div
+                    class="absolute left-[80px] bottom-5 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+                  >
+                    <div
+                      @click="alertMessageImageTooSmallClose()"
+                      class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                    >
+                      <p
+                        class="text-center text-base font-inter font-bold text-slate-100"
+                      >
+                      {{ dictionary.action_close }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
                 <div
                   @click="setActiveTabIndex(1)"
                   v-motion-slide-top
@@ -885,7 +929,7 @@
                     { activeTab: activeTabIndex === 1 },
                   ]"
                 >
-                  Images
+                {{ dictionary.images }}
                 </div>
                 <div
                   @click="setActiveTabIndex(2)"
@@ -894,7 +938,7 @@
                     { activeTab: activeTabIndex === 2 },
                   ]"
                 >
-                  Collections
+                {{ dictionary.collections }}
                 </div>
               </div>
               <div
@@ -1030,7 +1074,7 @@
                   <p
                     class="text-center text-base font-inter font-bold text-slate-100"
                   >
-                    Back
+                  {{ dictionary.action_back }}
                   </p>
                 </div>
               </div>
@@ -1044,7 +1088,8 @@
                   <p
                     class="text-center text-base font-inter font-bold text-slate-100"
                   >
-                    Next
+                  {{ dictionary.action_next }}
+                    
                   </p>
                 </div>
               </div>
@@ -1054,17 +1099,19 @@
                 <p
                   class="font-inter text-base mt-0 font-semibold leading-2 text-slate-700"
                 >
-                  Step four
+                {{ dictionary.step_four }}
                 </p>
                 <h1
                   class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
                 >
-                  Add Text
+                {{ dictionary.step_four_title }}
+                  
                 </h1>
                 <p
                   class="font-inter my-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
                 >
-                  Add custom text to your design.
+                {{ dictionary.step_four_description }}
+                  
                 </p>
               </div>
               <div
@@ -1080,7 +1127,8 @@
                         <span
                           class="font-inter ml-4 mt-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
                         >
-                          Enter text:
+                {{ dictionary.action_enter_text_decription }}
+                          
                         </span>
                         <input
                           class="w-[250px] m-3 mt-2 p-2 bg-slate-50/40 text-gray-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-md focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
@@ -1093,13 +1141,13 @@
                         <p
                           class="font-inter ml-4 pt-4 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
                         >
-                          Font & color:
+                        {{ dictionary.action_select_font_decription }}
                         </p>
                         <select
                           v-model="textFamily"
                           class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-md focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
                         >
-                          <option selected value="">Select font</option>
+                          <option selected value="">{{ dictionary.action_select_font }}</option>
                           <option selected value="Roboto">Roboto</option>
 
                           <option selected value="Montserrat">
@@ -1303,7 +1351,7 @@
                           <p
                             class="text-center text-base font-inter font-bold text-slate-100"
                           >
-                            Add Text
+                          {{ dictionary.action_add_text }}
                           </p>
                         </div>
                       </div>
@@ -1322,7 +1370,7 @@
                   <p
                     class="text-center text-base font-inter font-bold text-slate-100"
                   >
-                    Back
+                  {{ dictionary.action_back }}
                   </p>
                 </div>
               </div>
@@ -1336,22 +1384,83 @@
                   <p
                     class="text-center text-base font-inter font-bold text-slate-100"
                   >
-                    Next
+                  {{ dictionary.action_next }}
                   </p>
                 </div>
               </div>
             </div>
             <div class="relative w-[360px] p-2 h-[560px]">
-              <div class="flex flex-col ml- mt-4 items-left">
+              <div
+                v-if="loading"
+                class="visible md:invisible absolute flex flex-col -left-[40px] -top-[40px] items-center justify-center bg-white w-[380px] h-[610px] z-50"
+              >
+                <div class="animate-spin w-[50px] h-[50px]">
+                  <svg
+                    fill="#000000"
+                    version="1.1"
+                    id="Capa_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="50px"
+                    height="50px"
+                    viewBox="0 0 374.846 374.846"
+                    xml:space="preserve"
+                  >
+                    <g>
+                      <g>
+                        <g>
+                          <path
+                            d="M326.147,267.326c4.168-6.754,12.875-9.094,19.869-5.336l5.83,3.135c3.635,1.955,6.305,5.32,7.379,9.305
+                        c1.076,3.984,0.461,8.236-1.695,11.754c-8.301,13.519-18.295,25.941-29.709,36.923c-2.805,2.692-6.531,4.188-10.397,4.188
+                        c-0.242,0-0.482-0.006-0.726-0.018c-4.123-0.199-7.981-2.09-10.668-5.227l-4.309-5.025c-5.164-6.025-4.74-15.031,0.967-20.547
+                        C311.678,287.793,319.573,277.984,326.147,267.326z"
+                          />
+                          <path
+                            d="M208.809,338.262c12.505-0.903,24.873-3.344,36.77-7.252c7.529-2.475,15.685,1.334,18.617,8.695l2.451,6.153
+                        c1.529,3.839,1.408,8.138-0.334,11.884c-1.74,3.746-4.953,6.604-8.873,7.907c-8.094,2.687-16.451,4.843-24.848,6.407
+                        c-7.112,1.328-14.377,2.254-21.592,2.754c-0.349,0.023-0.693,0.035-1.037,0.035c-3.759,0-7.396-1.412-10.175-3.979
+                        c-3.034-2.802-4.78-6.73-4.823-10.859l-0.071-6.625C194.809,345.459,200.906,338.834,208.809,338.262z"
+                          />
+                          <path
+                            d="M89.693,312.596c5.039-6.135,13.984-7.276,20.404-2.612c10.135,7.36,21.16,13.435,32.773,18.053
+                      c7.373,2.933,11.188,11.101,8.701,18.636l-2.072,6.287c-1.293,3.92-4.145,7.135-7.883,8.887
+                      c-2.012,0.941-4.186,1.416-6.361,1.416c-1.867,0-3.738-0.35-5.512-1.049c-14.73-5.818-28.695-13.51-41.508-22.863
+                      c-3.332-2.434-5.516-6.133-6.037-10.227c-0.52-4.097,0.672-8.224,3.291-11.41L89.693,312.596z"
+                          />
+                          <path
+                            d="M28.699,214.609l6.508-1.216c7.82-1.454,15.414,3.438,17.314,11.156c3.029,12.289,7.592,24.129,13.561,35.191
+                    c3.766,6.979,1.449,15.686-5.289,19.867l-5.625,3.491c-2.398,1.487-5.141,2.257-7.912,2.257c-1.285,0-2.576-0.164-3.842-0.5
+                    c-3.992-1.061-7.371-3.716-9.342-7.348c-7.602-14.012-13.387-29.016-17.193-44.598c-0.979-4.005-0.266-8.234,1.971-11.697
+                    C21.087,217.753,24.648,215.365,28.699,214.609z"
+                          />
+                          <path
+                            d="M36.849,170.858h-6.727c-0.006,0-0.014,0-0.02,0c-8.287,0-15-6.715-15-15c0-1.219,0.143-2.404,0.418-3.539
+                      c5.584-29.84,18.643-58.24,37.801-82.188C82.325,33.873,123.52,9.826,169.319,2.416C179.227,0.814,189.325,0,199.333,0
+                      c25.752,0,51.313,5.385,74.813,15.67l11.687-11.688c2.413-2.412,5.909-3.389,9.225-2.574c3.313,0.812,5.961,3.299,6.981,6.555
+                      l24.191,77.16c1.086,3.465,0.158,7.248-2.41,9.816c-2.567,2.568-6.35,3.496-9.815,2.41l-77.16-24.191
+                      c-3.256-1.02-5.739-3.668-6.556-6.982c-0.813-3.312,0.162-6.811,2.576-9.223l13.013-13.014
+                      c-15.021-4.963-30.656-7.473-46.685-7.473c-45.797,0-88.547,20.604-117.287,56.531c-15.309,19.135-25.793,41.84-30.322,65.662
+                      C50.24,165.737,44.052,170.858,36.849,170.858z"
+                          />
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="flex flex-col ml- mt-2 items-left">
                 <p
-                  class="font-inter text-base mt-4 font-semibold leading-2 text-slate-700"
+                  class="invisible md:visible font-inter text-base -mt-2 font-semibold leading-2 text-slate-700"
                 >
-                  Step five
+                {{ dictionary.step_five }}
                 </p>
+                <!-- <p>Window Width: {{ windowWidth }}</p> -->
                 <h1
-                  class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+                  class="invisible md:visible font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
                 >
-                  Finish!
+                {{ dictionary.step_five_title }}
+                  
                 </h1>
 
                 <p
@@ -1359,7 +1468,7 @@
                     casesTypes[selectedCaseType] &&
                     casesTypes[selectedCaseType].price
                   "
-                  class="font-inter w-[280px] my-5 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+                  class="invisible md:visible font-inter w-[280px] my-5 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
                 >
                   Orders placed before 3 pm on working days are dispatched the
                   same day. Orders placed between 3 pm on Friday and 1 pm on
@@ -1372,14 +1481,206 @@
                   "
                   class="font-inter w-[280px] my-5 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
                 >
-                  In order to complete this step, you have to select product to
-                  customize on first step. <br />Go back and start to customize
-                  your device.
+                {{ dictionary.alert_box_stepper }}
+                  
                 </p>
 
                 <div
                   class="relative flex w-[300px] h-[300px] mt-3 flex-col items-center"
                 >
+                  <div
+                    class="absolute top-[-245px] w-full h-full flex flex-col items-center"
+                  >
+                    <canvas class="scale-[0.80] absolute z-20" ref="canvasRef1">
+                    </canvas>
+                    <div
+                      class="absolute top-[90px] z-30 -left-[25px] flex flex-col gap-3"
+                    >
+                      <div
+                        class="relative w-[35px] h-[35px]"
+                        v-for="(image, index) in uploadedImages"
+                        :key="image.id"
+                      >
+                        <!-- <span>{{ image.id }}</span> -->
+                        <img
+                          class="visible md:invisible border-[2px] w-full h-full m-1 rounded-md border-gray-700/80"
+                          :src="image.url"
+                          :key="image.id"
+                          alt="Uploaded Image"
+                          @click="addClipPathToSelectedObject(index)"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      v-motion-slide-left
+                      :delay="600"
+                      class="absolute visible md:invisible left-[280px] top-[50px] gap-3 flex flex-col m-3 z-20"
+                    >
+                      <button @click="clearCanvas">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.8"
+                          stroke="currentColor"
+                          class="w-6 h-6"
+                        >
+                          <path
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </button>
+                      <button @click="moveLeftSelectedImage">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="black"
+                          viewBox="0 0 24 24"
+                          stroke-width="0.1"
+                          class="w-6 h-6"
+                        >
+                          <path
+                            d="M1.293,12.707a1,1,0,0,1,0-1.414l5-5A1,1,0,0,1,7.707,7.707L4.414,11H22a1,1,0,0,1,0,2H4.414l3.293,3.293a1,1,0,1,1-1.414,1.414Z"
+                          />
+                        </svg>
+                      </button>
+                      <button @click="moveRightSelectedImage">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="black"
+                          viewBox="0 0 24 24"
+                          stroke-width="0.1"
+                          stroke="currentColor"
+                          class="w-6 h-6"
+                        >
+                          <path
+                            d="M17.707,17.707a1,1,0,0,1-1.414-1.414L19.586,13H2a1,1,0,0,1,0-2H19.586L16.293,7.707a1,1,0,0,1,1.414-1.414l5,5a1,1,0,0,1,0,1.414Z"
+                          />
+                        </svg>
+                      </button>
+                      <button @click="moveUpSelectedImage">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="black"
+                          viewBox="0 0 24 24"
+                          stroke-width="0.1"
+                          stroke="currentColor"
+                          class="w-6 h-6"
+                        >
+                          <path
+                            d="M11.293,1.293a1,1,0,0,1,1.414,0l6,6a1,1,0,0,1-1.414,1.414L13,4.414V22a1,1,0,0,1-2,0V4.414L6.707,8.707A1,1,0,0,1,5.293,7.293Z"
+                          />
+                        </svg>
+                      </button>
+                      <button @click="moveDownSelectedImage">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="black"
+                          viewBox="0 0 24 24"
+                          stroke-width="0.1"
+                          stroke="currentColor"
+                          class="w-6 h-6"
+                        >
+                          <path
+                            d="M5.293,16.707a1,1,0,0,1,1.414-1.414L11,19.586V2a1,1,0,0,1,2,0V19.586l4.293-4.293a1,1,0,0,1,1.414,1.414l-6,6a1,1,0,0,1-1.414,0Z"
+                          />
+                        </svg>
+                      </button>
+
+                      <button @click="flipXSelectedImage">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="0.5"
+                          stroke="currentColor"
+                          class="w-6 h-6"
+                        >
+                          <path
+                            d="M10 19V5H8L3 19H10Z"
+                            stroke="#000000"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M14 19V5H16L21 19H14Z"
+                            stroke="#000000"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </button>
+                      <button @click="zoomInSelectedImage">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-6 h-6"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"
+                          />
+                        </svg>
+                      </button>
+                      <button @click="zoomOutSelectedImage">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-6 h-6"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM13.5 10.5h-6"
+                          />
+                        </svg>
+                      </button>
+                      <button @click="bringForward">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-6 h-6"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75"
+                          />
+                        </svg>
+                      </button>
+                      <button @click="sendBackwards">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-6 h-6"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m-6 3.75l3 3m0 0l3-3m-3 3V1.5m6 9h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
                   <svg
                     v-if="
                       casesTypes[selectedCaseType] &&
@@ -1459,7 +1760,7 @@
                       "
                       class="whitespace-wrap font-extrabold text-sm text-center leading-12 text-slate-700"
                     >
-                      Total Price:
+                    {{ dictionary.price }}
                     </p>
                     <p
                       v-else="
@@ -1468,14 +1769,15 @@
                       "
                       class="whitespace-wrap font-extrabold text-md text-left -ml-3 leading-12 text-slate-700"
                     >
-                      No item selected!
+                {{ dictionary.alert_box_cart }}
+                      
                     </p>
                     <p
                       v-if="
                         casesTypes[selectedCaseType] &&
                         casesTypes[selectedCaseType].price
                       "
-                      class="animate-pulse ml-3 px-2 py-0 whitespace-wrap font-extrabold text-3xl text-left leading-7 text-slate-400"
+                      class="animate-pulse mt-[80px] sm:mt-1 ml-3 px-2 py-0 whitespace-wrap font-extrabold text-2xl md:text-3xl text-left leading-7 text-slate-400"
                     >
                       {{
                         parseFloat(casesTypes[selectedCaseType].price).toFixed(
@@ -1484,7 +1786,7 @@
                       }}
                       <span
                         class="animate-none -ml-1 text-justify text-2xl text-slate-700"
-                        >€</span
+                        >{{ dictionary.currency }}</span
                       >
                     </p>
                   </div>
@@ -1501,9 +1803,9 @@
                     >
                       <p
                         @click="exportPNG()"
-                        class="px-5 py-2 animate-pulse text-center text-[16px] font-inter font-bold leading-none tracking-tight text-slate-100"
+                        class="px-4 py-2 animate-pulse text-center text-[16px] font-inter font-bold leading-none tracking-tight text-slate-100"
                       >
-                        Checkout
+                      {{ dictionary.action_checkout }}
                       </p>
                     </div>
                   </div>
@@ -1520,7 +1822,7 @@
                   <p
                     class="text-center text-base font-inter font-bold text-slate-100"
                   >
-                    Back
+                  {{ dictionary.action_back }}
                   </p>
                 </div>
               </div>
@@ -1528,10 +1830,10 @@
           </div>
         </div>
       </div>
-      <div class="relative w-[435px] h-[620px] mt-2">
+      <div class="hidden md:inline-flex relative w-[435px] h-[620px] mt-2">
         <div
           v-if="loading"
-          class="absolute flex flex-col items-center justify-center bg-white ml-3 w-[380px] h-[600px] z-50"
+          class="absolute flex flex-col items-center justify-center bg-white ml-3 w-[388px] h-[600px] z-50"
         >
           <div class="animate-spin w-[50px] h-[50px]">
             <svg
@@ -1550,36 +1852,36 @@
                   <g>
                     <path
                       d="M326.147,267.326c4.168-6.754,12.875-9.094,19.869-5.336l5.83,3.135c3.635,1.955,6.305,5.32,7.379,9.305
-				c1.076,3.984,0.461,8.236-1.695,11.754c-8.301,13.519-18.295,25.941-29.709,36.923c-2.805,2.692-6.531,4.188-10.397,4.188
-				c-0.242,0-0.482-0.006-0.726-0.018c-4.123-0.199-7.981-2.09-10.668-5.227l-4.309-5.025c-5.164-6.025-4.74-15.031,0.967-20.547
-				C311.678,287.793,319.573,277.984,326.147,267.326z"
+                        c1.076,3.984,0.461,8.236-1.695,11.754c-8.301,13.519-18.295,25.941-29.709,36.923c-2.805,2.692-6.531,4.188-10.397,4.188
+                        c-0.242,0-0.482-0.006-0.726-0.018c-4.123-0.199-7.981-2.09-10.668-5.227l-4.309-5.025c-5.164-6.025-4.74-15.031,0.967-20.547
+                        C311.678,287.793,319.573,277.984,326.147,267.326z"
                     />
                     <path
                       d="M208.809,338.262c12.505-0.903,24.873-3.344,36.77-7.252c7.529-2.475,15.685,1.334,18.617,8.695l2.451,6.153
-				c1.529,3.839,1.408,8.138-0.334,11.884c-1.74,3.746-4.953,6.604-8.873,7.907c-8.094,2.687-16.451,4.843-24.848,6.407
-				c-7.112,1.328-14.377,2.254-21.592,2.754c-0.349,0.023-0.693,0.035-1.037,0.035c-3.759,0-7.396-1.412-10.175-3.979
-				c-3.034-2.802-4.78-6.73-4.823-10.859l-0.071-6.625C194.809,345.459,200.906,338.834,208.809,338.262z"
+                        c1.529,3.839,1.408,8.138-0.334,11.884c-1.74,3.746-4.953,6.604-8.873,7.907c-8.094,2.687-16.451,4.843-24.848,6.407
+                        c-7.112,1.328-14.377,2.254-21.592,2.754c-0.349,0.023-0.693,0.035-1.037,0.035c-3.759,0-7.396-1.412-10.175-3.979
+                        c-3.034-2.802-4.78-6.73-4.823-10.859l-0.071-6.625C194.809,345.459,200.906,338.834,208.809,338.262z"
                     />
                     <path
                       d="M89.693,312.596c5.039-6.135,13.984-7.276,20.404-2.612c10.135,7.36,21.16,13.435,32.773,18.053
-				c7.373,2.933,11.188,11.101,8.701,18.636l-2.072,6.287c-1.293,3.92-4.145,7.135-7.883,8.887
-				c-2.012,0.941-4.186,1.416-6.361,1.416c-1.867,0-3.738-0.35-5.512-1.049c-14.73-5.818-28.695-13.51-41.508-22.863
-				c-3.332-2.434-5.516-6.133-6.037-10.227c-0.52-4.097,0.672-8.224,3.291-11.41L89.693,312.596z"
+                      c7.373,2.933,11.188,11.101,8.701,18.636l-2.072,6.287c-1.293,3.92-4.145,7.135-7.883,8.887
+                      c-2.012,0.941-4.186,1.416-6.361,1.416c-1.867,0-3.738-0.35-5.512-1.049c-14.73-5.818-28.695-13.51-41.508-22.863
+                      c-3.332-2.434-5.516-6.133-6.037-10.227c-0.52-4.097,0.672-8.224,3.291-11.41L89.693,312.596z"
                     />
                     <path
                       d="M28.699,214.609l6.508-1.216c7.82-1.454,15.414,3.438,17.314,11.156c3.029,12.289,7.592,24.129,13.561,35.191
-				c3.766,6.979,1.449,15.686-5.289,19.867l-5.625,3.491c-2.398,1.487-5.141,2.257-7.912,2.257c-1.285,0-2.576-0.164-3.842-0.5
-				c-3.992-1.061-7.371-3.716-9.342-7.348c-7.602-14.012-13.387-29.016-17.193-44.598c-0.979-4.005-0.266-8.234,1.971-11.697
-				C21.087,217.753,24.648,215.365,28.699,214.609z"
+                    c3.766,6.979,1.449,15.686-5.289,19.867l-5.625,3.491c-2.398,1.487-5.141,2.257-7.912,2.257c-1.285,0-2.576-0.164-3.842-0.5
+                    c-3.992-1.061-7.371-3.716-9.342-7.348c-7.602-14.012-13.387-29.016-17.193-44.598c-0.979-4.005-0.266-8.234,1.971-11.697
+                    C21.087,217.753,24.648,215.365,28.699,214.609z"
                     />
                     <path
                       d="M36.849,170.858h-6.727c-0.006,0-0.014,0-0.02,0c-8.287,0-15-6.715-15-15c0-1.219,0.143-2.404,0.418-3.539
-				c5.584-29.84,18.643-58.24,37.801-82.188C82.325,33.873,123.52,9.826,169.319,2.416C179.227,0.814,189.325,0,199.333,0
-				c25.752,0,51.313,5.385,74.813,15.67l11.687-11.688c2.413-2.412,5.909-3.389,9.225-2.574c3.313,0.812,5.961,3.299,6.981,6.555
-				l24.191,77.16c1.086,3.465,0.158,7.248-2.41,9.816c-2.567,2.568-6.35,3.496-9.815,2.41l-77.16-24.191
-				c-3.256-1.02-5.739-3.668-6.556-6.982c-0.813-3.312,0.162-6.811,2.576-9.223l13.013-13.014
-				c-15.021-4.963-30.656-7.473-46.685-7.473c-45.797,0-88.547,20.604-117.287,56.531c-15.309,19.135-25.793,41.84-30.322,65.662
-				C50.24,165.737,44.052,170.858,36.849,170.858z"
+                      c5.584-29.84,18.643-58.24,37.801-82.188C82.325,33.873,123.52,9.826,169.319,2.416C179.227,0.814,189.325,0,199.333,0
+                      c25.752,0,51.313,5.385,74.813,15.67l11.687-11.688c2.413-2.412,5.909-3.389,9.225-2.574c3.313,0.812,5.961,3.299,6.981,6.555
+                      l24.191,77.16c1.086,3.465,0.158,7.248-2.41,9.816c-2.567,2.568-6.35,3.496-9.815,2.41l-77.16-24.191
+                      c-3.256-1.02-5.739-3.668-6.556-6.982c-0.813-3.312,0.162-6.811,2.576-9.223l13.013-13.014
+                      c-15.021-4.963-30.656-7.473-46.685-7.473c-45.797,0-88.547,20.604-117.287,56.531c-15.309,19.135-25.793,41.84-30.322,65.662
+                      C50.24,165.737,44.052,170.858,36.849,170.858z"
                     />
                   </g>
                 </g>
@@ -1588,31 +1890,111 @@
           </div>
         </div>
         <div
-          class="relative flex flex-col items-center mt-20 w-[435px] p-2 h-[560px]"
+          class="invisible md:visible relative flex flex-col items-center mt-20 w-[435px] p-2 h-[560px]"
         >
           <div
             class="w-[380px] -mt-6 h-[520px] flex flex-col items-center overflow-hidden"
           >
-            <canvas class="absolute" ref="canvasRef"> </canvas>
+            <canvas id="start" class="absolute" ref="canvasRef"> </canvas>
 
             <div
               v-motion-slide-left
               :delay="600"
-              class="absolute left-[380px] top-[40px] gap-3 flex flex-col m-3 z-20"
+              class="absolute left-[390px] top-[40px] gap-3 flex flex-col m-3 z-20"
             >
               <button @click="clearCanvas">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  stroke-width="1.8"
                   stroke="currentColor"
                   class="w-6 h-6"
                 >
                   <path
-                    d="M3 3V8M3 8H8M3 8L6 5.29168C7.59227 3.86656 9.69494 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.71683 21 4.13247 18.008 3.22302 14"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+              <button @click="moveLeftSelectedImage">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="black"
+                  viewBox="0 0 24 24"
+                  stroke-width="0.1"
+                  class="w-6 h-6"
+                >
+                  <path
+                    d="M1.293,12.707a1,1,0,0,1,0-1.414l5-5A1,1,0,0,1,7.707,7.707L4.414,11H22a1,1,0,0,1,0,2H4.414l3.293,3.293a1,1,0,1,1-1.414,1.414Z"
+                  />
+                </svg>
+              </button>
+              <button @click="moveRightSelectedImage">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="black"
+                  viewBox="0 0 24 24"
+                  stroke-width="0.1"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    d="M17.707,17.707a1,1,0,0,1-1.414-1.414L19.586,13H2a1,1,0,0,1,0-2H19.586L16.293,7.707a1,1,0,0,1,1.414-1.414l5,5a1,1,0,0,1,0,1.414Z"
+                  />
+                </svg>
+              </button>
+              <button @click="moveUpSelectedImage">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="black"
+                  viewBox="0 0 24 24"
+                  stroke-width="0.1"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    d="M11.293,1.293a1,1,0,0,1,1.414,0l6,6a1,1,0,0,1-1.414,1.414L13,4.414V22a1,1,0,0,1-2,0V4.414L6.707,8.707A1,1,0,0,1,5.293,7.293Z"
+                  />
+                </svg>
+              </button>
+              <button @click="moveDownSelectedImage">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="black"
+                  viewBox="0 0 24 24"
+                  stroke-width="0.1"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    d="M5.293,16.707a1,1,0,0,1,1.414-1.414L11,19.586V2a1,1,0,0,1,2,0V19.586l4.293-4.293a1,1,0,0,1,1.414,1.414l-6,6a1,1,0,0,1-1.414,0Z"
+                  />
+                </svg>
+              </button>
+
+              <button @click="flipXSelectedImage">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="0.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    d="M10 19V5H8L3 19H10Z"
                     stroke="#000000"
-                    stroke-width="2"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M14 19V5H16L21 19H14Z"
+                    stroke="#000000"
+                    stroke-width="1.5"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
@@ -1710,12 +2092,22 @@
 <script>
 import axios from "axios";
 import { fabric } from "fabric";
+
 import fs from "fs";
 import { ref } from "vue";
+import translations from "/src/translations.json";
 
 export default {
   data() {
     return {
+
+      languageFound: false,
+      dictionary: {},
+      mobileDiv: this.$refs.canvasRef,
+      deskDiv: this.$refs.canvasRef1,
+      windowWidth: window.innerWidth,
+      translationsData: [],
+      historyUndo: [],
       brands: [],
       activeTabIndex: 1,
       activeIndex: null,
@@ -1739,6 +2131,8 @@ export default {
       selectedImage: [],
       objectsWithName: [],
       nextButtonProduct: false,
+      alertMessageImageType: false,
+      alertMessageImageTooSmall: false,
       alertMessageItemStock: false,
       itemStockCount: [],
       loading: false,
@@ -1752,6 +2146,198 @@ export default {
   },
 
   methods: {
+
+    findLanguageAndDictionary() {
+      const language = 'rs';
+      const foundLanguage = translations.array.find(item => item.language === language);
+      if (foundLanguage) {
+        this.languageFound = true;
+        this.dictionary = foundLanguage.dictionary;
+      }
+    },
+
+
+
+    initCanvas(containerId) {
+      if (this.canvas) {
+        this.canvas.dispose(); // Dispose the existing canvas
+        console.log("disposed");
+      }
+      console.log("created");
+      this.canvas = new fabric.Canvas(
+        containerId,
+        {
+          width: 450,
+          height: 500,
+          // minScaleLimit: 0.1,
+          // maxScaleLimit: 0.3,
+          // backgroundColor: "gray",
+          getContext: "2d",
+          // cornerStyle: "round",
+          // objectCaching: true,
+          willReadFrequently: true,
+          renderOnAddRemove: false,
+          // backgroundColor: "red",
+          // isDrawingMode: false,
+          // controlsAboveOverlay: true,
+          preserveObjectStacking: true,
+          selectable: false,
+          selection: false,
+        },
+        { passive: true }
+      );
+
+      const clipRect = new fabric.Rect({
+        width: 210,
+        height: 430,
+
+        rx: 20,
+        ry: 20,
+        top: 20,
+        left: 0,
+        name: "pattern",
+        opacity: 1,
+        // globalCompositeOperation: "destination-out",
+        selectable: false,
+        evented: false,
+        fill: "rgba(5, 255, 255, 0.01)",
+        strokeWidth: 2,
+        cornerStyle: "round",
+        strokeDashArray: [8, 16],
+        stroke: "rgba(5, 5, 5, 1)",
+        lockMovementX: true, // Object cannot be moved horizontally
+        lockMovementY: true, // Object cannot be moved vertically
+      });
+
+      this.canvas.add(clipRect);
+      clipRect.visible = true;
+      clipRect.center();
+      console.log("rect");
+      // this.canvas.clipPath = clipRect;
+      this.canvas.moveTo(clipRect, 1);
+
+      this.canvas.renderAll();
+      clipRect.animate("opacity", 0, {
+        duration: 1000,
+        onLoad: this.canvas.renderAll.bind(this.canvas),
+      });
+    },
+    loadImages() {
+      // Load 10 images onto the canvas
+      for (let i = 1; i <= 5; i++) {
+        const selectedObject = this.canvas.getActiveObject();
+        if (!selectedObject || selectedObject.type === null) {
+          return;
+        }
+        if (
+          selectedObject.type === "rect" &&
+          selectedObject.name === "pattern"
+        ) {
+          fabric.Image.fromURL(`src/assets/image${i}.jpg`, (img) => {
+            const clipRect = new fabric.Rect({
+              width: selectedObject.width,
+              height: selectedObject.height,
+              top: selectedObject.top,
+              left: selectedObject.left,
+
+              absolutePositioned: true,
+              fill: "",
+              perPixelTargetFind: false,
+              opacity: 1,
+              // globalCompositeOperation: "destination-out",
+              hasBorders: true,
+              borderColor: "#3ff4ff",
+              clipPath: selectedObject.clipPath,
+              evented: false,
+              lockMovementX: true, // Object cannot be moved horizontally
+              lockMovementY: true, // Object cannot be moved vertically
+            });
+            img.set({
+              left: selectedObject.left + selectedObject.width / 2,
+              top: selectedObject.top + selectedObject.height / 2,
+              visible: false,
+              width: img.width,
+              height: img.height,
+              originX: "center",
+              originY: "center",
+              scaleX: selectedObject.width / img.width,
+              scaleY: selectedObject.height / img.height,
+              clickable: true,
+              targetFindTolerance: 5,
+              selectable: true,
+              hasControls: true,
+              hasBorders: true,
+              perPixelTargetFind: true,
+              centerH: true,
+              centerV: true,
+              fill: "rgba(5, 5, 5, 0,.01)",
+              name: "canvas image",
+              clipPath: clipRect,
+              visible: true,
+              globalCompositeOperation: "source-atop",
+            });
+            img.setControlsVisibility({
+              bl: true,
+              br: false,
+              tl: false,
+              tr: false,
+              mb: false,
+              ml: false,
+              mr: false,
+              mt: false,
+              mtr: true,
+              customControl: false,
+              customControl2: false,
+              customControl3: true,
+            });
+
+            this.canvas.add(img);
+
+            this.canvas.preserveObjectStacking = true;
+            const objects = this.canvas.getObjects();
+            objects.forEach((obj, index) => {
+              if (obj && obj.type === "image" && obj.name === "transparent") {
+                this.canvas.remove(obj);
+                this.canvas.bringToFront(obj);
+              }
+            });
+            
+            this.canvas.sendBackwards(img);
+            this.canvas.renderAll();
+            this.exportPreviewPNG();
+         this.exportImages(i);
+          });
+        }
+
+         
+      }
+    },
+    exportImages(index) {
+      // Export each image to PNG
+
+      const dataURL = this.canvas.toDataURL({
+        format: "png",
+        multiplier: 2, // Increase multiplier for higher quality
+      });
+      // Download the PNG image
+      const link = document.createElement("a");
+      link.href = dataURL;
+      link.download = `image${index + 1}.png`;
+      link.click();
+    },
+
+    handleResize() {
+      this.windowWidth = window.innerWidth; // Update windowWidth when the window is resized
+
+      const newDivId =
+        this.windowWidth <= 770 ? this.$refs.canvasRef1 : this.$refs.canvasRef;
+      if (this.windowWidth <= 770) {
+        this.initCanvas(newDivId);
+      } else {
+        this.initCanvas(newDivId);
+      }
+    },
+
     setDimensions(width) {
       let scale = width / this.canvas.getWidth(),
         height = scale * this.canvas.getHeight();
@@ -1826,8 +2412,13 @@ export default {
           dataFull,
           axiosConfig
         )
-        .then(function (response) {
+        .then((response) => {
+          console.log("Generisan");
           let data = response.data;
+          let preview = data.preview;
+          let print = data.print;
+          this.generateUrl(preview, print);
+
           result.textContent = data.results[0].email;
         })
         .catch(function (error) {
@@ -1839,10 +2430,26 @@ export default {
           console.log("I always Execued");
         });
     },
-
+    alertMessageImageTypeClose() {
+      this.alertMessageImageType = false;
+    },
+    alertMessageImageTooSmallClose() {
+      this.alertMessageImageTooSmall = false;
+    },
     alertMessageItemStockClose() {
       this.alertMessageItemStock = false;
     },
+    async fetchTranslationsData() {
+      let response = await fetch(
+        `https://covers.mtpdev3.com/api/1.0/translations?language_code=rs`,
+        {
+          method: "GET",
+        }
+      );
+      this.translationsData = await response.json();
+      console.log(this.translationsData.translations.actions_back);
+    },
+
     async fetchStockData(product_id) {
       let headersList = {
         Accept: "application/json",
@@ -1863,6 +2470,7 @@ export default {
       this.itemStockCount = await response.json();
       console.log(product_id);
       console.log(this.itemStockCount.stockCount);
+      console.log(this.itemStockCount);
       if (this.itemStockCount.stockCount <= 0 && this.itemStockCount != null) {
         this.nextButtonProduct = false;
         this.alertMessageItemStock = true;
@@ -1872,7 +2480,7 @@ export default {
       }
     },
 
-    generateUrl() {
+    generateUrl(previewImageHash, printImageHash) {
       // Define the parameters
       const baseUrl = "https://www.mytrendyphone.eu/shop/showbasket.html";
       console.table(this.casesTypes[this.selectedCaseType]);
@@ -1887,16 +2495,16 @@ export default {
       const productId = this.casesTypes[this.selectedCaseType].dd_product_id;
       const coverType = this.casesTypes[this.selectedCaseType].title;
 
-      const infoImage = this.casesTypes[this.selectedCaseType].info_image;
-      const imageSegment = infoImage.split("/");
-      const previewImageHash = imageSegment[imageSegment.length - 1].replace(
-        /\.png$/,
-        ""
-      );
-      const printImageHash = imageSegment[imageSegment.length - 1].replace(
-        /\.png$/,
-        ""
-      );
+      // const infoImage = this.casesTypes[this.selectedCaseType].info_image;
+      // const imageSegment = infoImage.split("/");
+      // const previewImageHash = imageSegment[imageSegment.length - 1].replace(
+      //   /\.png$/,
+      //   ""
+      // );
+      // const printImageHash = imageSegment[imageSegment.length - 1].replace(
+      //   /\.png$/,
+      //   ""
+      // );
 
       //  const productId = '232761-PRINT';
       //  const previewImageHash = '76fa720e34ba40ba556f4f3da30b5c2a';
@@ -1921,7 +2529,7 @@ export default {
       const fullUrl = `${baseUrl}?${params.toString()}`;
 
       console.log(fullUrl);
-      this.goToLink(fullUrl);
+      // this.goToLink(fullUrl);
     },
     goToLink(url) {
       window.location.href = url;
@@ -1992,7 +2600,7 @@ export default {
           evented: false,
         });
 
-        const newText = new fabric.Text(this.inputText, {
+        const newText = new fabric.IText("Hello", {
           // Set the properties for the text object here
           left: selectedObject.left + selectedObject.width / 2,
           top: selectedObject.top + selectedObject.height / 2,
@@ -2009,6 +2617,7 @@ export default {
           clipPath: clipRect,
           targetFindTolerance: 5,
           selectable: true,
+
           hasControls: true,
           hasBorders: true,
           perPixelTargetFind: true,
@@ -2088,7 +2697,7 @@ export default {
           evented: false,
         });
 
-        const newText = new fabric.Text(this.inputText, {
+        const newText = new fabric.IText(this.inputText, {
           // Set the properties for the text object here
           left: selectedObject.left + selectedObject.width / 2,
           top: selectedObject.top + selectedObject.height / 2,
@@ -2324,6 +2933,8 @@ export default {
             borderColor: "#3ff4ff",
             clipPath: selectedObject.clipPath,
             evented: false,
+            lockMovementX: true, // Object cannot be moved horizontally
+            lockMovementY: true, // Object cannot be moved vertically
           });
 
           const fabricImg = new fabric.Image(img, {
@@ -2608,7 +3219,8 @@ export default {
         duration: 500,
         onChange: this.canvas.renderAll.bind(this.canvas),
       });
-      // this.canvas.renderAll();
+      this.canvas.clearHistory();
+      this.canvas.renderAll();
     },
     addCollage1(key) {
       if (
@@ -2648,7 +3260,7 @@ export default {
         hasBorders: false,
         hoverCursor: "pointer",
         fill: "rgba(5, 5, 5, 0.01)",
-
+        excludeFromExport: true,
         hoverColor: "blue",
         visible: true,
         cornerStyle: "round",
@@ -2660,7 +3272,7 @@ export default {
         stroke: "black",
         strokeWidth: 2,
         strokeDashArray: [10, 10], // Set the stroke dash pattern for a dashed line
-
+        evented: true,
         // ActiveSelection: true,
         lockMovementX: true, // Object cannot be moved horizontally
         lockMovementY: true, // Object cannot be moved vertically
@@ -2699,6 +3311,7 @@ export default {
 
       this.canvas.add(rectangle0);
       this.canvas.moveTo(rectangle0, 2);
+      this.canvas.clearHistory();
       this.canvas.renderAll();
     },
 
@@ -3390,8 +4003,8 @@ export default {
     handleImageUpload(event) {
       const files = event.target.files;
       const file = files[0];
-      const maxSizeInBytes = 5 * 1024 * 1024;// 5 MB (example size limit)
-      const minWidth =  800; 
+      const maxSizeInBytes = 5 * 1024 * 1024; // 5 MB (example size limit)
+      const minWidth = 800;
       console.log(file);
       console.log(file.size);
       console.log(maxSizeInBytes);
@@ -3405,34 +4018,31 @@ export default {
       ) {
         for (let i = 0; i < filesToUpload.length; i++) {
           const reader = new FileReader();
-       
+
           reader.onload = (e) => {
             const img = new Image();
-             img.src = e.target.result;
-              
-              img.onload = () =>{
-                const imageWidth = img.width;
-                console.log('Image width:', imageWidth);
-                if (imageWidth > minWidth) {
-                  this.uploadedImages.push({
-              url: e.target.result,
-              id: this.imageIndex + 1,
-            });
-            // console.log(this.imageIndex);
-            this.imageIndex = this.imageIndex + 1;
-            console.log(this.imageIndex);
-                } else {
-                  alert("Please select bigger image.");
-                }
+            img.src = e.target.result;
 
+            img.onload = () => {
+              const imageWidth = img.width;
+              console.log("Image width:", imageWidth);
+              if (imageWidth > minWidth) {
+                this.uploadedImages.push({
+                  url: e.target.result,
+                  id: this.imageIndex + 1,
+                });
+                // console.log(this.imageIndex);
+                this.imageIndex = this.imageIndex + 1;
+                console.log(this.imageIndex);
+              } else {
+                this.alertMessageImageTooSmall = true;
               }
-            
-            
+            };
           };
           reader.readAsDataURL(filesToUpload[i]);
         }
       } else {
-        alert("Selected file is not an image.");
+        this.alertMessageImageType = true;
       }
     },
     handleImageUpload1(event) {
@@ -3459,7 +4069,7 @@ export default {
               scaleX: 0.1,
               scaleY: 0.1,
               clickable: true,
-
+              flipX: false,
               // clipPath: clipRect2,
               objectCaching: false,
               selectable: true,
@@ -3501,13 +4111,13 @@ export default {
     },
     exportPNG() {
       this.loading = true;
-      this.setDimensions(700);
+      // this.setDimensions(700);
 
       this.exportPreviewPNG();
 
       setTimeout(() => {
-        this.setDimensions(700);
-        this.exportPrintPNG();
+        // this.setDimensions(700);
+        this.exportPrintPNG1();
       }, 2000);
 
       setTimeout(() => {
@@ -3806,6 +4416,130 @@ export default {
         this.createPrintLink();
       }, 1000);
     },
+    exportPrintPNG1() {
+      const objects = this.canvas.getObjects();
+      this.canvas.getObjects().forEach((obj) => {
+        if (obj.name === "pattern") {
+          obj.visible = false;
+
+          // obj.globalCompositeOperation = "source-atop";
+          // obj.fill = 'transparent';
+          // obj.left = 120;
+          // obj.width = 210;
+          // obj.center();
+          // obj.fill = "rgba(5, 5, 5, 0.1)";
+          // obj.strokeWidth = 0;
+
+          this.canvas.renderAll();
+        }
+      });
+
+      this.canvas.getObjects().forEach((obj) => {
+        if (obj.name === "transparent" || obj.name === "background") {
+          // Show the object named 'canvas image'
+          // obj.globalCompositeOperation = "destination-in";
+          obj.visible = false;
+          this.canvas.renderAll();
+        } else {
+          return;
+        }
+      });
+      this.canvas.getObjects().forEach((obj) => {
+        if (obj.name === "canvas image") {
+          console.log("type:" + this.selectedType);
+          console.log("brand:" + this.selectedBrand);
+
+          obj.globalCompositeOperation = null;
+        }
+      });
+
+      this.canvas.getObjects().forEach((obj) => {
+        if (obj.name === "text") {
+          // Show the object named 'canvas image'
+          obj.globalCompositeOperation = null;
+          this.canvas.renderAll();
+          const createClipRect = (width, height, rx, ry, top, left) => {
+            const clipRect = new fabric.Rect({
+              originX: "left",
+              originY: "top",
+              width: width,
+              height: height,
+              rx: rx,
+              ry: ry,
+              top: top,
+              left: left,
+              fill: "rgba(0, 0, 0, 1)",
+              backgroundColor: "rgba(0, 0, 0, 0)",
+              name: "pattern",
+              clipName: "pattern",
+              opacity: 1,
+              globalCompositeOperation: "destination-in",
+              selectable: false,
+              evented: false,
+              strokeWidth: 2,
+              cornerStyle: "round",
+              strokeDashArray: [8, 16],
+              stroke: "rgba(5, 5, 5, 1)",
+              lockMovementX: true,
+              lockMovementY: true,
+            });
+            clipRect.center();
+            this.canvas.add(clipRect);
+            this.canvas.backgroundImage = null;
+            this.canvas.renderAll();
+            this.canvas.clipPath = clipRect;
+            obj.globalCompositeOperation = null;
+            this.canvas.renderAll();
+          };
+
+          switch (true) {
+            case this.selectedType == 2 && this.selectedBrand == 1:
+              console.log("tablet Samsung");
+              createClipRect(250, 395, 0, 0, 50, 100);
+              break;
+            case this.selectedType == 2 && this.selectedBrand == 2:
+              console.log("tablet Apple");
+              createClipRect(270, 360, 0, 0, 70, 90);
+              break;
+            case this.selectedType == 2 && this.selectedBrand == 3:
+              console.log("tablet Huawei");
+              createClipRect(250, 395, 0, 0, 50, 100);
+              break;
+            case (this.selectedType == 1 && this.selectedBrand == 1) ||
+              this.selectedBrand == 2 ||
+              this.selectedBrand == 3 ||
+              this.selectedBrand == 4 ||
+              this.selectedBrand == 7 ||
+              this.selectedBrand == 8 ||
+              this.selectedBrand == 12 ||
+              this.selectedBrand == 13 ||
+              this.selectedBrand == 18:
+              console.log("phone");
+              createClipRect(2100, 2430, 20, 20, 30, 120);
+              break;
+            case this.selectedType == 4 && this.selectedBrand == 14:
+              console.log("Gadget Device");
+              createClipRect(150, 150, 0, 0, 173, 150);
+              break;
+
+            case this.casesTypes[this.selectedCaseType].title === "Flip Case":
+              console.log("phone Flip Case");
+              createClipRect(195, 385, 0, 0, 55, 180);
+              break;
+          }
+        } else {
+          return;
+        }
+      });
+
+      // Update the canvas to reflect the changes
+
+      this.canvas.renderAll();
+
+      setTimeout(() => {
+        this.createPrintLink();
+      }, 1000);
+    },
     scaleUp() {
       const scaleFactor = 4;
       const center = new fabric.Point(
@@ -3893,6 +4627,7 @@ export default {
 
       this.previewImage = this.canvas.toDataURL({
         format: "png",
+        multiplier: 3,
         quality: 50,
       });
 
@@ -3908,6 +4643,7 @@ export default {
 
       this.printImage = this.canvas.toDataURL({
         format: "png",
+        multiplier: 3,
         quality: 50,
       });
 
@@ -3917,6 +4653,67 @@ export default {
       // link.download = "print_image.png";
       // // Trigger the download
       // link.click();
+    },
+
+    undoMove() {
+      this.canvas.undo();
+      console.log(this.historyUndo);
+      this.canvas.renderAll();
+    },
+    redoMove() {
+      this.canvas.redo();
+      console.log(this.historyUndo);
+      this.canvas.renderAll();
+    },
+    flipXSelectedImage() {
+      // Get the selected object
+      const selectedObject = this.canvas.getActiveObject();
+
+      if (selectedObject && selectedObject.type === "image") {
+        selectedObject.flipX = !selectedObject.flipX;
+        this.canvas.renderAll();
+      }
+    },
+    moveLeftSelectedImage() {
+      // Get the selected object
+      const selectedObject = this.canvas.getActiveObject();
+      console.log(selectedObject.scaleX);
+      console.log(this.canvas.maxScaleLimit);
+      if (selectedObject && selectedObject.type === "image") {
+        selectedObject.left = selectedObject.left - 10;
+        this.canvas.renderAll();
+      }
+    },
+    moveRightSelectedImage() {
+      // Get the selected object
+      const selectedObject = this.canvas.getActiveObject();
+      console.log(selectedObject.scaleX);
+      console.log(this.canvas.maxScaleLimit);
+      if (selectedObject && selectedObject.type === "image") {
+        selectedObject.left = selectedObject.left + 10;
+        this.canvas.renderAll();
+      }
+    },
+    moveUpSelectedImage() {
+      // Get the selected object
+      const selectedObject = this.canvas.getActiveObject();
+      console.log(selectedObject.scaleX);
+      console.log(this.canvas.maxScaleLimit);
+      if (selectedObject && selectedObject.type === "image") {
+        selectedObject.top = selectedObject.top - 10;
+        this.canvas.renderAll();
+      }
+    },
+
+    moveDownSelectedImage() {
+      // Get the selected object
+      const selectedObject = this.canvas.getActiveObject();
+      console.log(selectedObject.scaleX);
+      console.log(this.canvas.maxScaleLimit);
+      if (selectedObject && selectedObject.type === "image") {
+        selectedObject.top = selectedObject.top + 10;
+        this.canvas.renderAll();
+      }
     },
 
     zoomInSelectedImage() {
@@ -4195,30 +4992,65 @@ export default {
       }, 1000);
     },
   },
-  created() {},
+  created() {
+    this.fetchTranslationsData();
+    this.findLanguageAndDictionary();
+    console.log(this.dictionary);
+  },
   mounted() {
-    this.canvas = new fabric.Canvas(
-      this.$refs.canvasRef,
-      {
-        width: 450,
-        height: 500,
-        // minScaleLimit: 0.1, // Set the minimum scale limit
-        // maxScaleLimit: 0.3, // Set the maximum scale limit
-        // backgroundColor: "gray",
-        getContext: "2d",
-        // cornerStyle: "round",
-        // objectCaching: true,
-        willReadFrequently: true,
-        renderOnAddRemove: false,
-        // isDrawingMode: false,ex
-        // controlsAboveOverlay: true,
+    this.windowWidth = window.innerWidth; // Update windowWidth when the window is resized
 
-        preserveObjectStacking: true,
-        selectable: false,
-        selection: false,
-      },
-      { passive: true }
-    );
+    const newDivId =
+      this.windowWidth <= 770 ? this.$refs.canvasRef1 : this.$refs.canvasRef;
+    this.initCanvas(newDivId);
+    window.addEventListener("resize", this.handleResize);
+
+    // if (this.windowWidth <= 600) {
+    //   this.canvas = new fabric.Canvas(
+    //     newDivId,
+    //     {
+    //       width: 450,
+    //       height: 500,
+    //       // minScaleLimit: 0.1,
+    //       // maxScaleLimit: 0.3,
+    //       // backgroundColor: "gray",
+    //       getContext: "2d",
+    //       // cornerStyle: "round",
+    //       // objectCaching: true,
+    //       willReadFrequently: true,
+    //       renderOnAddRemove: false,
+    //       backgroundColor: "red",
+    //       // isDrawingMode: false,
+    //       // controlsAboveOverlay: true,
+    //       preserveObjectStacking: true,
+    //       selectable: false,
+    //       selection: false,
+    //     },
+    //     { passive: true }
+    //   );
+    // } else {
+    //   this.canvas = new fabric.Canvas(
+    //     this.$refs.canvasRef,
+    //     {
+    //       width: 450,
+    //       height: 500,
+    //       // minScaleLimit: 0.1,
+    //       // maxScaleLimit: 0.3,
+    //       // backgroundColor: "gray",
+    //       getContext: "2d",
+    //       // cornerStyle: "round",
+    //       // objectCaching: true,
+    //       willReadFrequently: true,
+    //       renderOnAddRemove: false,
+    //       // isDrawingMode: false,
+    //       // controlsAboveOverlay: true,
+    //       preserveObjectStacking: true,
+    //       selectable: false,
+    //       selection: false,
+    //     },
+    //     { passive: true }
+    //   );
+    // }
 
     const rotateSquareImage = new Image();
     rotateSquareImage.src = "src/assets/images/rotate-square.svg";
@@ -4226,6 +5058,9 @@ export default {
     scaleSquareImage.src = "src/assets/images/arrow-scale-square.svg";
     const closeSquareImage = new Image();
     closeSquareImage.src = "src/assets/images/close-square-black.svg";
+    const zoomInImage = new Image();
+    zoomInImage.src = "src/assets/images/zoom-in.svg";
+    const addSquareImage = new Image();
 
     this.canvas.on(
       "object:added",
@@ -4290,48 +5125,15 @@ export default {
       { passive: true }
     );
 
-    const activeObject = this.canvas.getActiveObject();
+    // const activeObject = this.canvas.getActiveObject();
 
-    // Check if an active object exists
-    if (activeObject) {
-      // Enable dragging for the active object
-      activeObject.selectable = true;
-      // this.canvas.renderAll();
-    }
+    // // Check if an active object exists
+    // if (activeObject) {
+    //   // Enable dragging for the active object
+    //   activeObject.selectable = true;
+    //   // this.canvas.renderAll();
+    // }
     // Empty shape device
-    const clipRect = new fabric.Rect({
-      width: 210,
-      height: 430,
-
-      rx: 20,
-      ry: 20,
-      top: 20,
-      left: 0,
-      name: "pattern",
-      opacity: 0,
-      // globalCompositeOperation: "destination-out",
-      selectable: false,
-      evented: false,
-      fill: "rgba(5, 255, 255, 0.01)",
-      strokeWidth: 2,
-      cornerStyle: "round",
-      strokeDashArray: [8, 16],
-      stroke: "rgba(5, 5, 5, 1)",
-      lockMovementX: true, // Object cannot be moved horizontally
-      lockMovementY: true, // Object cannot be moved vertically
-    });
-
-    this.canvas.add(clipRect);
-    clipRect.visible = true;
-    clipRect.center();
-    // this.canvas.clipPath = clipRect;
-    this.canvas.moveTo(clipRect, 1);
-
-    this.canvas.renderAll();
-    clipRect.animate("opacity", 1, {
-      duration: 1000,
-      onChange: this.canvas.renderAll.bind(this.canvas),
-    });
 
     // const flipRect = new fabric.Rect({
 
@@ -4391,11 +5193,7 @@ export default {
       // mouseUpHandler: this.zoomInSelectedImage,
 
       render: function (ctx, left, top, styleOverride, fabricObject) {
-        fabric.Image.fromURL("src/assets/images/zoom-in.svg", function (img) {
-          img.scaleToWidth(32);
-          img.scaleToHeight(32);
-          ctx.drawImage(img._element, left - 16, top - 16, 32, 32);
-        });
+        ctx.drawImage(zoomInImage, left - 16, top - 16, 32, 32);
       },
     });
 
@@ -4420,26 +5218,16 @@ export default {
       mouseDownHandler: this.zoomInSelectedImage,
 
       render: function (ctx, left, top, styleOverride, fabricObject) {
-        fabric.Image.fromURL(
-          "src/assets/images/close-square-black.svg",
-          function (img) {
-            ctx.save();
-            // img.scaleToWidth(32);
-            // img.scaleToHeight(32);
-            ctx.drawImage(closeSquareImage, left - 16, top - 16, 32, 32);
-
-            ctx.restore();
-          }
-        );
+        ctx.drawImage(closeSquareImage, left - 16, top - 16, 32, 32);
       },
     });
 
     fabric.Object.prototype.controls.customControl = customControl;
     fabric.Object.prototype.controls.customControl2 = customControl2;
     fabric.Object.prototype.controls.customControl3 = customControl3;
-    fabric.Object.prototype.transparentCorners = true;
-    fabric.Object.prototype.cornerColor = "black";
-    fabric.Object.prototype.borderColor = "rgba(5, 5, 5, 0.5)";
+    fabric.Object.prototype.transparentCorners = false;
+    fabric.Object.prototype.cornerColor = "rgb(0, 162, 250)";
+    fabric.Object.prototype.borderColor = "rgb(0, 162, 250)";
     fabric.Object.prototype.cornerStyle = "circle";
     fabric.Object.prototype.cornerSize = 16;
     fabric.Object.prototype.strokeWidth = 2;
@@ -4447,6 +5235,7 @@ export default {
     // fabric.Object.prototype.evented = true;
     fabric.Object.prototype.centeredRotation = true;
     fabric.Object.prototype.perPixelTargetFind = true;
+    fabric.Object.prototype.objectCaching = true;
     // fabric.Object.prototype.matrixCache = true;
     fabric.Object.prototype.controls.mtr = new fabric.Control({
       x: 0.5,
@@ -4476,6 +5265,21 @@ export default {
       },
     });
   },
+
+  // TO DO //
+  //++++Enable next button if item is low and add other text
+  //++++ Dialog box for too small image and not image file
+  // History functionality
+
+  //++++Flip functionality
+  // +++++Set print image size to 2000x2000
+  // Change UI color
+  // Fix Collection functionality
+  // +++++ Better mobile view (another box for mobile double canvas)
+  // ++++Image cutting
+  // clear canvas text ?
+  // zoom text command ?
+  // translate ?
 };
 </script>
 
