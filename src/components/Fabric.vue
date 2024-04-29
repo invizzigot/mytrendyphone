@@ -75,7 +75,7 @@
           :delay="300"
           class="text-sm text-center font-bold"
         >
-        {{ dictionary.steper_device }}
+          {{ dictionary.steper_device }}
         </div>
       </div>
 
@@ -183,7 +183,7 @@
           :delay="300"
           class="text-sm text-center font-bold"
         >
-        {{ dictionary.steper_layout }}
+          {{ dictionary.steper_layout }}
         </div>
       </div>
 
@@ -279,7 +279,7 @@
           :delay="300"
           class="text-sm text-center font-bold"
         >
-        {{ dictionary.steper_image }}
+          {{ dictionary.steper_image }}
         </div>
       </div>
 
@@ -393,7 +393,7 @@
           :delay="300"
           class="text-sm font-bold text-center"
         >
-        {{ dictionary.steper_text }}
+          {{ dictionary.steper_text }}
         </div>
       </div>
 
@@ -477,7 +477,7 @@
           :delay="300"
           class="text-sm font-bold text-center"
         >
-        {{ dictionary.steper_finish }}
+          {{ dictionary.steper_finish }}
         </div>
       </div>
     </div>
@@ -501,17 +501,17 @@
                 <p
                   class="font-inter text-base mt-2 font-semibold leading-2 text-slate-700"
                 >
-                  {{ dictionary.step_one }} 
+                  {{ dictionary.step_one }}
                 </p>
                 <h1
                   class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
                 >
-                {{ dictionary.step_one_title }} 
+                  {{ dictionary.step_one_title }}
                 </h1>
                 <p
                   class="font-inter my-2 text-base font-medium text-left leading-7 text-slate-700"
                 >
-                {{ dictionary.step_one_description }} 
+                  {{ dictionary.step_one_description }}
                 </p>
               </div>
               <div
@@ -529,7 +529,7 @@
                     <p
                       class="font-inter w-[260px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
                     >
-                      {{dictionary.alert_box_out_of_stock}}
+                      {{ dictionary.alert_box_out_of_stock }}
                     </p>
                     <div
                       class="absolute left-[80px] bottom-5 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
@@ -541,7 +541,7 @@
                         <p
                           class="text-center text-base font-inter font-bold text-slate-100"
                         >
-                          {{dictionary.action_close}}
+                          {{ dictionary.action_close }}
                         </p>
                       </div>
                     </div>
@@ -551,18 +551,26 @@
                       <label
                         for=""
                         class="font-inter text-md font-semibold mt- px-4 leading-7 text-slate-700"
-                        >{{ dictionary.device_type }} </label
-                      >
+                        >{{ dictionary.device_type }}
+                      </label>
                       <div class="mt-2">
                         <select
                           @change="getDeviceType(selectedType)"
                           v-model="selectedType"
                           class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-xl focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
                         >
-                          <option value="">{{ dictionary.select_device }}</option>
-                          <option value="1">Phone Device</option>
-                          <option value="2">Tablet Device</option>
-                          <option value="4">Gadget Device</option>
+                          <option value="">
+                            {{ dictionary.select_device }}
+                          </option>
+                          <option value="1">
+                            {{ dictionary.phone_device }}
+                          </option>
+                          <option value="2">
+                            {{ dictionary.tablet_device }}
+                          </option>
+                          <option value="4">
+                            {{ dictionary.gadget_device }}
+                          </option>
                         </select>
                       </div>
                     </div>
@@ -582,7 +590,9 @@
                           disabled
                           class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-xl focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
                         >
-                          <option disabled value="">{{ dictionary.select_brand }}</option>
+                          <option disabled value="">
+                            {{ dictionary.select_brand }}
+                          </option>
                           <option
                             v-for="brand in brands"
                             :key="brand.id"
@@ -610,7 +620,9 @@
                           disabled
                           class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-xl focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
                         >
-                          <option selected value="">{{ dictionary.select_model }}</option>
+                          <option selected value="">
+                            {{ dictionary.select_model }}
+                          </option>
                           <option
                             v-for="model in models"
                             :key="model.id"
@@ -644,7 +656,7 @@
                             :key="caseType.id"
                             :value="index"
                           >
-                            {{ caseType.title }}
+                            {{ caseType.translated_title }}
                           </option>
                         </select>
                       </div>
@@ -662,7 +674,7 @@
                   <p
                     class="text-center text-base font-inter font-bold text-slate-100"
                   >
-                  {{ dictionary.action_next }}
+                    {{ dictionary.action_next }}
                   </p>
                 </div>
               </div>
@@ -672,17 +684,17 @@
                 <p
                   class="font-inter text-base mt-0 font-semibold leading-2 text-slate-700"
                 >
-                {{ dictionary.step_two }}
+                  {{ dictionary.step_two }}
                 </p>
                 <h1
                   class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
                 >
-                {{ dictionary.step_two_title }}
+                  {{ dictionary.step_two_title }}
                 </h1>
                 <p
                   class="font-inter my-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
                 >
-                {{ dictionary.step_two_description }}
+                  {{ dictionary.step_two_description }}
                 </p>
               </div>
               <div
@@ -699,7 +711,7 @@
                       v-if="this.selectedType == ''"
                       class="font-inter w-[250px] my-5 px-4 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
                     >
-                    {{ dictionary.alert_box_stepper }}
+                      {{ dictionary.alert_box_stepper }}
                     </p>
 
                     <div
@@ -721,7 +733,7 @@
                         />
                       </div>
                       <div
-                        @click="addCollage(2)"
+                        @click="addCollage2(2)"
                         class="relative w-[50px] h-[50px]"
                       >
                         <div
@@ -830,7 +842,7 @@
                   <p
                     class="text-center text-base font-inter font-bold text-slate-100"
                   >
-                  {{ dictionary.action_back }}
+                    {{ dictionary.action_back }}
                   </p>
                 </div>
               </div>
@@ -844,7 +856,7 @@
                   <p
                     class="text-center text-base font-inter font-bold text-slate-100"
                   >
-                  {{ dictionary.action_next }}
+                    {{ dictionary.action_next }}
                   </p>
                 </div>
               </div>
@@ -854,17 +866,17 @@
                 <p
                   class="font-inter text-base mt-4 font-semibold leading-2 text-slate-700"
                 >
-                {{ dictionary.step_three }}
+                  {{ dictionary.step_three }}
                 </p>
                 <h1
                   class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
                 >
-                {{ dictionary.step_three_title }}
+                  {{ dictionary.step_three_title }}
                 </h1>
                 <p
                   class="font-inter my-5 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
                 >
-                {{ dictionary.step_three_description }}
+                  {{ dictionary.step_three_description }}
                 </p>
               </div>
               <div
@@ -878,7 +890,7 @@
                   <p
                     class="font-inter w-[300px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
                   >
-                    {{ dictionary.alert_box_file_type}}
+                    {{ dictionary.alert_box_file_type }}
                   </p>
                   <div
                     class="absolute left-[80px] bottom-5 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
@@ -890,7 +902,7 @@
                       <p
                         class="text-center text-base font-inter font-bold text-slate-100"
                       >
-                      {{ dictionary.action_close }}
+                        {{ dictionary.action_close }}
                       </p>
                     </div>
                   </div>
@@ -903,7 +915,7 @@
                   <p
                     class="font-inter w-[300px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
                   >
-                  {{ dictionary.alert_box_image_size }}
+                    {{ dictionary.alert_box_image_size }}
                   </p>
                   <div
                     class="absolute left-[80px] bottom-5 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
@@ -915,7 +927,7 @@
                       <p
                         class="text-center text-base font-inter font-bold text-slate-100"
                       >
-                      {{ dictionary.action_close }}
+                        {{ dictionary.action_close }}
                       </p>
                     </div>
                   </div>
@@ -929,7 +941,7 @@
                     { activeTab: activeTabIndex === 1 },
                   ]"
                 >
-                {{ dictionary.images }}
+                  {{ dictionary.images }}
                 </div>
                 <div
                   @click="setActiveTabIndex(2)"
@@ -938,7 +950,7 @@
                     { activeTab: activeTabIndex === 2 },
                   ]"
                 >
-                {{ dictionary.collections }}
+                  {{ dictionary.collections }}
                 </div>
               </div>
               <div
@@ -962,6 +974,20 @@
                             class="px-1 mb-2 animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
                           >
                             +
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="absolute left-[10%] -bottom-10 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+                      >
+                        <div
+                          class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                        >
+                          <p
+                            @click="loadImages"
+                            class="px-1 m-2 p-2 animate-pulse text-center text-sm font-inter font-extrabold leading-none tracking-tight text-slate-100"
+                          >
+                            10
                           </p>
                         </div>
                       </div>
@@ -1007,58 +1033,83 @@
                 <div
                   class="absolute flex flex-col items-start bg-slate-50 border-l-2 border-r-2 border-b-2 border-slate-900/5 w-[290px] h-[190px] rounded-2xl ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
                 >
-                  <div class="pt-0 space-y-5">
+                  <div class="pt-0 m-1 space-y-5">
                     <div
                       class="relative w-[300px] h-fit flex flex-row items-center flex-wrap"
                     >
                       <div
+                        v-for="item in this.filteredItems"
+                        :key="item.id"
                         v-motion
                         :initial="{ opacity: 0, scale: 0 }"
                         :enter="{ opacity: 1, scale: 1 }"
                         :variants="{ custom: { scale: 1 } }"
                         :delay="300"
-                        class="relative m-1 w-[80px] h-[80px]"
+                        class="relative m-1 w-[40px] h-[40px]"
                       >
-                        <!-- <span>{{ image.id }}</span> -->
                         <img
                           class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
-                          src="/src/assets/images/collection1.png"
-                          key="image.id"
+                          :src="item.src"
+                          :key="item.id"
                           alt="Collection Image"
+                          @click="uploadImageFromCollection(item)"
                         />
                       </div>
-                      <div
-                        v-motion
-                        :initial="{ opacity: 0, scale: 0 }"
-                        :enter="{ opacity: 1, scale: 1 }"
-                        :variants="{ custom: { scale: 1 } }"
-                        :delay="300"
-                        class="relative m-1 w-[80px] h-[80px]"
+                    </div>
+                  </div>
+
+                  <!-- filter menu  -->
+                  <div
+                    v-if="filterMenu"
+                    v-motion
+                    :initial="{ opacity: 0, scale: 0, translateY: 100 }"
+                    :enter="{ opacity: 1, scale: 1, translateY: 0, delay: 100 }"
+                    class="absolute w-[270px] h-[170px] rounded-md m-2 p-4 bg-slate-50 flex flex-row gap-2 bottom-0"
+                  >
+                    <div
+                      class="px-1 m-2 text-center text-md font-inter font-extrabold leading-none tracking-tight text-slate-500"
+                      @click="filterByCategory('a')"
+                    >
+                      Animals
+                    </div>
+                    <div
+                      class="px-1 m-2 text-center text-md font-inter font-extrabold leading-none tracking-tight text-slate-500"
+                      @click="filterByCategory('b')"
+                    >
+                      Space
+                    </div>
+                    <div
+                      class="px-1 m-2 text-center text-md font-inter font-extrabold leading-none tracking-tight text-slate-500"
+                      @click="filterByCategory('c')"
+                    >
+                      Cats
+                    </div>
+                  </div>
+                  <div
+                    class="absolute left-[40%] -bottom-10 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+                  >
+                    <div
+                      class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                    >
+                      <p
+                        class="px-1 mb-2 animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
                       >
-                        <!-- <span>{{ image.id }}</span> -->
-                        <img
-                          class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
-                          src="/src/assets/images/collection2.png"
-                          key="image.id"
-                          alt="Collection Image"
-                        />
-                      </div>
-                      <div
-                        v-motion
-                        :initial="{ opacity: 0, scale: 0 }"
-                        :enter="{ opacity: 1, scale: 1 }"
-                        :variants="{ custom: { scale: 1 } }"
-                        :delay="300"
-                        class="relative m-1 w-[80px] h-[80px]"
-                      >
-                        <!-- <span>{{ image.id }}</span> -->
-                        <img
-                          class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
-                          src="/src/assets/images/collection3.png"
-                          key="image.id"
-                          alt="Collection Image"
-                        />
-                      </div>
+                        <svg
+                          @click="toggleFilterMenu"
+                          class="w-[30px] h-[30px] mt-2"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M6 12H18M3 6H21M9 18H15"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -1074,7 +1125,7 @@
                   <p
                     class="text-center text-base font-inter font-bold text-slate-100"
                   >
-                  {{ dictionary.action_back }}
+                    {{ dictionary.action_back }}
                   </p>
                 </div>
               </div>
@@ -1088,8 +1139,7 @@
                   <p
                     class="text-center text-base font-inter font-bold text-slate-100"
                   >
-                  {{ dictionary.action_next }}
-                    
+                    {{ dictionary.action_next }}
                   </p>
                 </div>
               </div>
@@ -1099,19 +1149,17 @@
                 <p
                   class="font-inter text-base mt-0 font-semibold leading-2 text-slate-700"
                 >
-                {{ dictionary.step_four }}
+                  {{ dictionary.step_four }}
                 </p>
                 <h1
                   class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
                 >
-                {{ dictionary.step_four_title }}
-                  
+                  {{ dictionary.step_four_title }}
                 </h1>
                 <p
                   class="font-inter my-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
                 >
-                {{ dictionary.step_four_description }}
-                  
+                  {{ dictionary.step_four_description }}
                 </p>
               </div>
               <div
@@ -1127,8 +1175,7 @@
                         <span
                           class="font-inter ml-4 mt-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
                         >
-                {{ dictionary.action_enter_text_decription }}
-                          
+                          {{ dictionary.action_enter_text_decription }}
                         </span>
                         <input
                           class="w-[250px] m-3 mt-2 p-2 bg-slate-50/40 text-gray-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-md focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
@@ -1141,13 +1188,15 @@
                         <p
                           class="font-inter ml-4 pt-4 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
                         >
-                        {{ dictionary.action_select_font_decription }}
+                          {{ dictionary.action_select_font_decription }}
                         </p>
                         <select
                           v-model="textFamily"
                           class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 rounded-lg shadow-md focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
                         >
-                          <option selected value="">{{ dictionary.action_select_font }}</option>
+                          <option selected value="">
+                            {{ dictionary.action_select_font }}
+                          </option>
                           <option selected value="Roboto">Roboto</option>
 
                           <option selected value="Montserrat">
@@ -1351,7 +1400,7 @@
                           <p
                             class="text-center text-base font-inter font-bold text-slate-100"
                           >
-                          {{ dictionary.action_add_text }}
+                            {{ dictionary.action_add_text }}
                           </p>
                         </div>
                       </div>
@@ -1370,7 +1419,7 @@
                   <p
                     class="text-center text-base font-inter font-bold text-slate-100"
                   >
-                  {{ dictionary.action_back }}
+                    {{ dictionary.action_back }}
                   </p>
                 </div>
               </div>
@@ -1384,7 +1433,7 @@
                   <p
                     class="text-center text-base font-inter font-bold text-slate-100"
                   >
-                  {{ dictionary.action_next }}
+                    {{ dictionary.action_next }}
                   </p>
                 </div>
               </div>
@@ -1453,14 +1502,13 @@
                 <p
                   class="invisible md:visible font-inter text-base -mt-2 font-semibold leading-2 text-slate-700"
                 >
-                {{ dictionary.step_five }}
+                  {{ dictionary.step_five }}
                 </p>
                 <!-- <p>Window Width: {{ windowWidth }}</p> -->
                 <h1
                   class="invisible md:visible font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
                 >
-                {{ dictionary.step_five_title }}
-                  
+                  {{ dictionary.step_five_title }}
                 </h1>
 
                 <p
@@ -1470,19 +1518,16 @@
                   "
                   class="invisible md:visible font-inter w-[280px] my-5 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
                 >
-                  Orders placed before 3 pm on working days are dispatched the
-                  same day. Orders placed between 3 pm on Friday and 1 pm on
-                  Sunday will be dispatched on Sunday.
+                  {{ dictionary.alert_box_cart_full }}
                 </p>
                 <p
                   v-else="
                     casesTypes[selectedCaseType] &&
                     casesTypes[selectedCaseType].price
                   "
-                  class="font-inter w-[280px] my-5 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+                  class="font-inter w-[200px] pl-12 m-6 text-xs whitespace-wrap font-medium text-center leading-5 text-slate-700"
                 >
-                {{ dictionary.alert_box_stepper }}
-                  
+                  {{ dictionary.alert_box_stepper }}
                 </p>
 
                 <div
@@ -1491,7 +1536,7 @@
                   <div
                     class="absolute top-[-245px] w-full h-full flex flex-col items-center"
                   >
-                    <canvas class="scale-[0.80] absolute z-20" ref="canvasRef1">
+                    <canvas class="scale-[0.85] absolute z-20" ref="canvasRef1">
                     </canvas>
                     <div
                       class="absolute top-[90px] z-30 -left-[25px] flex flex-col gap-3"
@@ -1760,7 +1805,7 @@
                       "
                       class="whitespace-wrap font-extrabold text-sm text-center leading-12 text-slate-700"
                     >
-                    {{ dictionary.price }}
+                      {{ dictionary.price }}
                     </p>
                     <p
                       v-else="
@@ -1769,15 +1814,14 @@
                       "
                       class="whitespace-wrap font-extrabold text-md text-left -ml-3 leading-12 text-slate-700"
                     >
-                {{ dictionary.alert_box_cart }}
-                      
+                      {{ dictionary.alert_box_cart }}
                     </p>
                     <p
                       v-if="
                         casesTypes[selectedCaseType] &&
                         casesTypes[selectedCaseType].price
                       "
-                      class="animate-pulse mt-[80px] sm:mt-1 ml-3 px-2 py-0 whitespace-wrap font-extrabold text-2xl md:text-3xl text-left leading-7 text-slate-400"
+                      class="animate-pulse mt-[80px] sm:mt-1 m-2 px-3 py-0 whitespace-wrap font-extrabold text-2xl md:text-2xl text-left leading-7 text-slate-400"
                     >
                       {{
                         parseFloat(casesTypes[selectedCaseType].price).toFixed(
@@ -1796,16 +1840,16 @@
                       casesTypes[selectedCaseType] &&
                       casesTypes[selectedCaseType].price
                     "
-                    class="relative left-[0] top-2 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+                    class="relative left-[0] top-0 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
                   >
                     <div
                       class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
                     >
                       <p
                         @click="exportPNG()"
-                        class="px-4 py-2 animate-pulse text-center text-[16px] font-inter font-bold leading-none tracking-tight text-slate-100"
+                        class="px-4 py-1 animate-pulse text-center text-[16px] font-inter font-bold leading-none tracking-tight text-slate-100"
                       >
-                      {{ dictionary.action_checkout }}
+                        {{ dictionary.action_checkout }}
                       </p>
                     </div>
                   </div>
@@ -1822,7 +1866,7 @@
                   <p
                     class="text-center text-base font-inter font-bold text-slate-100"
                   >
-                  {{ dictionary.action_back }}
+                    {{ dictionary.action_back }}
                   </p>
                 </div>
               </div>
@@ -2096,11 +2140,15 @@ import { fabric } from "fabric";
 import fs from "fs";
 import { ref } from "vue";
 import translations from "/src/translations.json";
+import collection from "/src/collection.json";
 
 export default {
   data() {
     return {
-
+      language: "eu",
+      items: collection,
+      filterMenu: false,
+      filteredItems: [],
       languageFound: false,
       dictionary: {},
       mobileDiv: this.$refs.canvasRef,
@@ -2139,24 +2187,50 @@ export default {
       canvas: null,
       uploadedImages: [],
       imageIndex: 1,
-      offsetCollage: 0,
+      offsetCollage: 80,
       printImage: "",
       previewImage: "",
     };
   },
 
   methods: {
+    toggleFilterMenu() {
+      this.filterMenu = !this.filterMenu;
+    },
+    filterByCategory(category) {
+      this.filteredItems = this.filterItemsByCategory(
+        collection.items,
+        category
+      );
+      this.toggleFilterMenu();
+    },
+    filterItemsByCategory(items, category) {
+      return items.filter((item) => item.category === category);
+    },
+
+    uploadImageFromCollection(event) {
+      const src = event.src;
+      if (this.imageIndex <= 6) {
+        this.uploadedImages.push({
+          url: src,
+          id: this.imageIndex + 1,
+        });
+        this.imageIndex = this.imageIndex + 1;
+      } else {
+        return;
+      }
+    },
 
     findLanguageAndDictionary() {
-      const language = 'rs';
-      const foundLanguage = translations.array.find(item => item.language === language);
+      // const language = "rs";
+      const foundLanguage = translations.array.find(
+        (item) => item.language === this.language
+      );
       if (foundLanguage) {
         this.languageFound = true;
         this.dictionary = foundLanguage.dictionary;
       }
     },
-
-
 
     initCanvas(containerId) {
       if (this.canvas) {
@@ -2301,15 +2375,13 @@ export default {
                 this.canvas.bringToFront(obj);
               }
             });
-            
+
             this.canvas.sendBackwards(img);
             this.canvas.renderAll();
             this.exportPreviewPNG();
-         this.exportImages(i);
+            this.exportImages(i);
           });
         }
-
-         
       }
     },
     exportImages(index) {
@@ -2441,7 +2513,7 @@ export default {
     },
     async fetchTranslationsData() {
       let response = await fetch(
-        `https://covers.mtpdev3.com/api/1.0/translations?language_code=rs`,
+        `https://covers.mtpdev3.com/api/1.0/translations?language_code=${this.language}`,
         {
           method: "GET",
         }
@@ -2600,7 +2672,7 @@ export default {
           evented: false,
         });
 
-        const newText = new fabric.IText("Hello", {
+        const newText = new fabric.IText(this.inputText, {
           // Set the properties for the text object here
           left: selectedObject.left + selectedObject.width / 2,
           top: selectedObject.top + selectedObject.height / 2,
@@ -2778,9 +2850,11 @@ export default {
       console.table(this.selectedType);
       console.log(this.casesTypes[this.selectedCaseType].title);
       if (this.casesTypes[this.selectedCaseType].title === "Flip Case") {
-        this.offsetCollage = this.offsetCollage + 50;
+        this.offsetCollage = this.offsetCollage + 90;
+        this.canvas.renderAll();
       } else {
         this.offsetCollage = 0;
+        this.canvas.renderAll();
       }
 
       this.exportMaskClipImage = this.casesTypes[caseType].image_draw_mask;
@@ -2788,7 +2862,7 @@ export default {
       console.log(this.casesTypes[caseType].dd_product_id);
       this.fetchStockData(this.casesTypes[caseType].dd_product_id);
 
-      console.log(this.casesTypes[caseType].image_placeholder);
+      console.log(this.casesTypes[caseType]);
       console.log(this.casesTypes[caseType].image_draw_mask);
 
       // Logic to add the selected shape to the canvas
@@ -3095,7 +3169,7 @@ export default {
       this.$refs.fileInput.value = null;
     },
 
-    addCollage(key) {
+    addCollage2(key) {
       if (
         this.selectedBrand === "" ||
         this.selectedModel === "" ||
@@ -3113,7 +3187,7 @@ export default {
         if (obj && obj.type === "image" && obj.name === "canvas image") {
           this.canvas.remove(obj);
         }
-        if (obj && obj.type === "text" && obj.name === "text") {
+        if (obj && obj.type === "i-text" && obj.name === "text") {
           this.canvas.remove(obj);
         }
         if (obj && obj.type === "circle" && obj.name === "pattern") {
@@ -3240,7 +3314,7 @@ export default {
         if (obj && obj.type === "image" && obj.name === "canvas image") {
           this.canvas.remove(obj);
         }
-        if (obj && obj.type === "text" && obj.name === "text") {
+        if (obj && obj.type === "i-text" && obj.name === "text") {
           this.canvas.remove(obj);
         }
         if (obj && obj.type === "circle" && obj.name === "pattern") {
@@ -3305,12 +3379,16 @@ export default {
         const target = event.target;
         if (target && target.selectable) {
           this.canvas.setActiveObject(target);
-          // this.canvas.renderAll();
+          this.canvas.renderAll();
         }
       });
 
       this.canvas.add(rectangle0);
       this.canvas.moveTo(rectangle0, 2);
+      rectangle0.animate("opacity", 1, {
+        duration: 500,
+        onChange: this.canvas.renderAll.bind(this.canvas),
+      });
       this.canvas.clearHistory();
       this.canvas.renderAll();
     },
@@ -3333,7 +3411,7 @@ export default {
         if (obj && obj.type === "image" && obj.name === "canvas image") {
           this.canvas.remove(obj);
         }
-        if (obj && obj.type === "text" && obj.name === "text") {
+        if (obj && obj.type === "i-text" && obj.name === "text") {
           this.canvas.remove(obj);
         }
         if (obj && obj.type === "circle" && obj.name === "pattern") {
@@ -3515,7 +3593,7 @@ export default {
         if (obj && obj.type === "image" && obj.name === "canvas image") {
           this.canvas.remove(obj);
         }
-        if (obj && obj.type === "text" && obj.name === "text") {
+        if (obj && obj.type === "i-text" && obj.name === "text") {
           this.canvas.remove(obj);
         }
         if (obj && obj.type === "circle" && obj.name === "pattern") {
@@ -3742,7 +3820,7 @@ export default {
         if (obj && obj.type === "image" && obj.name === "canvas image") {
           this.canvas.remove(obj);
         }
-        if (obj && obj.type === "text" && obj.name === "text") {
+        if (obj && obj.type === "i-text" && obj.name === "text") {
           this.canvas.remove(obj);
         }
         if (obj && obj.type === "circle" && obj.name === "pattern") {
@@ -3790,7 +3868,7 @@ export default {
         const target = event.target;
         if (target && target.selectable) {
           this.canvas.setActiveObject(target);
-          // this.canvas.renderAll();
+          this.canvas.renderAll();
         }
       });
 
@@ -3821,7 +3899,7 @@ export default {
         if (obj && obj.type === "image" && obj.name === "canvas image") {
           this.canvas.remove(obj);
         }
-        if (obj && obj.type === "text" && obj.name === "text") {
+        if (obj && obj.type === "i-text" && obj.name === "text") {
           this.canvas.remove(obj);
         }
         if (obj && obj.type === "circle" && obj.name === "pattern") {
@@ -3830,7 +3908,7 @@ export default {
       });
 
       const circle = new fabric.Circle({
-        radius: 80, // Set the radius of the circle
+        radius: 100, // Set the radius of the circle
         top: 173,
         left: 150 + this.offsetCollage,
         width: 150,
@@ -3872,17 +3950,18 @@ export default {
         const target = event.target;
         if (target && target.selectable) {
           this.canvas.setActiveObject(target);
-          // this.canvas.renderAll();
+          this.canvas.renderAll();
         }
       });
 
       this.canvas.add(circle);
 
-      this.canvas.moveTo(circle, 2);
+      
       circle.animate("opacity", 1, {
         duration: 500,
         onChange: this.canvas.renderAll.bind(this.canvas),
       });
+      this.canvas.moveTo(circle, 2);
       // this.canvas.renderAll();
     },
 
@@ -3920,10 +3999,11 @@ export default {
     async fetchBrandsData(typed) {
       try {
         const response = await fetch(
-          `https://covers.mtpdev3.com/api/1.0/brands?language_code=eu&device_id=${this.selectedType}`
+          `https://covers.mtpdev3.com/api/1.0/brands?language_code=rs&device_id=${this.selectedType}`
         );
         const data = await response.json();
-        this.brands = data; // Update the brands data in the component
+        this.brands = data;
+        console.log(this.brands); // Update the brands data in the component
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -3931,7 +4011,7 @@ export default {
 
     async fetchModelsData(brand) {
       try {
-        const modelType = `https://covers.mtpdev3.com/api/1.0/models?language_code=eu&device_id=${this.selectedType}&brand_id=${brand}`;
+        const modelType = `https://covers.mtpdev3.com/api/1.0/models?language_code=rs&device_id=${this.selectedType}&brand_id=${brand}`;
 
         const response = await fetch(modelType);
         const data = await response.json();
@@ -3943,7 +4023,7 @@ export default {
 
     async fetchCaseTypeData(model) {
       try {
-        const caseType = `https://covers.mtpdev3.com/api/1.0/types?language_code=eu&model_id=${model}`;
+        const caseType = `https://covers.mtpdev3.com/api/1.0/types?language_code=${this.language}&model_id=${model}`;
         const response = await fetch(caseType);
         const data = await response.json();
         this.casesTypes = data; // Update the brands data in the component
@@ -4045,6 +4125,7 @@ export default {
         this.alertMessageImageType = true;
       }
     },
+
     handleImageUpload1(event) {
       const files = event.target.files;
 
@@ -4683,6 +4764,10 @@ export default {
         selectedObject.left = selectedObject.left - 10;
         this.canvas.renderAll();
       }
+      if (selectedObject && selectedObject.type === "i-text") {
+        selectedObject.left = selectedObject.left - 10;
+        this.canvas.renderAll();
+      }
     },
     moveRightSelectedImage() {
       // Get the selected object
@@ -4690,6 +4775,10 @@ export default {
       console.log(selectedObject.scaleX);
       console.log(this.canvas.maxScaleLimit);
       if (selectedObject && selectedObject.type === "image") {
+        selectedObject.left = selectedObject.left + 10;
+        this.canvas.renderAll();
+      }
+      if (selectedObject && selectedObject.type === "i-text") {
         selectedObject.left = selectedObject.left + 10;
         this.canvas.renderAll();
       }
@@ -4703,6 +4792,10 @@ export default {
         selectedObject.top = selectedObject.top - 10;
         this.canvas.renderAll();
       }
+      if (selectedObject && selectedObject.type === "i-text") {
+        selectedObject.top = selectedObject.top - 10;
+        this.canvas.renderAll();
+      }
     },
 
     moveDownSelectedImage() {
@@ -4711,6 +4804,10 @@ export default {
       console.log(selectedObject.scaleX);
       console.log(this.canvas.maxScaleLimit);
       if (selectedObject && selectedObject.type === "image") {
+        selectedObject.top = selectedObject.top + 10;
+        this.canvas.renderAll();
+      }
+      if (selectedObject && selectedObject.type === "i-text") {
         selectedObject.top = selectedObject.top + 10;
         this.canvas.renderAll();
       }
@@ -4733,12 +4830,37 @@ export default {
           this.canvas.renderAll();
         }
       }
+      if (selectedObject && selectedObject.type === "i-text") {
+        console.log(selectedObject.scaleX);
+        console.log(this.canvas.maxScaleLimit);
+        if (selectedObject.scaleX <= 3) {
+          selectedObject.scaleX *= 1.1;
+          selectedObject.scaleY *= 1.1;
+          selectedObject.setCoords();
+          this.canvas.renderAll();
+        } else {
+          selectedObject.scaleX *= 1.0;
+          selectedObject.scaleY *= 1.0;
+          this.canvas.renderAll();
+        }
+      }
     },
     zoomOutSelectedImage() {
       // Get the selected object
       const selectedObject = this.canvas.getActiveObject();
       if (selectedObject && selectedObject.type === "image") {
         if (selectedObject.scaleX >= 0.1) {
+          selectedObject.scaleX *= 0.9;
+          selectedObject.scaleY *= 0.9;
+          this.canvas.renderAll();
+        } else {
+          selectedObject.scaleX *= 1.0;
+          selectedObject.scaleY *= 1.0;
+          this.canvas.renderAll();
+        }
+      }
+      if (selectedObject && selectedObject.type === "i-text") {
+        if (selectedObject.scaleX >= 1) {
           selectedObject.scaleX *= 0.9;
           selectedObject.scaleY *= 0.9;
           this.canvas.renderAll();
@@ -4815,7 +4937,7 @@ export default {
           console.log(obj.name);
         }
 
-        if (obj && obj.type === "text" && obj.name === "text") {
+        if (obj && obj.type === "i-text" && obj.name === "text") {
           this.canvas.remove(obj);
           // this.canvas.setActiveObject(obj);
           // this.canvas.bringToFront(obj);
@@ -4996,6 +5118,8 @@ export default {
     this.fetchTranslationsData();
     this.findLanguageAndDictionary();
     console.log(this.dictionary);
+    this.filteredItems = this.filterItemsByCategory(collection.items, "c");
+    console.log("Filtered Items:", this.filteredItems);
   },
   mounted() {
     this.windowWidth = window.innerWidth; // Update windowWidth when the window is resized
@@ -5274,12 +5398,13 @@ export default {
   //++++Flip functionality
   // +++++Set print image size to 2000x2000
   // Change UI color
-  // Fix Collection functionality
+  // ++++Fix Collection functionality
   // +++++ Better mobile view (another box for mobile double canvas)
   // ++++Image cutting
-  // clear canvas text ?
-  // zoom text command ?
-  // translate ?
+  // ++++clear canvas text ?
+  // ++++zoom text command ?
+  // +++translate ?
+  // image add to cavnvas scale to width
 };
 </script>
 

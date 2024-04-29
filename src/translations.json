@@ -1,7 +1,7 @@
 {
   "array": [
     {
-      "language": "en",
+      "language": "eu",
       "dictionary": {
         "steper_device": "Device",
         "steper_layout": "Layout",
@@ -46,8 +46,13 @@
         "alert_box_image_size": "Dear customer!\n\nThis image file is too small!.\n\nPlease select larger image size and customize your cover.",
         "alert_box_out_of_stock": "Dear customer!\n\nThis type of case for selected phone model is currently out of stock and currently unavailable but will be in stock in 10 days.\n\nYou can continue to customize it and it will be sent to your address as soon as it is available.",
         "alert_box_cart": "Cart is empty!",
+        "alert_box_cart_full": "Dear customer!\n\nOrders placed before 3 pm on working days are dispatched the same day. Orders placed between 3 pm on Friday and 1 pm on Sunday will be dispatched on Sunday.",     
         "price": "Total Price",
-        "currency": "€"
+        "currency": "€",
+        "phone_device":"Phone device",
+        "tablet_device":"Tablet device",
+        "gadget_device":"Gadget device"
+
       }
     },
     {
@@ -96,9 +101,14 @@
         "alert_box_image_size": "Dragi korisniče!\n\nOvaj format slike je previše malih dimenzija.\n\nMolim vas, da odaberete sliku većih dimenzija.",
         "alert_box_out_of_stock": "Dragi korisniče!\n\nOvaj artikal trenutno nije na stanju.\n\nMožete da nastavite sa prilagođavanjem ali će navedeni artikal biti dostupan u roku od 10 dana.",
         "alert_box_cart": "Korpa je prazna!",
+        "alert_box_cart_full": "Dragi korisniče!\n\nNarudžbe napravljene pre 3 u ponoć radnim danima dostavljaju se isti dan . Narudžbe pre 3 posle ponoći petkok  i u 1 nakon ponoći  nedeljom biće dostavljene u naredni ponedeljak.",
         "price": "Ukupna cena",
-        "currency": "Rsd"
+        "currency": "€",
+        "phone_device":"Telefoni",
+        "tablet_device":"Tableti",
+        "gadget_device":"Uređaji"
       }
     }
+    
   ]
 }

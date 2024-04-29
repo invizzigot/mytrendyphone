@@ -1,0 +1,10 @@
+{
+  "items": [
+    {  "src": "src/assets/image1.jpg", "category": "a" },
+    {  "src": "src/assets/image2.jpg", "category": "a" },
+    { "src": "src/assets/image3.jpg", "category": "a" },
+    { "src": "src/assets/image4.jpg", "category": "c" },
+    {  "src": "src/assets/image5.jpg", "category": "c" },
+    {  "src": "src/assets/image6.jpg", "category": "b" }
+  ]
+}
