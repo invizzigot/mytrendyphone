@@ -987,12 +987,12 @@
                         <div
                           class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
                         >
-                          <p
+                          <!-- <p
                             @click="loadImages"
                             class="px-1 m-2 p-2 animate-pulse text-center text-sm font-inter font-extrabold leading-none tracking-tight text-slate-100"
                           >
                             10
-                          </p>
+                          </p> -->
                         </div>
                       </div>
                       <div
