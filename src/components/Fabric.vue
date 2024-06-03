@@ -5198,13 +5198,13 @@ export default {
     // }
 
     const rotateSquareImage = new Image();
-    rotateSquareImage.src = "src/assets/images/rotate-square.svg";
+    rotateSquareImage.src = "@/assets/images/rotate-square.svg";
     const scaleSquareImage = new Image();
-    scaleSquareImage.src = "src/assets/images/arrow-scale-square.svg";
+    scaleSquareImage.src = "@/assets/images/arrow-scale-square.svg";
     const closeSquareImage = new Image();
-    closeSquareImage.src = "src/assets/images/close-square-black.svg";
+    closeSquareImage.src = "@/assets/images/close-square-black.svg";
     const zoomInImage = new Image();
-    zoomInImage.src = "src/assets/images/zoom-in.svg";
+    zoomInImage.src = "@/assets/images/zoom-in.svg";
     const addSquareImage = new Image();
 
     this.canvas.on(
