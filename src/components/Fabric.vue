@@ -2207,10 +2207,11 @@ export default {
       console.log('Current URL:', currentURL);
       console.log('Last Segment:', lastSegment);
 
-      const domainParts = lastSegment.split('.com');
-      const domain = domainParts[0];
+      const domainParts = lastSegment.split('.');
+      const lastPart = domainParts.pop();
 
-      console.log('Domain:', domain);
+      console.log('Last Part:', lastPart);
+
     },
 
 
