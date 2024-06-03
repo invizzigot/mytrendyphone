@@ -981,20 +981,20 @@
                           </p>
                         </div>
                       </div>
-                      <div
+                      <!-- <div
                         class="absolute left-[10%] -bottom-10 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
                       >
                         <div
                           class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
                         >
-                          <!-- <p
+                          <p
                             @click="loadImages"
                             class="px-1 m-2 p-2 animate-pulse text-center text-sm font-inter font-extrabold leading-none tracking-tight text-slate-100"
                           >
                             10
-                          </p> -->
+                          </p>
                         </div>
-                      </div>
+                      </div> -->
                       <div
                         class="relative w-[300px] h-fit flex flex-row items-center flex-wrap"
                       >
