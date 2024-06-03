@@ -5159,6 +5159,7 @@ export default {
       .catch((error) => {
         console.log("error");
       });
+      this.getLastSegment();  
     this.fetchTranslationsData();
     this.findLanguageAndDictionary();
     console.log(this.dictionary);
@@ -5170,7 +5171,7 @@ export default {
 
     const newDivId =
       this.windowWidth <= 770 ? this.$refs.canvasRef1 : this.$refs.canvasRef;
-      this.getLastSegment();
+      
     this.initCanvas(newDivId);
     window.addEventListener("resize", this.handleResize);
 
