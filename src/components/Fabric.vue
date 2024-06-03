@@ -1,4 +1,6 @@
+<!-- test -->
 <template>
+  
   <div class="flex flex-col items-center py-5">
     <div class="flex w-[425px] md:w-[500px] h-[80px]">
       <div class="w-1/4">
@@ -763,7 +765,7 @@
                       </div>
                     </div>
                     <div
-                      v-if="this.selectedType == 1 || this.selectedType == 2"
+                      v-if="this.selectedType  == 1 || this.selectedType == 2"
                       class="flex flex-row mt-[50px] w-[220px] gap-8 items-center"
                     >
                       <div
