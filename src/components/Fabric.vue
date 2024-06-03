@@ -2213,7 +2213,7 @@ export default {
       console.log('Last Part:', lastPart);
 
       if (lastPart == 'com') {
-        this.setLanguage("rs");
+        this.setLanguage("eu");
       }
 
     },
