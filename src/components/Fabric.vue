@@ -2146,6 +2146,7 @@ export default {
   data() {
     return {
       language: "eu",
+      fetchCollection: [],
       items: collection,
       filterMenu: false,
       filteredItems: [],
@@ -2521,6 +2522,13 @@ export default {
       this.translationsData = await response.json();
       console.log(this.translationsData.translations.actions_back);
     },
+    async fetchCollectionData() {
+      let response = await fetch("http://192.168.73.30:3000/images", {
+        method: "GET",
+      });
+      this.fetchCollection = await response.json();
+      console.log(this.fetchCollection);
+    },
 
     async fetchStockData(product_id) {
       let headersList = {
@@ -2601,7 +2609,7 @@ export default {
       const fullUrl = `${baseUrl}?${params.toString()}`;
 
       console.log(fullUrl);
-      // this.goToLink(fullUrl);
+      this.goToLink(fullUrl);
     },
     goToLink(url) {
       window.location.href = url;
@@ -3956,7 +3964,6 @@ export default {
 
       this.canvas.add(circle);
 
-      
       circle.animate("opacity", 1, {
         duration: 500,
         onChange: this.canvas.renderAll.bind(this.canvas),
@@ -5115,6 +5122,16 @@ export default {
     },
   },
   created() {
+    axios
+      .get(
+        "https://cors-anywhere.herokuapp.com/https://image-backend-lqbq.onrender.com/images"
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log("error");
+      });
     this.fetchTranslationsData();
     this.findLanguageAndDictionary();
     console.log(this.dictionary);
