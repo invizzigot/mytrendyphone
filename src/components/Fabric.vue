@@ -2527,7 +2527,7 @@ export default {
       console.log(this.translationsData.translations.actions_back);
     },
     async fetchCollectionData() {
-      let response = await fetch("http://192.168.73.30:3000/images", {
+      let response = await fetch("https://mytrendyphone.onrender.com/images", {
         method: "GET",
       });
       this.fetchCollection = await response.json();
