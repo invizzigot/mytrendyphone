@@ -2199,6 +2199,21 @@ export default {
   },
 
   methods: {
+    getLastSegment() {
+      const currentURL = window.location.href;
+      const segments = currentURL.split('/');
+      const lastSegment = segments.pop() || segments.pop(); // Handle trailing slash
+
+      console.log('Current URL:', currentURL);
+      console.log('Last Segment:', lastSegment);
+
+      const domainParts = lastSegment.split('.com');
+      const domain = domainParts[0];
+
+      console.log('Domain:', domain);
+    },
+
+
     toggleFilterMenu() {
       this.filterMenu = !this.filterMenu;
     },
@@ -5147,6 +5162,7 @@ export default {
 
     const newDivId =
       this.windowWidth <= 770 ? this.$refs.canvasRef1 : this.$refs.canvasRef;
+      this.getLastSegment();
     this.initCanvas(newDivId);
     window.addEventListener("resize", this.handleResize);
 
