@@ -5149,16 +5149,16 @@ export default {
     },
   },
   created() {
-    axios
-      .get(
-        "https://cors-anywhere.herokuapp.com/https://image-backend-lqbq.onrender.com/images"
-      )
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log("error");
-      });
+    // axios
+    //   .get(
+    //     "https://cors-anywhere.herokuapp.com/https://image-backend-lqbq.onrender.com/images"
+    //   )
+    //   .then((response) => {
+    //     console.log(response);
+    //   })
+    //   .catch((error) => {
+    //     console.log("error");
+    //   });
       this.getLastSegment();  
     this.fetchTranslationsData();
     this.findLanguageAndDictionary();
