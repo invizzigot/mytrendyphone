@@ -5198,7 +5198,7 @@ export default {
     // }
 
     const rotateSquareImage = new Image();
-    rotateSquareImage.src = "/images/rotate-square.svg";
+    rotateSquareImage.src = "@/assets/public/rotate-square.svg')";
     const scaleSquareImage = new Image();
     scaleSquareImage.src = "@/assets/images/arrow-scale-square.svg";
     const closeSquareImage = new Image();
