@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="666.66663"
+   height="666.75134"
+   viewBox="0 0 19.999999 20.00254"
+   fill="none"
+   version="1.1"
+   id="svg2"
+   sodipodi:docname="bag-tick-svgrepo-com.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="namedview2"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <path
+     opacity="0.4"
+     d="m 17.24,3.5825 h -0.4 L 13.46,0.20249998 c -0.27,-0.27 -0.71,-0.27 -0.99,0 -0.27,0.27 -0.27,0.71 0,0.99000002 l 2.39,2.39 H 5.1400001 l 2.39,-2.39 c 0.27,-0.27000002 0.27,-0.71000002 0,-0.99000002 -0.27,-0.27 -0.71,-0.27 -0.99,0 l -3.37,3.38000002 h -0.4 c -0.9,0 -2.76999998079071,0 -2.76999998079071,2.56 0,0.97 0.20000000079071,1.61 0.62000000079071,2.03004 0.24,0.25 0.52999998,0.38 0.83999998,0.45 0.29,0.07 0.6,0.08 0.9,0.08 H 17.64 c 0.31,0 0.6,-0.02 0.88,-0.08 0.84,-0.2 1.48,-0.80004 1.48,-2.48004 0,-2.56 -1.87,-2.56 -2.76,-2.56 z"
+     fill="#292d32"
+     id="path1"
+     style="display:inline" />
+  <path
+     d="M 17.6609,8.70254 H 2.3609401 c -0.29,0 -0.61,-0.01 -0.9,-0.09 l 1.26,7.69 c 0.29,1.72 1.04,3.7 4.37,3.7 H 12.7009 c 3.37,0 3.97,-1.69 4.33,-3.58 l 1.51,-7.81 c -0.28,0.07 -0.58,0.09 -0.88,0.09 z"
+     fill="#292d32"
+     id="path2"
+     style="display:inline"
+     sodipodi:nodetypes="ssccssccs" />
+  <rect
+     style="fill:#f9f9f9;stroke-width:0.0334252"
+     id="rect2"
+     width="6.6733665"
+     height="1.4472374"
+     x="-5.2211137"
+     y="16.370911"
+     ry="0.69866574"
+     transform="rotate(-42.921289)" />
+  <rect
+     style="fill:#f9f9f9;stroke-width:0.0334252"
+     id="rect2-5"
+     width="6.6733665"
+     height="1.4472374"
+     x="13.488276"
+     y="2.4306953"
+     ry="0.69866574"
+     transform="rotate(42.88728)" />
+</svg>
