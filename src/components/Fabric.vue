@@ -2149,7 +2149,7 @@ import collection from "/src/collection.json";
 export default {
   data() {
     return {
-      language: "rs",
+      language: "",
       fetchCollection: [],
       items: collection,
       filterMenu: false,
