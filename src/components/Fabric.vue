@@ -4,7 +4,7 @@
 <template>
   
   <div class="flex flex-col items-center py-2  md:py-5">
-    <div class="flex w-[375px] md:w-[500px] h-[80px]">
+    <div class="flex w-[375px] justify-around md:w-[500px] h-[80px]">
       <div class="w-[18%]">
         <div class="relative mb-2">
           <div class="w-10 h-10 mx-auto relative">
