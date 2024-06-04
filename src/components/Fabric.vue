@@ -501,7 +501,7 @@
             }"
           >
             <div v-motion-pop class="relative w-[360px] h-[560px]">
-              <div class="flex flex-col ml-2 mt-4 items-left">
+              <div class="flex flex-col ml-0 mt-0 md:ml-2 md:mt-4 items-left">
                 <p
                   class="font-inter text-base mt-2 font-semibold leading-2 text-slate-700"
                 >
