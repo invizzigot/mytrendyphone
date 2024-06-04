@@ -3,9 +3,9 @@
 
 <template>
   
-  <div class="flex flex-col items-center py-5">
+  <div class="flex flex-col items-center sm:py-0  md:py-5">
     <div class="flex w-[425px] md:w-[500px] h-[80px]">
-      <div class="w-1/5">
+      <div class="w-[19%]">
         <div class="relative mb-2">
           <div class="w-10 h-10 mx-auto relative">
             <div
@@ -83,7 +83,7 @@
         </div>
       </div>
 
-      <div class="w-1/5">
+      <div class="w-[19%]">
         <div class="relative mb-2">
           <div
             class="absolute flex align-center items-center align-middle content-center"
@@ -191,7 +191,7 @@
         </div>
       </div>
 
-      <div class="w-1/5">
+      <div class="w-[19%]">
         <div class="relative mb-2">
           <div
             class="absolute flex align-center items-center align-middle content-center"
@@ -287,7 +287,7 @@
         </div>
       </div>
 
-      <div class="w-1/5">
+      <div class="w-[19%]">
         <div class="relative mb-2">
           <div
             class="absolute flex align-center items-center align-middle content-center"
@@ -401,7 +401,7 @@
         </div>
       </div>
 
-      <div class="w-1/5">
+      <div class="w-[19%]">
         <div class="relative mb-2">
           <div
             class="absolute flex align-center items-center align-middle content-center"
