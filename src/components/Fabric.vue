@@ -508,7 +508,7 @@
                   {{ dictionary.step_one }}
                 </p>
                 <h1
-                  class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+                  class="font-inter font-extrabold leading-none tracking-tight text-slate-900 text-3xl md:text-5xl sm:leading-[3.5rem]"
                 >
                   {{ dictionary.step_one_title }}
                 </h1>
