@@ -77,7 +77,7 @@
           :initial="{ opacity: 0, scale: 0, top: 0 }"
           :enter="{ opacity: 1, scale: 1, marginTop: -5 }"
           :delay="300"
-          class="hidden md:visible text-[10px] md:text-sm text-center font-bold"
+          class="invisible md:visible  text-[10px] md:text-sm text-center font-bold"
         >
           {{ dictionary.steper_device }}
         </div>
@@ -185,7 +185,7 @@
           :initial="{ opacity: 0, scale: 0, top: 0 }"
           :enter="{ opacity: 1, scale: 1, marginTop: -5 }"
           :delay="300"
-          class="hidden md:visible text-sm text-center font-bold"
+          class="invisible md:visible  text-sm text-center font-bold"
         >
           {{ dictionary.steper_layout }}
         </div>
@@ -281,7 +281,7 @@
           :initial="{ opacity: 0, scale: 0, top: 0 }"
           :enter="{ opacity: 1, scale: 1, marginTop: -5 }"
           :delay="300"
-          class="hidden md:visible text-sm text-center font-bold"
+          class="invisible md:visible  text-sm text-center font-bold"
         >
           {{ dictionary.steper_image }}
         </div>
@@ -395,7 +395,7 @@
           :initial="{ opacity: 0, scale: 0, top: 0 }"
           :enter="{ opacity: 1, scale: 1, marginTop: -5 }"
           :delay="300"
-          class="hidden md:visible text-sm font-bold text-center"
+          class="invisible md:visible  text-sm font-bold text-center"
         >
           {{ dictionary.steper_text }}
         </div>
