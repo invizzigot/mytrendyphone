@@ -77,7 +77,7 @@
           :initial="{ opacity: 0, scale: 0, top: 0 }"
           :enter="{ opacity: 1, scale: 1, marginTop: -5 }"
           :delay="300"
-          class="text-sm text-center font-bold"
+          class="text-[10px] md:text-sm text-center font-bold"
         >
           {{ dictionary.steper_device }}
         </div>
