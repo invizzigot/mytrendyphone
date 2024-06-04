@@ -2430,8 +2430,8 @@ export default {
       this.windowWidth = window.innerWidth; // Update windowWidth when the window is resized
 
       const newDivId =
-        this.windowWidth <= 770 ? this.$refs.canvasRef1 : this.$refs.canvasRef;
-      if (this.windowWidth <= 770) {
+        this.windowWidth <= 345 ? this.$refs.canvasRef1 : this.$refs.canvasRef;
+      if (this.windowWidth <= 345) {
         this.initCanvas(newDivId);
       } else {
         this.initCanvas(newDivId);
