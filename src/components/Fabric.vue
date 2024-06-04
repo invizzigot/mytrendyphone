@@ -3328,7 +3328,7 @@ export default {
         duration: 500,
         onChange: this.canvas.renderAll.bind(this.canvas),
       });
-      this.canvas.clearHistory();
+      // this.canvas.clearHistory();
       this.canvas.renderAll();
     },
     addCollage1(key) {
@@ -3424,7 +3424,7 @@ export default {
         duration: 500,
         onChange: this.canvas.renderAll.bind(this.canvas),
       });
-      this.canvas.clearHistory();
+      // this.canvas.clearHistory();
       this.canvas.renderAll();
     },
 
