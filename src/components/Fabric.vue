@@ -491,7 +491,7 @@
         class="relative flex flex-col items-center bg-slate-100/50 w-[380px] h-[605px] rounded-3xl shadow-xl ring-1 ring-slate-900/5"
       >
         <div
-          class="absolute flex flex-col items-center overflow-hidden justify-center ring-1 ring-slate-900/5 w-[395px] h-[620px] rounded-3xl ml-[0px] mt-[-7px] bg-fit bg-bottom bg-no-repeat"
+          class="absolute flex flex-col items-center overflow-hidden justify-center ring-1 ring-slate-900/5 w-[395px] h-[610px] rounded-3xl ml-[0px] mt-[-7px] bg-fit bg-bottom bg-no-repeat"
         >
           <div
             class="flex flex-row gap-10 items-start"
