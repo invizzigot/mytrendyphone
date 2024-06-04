@@ -683,7 +683,7 @@
                 </div>
               </div>
             </div>
-            <div class="relative w-[360px] p-2 h-[550px]">
+            <div class="relative w-[360px]  h-[550px]">
               <div class="flex flex-col ml-2 mt-0 items-left">
                 <p
                   class="font-inter text-base mt-0 font-semibold leading-2 text-slate-700"
@@ -865,7 +865,7 @@
                 </div>
               </div>
             </div>
-            <div class="relative w-[360px] p-2 h-[550px]">
+            <div class="relative w-[360px]  h-[550px]">
               <div class="flex flex-col ml-2 mt-4 items-left">
                 <p
                   class="font-inter text-base mt-4 font-semibold leading-2 text-slate-700"
@@ -1148,7 +1148,7 @@
                 </div>
               </div>
             </div>
-            <div class="relative w-[360px] p-2 h-[550px]">
+            <div class="relative w-[360px]  h-[550px]">
               <div class="flex flex-col ml-2 mt-0 items-left">
                 <p
                   class="font-inter text-base mt-0 font-semibold leading-2 text-slate-700"
@@ -1442,7 +1442,7 @@
                 </div>
               </div>
             </div>
-            <div class="relative w-[360px] p-2 h-[550px]">
+            <div class="relative w-[360px]  h-[550px]">
               <div
                 v-if="loading"
                 class="visible md:invisible absolute flex flex-col -left-[40px] -top-[40px] items-center justify-center bg-white w-[380px] h-[610px] z-50"
