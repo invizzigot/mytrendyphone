@@ -1529,7 +1529,7 @@
                     casesTypes[selectedCaseType] &&
                     casesTypes[selectedCaseType].price
                   "
-                  class="font-inter w-[200px] pl-12 m-6 text-xs whitespace-wrap font-medium text-center leading-5 text-slate-700"
+                  class="font-inter w-[220px] px-8 m-6 text-xs whitespace-wrap font-medium text-center leading-5 text-slate-700"
                 >
                   {{ dictionary.alert_box_stepper }}
                 </p>
