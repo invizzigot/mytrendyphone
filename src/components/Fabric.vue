@@ -1543,7 +1543,7 @@
                     <canvas class="scale-[0.85] absolute z-20" ref="canvasRef1">
                     </canvas>
                     <div
-                      class="absolute top-[90px] z-30 -left-[25px] flex flex-col gap-3"
+                      class="absolute top-[90px] z-30 -left-[10px] flex flex-col gap-3"
                     >
                       <div
                         class="relative w-[35px] h-[35px]"
