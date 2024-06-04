@@ -488,10 +488,10 @@
     <!-- <Fabric></Fabric> -->
     <div class="relative flex flex-col lg:flex-row items-center">
       <div
-        class="relative flex flex-col items-center bg-slate-100/50 w-[380px] h-[595px] rounded-3xl shadow-xl ring-1 ring-slate-900/5"
+        class="relative flex flex-col items-center bg-slate-100/50 w-[380px] h-[580px] rounded-3xl shadow-xl ring-1 ring-slate-900/5"
       >
         <div
-          class="absolute flex flex-col items-center overflow-hidden justify-center ring-1 ring-slate-900/5 w-[395px] h-[600px] rounded-3xl ml-[0px] mt-[-7px] bg-fit bg-bottom bg-no-repeat"
+          class="absolute flex flex-col items-center overflow-hidden justify-center ring-1 ring-slate-900/5 w-[395px] h-[595px] rounded-3xl ml-[0px] mt-[-7px] bg-fit bg-bottom bg-no-repeat"
         >
           <div
             class="flex flex-row gap-10 items-start"
