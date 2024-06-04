@@ -4,7 +4,7 @@
 <template>
   
   <div class="flex flex-col items-center py-1 max-h-[620px] md:max-h-max overscroll-contain  md:py-5 md:overscroll-y-auto">
-    <div class="flex justify-evenly w-[345px]  md:w-[500px] h-[85px] mb-2">
+    <div class="flex justify-evenly w-[345px]  md:w-[500px] h-[85px] mb-0 md:mb-2">
       <div class="w-[18%]">
         <div class="relative mb-2">
           <div class="w-10 h-10 mx-auto relative">
