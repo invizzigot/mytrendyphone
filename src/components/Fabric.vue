@@ -3,7 +3,7 @@
 
 <template>
   
-  <div class="flex flex-col items-center py-0  md:py-5">
+  <div class="flex flex-col items-center py-0 overscroll-x-none  md:py-5 md:overscroll-y-auto">
     <div class="flex flex-row items-center justify-evenly w-[345px]  md:w-[500px] h-[80px]">
       <div class="w-[18%]">
         <div class="relative mb-2">
