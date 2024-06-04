@@ -5174,7 +5174,7 @@ export default {
       this.windowWidth <= 770 ? this.$refs.canvasRef1 : this.$refs.canvasRef;
       
     this.initCanvas(newDivId);
-    window.addEventListener("resize", this.handleResize);
+    // window.addEventListener("resize", this.handleResize);
 
     // if (this.windowWidth <= 600) {
     //   this.canvas = new fabric.Canvas(
