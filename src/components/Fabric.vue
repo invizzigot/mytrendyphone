@@ -1563,7 +1563,7 @@
                     <div
                       v-motion-slide-left
                       :delay="600"
-                      class="absolute visible md:invisible left-[280px] top-[50px] gap-3 flex flex-col m-3 z-20"
+                      class="absolute visible md:invisible left-[265px] top-[50px] gap-3 flex flex-col m-3 z-20"
                     >
                       <button @click="clearCanvas">
                         <svg
