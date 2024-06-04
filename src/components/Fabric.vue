@@ -669,7 +669,7 @@
                 </div>
               </div>
               <div
-                class="absolute right-[50px] -bottom-5 md:-bottom-1 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+                class="absolute right-[50px] -bottom-1 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
               >
                 <div
                   @click="nextClick"
