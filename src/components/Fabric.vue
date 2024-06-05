@@ -975,7 +975,7 @@
                         >
                           <p
                             @click="addButton"
-                            class="px-1 pt-[1px] pb-[5px] animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
+                            class="px-1 pt-[1px] pb-[4px] animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
                           >
                             +
                           </p>
