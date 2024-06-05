@@ -2243,6 +2243,7 @@ export default {
     },
 
     uploadImageFromCollection(event) {
+      this.activeTabIndex=1;
       this.activeIndexCollection = event.id;
       const src = event.src;
       if (this.imageIndex <= 6) {
@@ -2664,7 +2665,7 @@ export default {
       // Set the clicked item as active
     },
     setActiveCollectionIndex(key) {
-      this.setActiveTabIndex(1);
+      
       this.activeIndexCollection = key;
       // Set the clicked item as active
     },
