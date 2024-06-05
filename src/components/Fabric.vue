@@ -2664,6 +2664,7 @@ export default {
       // Set the clicked item as active
     },
     setActiveCollectionIndex(key) {
+      this.setActiveTabIndex(1);
       this.activeIndexCollection = key;
       // Set the clicked item as active
     },
