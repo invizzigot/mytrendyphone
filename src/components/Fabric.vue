@@ -1061,7 +1061,7 @@
                         <div
                             v-if="activeIndexCollection === item.id"
                             v-motion-pop
-                            class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
+                            class="absolute left-0 top-0 border-spacing-6 border-[2px] rounded-md w-[44px] h-[44px] border-slate-500"
                           ></div>
                       </div>
                     </div>
@@ -2243,13 +2243,14 @@ export default {
     },
 
     uploadImageFromCollection(event) {
+      this.activeIndexCollection = event.id;
       const src = event.src;
       if (this.imageIndex <= 6) {
         this.uploadedImages.push({
           url: src,
           id: this.imageIndex + 1,
         });
-        this.setActiveCollectionIndex(this.imageIndex);
+        
         this.imageIndex = this.imageIndex + 1;
       } else {
         return;
