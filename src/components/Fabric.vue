@@ -2249,7 +2249,7 @@ export default {
           url: src,
           id: this.imageIndex + 1,
         });
-        this.setActiveCollectionIndex(event.id);
+        this.setActiveCollectionIndex(this.imageIndex);
         this.imageIndex = this.imageIndex + 1;
       } else {
         return;
