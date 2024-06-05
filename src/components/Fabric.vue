@@ -1058,6 +1058,11 @@
                           alt="Collection Image"
                           @click="uploadImageFromCollection(item)"
                         />
+                        <div
+                            v-if="activeIndexColor === 1"
+                            v-motion-pop
+                            class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
+                          ></div>
                       </div>
                     </div>
                   </div>
@@ -2165,6 +2170,7 @@ export default {
       activeTabIndex: 1,
       activeIndex: null,
       activeIndexColor: 7,
+      activeIndexCollection: null,
       models: [],
       fontColor: "black",
       casesTypes: [],
@@ -2653,6 +2659,10 @@ export default {
     },
     setActiveColorIndex(key) {
       this.activeIndexColor = key;
+      // Set the clicked item as active
+    },
+    setActiveCollectionIndex(key) {
+      this.activeIndexCollection = key;
       // Set the clicked item as active
     },
 
