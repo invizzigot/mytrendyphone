@@ -1059,7 +1059,7 @@
                           @click="uploadImageFromCollection(item)"
                         />
                         <div
-                            v-if="activeIndexColor === item.id"
+                            v-if="activeIndexCollection === item.id"
                             v-motion-pop
                             class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
                           ></div>
@@ -2249,6 +2249,7 @@ export default {
           url: src,
           id: this.imageIndex + 1,
         });
+        this.setActiveCollectionIndex(event.id);
         this.imageIndex = this.imageIndex + 1;
       } else {
         return;
