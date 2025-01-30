@@ -5481,7 +5481,7 @@ export default {
     },
 
     render(ctx, left, top, styleOverride, fabricObject) {
-      fabric.Image.fromURL("src/assets/images/add-square.svg", function (img) {
+      fabric.Image.fromURL("src/assets/images/add-square.svg",  (img) => {
         img.scaleToWidth(48);
         img.scaleToHeight(48);
         ctx.drawImage(img._element, left - 16, top - 16, 48, 48);
