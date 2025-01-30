@@ -1793,277 +1793,280 @@
         </div>
       </div>
 
-      <div 
-       v-show="activeTabIndex === 6"
-       v-motion-fade
+      <div
+        v-show="activeTabIndex === 6"
+        v-motion-fade
         class="p-0 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-[400px] h-[100vh] lg:w-full"
       >
-         <div class="relative w-[380px] -mt-6 h-[520px] flex flex-row lg:hidden items-center">
-            <canvas  id="start" class=" absolute mt-[50px] w-[320px] h-[520px]" ref="canvasRef1"> </canvas>
-            <input
-                    id="uploadButton"
-                    type="file"
-                    ref="uploadButton"
-                    style="display: none"
-                    @change="handleImageUpload"
-                  />
-
-            <div  
-            v-motion-pop
-        :delay="60      "
-        class="absolute w-[300px] left-[60px] bottom-[-60px] gap-3 flex flex-row m-3 z-20"
-            >
-              <div
-                        v-for="(image, index) in this.uploadedImages"
-                        v-motion
-                        :initial="{ opacity: 1, scale: 1 }"
-                        :enter="{ opacity: 1, scale: 1 }"
-                        :variants="{ custom: { opacity: 1, scale: 1 } }"
-                        :delay="300"
-                        :key="image.id"
-                        class="relative m-1 w-[50px] h-[50px]"
-                      >
-                        <img
-                          class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
-                          :src="image.url"
-                          :key="image.id"
-                          alt="Uploaded Image"
-                          @click="addClipPathToSelectedObject(index)"
-                        />
-                      </div>  
-
-            </div> 
-            
-            <div
-                          class="absolute w-[300px] left-[60px] bottom-[-120px] gap-3 flex flex-row m-3 z-20"
-                        >
-                          <div
-                            v-for="(text, index) in uploadedText"
-                            @click="addTextCanvas(index)"
-                            v-motion
-                            :initial="{ opacity: 1, scale: 1 }"
-                            :enter="{ opacity: 1, scale: 1 }"
-                            :variants="{ custom: { opacity: 1, scale: 1 } }"
-                            :delay="300"
-                            :key="text.id"
-                            class="relative m-1 p-1 w-fit h-fit border-[2px] z-20 rounded-md border-gray-600/30"
-                          >
-                            <p
-                              class="visible text-[1.5vw] font-normal text-black m-2 mt-3 mb-4"
-                            >
-                              {{ text.text }}
-                            </p>
-                          </div>
-                        </div>
-
-            <div
-        v-motion-pop
-        :delay="60      "
-        class="absolute w-[30px] right-[-60px] top-[100px] gap-3 flex flex-col m-3 z-20"
-      >
-        <button @click="clearCanvas">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.8"
-            stroke="black"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <button @click="moveLeftSelectedImage">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="black"
-            viewBox="0 0 24 24"
-            stroke-width="0.1"
-            class="w-6 h-6"
-          >
-            <path
-              d="M1.293,12.707a1,1,0,0,1,0-1.414l5-5A1,1,0,0,1,7.707,7.707L4.414,11H22a1,1,0,0,1,0,2H4.414l3.293,3.293a1,1,0,1,1-1.414,1.414Z"
-            />
-          </svg>
-        </button>
-        <button @click="moveRightSelectedImage">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="black"
-            viewBox="0 0 24 24"
-            stroke-width="0.1"
-            stroke="black"
-            class="w-6 h-6"
-          >
-            <path
-              d="M17.707,17.707a1,1,0,0,1-1.414-1.414L19.586,13H2a1,1,0,0,1,0-2H19.586L16.293,7.707a1,1,0,0,1,1.414-1.414l5,5a1,1,0,0,1,0,1.414Z"
-            />
-          </svg>
-        </button>
-        <button @click="moveUpSelectedImage">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="black"
-            viewBox="0 0 24 24"
-            stroke-width="0.1"
-            stroke="black"
-            class="w-6 h-6"
-          >
-            <path
-              d="M11.293,1.293a1,1,0,0,1,1.414,0l6,6a1,1,0,0,1-1.414,1.414L13,4.414V22a1,1,0,0,1-2,0V4.414L6.707,8.707A1,1,0,0,1,5.293,7.293Z"
-            />
-          </svg>
-        </button>
-        <button @click="moveDownSelectedImage">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="black"
-            viewBox="0 0 24 24"
-            stroke-width="0.1"
-            stroke="black"
-            class="w-6 h-6"
-          >
-            <path
-              d="M5.293,16.707a1,1,0,0,1,1.414-1.414L11,19.586V2a1,1,0,0,1,2,0V19.586l4.293-4.293a1,1,0,0,1,1.414,1.414l-6,6a1,1,0,0,1-1.414,0Z"
-            />
-          </svg>
-        </button>
-
-        <button @click="flipXSelectedImage">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="0.5"
-            stroke="black"
-            class="w-6 h-6"
-          >
-            <path
-              d="M10 19V5H8L3 19H10Z"
-              stroke="#000000"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M14 19V5H16L21 19H14Z"
-              stroke="#000000"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
-        <button @click="zoomInSelectedImage">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="black"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"
-            />
-          </svg>
-        </button>
-        <button @click="zoomOutSelectedImage">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="black"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM13.5 10.5h-6"
-            />
-          </svg>
-        </button>
-        <button @click="sendBackwards">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="black"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75"
-            />
-          </svg>
-        </button>
-        <button @click="bringForward">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="black"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m-6 3.75l3 3m0 0l3-3m-3 3V1.5m6 9h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75"
-            />
-          </svg>
-        </button>
-      </div>
-           
-
-      <div class="absolute ml-8 top-[60px] h-min flex flex-col gap-3">
         <div
-          class="relative w-[45px] h-[45px]"
-          v-for="layer in uploadedLayers
-            .slice()
-            .sort((a, b) => a.position - b.position)"
-          :key="layer.id"
+          class="relative w-[380px] -mt-6 h-[520px] flex flex-row lg:hidden items-center"
         >
-          <!-- <span>{{ image.id }}</span> -->
-          <div
-            v-if="layer.id == this.canvas.getActiveObject()?.id"
-            v-motion-pop
-            class="absolute -left-0 -top-0 -z-40 border-spacing-6 border-[2px] border-dashed rounded-md w-[53px] h-[53px] border-slate-600"
-          ></div>
-
-          <img
-            v-if="layer.url"
-            class="border-[2px] w-full h-full m-1 rounded-md border-gray-700/80"
-            :src="layer.url"
-            :key="layer.id"
-            alt="Uploaded Image"
-            @click="setActiveObjectById(layer.id)"
-          />
-          <p
-            v-if="layer.text"
-            class="border-[2px] w-full text-[1.3vw] font-bold text-center pt-4 h-full m-1 rounded-md border-gray-700/80"
-            :key="layer.id"
-            alt="Uploaded Image"
-            @click="setActiveObjectById(layer.id)"
+          <canvas
+            id="start"
+            class="scale-[0.8] absolute mt-[50px] w-[320px] h-[520px]"
+            ref="canvasRef1"
           >
-            {{ layer.text }}
-          </p>
+          </canvas>
+          <input
+            id="uploadButton"
+            type="file"
+            ref="uploadButton"
+            style="display: none"
+            @change="handleImageUpload"
+          />
+
+          <div
+            v-motion-pop
+            :delay="60"
+            class="absolute w-[300px] left-[60px] bottom-[-60px] gap-3 flex flex-row m-3 z-20"
+          >
+            <div
+              v-for="(image, index) in this.uploadedImages"
+              v-motion
+              :initial="{ opacity: 1, scale: 1 }"
+              :enter="{ opacity: 1, scale: 1 }"
+              :variants="{ custom: { opacity: 1, scale: 1 } }"
+              :delay="300"
+              :key="image.id"
+              class="relative m-1 w-[50px] h-[50px]"
+            >
+              <img
+                class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
+                :src="image.url"
+                :key="image.id"
+                alt="Uploaded Image"
+                @click="addClipPathToSelectedObject(index)"
+              />
+            </div>
+          </div>
+
+          <div
+            class="absolute w-[300px] left-[60px] bottom-[-120px] gap-3 flex flex-row m-3 z-20"
+          >
+            <div
+              v-for="(text, index) in uploadedText"
+              @click="addTextCanvas(index)"
+              v-motion
+              :initial="{ opacity: 1, scale: 1 }"
+              :enter="{ opacity: 1, scale: 1 }"
+              :variants="{ custom: { opacity: 1, scale: 1 } }"
+              :delay="300"
+              :key="text.id"
+              class="relative m-1 p-1 w-fit h-fit border-[2px] z-20 rounded-md border-gray-600/30"
+            >
+              <p
+                class="visible text-[1.5vw] font-normal text-black m-2 mt-3 mb-4"
+              >
+                {{ text.text }}
+              </p>
+            </div>
+          </div>
+
+          <div
+            v-motion-pop
+            :delay="60"
+            class="absolute w-[30px] right-[-60px] top-[100px] gap-3 flex flex-col m-3 z-20"
+          >
+            <button @click="clearCanvas">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.8"
+                stroke="black"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            <button @click="moveLeftSelectedImage">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="black"
+                viewBox="0 0 24 24"
+                stroke-width="0.1"
+                class="w-6 h-6"
+              >
+                <path
+                  d="M1.293,12.707a1,1,0,0,1,0-1.414l5-5A1,1,0,0,1,7.707,7.707L4.414,11H22a1,1,0,0,1,0,2H4.414l3.293,3.293a1,1,0,1,1-1.414,1.414Z"
+                />
+              </svg>
+            </button>
+            <button @click="moveRightSelectedImage">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="black"
+                viewBox="0 0 24 24"
+                stroke-width="0.1"
+                stroke="black"
+                class="w-6 h-6"
+              >
+                <path
+                  d="M17.707,17.707a1,1,0,0,1-1.414-1.414L19.586,13H2a1,1,0,0,1,0-2H19.586L16.293,7.707a1,1,0,0,1,1.414-1.414l5,5a1,1,0,0,1,0,1.414Z"
+                />
+              </svg>
+            </button>
+            <button @click="moveUpSelectedImage">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="black"
+                viewBox="0 0 24 24"
+                stroke-width="0.1"
+                stroke="black"
+                class="w-6 h-6"
+              >
+                <path
+                  d="M11.293,1.293a1,1,0,0,1,1.414,0l6,6a1,1,0,0,1-1.414,1.414L13,4.414V22a1,1,0,0,1-2,0V4.414L6.707,8.707A1,1,0,0,1,5.293,7.293Z"
+                />
+              </svg>
+            </button>
+            <button @click="moveDownSelectedImage">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="black"
+                viewBox="0 0 24 24"
+                stroke-width="0.1"
+                stroke="black"
+                class="w-6 h-6"
+              >
+                <path
+                  d="M5.293,16.707a1,1,0,0,1,1.414-1.414L11,19.586V2a1,1,0,0,1,2,0V19.586l4.293-4.293a1,1,0,0,1,1.414,1.414l-6,6a1,1,0,0,1-1.414,0Z"
+                />
+              </svg>
+            </button>
+
+            <button @click="flipXSelectedImage">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="0.5"
+                stroke="black"
+                class="w-6 h-6"
+              >
+                <path
+                  d="M10 19V5H8L3 19H10Z"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M14 19V5H16L21 19H14Z"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <button @click="zoomInSelectedImage">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="black"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"
+                />
+              </svg>
+            </button>
+            <button @click="zoomOutSelectedImage">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="black"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM13.5 10.5h-6"
+                />
+              </svg>
+            </button>
+            <button @click="sendBackwards">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="black"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75"
+                />
+              </svg>
+            </button>
+            <button @click="bringForward">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="black"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m-6 3.75l3 3m0 0l3-3m-3 3V1.5m6 9h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="absolute ml-8 top-[60px] h-min flex flex-col gap-3">
+            <div
+              class="relative w-[45px] h-[45px]"
+              v-for="layer in uploadedLayers
+                .slice()
+                .sort((a, b) => a.position - b.position)"
+              :key="layer.id"
+            >
+              <!-- <span>{{ image.id }}</span> -->
+              <div
+                v-if="layer.id == this.canvas.getActiveObject()?.id"
+                v-motion-pop
+                class="absolute -left-0 -top-0 -z-40 border-spacing-6 border-[2px] border-dashed rounded-md w-[53px] h-[53px] border-slate-600"
+              ></div>
+
+              <img
+                v-if="layer.url"
+                class="border-[2px] w-full h-full m-1 rounded-md border-gray-700/80"
+                :src="layer.url"
+                :key="layer.id"
+                alt="Uploaded Image"
+                @click="setActiveObjectById(layer.id)"
+              />
+              <p
+                v-if="layer.text"
+                class="border-[2px] w-full text-[1.3vw] font-bold text-center pt-4 h-full m-1 rounded-md border-gray-700/80"
+                :key="layer.id"
+                alt="Uploaded Image"
+                @click="setActiveObjectById(layer.id)"
+              >
+                {{ layer.text }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-            
-          </div>
-      </div>
-      
 
       <div
         v-if="activeTabIndex === 5"
@@ -2554,7 +2557,7 @@ export default {
       mobileDiv: this.$refs.canvasRef,
       deskDiv: this.$refs.canvasRef1,
       windowWidth: window.innerWidth,
-      mobileMode:false,
+      mobileMode: false,
       translationsData: [],
       historyUndo: [],
       brands: [],
@@ -2874,9 +2877,9 @@ export default {
 
       const newDivId =
         this.windowWidth <= 750 ? this.$refs.canvasRef1 : this.$refs.canvasRef;
-        
+
       if (this.windowWidth <= 750) {
-       
+        window.location.reload();
         this.initCanvas(newDivId);
       } else {
         window.location.reload();
@@ -4758,9 +4761,8 @@ export default {
       if (this.mobileMode === false) {
         this.activeTabIndex = 3;
       }
-      
 
-   this.$refs.uploadButton?.click();
+      this.$refs.uploadButton?.click();
 
       if (!this.uploadButtonChangeListenerAdded) {
         this.$refs.uploadButton.addEventListener("change", () => {
@@ -5481,7 +5483,7 @@ export default {
     },
 
     render(ctx, left, top, styleOverride, fabricObject) {
-      fabric.Image.fromURL("https://mytrendyphone.onrender.com/images/add-square.svg",  (img) => {
+      fabric.Image.fromURL("src/assets/images/add-square.svg", (img) => {
         img.scaleToWidth(48);
         img.scaleToHeight(48);
         ctx.drawImage(img._element, left - 16, top - 16, 48, 48);
@@ -5817,8 +5819,8 @@ export default {
       this.windowWidth <= 760 ? this.$refs.canvasRef1 : this.$refs.canvasRef;
     this.mobileMode = this.windowWidth <= 760 ? true : false;
     console.log(this.mobileMode);
-      this.initCanvas(newDivId);
-      
+    this.initCanvas(newDivId);
+
     window.addEventListener("resize", this.handleResize);
 
     // if (this.windowWidth <= 600) {
@@ -5869,15 +5871,15 @@ export default {
     // }
 
     const rotateSquareImage = new Image();
-    rotateSquareImage.src = "/images/rotate-square.svg";
+    rotateSquareImage.src = "src/assets/images/rotate-square.svg";
     const scaleSquareImage = new Image();
-    scaleSquareImage.src = "/images/arrow-scale-square.svg";
+    scaleSquareImage.src = "src/assets/images/arrow-scale-square.svg";
     const closeSquareImage = new Image();
-    closeSquareImage.src = "/images/close-square-black.svg";
+    closeSquareImage.src = "src/assets/images/close-square-black.svg";
     const zoomInImage = new Image();
-    zoomInImage.src = "/images/zoom-in.svg";
+    zoomInImage.src = "src/assets/images/zoom-in.svg";
     const addSquareImage = new Image();
-    addSquareImage.src = "/images/add-square.svg";
+    addSquareImage.src = "src/assets/images/add-square.svg";
 
     this.canvas.on(
       "object:added",
@@ -5900,16 +5902,22 @@ export default {
       "selection:updated",
       (obj) => {
         var selectedObj = obj.target;
-        if (obj.selected[0] && obj.selected[0].name === "canvas image" && this.mobileMode === false) {
+        if (
+          obj.selected[0] &&
+          obj.selected[0].name === "canvas image" &&
+          this.mobileMode === false
+        ) {
           console.log("The selected object is a canvas image");
           console.log(obj.selected[0].id);
           this.setActiveTabIndex(3);
           this.setActiveTabImages(1);
+        } else {
         }
-        else {
-
-        }
-        if (obj.selected[0] && obj.selected[0].name === "text" && this.mobileMode === false) {
+        if (
+          obj.selected[0] &&
+          obj.selected[0].name === "text" &&
+          this.mobileMode === false
+        ) {
           console.log("The selected object is a canvas image");
           this.inputText = obj.selected[0].text;
           console.log(obj.selected[0].id);
