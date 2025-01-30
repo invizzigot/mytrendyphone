@@ -2876,7 +2876,7 @@ export default {
         this.windowWidth <= 750 ? this.$refs.canvasRef1 : this.$refs.canvasRef;
         
       if (this.windowWidth <= 750) {
-        window.location.reload();
+       
         this.initCanvas(newDivId);
       } else {
         window.location.reload();
