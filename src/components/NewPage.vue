@@ -5869,15 +5869,15 @@ export default {
     // }
 
     const rotateSquareImage = new Image();
-    rotateSquareImage.src = "../images/rotate-square.svg";
+    rotateSquareImage.src = "/images/rotate-square.svg";
     const scaleSquareImage = new Image();
-    scaleSquareImage.src = "../images/arrow-scale-square.svg";
+    scaleSquareImage.src = "/images/arrow-scale-square.svg";
     const closeSquareImage = new Image();
-    closeSquareImage.src = "../images/close-square-black.svg";
+    closeSquareImage.src = "/images/close-square-black.svg";
     const zoomInImage = new Image();
-    zoomInImage.src = "../images/zoom-in.svg";
+    zoomInImage.src = "/images/zoom-in.svg";
     const addSquareImage = new Image();
-    addSquareImage.src = "../images/add-square.svg";
+    addSquareImage.src = "/images/add-square.svg";
 
     this.canvas.on(
       "object:added",
