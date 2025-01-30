@@ -1,6 +1,6 @@
 <template class="flex-row h-full">
   <div
-    class="w-max lg:w-full h-[70px] shadow-inner bg-gray-200 flex flex-row justify-items-center relative"
+    class="w-[100vw] lg:w-full h-[70px] shadow-inner bg-gray-200 flex flex-row justify-items-center relative"
   >
     <div
       class="ml-4 mt-4 w-[40px] h-[40px] bg-white rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center align-middle"
