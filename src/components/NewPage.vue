@@ -1799,7 +1799,7 @@
         class="p-0 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-[400px] h-[100vh] lg:w-full"
       >
          <div class="relative w-[380px] -mt-6 h-[520px] flex flex-row lg:hidden items-center">
-            <canvas  id="start" class=" scale-[0.8] absolute mt-[50px] w-[320px] h-[520px]" ref="canvasRef1"> </canvas>
+            <canvas  id="start" class=" absolute mt-[50px] w-[320px] h-[520px]" ref="canvasRef1"> </canvas>
             <input
                     id="uploadButton"
                     type="file"
