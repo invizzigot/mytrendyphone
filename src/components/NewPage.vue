@@ -689,7 +689,7 @@
       <div
         v-if="activeTabIndex === 1"
         v-motion-fade
-        class="pl-8 pt-1 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-[calc(100vh-100px)] w-[calc(100vw-60px)] lg:w-full"
+        class="pl-[20px] pt-1 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-[calc(100vh-100px)] w-[calc(100vw-80px)] lg:w-full"
       >
         <div v-motion-fade class="relative w-[400px] h-[480px]">
           <div class="flex flex-col ml-4 mt-0 items-left">
