@@ -689,9 +689,9 @@
       <div
         v-if="activeTabIndex === 1"
         v-motion-fade
-        class="pl-[20px] pt-1 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-[calc(100vh-100px)] w-[calc(100vw-80px)] lg:w-full"
+        class="pl-8 pt-1 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-[calc(100vh-100px)] w-max lg:w-full"
       >
-        <div v-motion-fade class="relative w-[calc(100vw-60px)] h-[480px]">
+        <div v-motion-fade class="relative w-[400px] h-[480px]">
           <div class="flex flex-col ml-4 mt-0 items-left">
             <p
               class="font-inter text-base select-none mt-0 font-semibold leading-2 text-slate-700"
@@ -872,7 +872,7 @@
       <div
         v-if="activeTabIndex === 2"
         v-motion-fade
-        class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-[100vh] lg:w-full"
+        class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-[100vh-70px] lg:w-full"
       >
         <div class="relative w-[360px] p-2 h-[560px]">
           <div class="flex flex-col ml-2 mt-0 items-left">
@@ -1031,7 +1031,7 @@
       <div
         v-if="activeTabIndex === 3"
         v-motion-fade
-        class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-[100vh] lg:w-full"
+        class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-[100vh-70px] lg:w-full"
       >
         <div class="relative w-[360px] p-2 h-[560px]">
           <div class="flex flex-col ml-2 mt-4 items-left">
@@ -1274,7 +1274,7 @@
       <div
         v-if="activeTabIndex === 4"
         v-motion-fade
-        class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-[100vh] lg:w-full"
+        class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-[100vh-70px] lg:w-full"
       >
         <div class="relative w-[360px] p-2 h-[560px]">
           <div class="flex flex-col ml-2 mt-0 items-left">
@@ -1796,7 +1796,7 @@
       <div
         v-show="activeTabIndex === 6"
         v-motion-fade
-        class="p-0 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-[400px] h-[100vh] lg:w-full"
+        class="p-0 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-[400px] h-[100vh-70px] lg:w-full"
       >
         <div
           class="relative w-[380px] -mt-6 h-[520px] flex flex-row lg:hidden items-center"
@@ -2071,7 +2071,7 @@
       <div
         v-if="activeTabIndex === 5"
         v-motion-fade
-        class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-[100vh] lg:w-full"
+        class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-[100vh-70px] lg:w-full"
       >
         <div class="flex flex-col ml- mt-2 items-left">
           <p
