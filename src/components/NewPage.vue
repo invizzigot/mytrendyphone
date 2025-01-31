@@ -5821,7 +5821,7 @@ export default {
     console.log(this.mobileMode);
     this.initCanvas(newDivId);
 
-    window.addEventListener("resize", this.handleResize);
+   // window.addEventListener("resize", this.handleResize);
 
     // if (this.windowWidth <= 600) {
     //   this.canvas = new fabric.Canvas(
