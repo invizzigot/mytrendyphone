@@ -1796,7 +1796,7 @@
       <div
         v-show="activeTabIndex === 6"
         v-motion-fade
-        class="p-0 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-[400px] h-[100vh-70px] lg:w-full"
+        class="p-0 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-[400px] h-[80vh] lg:w-full"
       >
         <div
           class="relative w-[380px] -mt-6 h-[520px] flex flex-row lg:hidden items-center"
