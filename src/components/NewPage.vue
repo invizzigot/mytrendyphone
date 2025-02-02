@@ -686,12 +686,12 @@
       </li>
     </ul>
     <div
-      class="box-border flex relative flex-col items-center w-full h-full  bg-red-400 md:w-[380px]"
+      class="box-border flex relative flex-col items-center w-full h-full  bg-gray-100 md:w-[380px]"
     >
       <div
         v-if="activeTabIndex === 1"
         v-motion-fade
-        class="pl-8 pt-1 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-fit w-max lg:w-full"
+        class="lg:pl-8 lg:pt-1 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-screen w-max lg:w-full"
       >
         <div v-motion-fade class="relative w-full lg:w-[400px] h-[480px]">
           <div class="flex flex-col ml-4 mt-0 items-left">
@@ -874,7 +874,7 @@
       <div
         v-if="activeTabIndex === 2"
         v-motion-fade
-        class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-fit w-max lg:w-full"
+        class="lg:p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-fit w-max lg:w-full"
       >
         <div class="box-border relative w-full lg:w-[360px]  h-[460px]">
           <div class="flex flex-col ml-2 mt-0 items-left">
@@ -1033,12 +1033,12 @@
       <div
         v-if="activeTabIndex === 3"
         v-motion-fade
-        class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-[100vh-70px] lg:w-full"
+        class="lg:p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-fit lg:w-full"
       >
-        <div class="box-border relative w-full lg:w-[360px] p-2 h-[560px]">
-          <div class="flex flex-col ml-2 mt-4 items-left">
+        <div class="box-border relative w-fit lg:w-[360px] lg:p-2 h-[480px]">
+          <div class="flex flex-col  items-left">
             <p
-              class="font-inter select-none text-base mt-4 font-semibold leading-2 text-slate-700"
+              class="font-inter select-none text-base  font-semibold leading-2 text-slate-700"
             >
               {{ dictionary.step_three }}
             </p>
@@ -1132,7 +1132,7 @@
               class="absolute flex flex-col items-start bg-slate-50 border-l-2 border-r-2 border-b-2 border-slate-900/5 w-[290px] h-[260px] ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
             >
               <div class="pt-0 space-y-5">
-                <div class="flex flex-col items-start m-2">
+                <div class="flex flex-col items-start lg:m-2">
                   <div
                     class="absolute left-[40%] -bottom-10 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
                   >
@@ -1276,9 +1276,10 @@
       <div
         v-if="activeTabIndex === 4"
         v-motion-fade
-        class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-[100vh-70px] lg:w-full"
+        class="lg:p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-fit
+         lg:w-full"
       >
-        <div class="box-border relative w-full lg:w-[360px] p-2 h-[560px]">
+        <div class="box-border relative w-full lg:w-[360px] lg:p-2 h-[560px]">
           <div class="flex flex-col ml-2 mt-0 items-left">
             <p
               class="font-inter select-none text-base mt-0 font-semibold leading-2 text-slate-700"
