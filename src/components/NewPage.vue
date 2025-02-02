@@ -686,7 +686,7 @@
       </li>
     </ul>
     <div
-      class="box-border flex relative flex-col items-center w-full h-screen  bg-gray-100 md:w-[380px]"
+      class="box-border flex relative flex-col items-center w-dvw h-dvh  bg-gray-100 md:w-[380px]"
     >
       <div
         v-if="activeTabIndex === 1"
