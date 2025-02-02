@@ -1,9 +1,9 @@
-<template class="flex-row h-lvh">
+<template class="flex-row flex overflow-hidden">
   <div
-    class="w-[100vw] lg:w-full h-[70px] shadow-inner bg-gray-200 flex flex-row justify-items-center relative"
+    class="w-[100vw] p-1 lg:w-full h-[70px] shadow-inner bg-gray-200 flex-row justify-items-start relative"
   >
     <div
-      class="ml-4 mt-4 w-[40px] h-[40px] bg-white rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center align-middle"
+      class="relative ml-4 mt-4 w-[40px] h-[40px] bg-white rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center align-middle"
     >
       <span class="text-center ml-3 text-white w-full">
         <svg
@@ -83,9 +83,9 @@
       </div>
     </div>
   </div>
-  <div class="flex flex-row h-[100px] lg:h-[calc(100vh-100px)]">
+  <div class="relative flex flex-row h-max lg:h-[calc(100vh-100px)]">
     <ul
-      class="flex flex-col lg:flex-col text-md h-[calc(100vh-70px)] text-sm font-xl text-gray-500 dark:text-gray-100"
+      class="flex flex-col bg-amber-500 lg:flex-col text-md h-max text-sm font-xl text-gray-500 dark:text-gray-100"
     >
       <li class="w-[60px] lg:w-[200px] lg:h-[calc(20vh-14px)]">
         <a
@@ -685,13 +685,15 @@
         </a>
       </li>
     </ul>
-    <div class="flex relative w-[380px] h-max">
+    <div
+      class="box-border flex relative flex-col items-center w-full h-full  bg-red-400 md:w-[380px]"
+    >
       <div
         v-if="activeTabIndex === 1"
         v-motion-fade
-        class="pl-8 pt-1 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-[calc(100vh-100px)] w-max lg:w-full"
+        class="pl-8 pt-1 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-fit w-max lg:w-full"
       >
-        <div v-motion-fade class="relative w-[400px] h-[480px]">
+        <div v-motion-fade class="relative w-full lg:w-[400px] h-[480px]">
           <div class="flex flex-col ml-4 mt-0 items-left">
             <p
               class="font-inter text-base select-none mt-0 font-semibold leading-2 text-slate-700"
@@ -872,9 +874,9 @@
       <div
         v-if="activeTabIndex === 2"
         v-motion-fade
-        class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-[100vh-70px] lg:w-full"
+        class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-fit w-max lg:w-full"
       >
-        <div class="relative w-[360px] p-2 h-[560px]">
+        <div class="box-border relative w-full lg:w-[360px]  h-[460px]">
           <div class="flex flex-col ml-2 mt-0 items-left">
             <p
               class="font-inter text-base select-none mt-0 font-semibold leading-2 text-slate-700"
@@ -1033,7 +1035,7 @@
         v-motion-fade
         class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-[100vh-70px] lg:w-full"
       >
-        <div class="relative w-[360px] p-2 h-[560px]">
+        <div class="box-border relative w-full lg:w-[360px] p-2 h-[560px]">
           <div class="flex flex-col ml-2 mt-4 items-left">
             <p
               class="font-inter select-none text-base mt-4 font-semibold leading-2 text-slate-700"
@@ -1276,7 +1278,7 @@
         v-motion-fade
         class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-[100vh-70px] lg:w-full"
       >
-        <div class="relative w-[360px] p-2 h-[560px]">
+        <div class="box-border relative w-full lg:w-[360px] p-2 h-[560px]">
           <div class="flex flex-col ml-2 mt-0 items-left">
             <p
               class="font-inter select-none text-base mt-0 font-semibold leading-2 text-slate-700"
@@ -1796,14 +1798,14 @@
       <div
         v-show="activeTabIndex === 6"
         v-motion-fade
-        class="p-0 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-[400px] h-[70vh] lg:w-full"
+        class="  bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-[320px] h-[480px] lg:w-full"
       >
         <div
-          class="relative w-[380px] -mt-6 h-[520px] flex flex-row lg:hidden items-center"
+          class="box-border relative w-full lg:w-[380px]  h-[480px] flex flex-row lg:hidden items-center"
         >
           <canvas
             id="start"
-            class="scale-[0.8] absolute mt-[50px] w-[320px] h-[520px]"
+            class="box-border relative  scale-[0.7] ml-[-60px] mt-[50px] w-[320px] h-[480px]"
             ref="canvasRef1"
           >
           </canvas>
@@ -1818,7 +1820,7 @@
           <div
             v-motion-pop
             :delay="60"
-            class="absolute w-[300px] left-[60px] bottom-[-60px] gap-3 flex flex-row m-3 z-20"
+            class="box-border absolute w-[300px] left-[10px] bottom-[-80px] gap-3 flex flex-row m-3 z-20"
           >
             <div
               v-for="(image, index) in this.uploadedImages"
@@ -1841,7 +1843,7 @@
           </div>
 
           <div
-            class="absolute w-[300px] left-[60px] bottom-[-120px] gap-3 flex flex-row m-3 z-20"
+            class="box-border absolute w-[300px] left-[10px] bottom-[-140px] gap-3 flex flex-row m-3 z-20"
           >
             <div
               v-for="(text, index) in uploadedText"
@@ -1855,7 +1857,7 @@
               class="relative m-1 p-1 w-fit h-fit border-[2px] z-20 rounded-md border-gray-600/30"
             >
               <p
-                class="visible text-[1.5vw] font-normal text-black m-2 mt-3 mb-4"
+                class="visible text-[2vw] font-normal text-black m-2 mt-3 mb-4"
               >
                 {{ text.text }}
               </p>
@@ -1865,7 +1867,7 @@
           <div
             v-motion-pop
             :delay="60"
-            class="absolute w-[30px] right-[-60px] top-[100px] gap-3 flex flex-col m-3 z-20"
+            class="box-border absolute w-[30px] right-[0px] top-[100px] gap-3 flex flex-col m-3 z-20"
           >
             <button @click="clearCanvas">
               <svg
@@ -1874,7 +1876,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.8"
                 stroke="black"
-                class="w-6 h-6"
+                class="w-7 h-7"
               >
                 <path
                   stroke-width="1.5"
@@ -1890,7 +1892,7 @@
                 fill="black"
                 viewBox="0 0 24 24"
                 stroke-width="0.1"
-                class="w-6 h-6"
+                class="w-7 h-7"
               >
                 <path
                   d="M1.293,12.707a1,1,0,0,1,0-1.414l5-5A1,1,0,0,1,7.707,7.707L4.414,11H22a1,1,0,0,1,0,2H4.414l3.293,3.293a1,1,0,1,1-1.414,1.414Z"
@@ -1904,7 +1906,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="0.1"
                 stroke="black"
-                class="w-6 h-6"
+                class="w-7 h-7"
               >
                 <path
                   d="M17.707,17.707a1,1,0,0,1-1.414-1.414L19.586,13H2a1,1,0,0,1,0-2H19.586L16.293,7.707a1,1,0,0,1,1.414-1.414l5,5a1,1,0,0,1,0,1.414Z"
@@ -1918,7 +1920,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="0.1"
                 stroke="black"
-                class="w-6 h-6"
+                class="w-7 h-7"
               >
                 <path
                   d="M11.293,1.293a1,1,0,0,1,1.414,0l6,6a1,1,0,0,1-1.414,1.414L13,4.414V22a1,1,0,0,1-2,0V4.414L6.707,8.707A1,1,0,0,1,5.293,7.293Z"
@@ -1932,7 +1934,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="0.1"
                 stroke="black"
-                class="w-6 h-6"
+                class="w-7 h-7"
               >
                 <path
                   d="M5.293,16.707a1,1,0,0,1,1.414-1.414L11,19.586V2a1,1,0,0,1,2,0V19.586l4.293-4.293a1,1,0,0,1,1.414,1.414l-6,6a1,1,0,0,1-1.414,0Z"
@@ -1947,7 +1949,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="0.5"
                 stroke="black"
-                class="w-6 h-6"
+                class="w-7 h-7"
               >
                 <path
                   d="M10 19V5H8L3 19H10Z"
@@ -1972,7 +1974,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="black"
-                class="w-6 h-6"
+                class="w-7 h-7"
               >
                 <path
                   stroke-linecap="round"
@@ -1988,7 +1990,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="black"
-                class="w-6 h-6"
+                class="w-7 h-7"
               >
                 <path
                   stroke-linecap="round"
@@ -2004,7 +2006,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="black"
-                class="w-6 h-6"
+                class="w-7 h-7"
               >
                 <path
                   stroke-linecap="round"
@@ -2020,7 +2022,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="black"
-                class="w-6 h-6"
+                class="w-7 h-7"
               >
                 <path
                   stroke-linecap="round"
@@ -2031,7 +2033,7 @@
             </button>
           </div>
 
-          <div class="absolute ml-8 top-[60px] h-min flex flex-col gap-3">
+          <div class="box-border absolute ml-8 top-[60px] h-min flex flex-col gap-3">
             <div
               class="relative w-[45px] h-[45px]"
               v-for="layer in uploadedLayers
@@ -2879,7 +2881,7 @@ export default {
         this.windowWidth <= 750 ? this.$refs.canvasRef1 : this.$refs.canvasRef;
 
       if (this.windowWidth <= 750) {
-        
+        window.location.reload();
         this.initCanvas(newDivId);
       } else {
         window.location.reload();
@@ -5821,7 +5823,7 @@ export default {
     console.log(this.mobileMode);
     this.initCanvas(newDivId);
 
-   // window.addEventListener("resize", this.handleResize);
+    window.addEventListener("resize", this.handleResize);
 
     // if (this.windowWidth <= 600) {
     //   this.canvas = new fabric.Canvas(
@@ -5871,15 +5873,15 @@ export default {
     // }
 
     const rotateSquareImage = new Image();
-    rotateSquareImage.src = "images/rotate-square.svg";
+    rotateSquareImage.src = "src/assets/images/rotate-square.svg";
     const scaleSquareImage = new Image();
-    scaleSquareImage.src = "images/arrow-scale-square.svg";
+    scaleSquareImage.src = "src/assets/images/arrow-scale-square.svg";
     const closeSquareImage = new Image();
-    closeSquareImage.src = "images/close-square-black.svg";
+    closeSquareImage.src = "src/assets/images/close-square-black.svg";
     const zoomInImage = new Image();
-    zoomInImage.src = "images/zoom-in.svg";
+    zoomInImage.src = "src/assets/images/zoom-in.svg";
     const addSquareImage = new Image();
-    addSquareImage.src = "images/add-square.svg";
+    addSquareImage.src = "src/assets/images/add-square.svg";
 
     this.canvas.on(
       "object:added",
@@ -6048,7 +6050,7 @@ export default {
       // mouseUpHandler: this.zoomInSelectedImage,
 
       render: function (ctx, left, top, styleOverride, fabricObject) {
-        ctx.drawImage(zoomInImage, left - 16, top - 16, 32, 32);
+        ctx.drawImage(zoomInImage, left - 48, top - 48, 48, 48);
       },
     });
 
@@ -6061,7 +6063,7 @@ export default {
       mouseDownHandler: this.deleteSelectedImage,
 
       render: function (ctx, left, top, styleOverride, fabricObject) {
-        ctx.drawImage(closeSquareImage, left - 16, top - 16, 32, 32);
+        ctx.drawImage(closeSquareImage, left - 16, top - 16, 48, 48);
       },
     });
     const customControl4 = new fabric.Control({
@@ -6073,7 +6075,7 @@ export default {
       mouseDownHandler: this.zoomInSelectedImage,
 
       render: function (ctx, left, top, styleOverride, fabricObject) {
-        ctx.drawImage(closeSquareImage, left - 16, top - 16, 32, 32);
+        ctx.drawImage(closeSquareImage, left - 24, top - 24, 48, 48);
       },
     });
 
@@ -6103,7 +6105,7 @@ export default {
       actionName: "rotate",
 
       render: function (ctx, left, top, styleOverride, fabricObject) {
-        ctx.drawImage(rotateSquareImage, left - 16, top - 16, 32, 32);
+        ctx.drawImage(rotateSquareImage, left - 24, top - 24, 48, 48);
       },
     });
     fabric.Object.prototype.controls.bl = new fabric.Control({
@@ -6116,7 +6118,7 @@ export default {
       actionName: "scale",
 
       render: function (ctx, left, top, styleOverride, fabricObject) {
-        ctx.drawImage(scaleSquareImage, left - 16, top - 16, 32, 32);
+        ctx.drawImage(scaleSquareImage, left - 24, top - 24, 48, 48);
       },
     });
   },
