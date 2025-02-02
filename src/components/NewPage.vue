@@ -85,7 +85,7 @@
   </div>
   <div class="relative flex flex-row h-max lg:h-[calc(100vh-100px)]">
     <ul
-      class="flex flex-col bg-amber-500 lg:flex-col text-md h-max text-sm font-xl text-gray-500 dark:text-gray-100"
+      class="flex flex-col  lg:flex-col text-md h-max text-sm font-xl text-gray-500 dark:text-gray-100"
     >
       <li class="w-[60px] lg:w-[200px] lg:h-[calc(20vh-14px)]">
         <a
@@ -686,12 +686,12 @@
       </li>
     </ul>
     <div
-      class="box-border flex relative flex-col items-center w-full h-full  bg-gray-100 md:w-[380px]"
+      class="box-border flex relative flex-col items-center w-full h-screen  bg-gray-100 md:w-[380px]"
     >
       <div
         v-if="activeTabIndex === 1"
         v-motion-fade
-        class="lg:pl-8 lg:pt-1 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-screen w-max lg:w-full"
+        class="lg:pl-8 lg:pt-1 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-fit w-max lg:w-full"
       >
         <div v-motion-fade class="relative w-full lg:w-[400px] h-[480px]">
           <div class="flex flex-col ml-4 mt-0 items-left">
