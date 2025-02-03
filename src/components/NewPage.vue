@@ -2707,12 +2707,12 @@ export default {
       this.canvas = new fabric.Canvas(
         containerId,
         {
-          width: 350,
+          width: 450,
           height: 500,
           // minScaleLimit: 0.1,
           // maxScaleLimit: 0.3,
-          // backgroundColor: "gray",
-          getContext: "2d",
+           backgroundColor: "yellow",
+          //getContext: "2d",
 
           // cornerStyle: "round",
           // objectCaching: true,
