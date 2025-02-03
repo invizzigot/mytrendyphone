@@ -865,7 +865,7 @@
         v-motion-fade
         class="lg:p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-fit w-max lg:w-full"
       >
-        <div class=" relative w-full lg:w-[360px] h-[480px]">
+        <div class=" relative w-full lg:w-[400px] h-[480px]">
           <div class="flex flex-col ml-2 mt-0 items-left">
             <p
               class="font-inter text-base select-none mt-0 font-semibold leading-2 text-slate-700"
