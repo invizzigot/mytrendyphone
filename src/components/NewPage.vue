@@ -83,9 +83,9 @@
       </div>
     </div>
   </div>
-  <div class="relative flex flex-row h-max lg:h-[calc(100vh-100px)]">
+  <div class="relative flex flex-row h-dvh lg:h-[calc(100vh-100px)]">
     <ul
-      class="flex flex-col  lg:flex-col text-md h-max text-sm font-xl text-gray-500 dark:text-gray-100"
+      class="flex flex-col lg:flex-col text-md h-max text-sm font-xl text-gray-500 dark:text-gray-100"
     >
       <li class="w-[60px] lg:w-[200px] lg:h-[calc(20vh-14px)]">
         <a
@@ -686,7 +686,7 @@
       </li>
     </ul>
     <div
-      class="box-border flex relative flex-col items-center w-dvw h-dvh  bg-gray-100 md:w-[380px]"
+      class="box-border flex relative flex-col items-center w-full h-screen bg-gray-100 md:w-[380px]"
     >
       <div
         v-if="activeTabIndex === 1"
@@ -876,7 +876,7 @@
         v-motion-fade
         class="lg:p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-fit w-max lg:w-full"
       >
-        <div class="box-border relative w-full lg:w-[360px]  h-[460px]">
+        <div class="box-border relative w-full lg:w-[360px] h-[460px]">
           <div class="flex flex-col ml-2 mt-0 items-left">
             <p
               class="font-inter text-base select-none mt-0 font-semibold leading-2 text-slate-700"
@@ -1036,9 +1036,9 @@
         class="lg:p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-fit lg:w-full"
       >
         <div class="box-border relative w-fit lg:w-[360px] lg:p-2 h-[480px]">
-          <div class="flex flex-col  items-left">
+          <div class="flex flex-col items-left">
             <p
-              class="font-inter select-none text-base  font-semibold leading-2 text-slate-700"
+              class="font-inter select-none text-base font-semibold leading-2 text-slate-700"
             >
               {{ dictionary.step_three }}
             </p>
@@ -1126,7 +1126,7 @@
           </div>
           <div
             v-if="activeTabImages === 1"
-            class="bg-transparent relative w-[305px] h-[206px] mt-2"
+            class="bg-transparent relative w-[300px] h-[300px] mt-2"
           >
             <div
               class="absolute flex flex-col items-start bg-slate-50 border-l-2 border-r-2 border-b-2 border-slate-900/5 w-[290px] h-[260px] ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
@@ -1276,8 +1276,7 @@
       <div
         v-if="activeTabIndex === 4"
         v-motion-fade
-        class="lg:p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-fit
-         lg:w-full"
+        class="lg:p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-fit lg:w-full"
       >
         <div class="box-border relative w-full lg:w-[360px] lg:p-2 h-[560px]">
           <div class="flex flex-col ml-2 mt-0 items-left">
@@ -1799,14 +1798,14 @@
       <div
         v-show="activeTabIndex === 6"
         v-motion-fade
-        class="  bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-[320px] h-[480px] lg:w-full"
+        class="bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-[320px] h-[480px] lg:w-full"
       >
         <div
-          class="box-border relative w-full lg:w-[380px]  h-[480px] flex flex-row lg:hidden items-center"
+          class="box-border relative w-full lg:w-[380px] h-[480px] flex flex-row lg:hidden items-center"
         >
           <canvas
             id="start"
-            class="box-border relative  scale-[0.7] ml-[-60px] mt-[50px] w-[320px] h-[480px]"
+            class="box-border relative scale-[0.7] ml-[-60px] mt-[50px] w-[320px] h-[480px]"
             ref="canvasRef1"
           >
           </canvas>
@@ -2034,7 +2033,9 @@
             </button>
           </div>
 
-          <div class="box-border absolute ml-8 top-[60px] h-min flex flex-col gap-3">
+          <div
+            class="box-border absolute ml-8 top-[60px] h-min flex flex-col gap-3"
+          >
             <div
               class="relative w-[45px] h-[45px]"
               v-for="layer in uploadedLayers
