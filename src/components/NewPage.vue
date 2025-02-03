@@ -3014,7 +3014,7 @@ export default {
         Accept: "application/json",
         "Control-Allow-Origin": "*",
         Authorization:
-          "Basic OmRkZmRkYzdkLTVhNTEtNGExYy04NmQ0LTc4YTY2ZmFkNTY0Yg==",
+          "",
       };
 
       let response = await fetch(
