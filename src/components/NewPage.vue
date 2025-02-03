@@ -72,7 +72,7 @@
       </div>
     </div>
   </div>
-  <div class="relative flex flex-row h-svh lg:h-[calc(100vh-100px)]">
+  <div class="relative flex flex-row w-full h-svh lg:h-[calc(100vh-100px)]">
     <ul
       class="flex flex-col lg:flex-col text-md h-max text-sm font-xl text-gray-500 dark:text-gray-100"
     >
