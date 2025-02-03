@@ -1,11 +1,10 @@
 <template class="flex-row flex overflow-hidden">
-  <div
-    class="w-[100vw] p-1 lg:w-full h-[70px] shadow-inner bg-gray-200 flex-row justify-items-start relative"
+  <div class=" flex-row flex items-center justify-start relative w-[100vw] p-1  h-[70px] shadow-inner bg-gray-200"
   >
     <div
-      class="relative ml-4 mt-4 w-[40px] h-[40px] bg-white rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center align-middle"
+      class="relative ml-4 mt-1 w-[40px] h-[40px] bg-white rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center align-middle"
     >
-      <span class="text-center ml-3 text-white w-full">
+      <span class="text-center ml-3 text-white w-[50px]">
         <svg
           fill="#1C274C"
           height="16px"
@@ -21,18 +20,8 @@
         </svg>
       </span>
     </div>
-    <div class="mt-5 w-[160px] h-max text-left">
-      <!-- <span
-        v-motion
-        :initial="{ opacity: 0.5 }"
-        :enter="{ opacity: 1 }"
-        :delay="300"
-        class="pl-3 text-xl select-none font-thin"
-        >{{ dictionary.action_back }}</span
-      > -->
-    </div>
-    <div class="w-[360px] h-max text-left"></div>
-    <div class="w-max h-max ml-10 mt-3 flex flex-row text-left">
+    <div class="relative  w-[520px] h-[70px]"></div>
+    <div class="w-max h-max  flex flex-row text-left">
       <div
         class="hidden lg:flex gap-3 flex-row items-center align-middle justify-center m-3 z-20"
       >
@@ -876,7 +865,7 @@
         v-motion-fade
         class="lg:p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-fit w-max lg:w-full"
       >
-        <div class="box-border relative w-full lg:w-[360px] h-[460px]">
+        <div class=" relative w-full lg:w-[360px] h-[460px]">
           <div class="flex flex-col ml-2 mt-0 items-left">
             <p
               class="font-inter text-base select-none mt-0 font-semibold leading-2 text-slate-700"
@@ -895,7 +884,7 @@
             </p>
           </div>
           <div
-            class="bg-transparent w-[305px] h-[355px] mt-2 ring-slate-900/5"
+            class="relative bg-transparent w-[305px] h-[355px] mt-2 ring-slate-900/5"
             style="transform: translateZ(0px); opacity: 1"
           >
             <div
@@ -1348,7 +1337,7 @@
                             class="relative m-2 p-2 w-fit h-fit border-[2px] z-20 rounded-md border-gray-600/30"
                           >
                             <p
-                              class="visible text-[1.0vw] font-normal text-black m-2 mt-4 mb-4"
+                              class="visible text-[3.0vw] lg:text-[1.0vw] font-normal text-black m-2 mt-4 mb-4"
                             >
                               {{ text.text }}
                             </p>
