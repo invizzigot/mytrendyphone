@@ -2707,7 +2707,7 @@ export default {
       this.canvas = new fabric.Canvas(
         containerId,
         {
-          width: 450,
+          width: 420,
           height: 500,
           // minScaleLimit: 0.1,
           // maxScaleLimit: 0.3,
