@@ -878,13 +878,13 @@
               {{ dictionary.step_two_title }}
             </h1>
             <p
-              class="font-inter select-none my-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
+              class="font-inter select-none mb-1 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
             >
               {{ dictionary.step_two_description }}
             </p>
           </div>
           <div
-            class="relative bg-transparent w-[305px] h-[355px] mt-2 ring-slate-900/5"
+            class="relative bg-transparent w-[305px] h-[355px] mt-0 ring-slate-900/5"
             style="transform: translateZ(0px); opacity: 1"
           >
             <div
