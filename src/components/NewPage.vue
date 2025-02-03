@@ -902,7 +902,7 @@
               class="absolute flex flex-col bg-slate-50 ring-1 ring-slate-900/5 w-[290px] h-[330px] ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
             >
               <div
-                class="flex flex-col mt-[30px] items-center w-[320px] h-[300px]"
+                class="flex flex-col mt-[30px] items-center w-[300px] h-[300px]"
               >
                 <p
                   v-if="this.selectedType == ''"
