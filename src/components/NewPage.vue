@@ -1,5 +1,5 @@
-<template class="flex-row flex h-dvh overflow-hidden">
-  <div class=" flex-row flex items-center justify-start relative w-[100vw] p-1  h-[70px] shadow-inner bg-gray-200"
+<template class="flex-row flex h-svh overflow-hidden">
+  <div class="overflow-hidden flex-row flex items-center justify-start relative w-max p-1  h-[70px] shadow-inner bg-gray-200"
   >
     <div
       class="relative ml-4 mt-1 w-[40px] h-[40px] bg-white rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center align-middle"
@@ -20,7 +20,7 @@
         </svg>
       </span>
     </div>
-    <div class="relative  w-[520px] h-[70px]"></div>
+    <div class="relative  lg:w-[520px] h-[70px]"></div>
     <div class="w-max h-max  flex flex-row text-left">
       <div
         class="hidden lg:flex gap-3 flex-row items-center align-middle justify-center m-3 z-20"
