@@ -675,7 +675,7 @@
       </li>
     </ul>
     <div
-      class="box-border flex relative flex-col items-center  size-max bg-red-500 md:w-[380px]"
+      class="box-border flex relative flex-col items-center w-full h-svh bg-gray-100 md:w-[380px]"
     >
       <div
         v-if="activeTabIndex === 1"
@@ -2707,11 +2707,11 @@ export default {
       this.canvas = new fabric.Canvas(
         containerId,
         {
-          width: 420,
+          width: 450,
           height: 500,
           // minScaleLimit: 0.1,
           // maxScaleLimit: 0.3,
-           backgroundColor: "yellow",
+          // backgroundColor: "yellow",
           //getContext: "2d",
 
           // cornerStyle: "round",
