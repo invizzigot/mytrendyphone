@@ -866,7 +866,7 @@
         class="lg:p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-fit w-max lg:w-full"
       >
         <div class=" relative w-full lg:w-[400px] h-[480px]">
-          <div class="flex flex-col ml-2 mt-0 items-left">
+          <div class="flex flex-col ml-4 mt-2 items-left">
             <p
               class="font-inter text-xs lg:text-base select-none mt-0 font-semibold leading-2 text-slate-700"
             >
@@ -1025,7 +1025,7 @@
         class="lg:p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-fit lg:w-full"
       >
         <div class="box-border relative w-fit lg:w-[360px] lg:p-2 h-[480px]">
-          <div class="flex flex-col items-left">
+          <div class="flex flex-col  ml-4 mt-2 items-left">
             <p
               class="font-inter text-xs lg:text-base select-none mt-0 font-semibold leading-2 text-slate-700"
             >
@@ -1268,7 +1268,7 @@
         class="lg:p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-fit lg:w-full"
       >
         <div class="box-border relative w-full lg:w-[360px] lg:p-2 h-[560px]">
-          <div class="flex flex-col ml-2 mt-0 items-left">
+          <div class="flex flex-col  ml-4 mt-2 items-left">
             <p
               class="font-inter text-xs lg:text-base select-none mt-0 font-semibold leading-2 text-slate-700"
             >
