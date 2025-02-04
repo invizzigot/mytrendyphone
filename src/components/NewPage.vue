@@ -1844,7 +1844,7 @@
               class="relative m-1 p-1 w-fit h-fit border-[2px] z-20 rounded-md border-gray-600/30"
             >
               <p
-                class="visible text-[2vw] font-normal text-black m-2 mt-3 mb-4"
+                class="visible text-[2vw] font-normal text-black  mt-2 mb-2"
               >
                 {{ text.text }}
               </p>
