@@ -1807,7 +1807,7 @@
           <div
             v-motion-pop
             :delay="60"
-            class="box-border absolute w-[300px] left-[10px] bottom-[-20px] gap-3 flex flex-row m-3 z-20"
+            class="box-border absolute w-[300px] left-[10px] bottom-[0px] gap-3 flex flex-row m-3 z-20"
           >
             <div
               v-for="(image, index) in this.uploadedImages"
@@ -1830,7 +1830,7 @@
           </div>
 
           <div
-            class="box-border absolute w-[300px] left-[10px] bottom-[-140px] gap-3 flex flex-row m-3 z-20"
+            class="box-border absolute w-[300px] left-[10px] bottom-[-40px] gap-3 flex flex-row m-3 z-20"
           >
             <div
               v-for="(text, index) in uploadedText"
