@@ -690,12 +690,12 @@
               {{ dictionary.step_one }}
             </p>
             <h1
-              class="font-inter font-extrabold select-none leading-none tracking-tight text-slate-900 text-4xl sm:leading-[3.5rem]"
+              class="font-inter font-extrabold select-none leading-none tracking-tight text-slate-900 text-2xl lg:text-4xl sm:leading-[3.5rem]"
             >
               {{ dictionary.step_one_title }}
             </h1>
             <p
-              class="font-inter mb-1 text-base select-none font-medium text-left leading-7 text-slate-700"
+              class="font-inter mb-1 text-sm lg:text-base select-none font-medium text-left leading-7 text-slate-700"
             >
               {{ dictionary.step_one_description }}
             </p>
