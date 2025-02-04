@@ -1856,7 +1856,7 @@
           <div
             v-motion-pop
             :delay="60"
-            class="box-border absolute w-[30px] right-[20px] top-[100px] gap-3 flex flex-col m-3 z-20"
+            class="box-border absolute w-[30px] right-[20px] top-[70px] gap-3 flex flex-col m-3 z-20"
           >
             <button @click="clearCanvas">
               <svg
