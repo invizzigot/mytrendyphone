@@ -878,7 +878,7 @@
               {{ dictionary.step_two_title }}
             </h1>
             <p
-              class="font-inter select-none mb-1 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
+              class="font-inter mb-1 text-xs lg:text-base select-none font-medium text-left leading-7 text-slate-700"
             >
               {{ dictionary.step_two_description }}
             </p>
@@ -1037,7 +1037,7 @@
               {{ dictionary.step_three_title }}
             </h1>
             <p
-              class="font-inter select-none my-5 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
+              class="font-inter mb-1 text-xs lg:text-base select-none font-medium text-left leading-7 text-slate-700"
             >
               {{ dictionary.step_three_description }}
             </p>
@@ -1280,7 +1280,7 @@
               {{ dictionary.step_four_title }}
             </h1>
             <p
-              class="font-inter select-none my-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
+              class="font-inter mb-1 text-xs lg:text-base select-none font-medium text-left leading-7 text-slate-700"
             >
               {{ dictionary.step_four_description }}
             </p>
