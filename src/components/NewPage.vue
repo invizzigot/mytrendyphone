@@ -685,7 +685,7 @@
         <div v-motion-fade class="relative w-full lg:w-[400px] h-[480px]">
           <div class="flex flex-col ml-4 mt-0 items-left">
             <p
-              class="font-inter text-base select-none mt-0 font-semibold leading-2 text-slate-700"
+              class="font-inter text-xs lg:text-base select-none mt-0 font-semibold leading-2 text-slate-700"
             >
               {{ dictionary.step_one }}
             </p>
@@ -868,7 +868,7 @@
         <div class=" relative w-full lg:w-[400px] h-[480px]">
           <div class="flex flex-col ml-2 mt-0 items-left">
             <p
-              class="font-inter text-base select-none mt-0 font-semibold leading-2 text-slate-700"
+              class="font-inter text-xs lg:text-base select-none mt-0 font-semibold leading-2 text-slate-700"
             >
               {{ dictionary.step_two }}
             </p>
@@ -1027,7 +1027,7 @@
         <div class="box-border relative w-fit lg:w-[360px] lg:p-2 h-[480px]">
           <div class="flex flex-col items-left">
             <p
-              class="font-inter select-none text-base font-semibold leading-2 text-slate-700"
+              class="font-inter text-xs lg:text-base select-none mt-0 font-semibold leading-2 text-slate-700"
             >
               {{ dictionary.step_three }}
             </p>
@@ -1270,7 +1270,7 @@
         <div class="box-border relative w-full lg:w-[360px] lg:p-2 h-[560px]">
           <div class="flex flex-col ml-2 mt-0 items-left">
             <p
-              class="font-inter select-none text-base mt-0 font-semibold leading-2 text-slate-700"
+              class="font-inter text-xs lg:text-base select-none mt-0 font-semibold leading-2 text-slate-700"
             >
               {{ dictionary.step_four }}
             </p>
