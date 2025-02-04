@@ -1130,7 +1130,7 @@
                     >
                       <p
                         @click="addButton"
-                        class="px-1 mb-2 animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
+                        class="px-1 mb-1 animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
                       >+</p>
                     </div>
                   </div>
