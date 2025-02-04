@@ -1817,7 +1817,7 @@
               :variants="{ custom: { opacity: 1, scale: 1 } }"
               :delay="300"
               :key="image.id"
-              class="relative m-1 w-[50px] h-[50px]"
+              class="relative m-1 w-[35px] h-[35px]"
             >
               <img
                 class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
