@@ -1,5 +1,5 @@
 <template class="flex-row flex h-svh overflow-hidden">
-  <div class="overflow-hidden flex-row flex items-center justify-start relative w-max p-1  h-[70px] shadow-inner bg-gray-200"
+  <div class="overflow-hidden flex-row flex items-center justify-start relative w-full p-1  h-[70px] shadow-inner bg-gray-200"
   >
     <div
       class="relative ml-4 mt-1 w-[40px] h-[40px] bg-white rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center align-middle"
