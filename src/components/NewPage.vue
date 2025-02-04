@@ -695,7 +695,7 @@
               {{ dictionary.step_one_title }}
             </h1>
             <p
-              class="font-inter mb-1 text-sm lg:text-base select-none font-medium text-left leading-7 text-slate-700"
+              class="font-inter mb-1 text-xs lg:text-base select-none font-medium text-left leading-7 text-slate-700"
             >
               {{ dictionary.step_one_description }}
             </p>
