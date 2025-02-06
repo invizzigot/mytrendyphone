@@ -2069,13 +2069,13 @@
       >
         <div class="flex flex-col ml- mt-2 items-left">
           <p
-            class="invisible md:visible font-inter select-none text-base -mt-2 font-semibold leading-2 text-slate-700"
+            class=" font-inter select-none text-base -mt-2 font-semibold leading-2 text-slate-700"
           >
             {{ dictionary.step_five }}
           </p>
           <!-- <p>Window Width: {{ windowWidth }}</p> -->
           <h1
-            class="invisible md:visible font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+            class=" font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
           >
             {{ dictionary.step_five_title }}
           </h1>
@@ -2084,7 +2084,7 @@
             v-if="
               casesTypes[selectedCaseType] && casesTypes[selectedCaseType].price
             "
-            class="invisible md:visible font-inter select-none w-[280px] my-5 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+            class="visible font-inter select-none w-[280px] my-5 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
           >
             {{ dictionary.alert_box_cart_full }}
           </p>
