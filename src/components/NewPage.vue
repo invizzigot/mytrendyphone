@@ -2304,9 +2304,10 @@
         </div>
       </div>
 
-      <div
-      
-        class="absolute w-[30px] inset-y-0 left-0 top-[50px] gap-3 flex flex-col  lg:m-3 z-20"
+        <div
+        v-motion-pop
+        :delay="600"
+        class="absolute w-[30px] right-[0px] top-[50px] gap-3 flex flex-col m-3 z-20"
       >
         <button @click="clearCanvas">
           <svg
