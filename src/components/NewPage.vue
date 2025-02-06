@@ -1820,7 +1820,7 @@
               :variants="{ custom: { opacity: 1, scale: 1 } }"
               :delay="300"
               :key="image.id"
-              class="relative m-1 w-[50px] h-[50px]"
+              class="relative m-1 w-[35px] h-[35px]"
             >
               <img
                 class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
@@ -1833,7 +1833,7 @@
           </div>
 
           <div
-            class="box-border absolute w-[300px] left-[10px] bottom-[-140px] gap-3 flex flex-row m-3 z-20"
+            class="box-border absolute w-[300px] left-[10px] bottom-[-120px] gap-3 flex flex-row m-3 z-20"
           >
             <div
               v-for="(text, index) in uploadedText"
@@ -1856,8 +1856,8 @@
 
           <div
             v-motion-pop
-            :delay="60"
-            class="absolute w-[30px] right-[10px] top-[50px] gap-3 flex flex-col m-3 z-20"
+            :delay="600"
+            class="absolute w-[30px] right-[15px] top-[50px] gap-3 flex flex-col m-3 z-20"
           >
             <button @click="clearCanvas">
               <svg
