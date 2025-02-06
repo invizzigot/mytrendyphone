@@ -771,8 +771,7 @@
                     <select
                       @change="
                         getPhoneModels(selectedBrand),
-                          updateSelectedBrandTitle(),
-			    setActiveTabIndex(2)
+                          updateSelectedBrandTitle()
                       "
                       v-model="selectedBrand"
                       ref="phoneBrand"
@@ -837,7 +836,8 @@
                     <select
                       @change="
                         addPhoneToCanvas(selectedCaseType),
-                          updateSelectedCaseTitle()
+                          updateSelectedCaseTitle(),
+			    setActiveTabIndex(2)
                       "
                       v-model="selectedCaseType"
                       class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 outline-slate-700/20 focus:text-cyan-700 shadow-inner my-2 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
