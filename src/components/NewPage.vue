@@ -2075,7 +2075,7 @@
           </p>
           <!-- <p>Window Width: {{ windowWidth }}</p> -->
           <h1
-            class=" font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+            class=" font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-3xl  lg:text-5xl sm:leading-[3.5rem]"
           >
             {{ dictionary.step_five_title }}
           </h1>
@@ -2084,7 +2084,7 @@
             v-if="
               casesTypes[selectedCaseType] && casesTypes[selectedCaseType].price
             "
-            class="visible font-inter select-none w-[280px] my-5 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+            class="visible font-inter select-none w-[240px] lg:w-[280px] my-5 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
           >
             {{ dictionary.alert_box_cart_full }}
           </p>
