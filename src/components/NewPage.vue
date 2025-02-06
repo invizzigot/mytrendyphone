@@ -771,7 +771,8 @@
                     <select
                       @change="
                         getPhoneModels(selectedBrand),
-                          updateSelectedBrandTitle()
+                          updateSelectedBrandTitle(),
+			    setActiveTabIndex(2)
                       "
                       v-model="selectedBrand"
                       ref="phoneBrand"
