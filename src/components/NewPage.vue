@@ -907,7 +907,8 @@
                   class="flex flex-row mt-[50px] w-[220px] gap-8 items-center"
                 >
                   <div
-                    @click="addCollage1(1)"
+                    @click="addCollage1(1), ,
+			    setActiveTabIndex(3)"
                     class="relative w-[50px] h-[50px]"
                   >
                     <div
@@ -921,7 +922,8 @@
                     />
                   </div>
                   <div
-                    @click="addCollage2(2)"
+                    @click="addCollage2(2), 
+			    setActiveTabIndex(3)"
                     class="relative w-[50px] h-[50px]"
                   >
                     <div
@@ -936,7 +938,8 @@
                     />
                   </div>
                   <div
-                    @click="addCollage3(3)"
+                    @click="addCollage3(3), 
+			    setActiveTabIndex(3)"
                     class="relative w-[50px] h-[50px]"
                   >
                     <div
@@ -955,7 +958,8 @@
                   class="flex flex-row mt-[50px] w-[220px] gap-8 items-center"
                 >
                   <div
-                    @click="addCollage4(4)"
+                    @click="addCollage4(4), 
+			    setActiveTabIndex(3)"
                     class="relative w-[50px] h-[50px]"
                   >
                     <div
@@ -969,7 +973,8 @@
                     />
                   </div>
                   <div
-                    @click="addCollage5(5)"
+                    @click="addCollage5(5), 
+			    setActiveTabIndex(3)"
                     class="relative w-[50px] h-[50px]"
                   >
                     <div
@@ -983,7 +988,8 @@
                     />
                   </div>
                   <div
-                    @click="addCollage6(6)"
+                    @click="addCollage6(6), 
+			    setActiveTabIndex(3)"
                     class="relative w-[50px] h-[50px]"
                   >
                     <div
