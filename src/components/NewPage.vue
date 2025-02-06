@@ -2098,7 +2098,7 @@
           </p> -->
 
           <div
-            class="relative flex w-[300px] h-[300px] mt-3 flex-col items-center"
+            class="relative flex w-full h-[300px] mt-3 flex-col items-center"
           >
             <svg
               v-if="
