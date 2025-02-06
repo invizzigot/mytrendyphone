@@ -1,5 +1,6 @@
-<template class="flex-row flex h-svh overflow-hidden">
-  <div class="overflow-hidden flex-row flex items-center justify-start relative w-full p-1  h-[70px] shadow-inner bg-gray-200"
+<template class="flex-col flex min-h-svh overflow-hidden">
+  <div
+    class="flex-row flex items-center justify-start relative w-[100vw] p-1 h-[70px] shadow-inner bg-gray-200"
   >
     <div
       class="relative ml-4 mt-1 w-[40px] h-[40px] bg-white rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center align-middle"
@@ -20,8 +21,8 @@
         </svg>
       </span>
     </div>
-    <div class="relative  lg:w-[520px] h-[70px]"></div>
-    <div class="w-max h-max  flex flex-row text-left">
+    <div class="relative w-[520px] h-[70px]"></div>
+    <div class="w-max h-max flex flex-row text-left">
       <div
         class="hidden lg:flex gap-3 flex-row items-center align-middle justify-center m-3 z-20"
       >
@@ -72,16 +73,16 @@
       </div>
     </div>
   </div>
-  <div class="relative flex flex-row w-full h-svh lg:h-[calc(100vh-100px)]">
+  <div class="relative flex flex-row h-svh lg:h-[calc(100vh-100px)]">
     <ul
-      class="flex flex-col lg:flex-col text-md h-max text-sm font-xl text-gray-500 dark:text-gray-100"
+      class="flex flex-col lg:flex-col text-md h-svh text-sm font-xl text-gray-100"
     >
       <li class="w-[60px] lg:w-[200px] lg:h-[calc(20vh-14px)]">
         <a
           @click="setActiveTabIndex(1)"
           href="#"
           :class="[
-            'inline-flex place-items-center pl-3 py-6 text-gray-900 bg-gray-800 active w-[60px] lg:w-[200px] h-full dark:bg-white',
+            'inline-flex place-items-center pl-3 py-6 text-gray-900 active w-[60px] lg:w-[200px] h-full bg-white',
             { activeTab: activeTabIndex === 1 },
           ]"
           aria-current="page"
@@ -171,7 +172,7 @@
           href="#"
           @click="setActiveTabIndex(2)"
           :class="[
-            'inline-flex place-items-center pl-3 py-6 text-gray-900 bg-gray-300 active  w-[60px] lg:w-[200px] h-full dark:bg-white',
+            'inline-flex place-items-center pl-3 py-6 text-gray-900  active  w-[60px] lg:w-[200px] h-full bg-white',
             { activeTab: activeTabIndex === 2 },
             { 'pointer-events-none': !selectedCaseTitle },
             { 'opacity-50': !selectedCaseTitle },
@@ -279,7 +280,7 @@
           @click="setActiveTabIndex(3)"
           href="#"
           :class="[
-            'inline-flex place-items-center pl-3 py-6 text-gray-900 bg-gray-300 active  w-[60px] lg:w-[200px] h-full dark:bg-white',
+            'inline-flex place-items-center pl-3 py-6 text-gray-900  active  w-[60px] lg:w-[200px] h-full bg-white',
             { activeTab: activeTabIndex === 3 },
             { 'pointer-events-none': !selectedCaseTitle },
             { 'pointer-events-none': !activeIndex },
@@ -375,7 +376,7 @@
           @click="setActiveTabIndex(4)"
           href="#"
           :class="[
-            'inline-flex place-items-center pl-3 py-6 text-gray-900 bg-gray-300 active w-[60px] lg:w-[200px] h-full dark:bg-white',
+            'inline-flex place-items-center pl-3 py-6 text-gray-900  active w-[60px] lg:w-[200px] h-full bg-white',
             { activeTab: activeTabIndex === 4 },
             { 'pointer-events-none': !selectedCaseTitle },
             { 'pointer-events-none': !activeIndex },
@@ -489,7 +490,7 @@
           @click="setActiveTabIndex(6)"
           href="#"
           :class="[
-            'inline-flex place-items-center pl-3 py-6 text-gray-900 bg-gray-800 active w-[60px] lg:w-[200px] h-full dark:bg-white',
+            'inline-flex place-items-center pl-3 py-6 text-gray-900 bg-white active w-[60px] lg:w-[200px] h-full ',
             { activeTab: activeTabIndex === 6 },
             { 'pointer-events-none': !selectedCaseTitle },
             { 'opacity-50': !selectedCaseTitle },
@@ -588,12 +589,12 @@
         </a>
       </li>
 
-      <li class="w-[60px] lgh-[calc(20vh-14px)]">
+      <li class="w-[60px] lg:h-[calc(20vh-14px)]">
         <a
           @click="setActiveTabIndex(5)"
           href="#"
           :class="[
-            'inline-flex place-items-center pl-3 py-6 text-gray-900 bg-gray-300 active  w-[60px] lg:w-[200px]] h-full dark:bg-white',
+            'inline-flex place-items-center pl-3 py-6 text-gray-900 bg-white active  w-[60px] lg:w-[200px] h-full ',
             { activeTab: activeTabIndex === 5 },
             { 'pointer-events-none': !selectedCaseTitle },
             { 'pointer-events-none': !activeIndex },
@@ -675,27 +676,27 @@
       </li>
     </ul>
     <div
-      class="box-border flex relative flex-col items-center w-full h-svh bg-gray-100 md:w-[380px]"
+      class="box-border flex relative flex-col items-center w-max h-svh bg-gray-100 md:w-[380px]"
     >
       <div
         v-if="activeTabIndex === 1"
         v-motion-fade
-        class="lg:pl-8 lg:pt-1 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-svh w-max lg:w-full"
+        class="lg:pl-8 lg:pt-1 text-gray-400 bg-gray-100 h-fit w-max lg:w-full"
       >
         <div v-motion-fade class="relative w-full lg:w-[400px] h-[480px]">
-          <div class="flex flex-col ml-4 mt-2 items-left">
+          <div class="flex flex-col ml-4 mt-0 items-left">
             <p
-              class="font-inter text-xs lg:text-base select-none mt-0 font-semibold leading-2 text-slate-700"
+              class="font-inter text-base select-none mt-0 font-semibold leading-2 text-slate-700"
             >
               {{ dictionary.step_one }}
             </p>
             <h1
-              class="font-inter font-extrabold select-none leading-none tracking-tight text-slate-900 text-2xl lg:text-4xl sm:leading-[3.5rem]"
+              class="font-inter font-extrabold select-none leading-none tracking-tight text-slate-900 text-4xl sm:leading-[3.5rem]"
             >
               {{ dictionary.step_one_title }}
             </h1>
             <p
-              class="font-inter mb-1 text-xs lg:text-base select-none font-medium text-left leading-7 text-slate-700"
+              class="font-inter mb-1 text-base select-none font-medium text-left leading-7 text-slate-700"
             >
               {{ dictionary.step_one_description }}
             </p>
@@ -863,28 +864,28 @@
       <div
         v-if="activeTabIndex === 2"
         v-motion-fade
-        class="lg:p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 h-fit w-max lg:w-full"
+        class="lg:p-6 text-gray-400 bg-gray-100 h-fit w-max lg:w-full"
       >
-        <div class=" relative w-full lg:w-[400px] h-[480px]">
-          <div class="flex flex-col ml-4 mt-2 items-left">
+        <div class="relative w-full lg:w-[360px] h-[460px]">
+          <div class="flex flex-col ml-2 mt-0 items-left">
             <p
-              class="font-inter text-xs lg:text-base select-none mt-0 font-semibold leading-2 text-slate-700"
+              class="font-inter text-base select-none mt-0 font-semibold leading-2 text-slate-700"
             >
               {{ dictionary.step_two }}
             </p>
             <h1
-              class="font-inter font-extrabold select-none leading-none tracking-tight text-slate-900 text-2xl lg:text-4xl sm:leading-[3.5rem]"
+              class="font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
             >
               {{ dictionary.step_two_title }}
             </h1>
             <p
-              class="font-inter mb-1 text-xs lg:text-base select-none font-medium text-left leading-7 text-slate-700"
+              class="font-inter select-none my-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
             >
               {{ dictionary.step_two_description }}
             </p>
           </div>
           <div
-            class="relative bg-transparent w-[305px] h-[355px] mt-0 ring-slate-900/5"
+            class="relative bg-transparent w-[305px] h-[355px] mt-2 ring-slate-900/5"
             style="transform: translateZ(0px); opacity: 1"
           >
             <div
@@ -1022,22 +1023,22 @@
       <div
         v-if="activeTabIndex === 3"
         v-motion-fade
-        class="lg:p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-fit lg:w-full"
+        class="lg:p-6 text-gray-400 bg-gray-100 w-max h-fit lg:w-full"
       >
         <div class="box-border relative w-fit lg:w-[360px] lg:p-2 h-[480px]">
-          <div class="flex flex-col  ml-4 mt-2 items-left">
+          <div class="flex flex-col items-left">
             <p
-              class="font-inter text-xs lg:text-base select-none mt-0 font-semibold leading-2 text-slate-700"
+              class="font-inter select-none text-base font-semibold leading-2 text-slate-700"
             >
               {{ dictionary.step_three }}
             </p>
             <h1
-              class="font-inter font-extrabold select-none leading-none tracking-tight text-slate-900 text-2xl lg:text-4xl sm:leading-[3.5rem]"
+              class="font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
             >
               {{ dictionary.step_three_title }}
             </h1>
             <p
-              class="font-inter mb-1 text-xs lg:text-base select-none font-medium text-left leading-7 text-slate-700"
+              class="font-inter select-none my-5 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
             >
               {{ dictionary.step_three_description }}
             </p>
@@ -1130,8 +1131,10 @@
                     >
                       <p
                         @click="addButton"
-                        class="px-1 mb-1 animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
-                      >+</p>
+                        class="px-1 mb-2 animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
+                      >
+                        +
+                      </p>
                     </div>
                   </div>
                   <div class="pt-0 m-1 space-y-5">
@@ -1263,22 +1266,22 @@
       <div
         v-if="activeTabIndex === 4"
         v-motion-fade
-        class="lg:p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-fit lg:w-full"
+        class="lg:p-6 text-gray-400 bg-gray-100 w-max h-fit lg:w-full"
       >
         <div class="box-border relative w-full lg:w-[360px] lg:p-2 h-[560px]">
-          <div class="flex flex-col  ml-4 mt-2 items-left">
+          <div class="flex flex-col ml-2 mt-0 items-left">
             <p
-              class="font-inter text-xs lg:text-base select-none mt-0 font-semibold leading-2 text-slate-700"
+              class="font-inter select-none text-base mt-0 font-semibold leading-2 text-slate-700"
             >
               {{ dictionary.step_four }}
             </p>
             <h1
-              class="font-inter font-extrabold select-none leading-none tracking-tight text-slate-900 text-2xl lg:text-4xl sm:leading-[3.5rem]"
+              class="font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
             >
               {{ dictionary.step_four_title }}
             </h1>
             <p
-              class="font-inter mb-1 text-xs lg:text-base select-none font-medium text-left leading-7 text-slate-700"
+              class="font-inter select-none my-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
             >
               {{ dictionary.step_four_description }}
             </p>
@@ -1785,7 +1788,7 @@
       <div
         v-show="activeTabIndex === 6"
         v-motion-fade
-        class="bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-[320px] h-[480px] lg:w-full"
+        class="bg-gray-100 text-medium text-gray-400 w-[320px] h-[480px] lg:w-full"
       >
         <div
           class="box-border relative w-full lg:w-[380px] h-[480px] flex flex-row lg:hidden items-center"
@@ -1807,7 +1810,7 @@
           <div
             v-motion-pop
             :delay="60"
-            class="box-border absolute w-[300px] left-[10px] bottom-[-10px] gap-3 flex flex-row m-3 z-20"
+            class="box-border absolute w-[300px] left-[10px] bottom-[-80px] gap-3 flex flex-row m-3 z-20"
           >
             <div
               v-for="(image, index) in this.uploadedImages"
@@ -1817,7 +1820,7 @@
               :variants="{ custom: { opacity: 1, scale: 1 } }"
               :delay="300"
               :key="image.id"
-              class="relative m-1 w-[35px] h-[35px]"
+              class="relative m-1 w-[50px] h-[50px]"
             >
               <img
                 class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
@@ -1830,7 +1833,7 @@
           </div>
 
           <div
-            class="box-border absolute w-[300px] left-[10px] bottom-[-60px] gap-3 flex flex-row m-3 z-20"
+            class="box-border absolute w-[300px] left-[10px] bottom-[-140px] gap-3 flex flex-row m-3 z-20"
           >
             <div
               v-for="(text, index) in uploadedText"
@@ -1844,7 +1847,7 @@
               class="relative m-1 p-1 w-fit h-fit border-[2px] z-20 rounded-md border-gray-600/30"
             >
               <p
-                class="visible text-[2vw] font-normal text-black  mt-2 mb-2"
+                class="visible text-[2vw] font-normal text-black m-2 mt-3 mb-4"
               >
                 {{ text.text }}
               </p>
@@ -1854,7 +1857,7 @@
           <div
             v-motion-pop
             :delay="60"
-            class="box-border absolute w-[30px] right-[20px] top-[70px] gap-3 flex flex-col m-3 z-20"
+            class="box-border absolute w-[30px] right-[0px] top-[100px] gap-3 flex flex-col m-3 z-20"
           >
             <button @click="clearCanvas">
               <svg
@@ -2062,7 +2065,7 @@
       <div
         v-if="activeTabIndex === 5"
         v-motion-fade
-        class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-100 w-max h-[100vh-70px] lg:w-full"
+        class="p-6 bg-gray-100 text-medium text-gray-400 w-max h-[100vh-70px] lg:w-full"
       >
         <div class="flex flex-col ml- mt-2 items-left">
           <p
@@ -2240,16 +2243,16 @@
       </div>
     </div>
     <div
-      class="hidden relative w-[500px] mt-[50px] lg:flex flex-col justify-center justify-items-center items-start"
+      class="hidden relative w-[500px] mt-[50px] lg:flex flex-col justify-start justify-items-center items-start"
     >
-      <canvas id="start" class="absolute" ref="canvasRef"> </canvas>
+      <canvas id="start" class="relative" ref="canvasRef"> </canvas>
       <div
         v-if="!casesTypes[selectedCaseType] && this.selectedType === ''"
-        class="absolute p-3 w-[210px] h-[420px] left-[110px] top-[25px] flex flex-col items-center justify-items-center align-center m-3 z-20"
+        class="absolute p-3 w-[210px] h-[420px] left-[110px] top-[100px] flex flex-col items-center justify-items-center align-center m-3 z-20"
       >
         <div
           v-motion-pop
-          class="w-full h-full flex flex-col justify-center items-center"
+          class="flex flex-col justify-center items-center"
         >
           <div>
             <svg
