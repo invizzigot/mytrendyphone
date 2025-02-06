@@ -874,7 +874,7 @@
               {{ dictionary.step_two }}
             </p>
             <h1
-              class="font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+              class="font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-4xl sm:leading-[3.5rem]"
             >
               {{ dictionary.step_two_title }}
             </h1>
@@ -1033,7 +1033,7 @@
               {{ dictionary.step_three }}
             </p>
             <h1
-              class="font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+              class="font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-4xl sm:leading-[3.5rem]"
             >
               {{ dictionary.step_three_title }}
             </h1>
@@ -1276,7 +1276,7 @@
               {{ dictionary.step_four }}
             </p>
             <h1
-              class="font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+              class="font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-4xl sm:leading-[3.5rem]"
             >
               {{ dictionary.step_four_title }}
             </h1>
@@ -2075,7 +2075,7 @@
           </p>
           <!-- <p>Window Width: {{ windowWidth }}</p> -->
           <h1
-            class=" font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-3xl  lg:text-5xl sm:leading-[3.5rem]"
+            class=" font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-4xl sm:leading-[3.5rem]"
           >
             {{ dictionary.step_five_title }}
           </h1>
