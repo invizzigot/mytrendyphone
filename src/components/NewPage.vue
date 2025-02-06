@@ -907,7 +907,7 @@
                   class="flex flex-row mt-[50px] w-[220px] gap-8 items-center"
                 >
                   <div
-                    @click="addCollage1(1), ,
+                    @click="addCollage1(1),
 			    setActiveTabIndex(3)"
                     class="relative w-[50px] h-[50px]"
                   >
