@@ -575,7 +575,7 @@
       </li>
     </ul>
     <div
-      class="box-border mx-auto lg:mx-0 flex relative flex-col w-full justify-center lg:justify-normal h-svh bg-gray-100 lg:w-[380px]"
+      class="box-border mx-auto lg:mx-0 flex relative flex-col w-full justify-center lg:justify-normal h-full bg-gray-100 lg:w-[380px]"
     >
       <Transition :name="mobileMode === true ? 'slide-fade' : 'box-fade'">
         <div
