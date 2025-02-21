@@ -5591,7 +5591,7 @@ export default {
     },
 
     render(ctx, left, top, styleOverride, fabricObject) {
-      fabric.Image.fromURL("src/assets/images/add-square.svg", (img) => {
+      fabric.Image.fromURL("../images/add-square.svg", (img) => {
         img.scaleToWidth(48);
         img.scaleToHeight(48);
         ctx.drawImage(img._element, left - 16, top - 16, 48, 48);
@@ -5985,17 +5985,17 @@ export default {
     // }
 
     const rotateSquareImage = new Image();
-    rotateSquareImage.src = "src/assets/images/rotate-left.svg";
+    rotateSquareImage.src = "../images/rotate-left.svg";
     const scaleSquareImage = new Image();
-    scaleSquareImage.src = "src/assets/images/arrow-scale-square.svg";
+    scaleSquareImage.src = "../images/arrow-scale-square.svg";
     const closeSquareImage = new Image();
-    closeSquareImage.src = "src/assets/images/close-square-black.svg";
+    closeSquareImage.src = "../images/close-square-black.svg";
     const zoomInImage = new Image();
-    zoomInImage.src = "src/assets/images/zoom-in.svg";
+    zoomInImage.src = "../images/zoom-in.svg";
     const addSquareImage = new Image();
-    addSquareImage.src = "src/assets/images/add-square.svg";
+    addSquareImage.src = "../images/add-square.svg";
     const moveSquareImage = new Image();
-    moveSquareImage.src = "src/assets/images/command-square.svg";
+    moveSquareImage.src = "../images/command-square.svg";
 
     this.canvas.on(
       "object:added",
