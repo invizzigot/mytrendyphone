@@ -1,4 +1,4 @@
-<template class="flex flex-col">
+<template class="flex flex-col  min-h-svh overflow-hidden">
   <div
     class="flex-row flex items-center justify-start relative w-[100vw] p-1 h-[55px] shadow-inner bg-gray-200"
   >
