@@ -8,7 +8,7 @@ import NewPage from "../components/NewPage.vue";
 
 <template>
   <main>
-    <NewPage />
+    <NewDesign />
     <!-- <Tabs /> -->
   </main>
 </template>
