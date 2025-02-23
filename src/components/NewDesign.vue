@@ -1,4 +1,4 @@
-<template class="flex flex-col  min-h-svh overflow-hidden">
+<template class="flex flex-col">
   <div
     class="flex-row flex items-center justify-start relative w-[100vw] p-1 h-[55px] shadow-inner bg-gray-200"
   >
@@ -21,50 +21,41 @@
         </svg>
       </span>
     </div>
+
     <div class="relative w-[520px] h-[70px]"></div>
     <div class="w-max h-max flex flex-row text-left">
       <div
         class="hidden lg:flex gap-3 flex-row items-center align-middle justify-center m-3 z-20"
       >
         <p
-          v-if="
-            casesTypes[selectedCaseType] && casesTypes[selectedCaseType].price
-          "
+          v-if="selectedBrand"
           class="whitespace-wrap font-extrabold select-none text-sm text-center leading-12 text-slate-700"
         >
-          {{ this.selectedModelTitle }}
+          {{ selectedBrand }}
         </p>
         <p
-          v-if="
-            casesTypes[selectedCaseType] && casesTypes[selectedCaseType].price
-          "
+          v-if="selectedBrand"
           class="whitespace-wrap font-extrabold select-none text-sm text-center leading-12 text-slate-700"
         >
           /
         </p>
         <p
-          v-if="
-            casesTypes[selectedCaseType] && casesTypes[selectedCaseType].price
-          "
+          v-if="selectedModel"
           class="whitespace-wrap font-medium text-sm select-none text-center text-slate-400"
         >
-          {{ this.selectedCaseTitle }}
+          {{ selectedModel }}
         </p>
         <p
-          v-if="
-            casesTypes[selectedCaseType] && casesTypes[selectedCaseType].price
-          "
+          v-if="selectedModel"
           class="whitespace-wrap font-extrabold select-none text-sm text-center leading-12 text-slate-700"
         >
           /
         </p>
         <p
-          v-if="
-            casesTypes[selectedCaseType] && casesTypes[selectedCaseType].price
-          "
+          v-if="selectedCasePrice"
           class="whitespace-wrap font-extrabold select-none text-sm text-center leading-12 text-slate-700"
         >
-          {{ parseFloat(casesTypes[selectedCaseType].price).toFixed(2) }}
+          {{ selectedCasePrice }}
           <span
             class="whitespace-wrap font-extrabold select-none text-sm text-center leading-12 text-slate-700"
             >{{ dictionary.currency }}</span
@@ -575,7 +566,7 @@
       </li>
     </ul>
     <div
-      class="box-border mx-auto lg:mx-0 flex relative flex-col w-full justify-center lg:justify-normal h-full bg-gray-100 lg:w-[380px]"
+      class="box-border mx-auto lg:mx-0 flex relative flex-col w-full justify-center lg:justify-normal h-svh bg-gray-100 lg:w-[380px]"
     >
       <Transition :name="mobileMode === true ? 'slide-fade' : 'box-fade'">
         <div
@@ -584,7 +575,7 @@
               ? showDialog && activeTabIndex === 1
               : activeTabIndex === 1
           "
-          class="z-40 absolute lg:relative bg-slate-100 text-gray-400 bottom-[0px] w-[100vw] lg:w-full"
+          class="z-40 absolute lg:relative bg-gray-100 text-gray-400 bottom-[0px] w-[100vw] lg:w-full"
         >
           <div class="relative z-40 w-[100vw] lg:w-[360px] h-[480px]">
             <div class="hidden lg:flex flex-col ml-4 mt-0 items-left">
@@ -633,128 +624,317 @@
                     </div>
                   </div>
                 </div>
-                <div class="pt-5 space-y-5">
-                  <div>
-                    <label
-                      for=""
-                      class="font-inter text-md select-none font-semibold mt- px-4 leading-7 text-slate-700"
-                      >{{ dictionary.device_type }}
-                    </label>
-                    <div class="mt-1">
-                      <select
-                        @change="getDeviceType(selectedType)"
-                        v-model="selectedType"
-                        class="w-[250px] ml-3 p-2 bg-slate-50 text-slate-700 outline-slate-700/20 focus:text-cyan-700 shadow-inner my-2 font-inter text-md font-light px-5 leading-7"
-                      >
-                        <option value="">
-                          {{ dictionary.select_device }}
-                        </option>
-                        <option value="1">
-                          {{ dictionary.phone_device }}
-                        </option>
-                        <option value="2">
-                          {{ dictionary.tablet_device }}
-                        </option>
-                        <option value="4">
-                          {{ dictionary.gadget_device }}
-                        </option>
-                      </select>
+
+                <div class="flex flex-col h-[500px]">
+                  <div
+                    class="flex flex-row w-[95vw] lg:w-[320px] h-[50px] justify-evenly bg-gray-100"
+                  >
+                    <div
+                      @click="activeProductTabIndex = 1"
+                      :class="[
+                        'w-full border-x-2 border-y-2  border-gray-100 p-2 text-sm  text-center inline-block align-middle bg-gray-100',
+                        { activeProductTab: activeProductTabIndex === 1 },
+                      ]"
+                    >
+                      <p>Product</p>
+                    </div>
+                    <div
+                      @click="activeProductTabIndex = 2"
+                      :class="[
+                        'w-full border-x-2 border-y-2  border-gray-100 p-2 text-sm  text-center inline-block align-middle bg-gray-100',
+                        { activeProductTab: activeProductTabIndex === 2 },
+                        { 'pointer-events-none': !selectedType },
+                        { 'opacity-50': !selectedType },
+                      ]"
+                    >
+                      <p>Brand</p>
+                    </div>
+                    <div
+                      @click="activeProductTabIndex = 3"
+                      :class="[
+                        'w-full border-x-2 border-y-2  border-gray-100 p-2 text-sm  text-center inline-block align-middle bg-gray-100',
+                        { activeProductTab: activeProductTabIndex === 3 },
+                        { 'pointer-events-none': !selectedBrand },
+                        { 'opacity-50': !selectedBrand },
+                      ]"
+                    >
+                      <p>Model</p>
+                    </div>
+                    <div
+                      @click="activeProductTabIndex = 4"
+                      :class="[
+                        'w-full border-x-2 border-y-2  border-gray-100 p-2 text-sm  text-center inline-block align-middle bg-gray-100',
+                        { activeProductTab: activeProductTabIndex === 4 },
+                        { 'pointer-events-none': !selectedModel },
+                        { 'opacity-50': !selectedModel },
+                      ]"
+                    >
+                      <p>Cover</p>
                     </div>
                   </div>
-                  <div>
-                    <label
-                      for=""
-                      class="font-inter text-md select-none font-semibold mt-2 px-4 leading-7 text-slate-700"
-                      >{{ dictionary.product_brand }}</label
-                    >
-                    <div class="mt-1">
-                      <select
-                        @change="
-                          getPhoneModels(selectedBrand),
-                            updateSelectedBrandTitle()
-                        "
-                        v-model="selectedBrand"
-                        ref="phoneBrand"
-                        id="phoneBrand"
-                        name="phoneBrand"
-                        disabled
-                        class="w-[250px] ml-3 p-2 bg-slate-50 text-slate-700 outline-slate-700/20 focus:text-cyan-700 shadow-inner my-2 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
-                      >
-                        <option disabled value="">
-                          {{ dictionary.select_brand }}
-                        </option>
-                        <option
-                          v-for="brand in brands"
-                          :key="brand.id"
-                          :value="brand.id"
-                          :info="brand.title"
+
+                  <div
+                    class="absolute w-[320px] top-[50px] h-[500px]"
+                    v-if="activeProductTabIndex === 1"
+                    v-motion
+                    :initial="{ opacity: 0.0 }"
+                    :enter="{ opacity: 1 }"
+                    :delay="300"
+                    :duration="300"
+                  >
+                  
+                      <div class="flex flex-row flex-wrap items-start">
+                        <div
+                          class="flex flex-col items-center justify-center m-2 p-2  h-[140px] w-[140px]"
+                          @click="
+                            selectedType = 1;
+                            getDeviceType(selectedType);
+                            setActiveProductTabIndex(2);
+                          "
                         >
-                          {{ brand.title }}
-                        </option>
-                      </select>
+                          <svg
+                            version="1.1"
+                            id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0px"
+                            y="0px"
+                            width="34px"
+                            height="62.486px"
+                            viewBox="0 0 34 62.486"
+                            enable-background="new 0 0 34 62.486"
+                            xml:space="preserve"
+                          >
+                            <g>
+                              <path
+                                fill="#3C3A40"
+                                d="M28.027,0H5.973C2.68,0,0,2.679,0,5.973v50.541c0,3.293,2.68,5.973,5.973,5.973h22.055
+		c3.293,0,5.973-2.68,5.973-5.973V5.973C34,2.679,31.32,0,28.027,0z M31.243,56.514c0,1.771-1.443,3.215-3.216,3.215H5.973
+		c-1.773,0-3.216-1.443-3.216-3.215V5.973c0-1.774,1.442-3.216,3.216-3.216h22.055c1.772,0,3.216,1.441,3.216,3.216V56.514z"
+                              />
+                              <path
+                                fill="#3C3A40"
+                                d="M8.416,12.099c1.987,0,3.605-1.617,3.605-3.605c0-1.988-1.618-3.604-3.605-3.604S4.813,6.505,4.813,8.494
+		C4.813,10.482,6.43,12.099,8.416,12.099z M8.416,7.646c0.468,0,0.849,0.38,0.849,0.847S8.884,9.342,8.416,9.342
+		c-0.467,0-0.848-0.381-0.848-0.849C7.569,8.026,7.949,7.646,8.416,7.646z"
+                              />
+                              <circle
+                                fill="#3C3A40"
+                                cx="14.451"
+                                cy="8.72"
+                                r="1.227"
+                              />
+                            </g>
+                          </svg>
+                          <p class="mt-2">Mobile cover</p>
+                        </div>
+
+                        <div
+                          class="flex flex-col items-center justify-center m-2 p-2  h-[140px] w-[140px]"
+                          @click="
+                            selectedType = 2;
+                            getDeviceType(selectedType);
+                            setActiveProductTabIndex(2);
+                          "
+                        >
+                          <svg
+                            version="1.1"
+                            id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0px"
+                            y="0px"
+                            width="50.139px"
+                            height="72.555px"
+                            viewBox="0 0 50.139 72.555"
+                            enable-background="new 0 0 50.139 72.555"
+                            xml:space="preserve"
+                          >
+                            <g>
+                              <path
+                                fill="#3C3A40"
+                                d="M50.14,6.16c0-3.402-2.759-6.16-6.16-6.16H6.16C2.758,0,0,2.758,0,6.16v60.236
+		c0,3.4,2.758,6.158,6.16,6.158h37.82c3.401,0,6.159-2.758,6.159-6.158L50.14,6.16L50.14,6.16z M45.13,69.209
+		c-0.236,0.096-0.479,0.135-0.736,0.164c-0.114,0.014-0.232-0.002-0.354-0.002H6.192c-0.366,0-0.717-0.039-1.042-0.16
+		c-0.198-0.072-0.384-0.154-0.558-0.268c-0.093-0.059-0.182-0.117-0.267-0.186c-0.344-0.273-0.635-0.613-0.827-1.01
+		c-0.12-0.246-0.215-0.51-0.269-0.787c-0.029-0.16-0.047-0.322-0.047-0.49V52.043v-4.045V6.214c0-1.636,1.375-3.031,3.009-3.031
+		H44.04c1.197,0,2.205,0.747,2.673,1.771c0.171,0.375,0.243,0.823,0.243,1.26v60.257C46.956,67.711,46.214,68.766,45.13,69.209z"
+                              />
+                              <path
+                                fill="#3C3A40"
+                                d="M9.108,4.808c-2.145,0-3.892,1.746-3.892,3.892c0,2.146,1.747,3.892,3.892,3.892
+		c2.147,0,3.893-1.746,3.893-3.892C13,6.554,11.255,4.808,9.108,4.808z M9.108,9.639c-0.518,0-0.939-0.421-0.939-0.94
+		S8.59,7.76,9.108,7.76c0.519,0,0.94,0.42,0.94,0.939S9.627,9.639,9.108,9.639z"
+                              />
+                            </g>
+                          </svg>
+                          <p class="mt-2">Tablet cover</p>
+                        </div>
+                        <div
+                          class="flex flex-col items-center justify-center m-2 p-2  h-[140px] w-[140px]"
+                          @click="
+                            selectedType = 4;
+                            getDeviceType(selectedType);
+                            setActiveProductTabIndex(2);
+                          "
+                        >
+                          <svg
+                            fill="#000000"
+                            height="64px"
+                            width="64px"
+                            version="1.1"
+                            id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="-101.6 -101.6 711.20 711.20"
+                            xml:space="preserve"
+                            stroke="#000000"
+                            stroke-width="0.00508"
+                          >
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g
+                              id="SVGRepo_tracerCarrier"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke="#CCCCCC"
+                              stroke-width="3.048"
+                            ></g>
+                            <g id="SVGRepo_iconCarrier">
+                              <g>
+                                <g>
+                                  <path
+                                    d="M389.35,0h-270.8c-23.4,0-42.3,19-42.3,42.3v406.4c0,22.3,17.3,40.5,39.2,42.2v3c0,7.8,6.3,14.1,14.1,14.1 c7.8,0,14.1-6.3,14.1-14.1V491h220.7v2.8c0,7.8,6.3,14.1,14.1,14.1c7.8,0,14.1-6.3,14.1-14.1v-3c21.9-1.6,39.2-19.9,39.2-42.2 V42.3C431.65,19,412.75,0,389.35,0z M403.45,448.7c0,7.8-6.3,14.1-14.1,14.1h-270.8c-7.8,0-14.1-6.3-14.1-14.1V42.3 c0-7.8,6.3-14.1,14.1-14.1h270.8c7.8,0,14.1,6.3,14.1,14.1V448.7z"
+                                  ></path>
+                                </g>
+                              </g>
+                              <g>
+                                <g>
+                                  <path
+                                    d="M253.95,51.7c-69.7,0-126.3,56.7-126.3,126.3s56.7,126.4,126.3,126.4s126.3-56.7,126.3-126.4S323.65,51.7,253.95,51.7z M253.95,276.1c-54.1,0-98.1-44-98.1-98.1s44-98.1,98.1-98.1s98.1,44,98.1,98.1S308.05,276.1,253.95,276.1z"
+                                  ></path>
+                                </g>
+                              </g>
+                              <g>
+                                <g>
+                                  <path
+                                    d="M253.95,135.7c-23.3,0-42.3,19-42.3,42.3s19,42.3,42.3,42.3s42.3-19,42.3-42.3S277.25,135.7,253.95,135.7z M253.95,192.2 c-7.8,0-14.1-6.3-14.1-14.1s6.3-14.1,14.1-14.1c7.8,0,14.1,6.3,14.1,14.1C268.05,185.8,261.75,192.2,253.95,192.2z"
+                                  ></path>
+                                </g>
+                              </g>
+                              <g>
+                                <g>
+                                  <path
+                                    d="M180.35,334.3c-29,0-52.7,23.6-52.7,52.7c0,29,23.6,52.7,52.7,52.7c29,0,52.7-23.6,52.7-52.7 C232.95,357.9,209.35,334.3,180.35,334.3z M180.35,411.4c-13.5,0-24.5-11-24.5-24.5s11-24.5,24.5-24.5s24.5,11,24.5,24.5 C204.75,400.4,193.75,411.4,180.35,411.4z"
+                                  ></path>
+                                </g>
+                              </g>
+                              <g>
+                                <g>
+                                  <path
+                                    d="M327.55,334.3c-29,0-52.7,23.6-52.7,52.7c0,29,23.6,52.7,52.7,52.7c29,0,52.7-23.6,52.7-52.7 C380.25,357.9,356.65,334.3,327.55,334.3z M327.55,411.4c-13.5,0-24.5-11-24.5-24.5s11-24.5,24.5-24.5s24.5,11,24.5,24.5 S341.05,411.4,327.55,411.4z"
+                                  ></path>
+                                </g>
+                              </g>
+                            </g>
+                          </svg>
+
+                          <p>Gadget cover</p>
+                        </div>
+                      </div>
+                    
+                  </div>
+
+                  <div
+                    class="absolute w-[320px] top-[50px] h-[500px]"
+                    v-if="activeProductTabIndex === 2"
+                    v-motion
+                    :initial="{ opacity: 0.5 }"
+                    :enter="{ opacity: 1 }"
+                    :delay="300"
+                  >
+                    <div
+                      class="relative w-[320px] h-[400px] mt-4 overflow-visible overflow-y-auto"
+                    >
+                      <p
+                        class="w-[300x] border-2 ml-4 p-2 bg-gray-50 font-inter mb-1 text-base select-none font-medium text-left leading-7 text-slate-700"
+                        v-for="brand in brands"
+                        :key="brand.id"
+                        :value="brand.id"
+                        :data="brand.value"
+                        @click="
+                          getPhoneModels(brand.id);
+                          updateSelectedBrandTitle(brand);
+                          setActiveProductTabIndex(3);
+                        "
+                      >
+                        {{ brand.title }}
+                      </p>
                     </div>
                   </div>
-                  <div class="flex flex-col items-start m-2 notvalid">
-                    <label
-                      for=""
-                      class="font-inter text-md select-none font-semibold mt-2 px-4 leading-7 text-slate-700"
-                      >{{ dictionary.product_model }}</label
-                    >
-                    <div class="mt-1">
-                      <select
-                        @change="
-                          getPhoneCase(selectedModel),
-                            updateSelectedModelTitle()
+                  <div
+                    class="relative flex flex-col items-start m-2 notvalid"
+                    v-if="activeProductTabIndex === 3"
+                    v-motion
+                    :initial="{ opacity: 0.5 }"
+                    :enter="{ opacity: 1 }"
+                    :delay="300"
+                  >
+                    <div class="w-[300px] h-[400px] mt-2 overflow-y-auto">
+                      <p
+                        class="w-[290px] border-2 ml-2 p-2 bg-gray-50 font-inter mb-1 text-base select-none font-medium text-left leading-7 text-slate-700"
+                        v-for="model in models"
+                        :key="model.id"
+                        :value="model.id"
+                        :data="model.value"
+                        @click="
+                          getPhoneCase(model.id);
+                          updateSelectedModelTitle(model);
+                          setActiveProductTabIndex(4);
                         "
-                        v-model="selectedModel"
-                        ref="phoneModel"
-                        id="phoneModel"
-                        name="phoneModel"
-                        disabled
-                        class="w-[250px] ml-3 p-2 bg-slate-50 text-slate-700 outline-slate-700/20 focus:text-cyan-700 shadow-inner focus-visible:ring-1 my-2 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
                       >
-                        <option selected value="">
-                          {{ dictionary.select_model }}
-                        </option>
-                        <option
-                          v-for="model in models"
-                          :key="model.id"
-                          :value="model.id"
-                          :data="model.value"
-                        >
-                          {{ model.title }}
-                        </option>
-                      </select>
+                        {{ model.title }}
+                      </p>
                     </div>
                   </div>
-                  <div class="flex flex-col items-start m-2 valid">
-                    <label
-                      for=""
-                      class="font-inter text-md select-none font-semibold mt-2 px-4 leading-7 text-slate-700"
-                      >{{ dictionary.type_of_case }}</label
+                  <div
+                    class="relative flex flex-col items-start m-2 valid"
+                    v-if="activeProductTabIndex === 4"
+                    v-motion
+                    :initial="{ opacity: 0.5 }"
+                    :enter="{ opacity: 1 }"
+                    :delay="300"
+                  >
+                    <div
+                      class="hover:scale-105 flex flex-row bg-gray-50 items-start border-2 mt-1 mx-4 h-[130px] w-[280px]"
+                      v-for="(caseType, index) in casesTypes"
+                      :key="caseType.id"
+                      :value="index"
+                      @click="
+                        addPhoneToCanvas(caseType),
+                          updateSelectedCaseTitle(caseType),
+                          setActiveProductTabIndex(1)
+                          
+                      "
                     >
-                    <div class="mt-2">
-                      <select
-                        @change="
-                          addPhoneToCanvas(selectedCaseType),
-                            updateSelectedCaseTitle()
-                        "
-                        v-model="selectedCaseType"
-                        class="w-[250px] m-3 p-2 bg-slate-50 text-slate-700 outline-slate-700/20 focus:text-cyan-700 shadow-inner my-2 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
-                        disabled
-                        ref="phoneCase"
-                        id="phoneCase"
-                        name="phoneCase"
-                      >
-                        <option value="">{{ dictionary.select_case }}</option>
-                        <option
-                          v-for="(caseType, index) in casesTypes"
-                          :key="caseType.id"
-                          :value="index"
+                      <div class="h-[120px] w-[120px]">
+                        <img
+                          class="hover:sca p-1 w-fit h-fit bg-gray-50 font-inter mb-1 text-base select-none font-medium text-left leading-7 text-slate-700"
+                          :src="caseType.info_image"
+                        />
+                      </div>
+                      <div class="flex flex-col items-center justify-center">
+                        <div
+                          class="h-[120px] w-[130px] flex flex-col items-center"
                         >
-                          {{ caseType.translated_title }}
-                        </option>
-                      </select>
+                          <h3
+                            class="w-full  bg-gray-50 font-inter my-8 text-base  select-none font-medium text-left leading-2 text-slate-700"
+                          >
+                            {{ caseType.translated_title }}
+
+                            {{ selectedCaseType }}
+                          </h3>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1177,27 +1357,31 @@
                   :enter="{ opacity: 1, scale: 1, translateY: 0, delay: 100 }"
                   class="absolute w-[270px] h-[170px] rounded-md m-2 p-4 bg-gray-100 flex flex-col gap-2 bottom-0"
                 >
-                  <div class="w-full px-1 m-2 text-center text-xl font-inter font-semibold leading-none tracking-tight text-slate-500"><p>Select gallery type:</p></div>
+                  <div
+                    class="w-full px-1 m-2 text-center text-xl font-inter font-semibold leading-none tracking-tight text-slate-500"
+                  >
+                    <p>Select gallery type:</p>
+                  </div>
                   <div class="flex flex-row w-full">
-                  <div
-                    class="px-1 m-2 text-center text-md font-inter font-extrabold leading-none tracking-tight text-slate-500"
-                    @click="filterByCategory('a')"
-                  >
-                    Animals
+                    <div
+                      class="px-1 m-2 text-center text-md font-inter font-extrabold leading-none tracking-tight text-slate-500"
+                      @click="filterByCategory('a')"
+                    >
+                      Animals
+                    </div>
+                    <div
+                      class="px-1 m-2 text-center text-md font-inter font-extrabold leading-none tracking-tight text-slate-500"
+                      @click="filterByCategory('b')"
+                    >
+                      Space
+                    </div>
+                    <div
+                      class="px-1 m-2 text-center text-md font-inter font-extrabold leading-none tracking-tight text-slate-500"
+                      @click="filterByCategory('c')"
+                    >
+                      Cats
+                    </div>
                   </div>
-                  <div
-                    class="px-1 m-2 text-center text-md font-inter font-extrabold leading-none tracking-tight text-slate-500"
-                    @click="filterByCategory('b')"
-                  >
-                    Space
-                  </div>
-                  <div
-                    class="px-1 m-2 text-center text-md font-inter font-extrabold leading-none tracking-tight text-slate-500"
-                    @click="filterByCategory('c')"
-                  >
-                    Cats
-                  </div>
-                </div>
                 </div>
                 <div
                   class="absolute left-[40%] -bottom-10 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
@@ -1208,11 +1392,40 @@
                     <p
                       class="px-1 mb-2 animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
                     >
-                  
-                      <svg @click="toggleFilterMenu"
+                      <svg
+                        @click="toggleFilterMenu"
                         class="w-[30px] h-[30px] mt-2"
                         viewBox="0 0 24 24"
-                        fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.5" d="M2 6.5C2 4.37868 2 3.31802 2.65901 2.65901C3.31802 2 4.37868 2 6.5 2C8.62132 2 9.68198 2 10.341 2.65901C11 3.31802 11 4.37868 11 6.5C11 8.62132 11 9.68198 10.341 10.341C9.68198 11 8.62132 11 6.5 11C4.37868 11 3.31802 11 2.65901 10.341C2 9.68198 2 8.62132 2 6.5Z" fill="#d1d1d1"></path> <path opacity="0.5" d="M13 17.5C13 15.3787 13 14.318 13.659 13.659C14.318 13 15.3787 13 17.5 13C19.6213 13 20.682 13 21.341 13.659C22 14.318 22 15.3787 22 17.5C22 19.6213 22 20.682 21.341 21.341C20.682 22 19.6213 22 17.5 22C15.3787 22 14.318 22 13.659 21.341C13 20.682 13 19.6213 13 17.5Z" fill="#d1d1d1"></path> <path d="M2 17.5C2 15.3787 2 14.318 2.65901 13.659C3.31802 13 4.37868 13 6.5 13C8.62132 13 9.68198 13 10.341 13.659C11 14.318 11 15.3787 11 17.5C11 19.6213 11 20.682 10.341 21.341C9.68198 22 8.62132 22 6.5 22C4.37868 22 3.31802 22 2.65901 21.341C2 20.682 2 19.6213 2 17.5Z" fill="#d1d1d1"></path> <path d="M13 6.5C13 4.37868 13 3.31802 13.659 2.65901C14.318 2 15.3787 2 17.5 2C19.6213 2 20.682 2 21.341 2.65901C22 3.31802 22 4.37868 22 6.5C22 8.62132 22 9.68198 21.341 10.341C20.682 11 19.6213 11 17.5 11C15.3787 11 14.318 11 13.659 10.341C13 9.68198 13 8.62132 13 6.5Z" fill="#d1d1d1"></path> </g></svg>
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g
+                          id="SVGRepo_tracerCarrier"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <path
+                            opacity="0.5"
+                            d="M2 6.5C2 4.37868 2 3.31802 2.65901 2.65901C3.31802 2 4.37868 2 6.5 2C8.62132 2 9.68198 2 10.341 2.65901C11 3.31802 11 4.37868 11 6.5C11 8.62132 11 9.68198 10.341 10.341C9.68198 11 8.62132 11 6.5 11C4.37868 11 3.31802 11 2.65901 10.341C2 9.68198 2 8.62132 2 6.5Z"
+                            fill="#d1d1d1"
+                          ></path>
+                          <path
+                            opacity="0.5"
+                            d="M13 17.5C13 15.3787 13 14.318 13.659 13.659C14.318 13 15.3787 13 17.5 13C19.6213 13 20.682 13 21.341 13.659C22 14.318 22 15.3787 22 17.5C22 19.6213 22 20.682 21.341 21.341C20.682 22 19.6213 22 17.5 22C15.3787 22 14.318 22 13.659 21.341C13 20.682 13 19.6213 13 17.5Z"
+                            fill="#d1d1d1"
+                          ></path>
+                          <path
+                            d="M2 17.5C2 15.3787 2 14.318 2.65901 13.659C3.31802 13 4.37868 13 6.5 13C8.62132 13 9.68198 13 10.341 13.659C11 14.318 11 15.3787 11 17.5C11 19.6213 11 20.682 10.341 21.341C9.68198 22 8.62132 22 6.5 22C4.37868 22 3.31802 22 2.65901 21.341C2 20.682 2 19.6213 2 17.5Z"
+                            fill="#d1d1d1"
+                          ></path>
+                          <path
+                            d="M13 6.5C13 4.37868 13 3.31802 13.659 2.65901C14.318 2 15.3787 2 17.5 2C19.6213 2 20.682 2 21.341 2.65901C22 3.31802 22 4.37868 22 6.5C22 8.62132 22 9.68198 21.341 10.341C20.682 11 19.6213 11 17.5 11C15.3787 11 14.318 11 13.659 10.341C13 9.68198 13 8.62132 13 6.5Z"
+                            fill="#d1d1d1"
+                          ></path>
+                        </g>
+                      </svg>
                     </p>
                   </div>
                 </div>
@@ -1777,10 +1990,7 @@
             </div>
 
             <p
-              v-if="
-                casesTypes[selectedCaseType] &&
-                casesTypes[selectedCaseType].price
-              "
+              v-if="selectedType && selectedCasePrice"
               class="visible font-inter select-none w-[280px] my-5 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
             >
               {{ dictionary.alert_box_cart_full }}
@@ -1798,10 +2008,7 @@
               class="relative flex w-[300px] h-[300px] mt-3 flex-col items-center"
             >
               <svg
-                v-if="
-                  casesTypes[selectedCaseType] &&
-                  casesTypes[selectedCaseType].price
-                "
+                v-if="selectedType && selectedCasePrice"
                 class="w-full fill-current"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -1820,10 +2027,7 @@
               </svg>
 
               <svg
-                v-else="
-                  casesTypes[selectedCaseType] &&
-                  casesTypes[selectedCaseType].price
-                "
+                v-else="selectedType && selectedCasePrice"
                 class="w-full fill-current"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -1870,51 +2074,34 @@
 
               <div>
                 <p
-                  v-if="
-                    casesTypes[selectedCaseType] &&
-                    casesTypes[selectedCaseType].price
-                  "
+                  v-if="selectedType && selectedCasePrice"
                   class="whitespace-wrap mt-2 font-extrabold text-sm text-center leading-12 text-slate-700"
                 >
                   {{ this.selectedModelTitle }}
                 </p>
                 <p
-                  v-if="
-                    casesTypes[selectedCaseType] &&
-                    casesTypes[selectedCaseType].price
-                  "
+                  v-if="selectedType && selectedCasePrice"
                   class="whitespace-wrap font-medium text-sm text-center text-slate-400"
                 >
                   {{ this.selectedCaseTitle }}
                 </p>
                 <p
-                  v-if="
-                    casesTypes[selectedCaseType] &&
-                    casesTypes[selectedCaseType].price
-                  "
+                  v-if="selectedType && selectedCasePrice"
                   class="whitespace-wrap mt-2 font-extrabold select-none text-sm text-center leading-12 text-slate-700"
                 >
                   {{ dictionary.price }}
                 </p>
                 <p
-                  v-else="
-                    casesTypes[selectedCaseType] &&
-                    casesTypes[selectedCaseType].price
-                  "
+                  v-else="selectedType && selectedCasePrice"
                   class="whitespace-wrap font-extrabold select-none text-md text-center leading-12 text-slate-700"
                 >
                   {{ dictionary.alert_box_cart }}
                 </p>
                 <p
-                  v-if="
-                    casesTypes[selectedCaseType] &&
-                    casesTypes[selectedCaseType].price
-                  "
+                  v-if="selectedType && selectedCasePrice"
                   class="animate-pulse mt-[80px] sm:mt-1 m-2 px-3 py-0 whitespace-wrap font-extrabold text-xl md:text-xl text-center leading-7 text-slate-400"
                 >
-                  {{
-                    parseFloat(casesTypes[selectedCaseType].price).toFixed(2)
-                  }}
+                  {{ parseFloat(selectedCasePrice).toFixed(2) }}
                   <span
                     class="animate-none select-none -ml-1 text-justify text-2xl text-slate-700"
                     >{{ dictionary.currency }}</span
@@ -2444,6 +2631,7 @@ export default {
       brands: [],
       activeLayerIndex: null,
       activeTabIndex: null,
+      activeProductTabIndex: 1,
       showDialog: true,
       activeTabImages: 1,
       activeTabText: 1,
@@ -2466,6 +2654,7 @@ export default {
       selectedBrand: "",
       selectedModel: "",
       selectedCaseType: "",
+      selectedCasePrice: "",
       selectedImage: [],
       selectedText: [],
       objectsWithName: [],
@@ -2637,26 +2826,27 @@ export default {
       const lastImageElement = this.$refs[`image-${lastImage.id}`];
       lastImageElement.$el.click();
     },
-    updateSelectedBrandTitle() {
-      const selectedBrand = this.brands.find(
-        (brand) => brand.id === this.selectedBrand
-      );
+    updateSelectedBrandTitle(brand) {
+      console.log(brand.title);
+      const selectedBrand = this.brands.find((b) => b.id === brand.id);
       this.selectedBrandTitle = selectedBrand.title;
+      this.selectedBrand = selectedBrand.title;
+      console.log(this.selectedBrand);
       console.log(this.selectedBrandTitle);
     },
-    updateSelectedModelTitle() {
-      const selectedModel = this.models.find(
-        (brand) => brand.id === this.selectedModel
-      );
+    updateSelectedModelTitle(model) {
+      console.log(this.models);
+      const selectedModel = this.models.find((m) => m.id === model.id);
       this.selectedModelTitle = selectedModel.title;
+      this.selectedModel = model.title;
       console.log(this.selectedModelTitle);
     },
-    updateSelectedCaseTitle() {
-      const selectedCase = this.casesTypes.find(
-        (brand) => brand.id === this.selectedCase
-      );
-      this.selectedCaseTitle = this.casesTypes[this.selectedCaseType].title;
-      console.log(this.casesTypes[this.selectedCaseType].title);
+    updateSelectedCaseTitle(caseType) {
+      const selectedCase = this.casesTypes.find((c) => c.id === caseType.id);
+      this.selectedCase = caseType.title;
+      this.selectedCasePrice = caseType.price;
+      this.selectedCaseTitle = selectedCase.title;
+      console.log(caseType.title);
     },
 
     setLayers() {
@@ -3106,6 +3296,10 @@ export default {
       this.showDialog = !this.showDialog;
     },
 
+    setActiveProductTabIndex(key) {
+      this.activeProductTabIndex = key;
+    },
+
     setActiveTabIndex(key) {
       if (this.mobileMode === true) {
         this.toggleDialog();
@@ -3347,7 +3541,7 @@ export default {
           customControl2: false,
           customControl3: true,
           customControl4: false,
-            customControl5: true,
+          customControl5: true,
         });
 
         newText.visible = true;
@@ -3388,24 +3582,26 @@ export default {
     addPhoneToCanvas(caseType) {
       this.showDialog = false;
       this.clearAllCanvas();
-      this.activeIndex = 0;
+      
       console.table(this.selectedType);
-      console.log(this.casesTypes[this.selectedCaseType].title);
-      if (this.casesTypes[this.selectedCaseType].title === "Flip Case") {
+      console.table("+++++++++++++++");
+      console.log(caseType.title);
+      console.table("+++++++++++++++");
+      if (caseType.title === "Flip Case") {
         this.offsetCollage = this.offsetCollage + 90;
         this.canvas.renderAll();
       } else {
         this.offsetCollage = 0;
         this.canvas.renderAll();
       }
+      console.log(caseType);
+      this.exportMaskClipImage = caseType.image_draw_mask;
+      this.exportPlaceholderImage = caseType.image_placeholder;
+      console.log(caseType.dd_product_id);
+      this.fetchStockData(caseType.dd_product_id);
 
-      this.exportMaskClipImage = this.casesTypes[caseType].image_draw_mask;
-      this.exportPlaceholderImage = this.casesTypes[caseType].image_placeholder;
-      console.log(this.casesTypes[caseType].dd_product_id);
-      this.fetchStockData(this.casesTypes[caseType].dd_product_id);
-
-      console.log(this.casesTypes[caseType]);
-      console.log(this.casesTypes[caseType].image_draw_mask);
+      // console.log(this.casesTypes[caseType]);
+      // console.log(this.casesTypes[caseType].image_draw_mask);
 
       // Logic to add the selected shape to the canvas
 
@@ -3429,7 +3625,7 @@ export default {
       // adding phone mask to cannvas
 
       const back = fabric.Image.fromURL(
-        this.casesTypes[caseType].image_placeholder,
+        caseType.image_placeholder,
         (background) => {
           // the scaleToHeight property is use to set the image height
           background.scaleToHeight(320);
@@ -3463,7 +3659,7 @@ export default {
       );
 
       const trans = fabric.Image.fromURL(
-        this.casesTypes[caseType].image_draw_mask,
+        caseType.image_draw_mask,
         (img) => {
           // the scaleToHeight property is use to set the image height
           img.scaleToHeight(320);
@@ -3625,10 +3821,10 @@ export default {
               br: false,
               tl: false,
               tr: false,
-              mb: false,
-              ml: false,
-              mr: false,
-              mt: false,
+              mb: true,
+              ml: true,
+              mr: true,
+              mt: true,
               mtr: true,
               customControl: false,
               customControl2: false,
@@ -3770,13 +3966,13 @@ export default {
       this.showDialog = false;
       this.uploadedLayers = [];
       this.activeLayerIndex = null;
-      if (
-        this.selectedBrand === "" ||
-        this.selectedModel === "" ||
-        this.selectedCaseType === ""
-      ) {
-        return;
-      }
+      // if (
+      //   this.selectedBrand === "" ||
+      //   this.selectedModel === "" ||
+      //   this.selectedCaseType === ""
+      // ) {
+      //   return;
+      // }
 
       this.setActiveItemIndex(key);
       const objects = this.canvas.getObjects();
@@ -3905,13 +4101,13 @@ export default {
       this.showDialog = false;
       this.uploadedLayers = [];
       this.activeLayerIndex = null;
-      if (
-        this.selectedBrand === "" ||
-        this.selectedModel === "" ||
-        this.selectedCaseType === ""
-      ) {
-        return;
-      }
+      // if (
+      //   this.selectedBrand === "" ||
+      //   this.selectedModel === "" ||
+      //   this.selectedCaseType === ""
+      // ) {
+      //   return;
+      // }
 
       this.setActiveItemIndex(key);
       const objects = this.canvas.getObjects();
@@ -4006,13 +4202,13 @@ export default {
       this.showDialog = false;
       this.uploadedLayers = [];
       this.activeLayerIndex = null;
-      if (
-        this.selectedBrand === "" ||
-        this.selectedModel === "" ||
-        this.selectedCaseType === ""
-      ) {
-        return;
-      }
+      // if (
+      //   this.selectedBrand === "" ||
+      //   this.selectedModel === "" ||
+      //   this.selectedCaseType === ""
+      // ) {
+      //   return;
+      // }
 
       this.setActiveItemIndex(key);
       const objects = this.canvas.getObjects();
@@ -4197,13 +4393,13 @@ export default {
       this.showDialog = false;
       this.uploadedLayers = [];
       this.activeLayerIndex = null;
-      if (
-        this.selectedBrand === "" ||
-        this.selectedModel === "" ||
-        this.selectedCaseType === ""
-      ) {
-        return;
-      }
+      // if (
+      //   this.selectedBrand === "" ||
+      //   this.selectedModel === "" ||
+      //   this.selectedCaseType === ""
+      // ) {
+      //   return;
+      // }
 
       this.setActiveItemIndex(key);
       const objects = this.canvas.getObjects();
@@ -4436,13 +4632,13 @@ export default {
       this.uploadedLayers = [];
       this.activeLayerIndex = null;
 
-      if (
-        this.selectedBrand === "" ||
-        this.selectedModel === "" ||
-        this.selectedCaseType === ""
-      ) {
-        return;
-      }
+      // if (
+      //   this.selectedBrand === "" ||
+      //   this.selectedModel === "" ||
+      //   this.selectedCaseType === ""
+      // ) {
+      //   return;
+      // }
 
       this.setActiveItemIndex(key);
       const objects = this.canvas.getObjects();
@@ -4521,13 +4717,13 @@ export default {
       this.showDialog = false;
       this.uploadedLayers = [];
       this.activeLayerIndex = null;
-      if (
-        this.selectedBrand === "" ||
-        this.selectedModel === "" ||
-        this.selectedCaseType === ""
-      ) {
-        return;
-      }
+      // if (
+      //   this.selectedBrand === "" ||
+      //   this.selectedModel === "" ||
+      //   this.selectedCaseType === ""
+      // ) {
+      //   return;
+      // }
 
       this.setActiveItemIndex(key);
       const objects = this.canvas.getObjects();
@@ -4622,18 +4818,18 @@ export default {
       this.fetchModelsData();
       this.fetchCaseTypeData();
 
-      if (type === "") {
-        brandDropDown.disabled = true;
-        brandDropDown.selectedIndex = 0;
-        // selectCaseDropDown.disabled = true;
-        // selectCaseDropDown= selectCaseDropDown.selectedValue;
-        return false;
-      }
+      // if (type === "") {
+      //   brandDropDown.disabled = true;
+      //   brandDropDown.selectedIndex = 0;
+      //   // selectCaseDropDown.disabled = true;
+      //   // selectCaseDropDown= selectCaseDropDown.selectedValue;
+      //   return false;
+      // }
 
-      brandDropDown.disabled = false;
-      this.selectedBrand = "";
-      this.selectedModel = "";
-      this.selectedCaseType = "";
+      //   brandDropDown.disabled = false;
+      // this.selectedBrand = "";
+      // this.selectedModel = "";
+      // this.selectedCaseType = "";
     },
 
     async fetchBrandsData(typed) {
@@ -4676,28 +4872,28 @@ export default {
       console.log(brand);
       const modelDropDown = this.$refs.phoneModel;
 
-      if (brand === "") {
-        modelDropDown.disabled = true;
-        modelDropDown.selectedIndex = 0;
-        return false;
-      }
+      // if (brand === "") {
+      //   modelDropDown.disabled = true;
+      //   modelDropDown.selectedIndex = 0;
+      //   return false;
+      // }
 
-      modelDropDown.disabled = false;
+      // modelDropDown.disabled = false;
       this.fetchModelsData(brand);
-      this.selectedModel = "";
-      this.selectedCaseType = "";
+      // this.selectedModel = "";
+      // this.selectedCaseType = "";
     },
     getPhoneCase(model) {
       const caseDropDown = this.$refs.phoneCase;
       console.log(model);
-      if (model === "") {
-        caseDropDown.disabled = true;
-        caseDropDown.selectedIndex = 0;
-        return false;
-      }
+      // if (model === "") {
+      //   caseDropDown.disabled = true;
+      //   caseDropDown.selectedIndex = 0;
+      //   return false;
+      // }
 
-      caseDropDown.disabled = false;
-      this.selectedCaseType = "";
+      // caseDropDown.disabled = false;
+      // this.selectedCaseType = "";
       this.fetchCaseTypeData(model);
     },
 
@@ -6015,12 +6211,7 @@ export default {
     );
 
     this.canvas.on("selection:cleared", (obj) => {
-      if (
-        obj.deselected &&
-        obj.deselected[0] &&
-        obj.deselected[0].id 
-        
-      ) {
+      if (obj.deselected && obj.deselected[0] && obj.deselected[0].id) {
         const patternObjects = this.canvas
           .getObjects()
           .filter((obj) => obj.name === "pattern");
@@ -6035,8 +6226,7 @@ export default {
         console.log(obj.deselected[0]);
         console.log(obj.deselected[0].id);
         this.setActiveObjectById(obj.deselected[0].id);
-      } 
-      
+      }
     });
     // show add button on patterns on hover if canvas is empty
     this.canvas.on("mouse:over", (options) => {
@@ -6053,12 +6243,12 @@ export default {
     });
 
     this.canvas.on("before:selection:cleared", (object) => {
-      console.log('Deselected object', object.target )
+      console.log("Deselected object", object.target);
       const activeObject = this.canvas.getActiveObject();
       if (activeObject?.id === object.target.id) {
-            this.canvas.setActiveObject(activeObject);
-            console.log("++++++++++++++");
-          };
+        this.canvas.setActiveObject(activeObject);
+        console.log("++++++++++++++");
+      }
     });
 
     this.canvas.on(
@@ -6418,6 +6608,13 @@ export default {
 .activeTab {
   @apply bg-gray-100;
   @apply text-gray-600;
+  @apply shadow-inner;
+}
+.activeProductTab {
+  @apply bg-white;
+  @apply text-gray-700;
+  @apply border-y-0;
+  @apply border-x-0;
   @apply shadow-inner;
 }
 .activeTabImages {
