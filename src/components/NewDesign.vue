@@ -910,9 +910,9 @@
                       :key="caseType.id"
                       :value="index"
                       @click="
-                        addPhoneToCanvas(caseType),
-                          updateSelectedCaseTitle(caseType),
-                          setActiveProductTabIndex(1)
+                        addPhoneToCanvas(caseType);
+                          updateSelectedCaseTitle(caseType);
+                          mobileMode &&  (activeTabIndex = 2) && setActiveProductTabIndex(1);
                           
                       "
                     >
