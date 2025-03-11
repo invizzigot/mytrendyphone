@@ -65,7 +65,7 @@
     </div>
   </div>
   <div
-    class="z-0 items-start justify-between lg:justify-normal flex flex-col lg:flex-row h-[calc(100vh-70px)] lg:h-[calc(100vh-100px)]"
+    class="z-0 items-start justify-between lg:justify-normal flex flex-col lg:flex-row h-[calc(100vh-70px)] lg:h-[100vh]"
   >
     <ul
       class="absolute z-50 bg-white lg:relative flex bottom-0 flex-row lg:flex-col text-md h-[50px] text-sm font-xl text-gray-100"
@@ -625,7 +625,7 @@
                   </div>
                 </div>
 
-                <div class="flex flex-col items-center h-[500px]">
+                <div class="flex flex-col items-center w-[95vw] lg:w-[320px] h-[500px]">
                   <div
                     class="flex flex-row w-[95vw] lg:w-[320px] h-[50px] justify-evenly bg-gray-100"
                   >
