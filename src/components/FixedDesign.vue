@@ -2804,7 +2804,7 @@ export default {
       activeProductTabIndex: 1,
       showDialog: true,
       activeTabImages: 1,
-      activeCategory: 1,
+      activeCategory: 3,
       activeTabText: 1,
       activeIndex: null,
       activeProduct: null,
