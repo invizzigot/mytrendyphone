@@ -966,6 +966,7 @@
                       :key="caseType.id"
                       :value="index"
                       @click="
+		        removeObjectsForClipPath();
                         addPhoneToCanvas(caseType);
                         updateSelectedCaseTitle(caseType);
                           mobileMode &&
