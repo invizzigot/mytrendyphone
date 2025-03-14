@@ -968,7 +968,7 @@
                       @click="
                         addPhoneToCanvas(caseType);
                         updateSelectedCaseTitle(caseType);
-                        
+                          mobileMode &&
                           (activeTabIndex = 2) &&
                           setActiveProductTabIndex(1);
                           setActiveCaseIndex(caseType.id);
