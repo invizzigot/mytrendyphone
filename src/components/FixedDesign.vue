@@ -1,9 +1,9 @@
 <template class="flex flex-col">
   <div
-    class="flex-row flex items-center justify-start relative w-[100vw] p-1 h-[55px] shadow-inner bg-gray-200"
+    class="flex-row flex items-center justify-start relative w-[100vw] p-1 h-[55px] shadow-inner bg-main-color-bg ring-1 ring-slate-900/5"
   >
     <div
-      class="relative ml-4 w-[40px] h-[40px] bg-white rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center align-middle"
+      class="relative ml-4 w-[40px] h-[40px] bg-white main-color-bg rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center align-middle"
     >
       <span class="text-center ml-3 text-white w-[50px]">
         <svg
@@ -29,35 +29,35 @@
       >
         <p
           v-if="selectedBrand"
-          class="whitespace-wrap font-extrabold select-none text-sm text-center leading-12 text-slate-700"
+          class="whitespace-wrap font-medium select-none text-sm text-center leading-12 text-white"
         >
           {{ selectedBrand }}
         </p>
         <p
           v-if="selectedBrand"
-          class="whitespace-wrap font-extrabold select-none text-sm text-center leading-12 text-slate-700"
+          class="whitespace-wrap font-medium select-none text-sm text-center leading-12 text-white"
         >
           /
         </p>
         <p
           v-if="selectedModel"
-          class="whitespace-wrap font-medium text-sm select-none text-center text-slate-400"
+          class="whitespace-wrap font-medium text-sm select-none text-center text-white"
         >
           {{ selectedModel }}
         </p>
         <p
           v-if="selectedModel"
-          class="whitespace-wrap font-extrabold select-none text-sm text-center leading-12 text-slate-700"
+          class="whitespace-wrap font-medium select-none text-sm text-center leading-12 text-white"
         >
           /
         </p>
         <p
           v-if="selectedCasePrice"
-          class="whitespace-wrap font-extrabold select-none text-sm text-center leading-12 text-slate-700"
+          class="whitespace-wrap font-medium select-none text-sm text-center leading-12 text-white"
         >
           {{ selectedCasePrice }}
           <span
-            class="whitespace-wrap font-extrabold select-none text-sm text-center leading-12 text-slate-700"
+            class="whitespace-wrap font-medium select-none text-sm text-center leading-12 text-white"
             >{{ dictionary.currency }}</span
           >
         </p>
@@ -65,7 +65,7 @@
     </div>
   </div>
   <div
-    class="z-0 items-start justify-between lg:justify-normal flex flex-col lg:flex-row h-[calc(100vh-70px)] lg:h-[100vh]"
+    class="z-0 items-start justify-between lg:justify-normal flex flex-col lg:flex-row h-[calc(100vh-70px)] lg:h-[ 100vh]"
   >
     <ul
       class="absolute z-50 bg-white lg:relative flex bottom-0 flex-row lg:flex-col text-md h-[50px] text-sm font-xl text-gray-100"
@@ -88,7 +88,7 @@
                 :initial="{ opacity: 0, scale: 0 }"
                 :enter="{ opacity: 1, scale: 1 }"
                 :delay="300"
-                class="absolute z-20 w-10 h-10 mx-auto bg-gray-400 border-2 border-gray-200 rounded-full text-lg text-white flex items-center"
+                class="absolute z-20 w-10 h-10 mx-auto bg-main-color-bg border-2 border-gray-200 rounded-full text-lg text-white flex items-center"
               >
                 <span class="text-center text-white w-full">
                   <svg
@@ -179,7 +179,7 @@
                 :initial="{ opacity: 0, scale: 0 }"
                 :enter="{ opacity: 1, scale: 1 }"
                 :delay="300"
-                class="absolute z-20 w-10 h-10 mx-auto bg-gray-400 border-2 border-gray-200 rounded-full text-lg text-white flex items-center"
+                class="absolute z-20 w-10 h-10 mx-auto bg-main-color-bg border-2 border-gray-200 rounded-full text-lg text-white flex items-center"
               >
                 <span class="text-center text-white w-full">
                   <svg
@@ -288,7 +288,7 @@
                 :initial="{ opacity: 0, scale: 0 }"
                 :enter="{ opacity: 1, scale: 1 }"
                 :delay="200"
-                class="absolute z-20 w-10 h-10 mx-auto bg-gray-400 border-2 border-gray-200 rounded-full text-lg text-white flex items-center"
+                class="absolute z-20 w-10 h-10 mx-auto bg-main-color-bg border-2 border-gray-200 rounded-full text-lg text-white flex items-center"
               >
                 <span class="text-center text-white w-full">
                   <svg
@@ -384,7 +384,7 @@
                 :initial="{ opacity: 0, scale: 0 }"
                 :enter="{ opacity: 1, scale: 1 }"
                 :delay="500"
-                class="absolute z-20 w-10 h-10 mx-auto bg-gray-400 border-2 border-gray-200 rounded-full text-lg text-white flex items-center"
+                class="absolute z-20 w-10 h-10 mx-auto bg-main-color-bg border-2 border-gray-200 rounded-full text-lg text-white flex items-center"
               >
                 <span class="text-center text-white w-full">
                   <svg
@@ -500,7 +500,7 @@
                 :initial="{ opacity: 0, scale: 0 }"
                 :enter="{ opacity: 1, scale: 1 }"
                 :delay="300"
-                class="absolute z-20 w-10 h-10 mx-auto bg-gray-400 border-2 border-gray-200 rounded-full text-lg text-white flex items-center"
+                class="absolute z-20 w-10 h-10 mx-auto bg-main-color-bg border-2 border-gray-200 rounded-full text-lg text-white flex items-center"
               >
                 <span class="text-center text-white w-full">
                   <svg
@@ -580,17 +580,17 @@
           <div class="relative z-40 w-[100vw] lg:w-[360px] h-[480px]">
             <div class="hidden lg:flex flex-col ml-8 m-2 items-left">
               <p
-                class="font-inter text-base select-none mt-0 font-semibold leading-2 text-slate-700"
+                class="font-arial text-base select-none mt-0 font-semibold leading-2 text-slate-700"
               >
                 {{ dictionary.step_one }}
               </p>
               <h1
-                class="font-inter font-extrabold select-none leading-none tracking-tight text-slate-900 text-4xl sm:leading-[3.5rem]"
+                class="font-arial font-extrabold select-none leading-none tracking-tight text-slate-900 text-4xl sm:leading-[3.5rem]"
               >
                 {{ dictionary.step_one_title }}
               </h1>
               <p
-                class="font-inter mb-1 text-base select-none font-medium text-left leading-7 text-slate-700"
+                class="font-arial mb-1 text-base select-none font-medium text-left leading-7 text-slate-700"
               >
                 {{ dictionary.step_one_description }}
               </p>
@@ -605,7 +605,7 @@
                   class="absolute m-2 w-[270px] h-[345px] ring-1 ring-slate-900/5 bg-slate-50 z-10"
                 >
                   <p
-                    class="font-inter select-none w-[260px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+                    class="font-arial select-none w-[260px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
                   >
                     {{ dictionary.alert_box_out_of_stock }}
                   </p>
@@ -614,10 +614,10 @@
                   >
                     <div
                       @click="alertMessageItemStockClose()"
-                      class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-inner font-inter ring-1 ring-slate-900/10"
+                      class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-inner font-arial ring-1 ring-slate-900/10"
                     >
                       <p
-                        class="text-center text-base select-none font-inter font-bold text-slate-100"
+                        class="text-center text-base select-none font-arial font-bold text-slate-100"
                       >
                         {{ dictionary.action_close }}
                       </p>
@@ -625,7 +625,9 @@
                   </div>
                 </div>
 
-                <div class="flex flex-col items-center w-[95vw] lg:w-[320px] h-[500px]">
+                <div
+                  class="flex flex-col items-center w-[95vw] lg:w-[320px] h-[500px]"
+                >
                   <div
                     class="flex flex-row w-[95vw] lg:w-[320px] h-[50px] justify-evenly bg-gray-100"
                   >
@@ -684,13 +686,19 @@
                   >
                     <div class="flex flex-row flex-wrap items-start">
                       <div
-                        class="flex flex-col items-center justify-center m-2 p-2 h-[140px] w-[140px]"
+                        class="relative flex flex-col items-center justify-center m-2 p-2 h-[140px] w-[140px]"
                         @click="
                           selectedType = 1;
                           getDeviceType(selectedType);
                           setActiveProductTabIndex(2);
+                          setActiveProductIndex(1);
                         "
                       >
+                        <div
+                          v-if="activeProduct === 1"
+                          v-motion-pop
+                          class="absolute m-0 inset-5 left-0 top-0 border-spacing-6 border-[2px] border-solid w-full h-full border-blue-400"
+                        ></div>
                         <svg
                           version="1.1"
                           id="Layer_1"
@@ -729,13 +737,19 @@
                       </div>
 
                       <div
-                        class="flex flex-col items-center justify-center m-2 p-2 h-[140px] w-[140px]"
+                        class="relative flex flex-col items-center justify-center m-2 p-2 h-[140px] w-[140px]"
                         @click="
                           selectedType = 2;
                           getDeviceType(selectedType);
                           setActiveProductTabIndex(2);
+                          setActiveProductIndex(2);
                         "
                       >
+                        <div
+                          v-if="activeProduct === 2"
+                          v-motion-pop
+                           class="absolute m-0 inset-5 left-0 top-0 border-spacing-6 border-[2px] border-solid w-full h-full border-blue-400"
+                        ></div>
                         <svg
                           version="1.1"
                           id="Layer_1"
@@ -770,13 +784,19 @@
                         <p class="mt-2">Tablet cover</p>
                       </div>
                       <div
-                        class="flex flex-col items-center justify-center m-2 p-2 h-[140px] w-[140px]"
+                        class="flex relative flex-col items-center justify-center m-2 p-2 h-[140px] w-[140px]"
                         @click="
                           selectedType = 4;
                           getDeviceType(selectedType);
                           setActiveProductTabIndex(2);
+                          setActiveProductIndex(3);
                         "
                       >
+                      <div
+                          v-if="activeProduct === 3"
+                          v-motion-pop
+                           class="absolute m-0 inset-5 left-0 top-0 border-spacing-6 border-[2px] border-solid w-full h-full border-blue-400"
+                        ></div>
                         <svg
                           fill="#000000"
                           height="64px"
@@ -851,11 +871,11 @@
                     :delay="300"
                   >
                     <div
-                      v-if="this.noInternetConnection"
+                      v-if="this.alertMessageNoInterntet"
                       class="absolute m-2 w-[300px] h-[345px] ring-1 ring-slate-900/5 bg-slate-50 z-10"
                     >
                       <p
-                        class="font-inter select-none w-[260px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+                        class="font-arial select-none w-[260px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
                       >
                         No Internet access, check your connection and refresh
                         page!
@@ -865,10 +885,10 @@
                       >
                         <div
                           @click="alertMessageNoInternetClose()"
-                          class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 shadow-inner font-inter ring-1 ring-slate-900/10"
+                          class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 shadow-inner font-arial ring-1 ring-slate-900/10"
                         >
                           <p
-                            class="text-center text-base select-none font-inter font-bold text-slate-100"
+                            class="text-center text-base select-none font-arial font-bold text-slate-100"
                           >
                             {{ dictionary.action_close }}
                           </p>
@@ -880,7 +900,7 @@
                       class="relative w-[300px] h-[400px] mt-4 overflow-visible overflow-y-auto"
                     >
                       <p
-                        class="w-[270px] border-2 ml-2 p-2 bg-gray-50 font-inter mb-1 text-base select-none font-medium text-left leading-7 text-slate-700"
+                        class="relative w-[270px] border-2 ml-2 p-2 bg-gray-50 font-arial mb-1 text-base select-none font-medium text-left leading-7 text-slate-700"
                         v-for="brand in brands"
                         :key="brand.id"
                         :value="brand.id"
@@ -889,8 +909,14 @@
                           getPhoneModels(brand.id);
                           updateSelectedBrandTitle(brand);
                           setActiveProductTabIndex(3);
+                          setActiveBrandIndex(brand.id);
                         "
                       >
+                      <div
+                          v-if="activeBrand === brand.id"
+                          v-motion-pop
+                           class="absolute m-0 inset-5 left-0 top-0 border-spacing-6 border-[2px] border-solid w-full h-full border-blue-400"
+                        ></div>
                         {{ brand.title }}
                       </p>
                     </div>
@@ -905,7 +931,7 @@
                   >
                     <div class="w-[300px] h-[400px] mt-2 overflow-y-auto">
                       <p
-                        class="w-[270px] border-2 ml-2 p-2 bg-gray-50 font-inter mb-1 text-base select-none font-medium text-left leading-7 text-slate-700"
+                        class="relative w-[270px] border-2 ml-2 p-2 bg-gray-50 font-arial mb-1 text-base select-none font-medium text-left leading-7 text-slate-700"
                         v-for="model in models"
                         :key="model.id"
                         :value="model.id"
@@ -914,8 +940,14 @@
                           getPhoneCase(model.id);
                           updateSelectedModelTitle(model);
                           setActiveProductTabIndex(4);
+                          setActiveModelIndex(model.id);
                         "
                       >
+                      <div
+                          v-if="activeModel === model.id"
+                          v-motion-pop
+                           class="absolute m-0 inset-5 left-0 top-0 border-spacing-6 border-[2px] border-solid w-full h-full border-blue-400"
+                        ></div>
                         {{ model.title }}
                       </p>
                     </div>
@@ -929,21 +961,29 @@
                     :delay="300"
                   >
                     <div
-                      class="hover:scale-105 flex flex-row bg-gray-50 items-start border-2 mt-1 mx-4 h-[130px] w-[280px]"
+                      class=" relative hover:scale-105 flex flex-row bg-gray-50 items-start border-2 mt-1 mx-4 h-[130px] w-[280px]"
                       v-for="(caseType, index) in casesTypes"
                       :key="caseType.id"
                       :value="index"
                       @click="
                         addPhoneToCanvas(caseType);
                         updateSelectedCaseTitle(caseType);
-                        mobileMode &&
+                        
                           (activeTabIndex = 2) &&
                           setActiveProductTabIndex(1);
+                          setActiveCaseIndex(caseType.id);
                       "
                     >
-                      <div class="h-[120px] w-[120px]">
+                    <div
+                          v-if="activeCase === caseType.id"
+                          v-motion-pop
+                           class="absolute m-0 inset-5 left-0 top-0 border-spacing-6 border-[2px] border-solid w-full h-full border-blue-400"
+                        ></div>
+                      <div class=" h-[120px] w-[120px]">
+                       
+
                         <img
-                          class="hover:sca p-1 w-fit h-fit bg-gray-50 font-inter mb-1 text-base select-none font-medium text-left leading-7 text-slate-700"
+                          class="hover:sca p-1 w-fit h-fit bg-gray-50 font-arial mb-1 text-base select-none font-medium text-left leading-7 text-slate-700"
                           :src="caseType.info_image"
                         />
                       </div>
@@ -952,7 +992,7 @@
                           class="h-[120px] w-[130px] flex flex-col items-center"
                         >
                           <h3
-                            class="w-full bg-gray-50 font-inter my-8 text-base select-none font-medium text-left leading-2 text-slate-700"
+                            class="w-full bg-gray-50 font-arial my-8 text-base select-none font-medium text-left leading-2 text-slate-700"
                           >
                             {{ caseType.translated_title }}
 
@@ -982,17 +1022,17 @@
           >
             <div class="hidden lg:flex flex-col ml-4 mt-0 items-left">
               <p
-                class="font-inter text-base select-none mt-0 font-semibold leading-2 text-slate-700"
+                class="font-arial text-base select-none mt-0 font-semibold leading-2 text-slate-700"
               >
                 {{ dictionary.step_two }}
               </p>
               <h1
-                class="font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+                class="font-arial select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
               >
                 {{ dictionary.step_two_title }}
               </h1>
               <p
-                class="font-inter select-none my-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
+                class="font-arial select-none my-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
               >
                 {{ dictionary.step_two_description }}
               </p>
@@ -1008,7 +1048,7 @@
                 >
                   <p
                     v-if="this.selectedType == ''"
-                    class="font-inter select-none w-[250px] my-5 px-4 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+                    class="font-arial select-none w-[250px] my-5 px-4 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
                   >
                     {{ dictionary.alert_box_stepper }}
                   </p>
@@ -1147,17 +1187,17 @@
             <div class="block lg:hidden h-[50px]"></div>
             <div class="hidden lg:flex flex-col items-left">
               <p
-                class="font-inter select-none text-base font-semibold leading-2 text-slate-700"
+                class="font-arial select-none text-base font-semibold leading-2 text-slate-700"
               >
                 {{ dictionary.step_three }}
               </p>
               <h1
-                class="font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+                class="font-arial select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
               >
                 {{ dictionary.step_three_title }}
               </h1>
               <p
-                class="font-inter select-none my-5 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
+                class="font-arial select-none my-5 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
               >
                 {{ dictionary.step_three_description }}
               </p>
@@ -1165,13 +1205,42 @@
             <div
               class="relative flex flex-row h-[40px] mt-2 items-center lg:items-start w-[300px]"
             >
+            <div
+                v-motion-pop
+                v-if="alertMessageMaximumImageUpload"
+                class="absolute top-0 mx-auto lg:m-0 w-[305px] h-[300px] shadow-xl ring-1 ring-slate-900/5 bg-slate-50 z-10"
+              >
+                <p
+                  class="font-arial select-none w-[300px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+                >
+                  Maksimalan broj dodatih slika je šest!
+                </p>
+                <div
+                  class="absolute left-[80px] bottom-5 px-2 py-2  text-white text-xl button-zoom bg-white/10  "
+                >
+                  <div
+                    @click="alertMessageMaximumImageUploadClose()"
+                    class="cursor-pointer px-8 py-1 border-purple-600/5 bg-main-color-bg hover:bg-main-color-bg/80  shadow-lg font-arial ring-1 ring-slate-900/10"
+                  >
+                    <p
+                      class="text-center select-none text-base font-arial font-bold text-slate-100"
+                    >
+                      {{ dictionary.action_close }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+
+
               <div
                 v-motion-pop
                 v-if="alertMessageImageTooSmall"
                 class="absolute top-0 mx-auto lg:m-0 w-[305px] h-[300px] shadow-xl ring-1 ring-slate-900/5 bg-slate-50 z-10"
               >
                 <p
-                  class="font-inter select-none w-[300px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+                  class="font-arial select-none w-[300px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
                 >
                   {{ dictionary.alert_box_image_size }}
                 </p>
@@ -1180,10 +1249,10 @@
                 >
                   <div
                     @click="alertMessageImageTooSmallClose()"
-                    class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                    class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-arial ring-1 ring-slate-900/10"
                   >
                     <p
-                      class="text-center select-none text-base font-inter font-bold text-slate-100"
+                      class="text-center select-none text-base font-arial font-bold text-slate-100"
                     >
                       {{ dictionary.action_close }}
                     </p>
@@ -1197,7 +1266,7 @@
                 class="absolute top-0 mx-auto lg:m-0 w-[305px] h-[300px] shadow-xl ring-1 ring-slate-900/5 bg-slate-50 z-10"
               >
                 <p
-                  class="font-inter select-none w-[300px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+                  class="font-arial select-none w-[300px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
                 >
                   {{ dictionary.alert_box_file_type }}
                 </p>
@@ -1206,10 +1275,10 @@
                 >
                   <div
                     @click="alertMessageImageTypeClose()"
-                    class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                    class="cursor-pointer px-8 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-arial ring-1 ring-slate-900/10"
                   >
                     <p
-                      class="text-center select-none text-base font-inter font-bold text-slate-100"
+                      class="text-center select-none text-base font-arial font-bold text-slate-100"
                     >
                       {{ dictionary.action_close }}
                     </p>
@@ -1262,11 +1331,11 @@
                       class="absolute left-[25%] -bottom-7 px-2 py-2 text-white text-xl button-zoom bg-white/10 ring-slate-900/5"
                     >
                       <div
-                        class="px-4 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 shadow-lg font-inter ring-1 ring-slate-900/10"
+                        class="px-4 py-1 border-purple-600/5 bg-main-color-bg hover:bg-main-color-bg/80 shadow-lg font-arial ring-1 ring-slate-900/10"
                       >
                         <p
                           @click="addButton"
-                          class="px-2 py-2 animate-pulse text-center text-lg font-inter font-semibold leading-none tracking-tight text-slate-100"
+                          class="px-2 py-2 animate-pulse text-center text-lg font-arial font-semibold leading-none tracking-tight text-slate-100"
                         >
                           Uvezi slike
                         </p>
@@ -1419,10 +1488,10 @@
                   class="absolute left-[40%] -bottom-10 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
                 >
                   <div
-                    class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                    class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-arial ring-1 ring-slate-900/10"
                   >
                     <p
-                      class="px-1 mb-2 animate-pulse text-center text-3xl font-inter font-extrabold leading-none tracking-tight text-slate-100"
+                      class="px-1 mb-2 animate-pulse text-center text-3xl font-arial font-extrabold leading-none tracking-tight text-slate-100"
                     >
                       <svg
                         @click="toggleFilterMenu"
@@ -1481,17 +1550,17 @@
             <div class="block lg:hidden h-[10px]"></div>
             <div class="hidden lg:flex flex-col ml-2 mt-0 items-left">
               <p
-                class="font-inter select-none text-base mt-0 font-semibold leading-2 text-slate-700"
+                class="font-arial select-none text-base mt-0 font-semibold leading-2 text-slate-700"
               >
                 {{ dictionary.step_four }}
               </p>
               <h1
-                class="font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+                class="font-arial select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
               >
                 {{ dictionary.step_four_title }}
               </h1>
               <p
-                class="font-inter select-none my-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
+                class="font-arial select-none my-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
               >
                 {{ dictionary.step_four_description }}
               </p>
@@ -1567,19 +1636,19 @@
                   <div class="flex flex-col items-start ml-2 gap-2">
                     <div class="flex flex-col">
                       <span
-                        class="font-inter select-none ml-4 mt-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
+                        class="font-arial select-none ml-4 mt-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
                       >
                         {{ dictionary.action_enter_text_decription }}
                       </span>
                       <input
-                        class="w-[250px] m-3 mt-0 p-2 bg-slate-50/40 text-gray-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 shadow-md focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7"
+                        class="w-[250px] m-3 mt-0 p-2 bg-slate-50/40 text-gray-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 shadow-md focus-visible:ring-1 -my-4 ring-slate-900/5 font-arial text-md font-light px-5 leading-7"
                         type="text"
                         v-model="inputText"
                         @keyup.enter="updateSelectedText"
                       />
                     </div>
                     <p
-                      class="font-inter select-none ml-4 mt-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
+                      class="font-arial select-none ml-4 mt-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
                     >
                       {{ dictionary.action_select_color }}
                     </p>
@@ -1600,7 +1669,7 @@
 
                     <div class="flex flex-col gap-3">
                       <p
-                        class="font-inter select-none ml-4 mt-1 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
+                        class="font-arial select-none ml-4 mt-1 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
                       >
                         {{ dictionary.action_font_allign_text }}
                       </p>
@@ -1732,7 +1801,7 @@
                       </div>
 
                       <p
-                        class="font-inter select-none ml-4 mt-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
+                        class="font-arial select-none ml-4 mt-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
                       >
                         {{ dictionary.action_select_font_decription }}
                       </p>
@@ -1740,7 +1809,7 @@
                       <select
                         v-model="textFamily"
                         @change="updateSelectedTextFont"
-                        :class="`font-pacifico w-[250px] ml-4 mt-0 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700  shadow-md focus-visible:ring-1 -my-4 ring-slate-900/5 font-inter text-md font-light px-5 leading-7`"
+                        :class="`font-pacifico w-[250px] ml-4 mt-0 p-2 bg-slate-50 text-slate-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700  shadow-md focus-visible:ring-1 -my-4 ring-slate-900/5 font-arial text-md font-light px-5 leading-7`"
                       >
                         <option selected value="">
                           {{ dictionary.action_select_font }}
@@ -1984,10 +2053,10 @@
                     >
                       <div
                         @click="uploadText"
-                        class="z-50 cursor-pointer px-8 py-2 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 shadow-lg font-inter ring-1 ring-slate-900/10"
+                        class="z-50 cursor-pointer px-8 py-2 border-purple-600/5 bg-main-color-bg hover:bg-main-color-bg/80 shadow-lg font-arial ring-1 ring-slate-900/10"
                       >
                         <p
-                          class="w-fit text-center select-none text-base font-inter font-bold text-slate-100"
+                          class="w-fit text-center select-none text-base font-arial font-bold text-slate-100"
                         >
                           {{ dictionary.action_add_text }}
                         </p>
@@ -2013,13 +2082,13 @@
           <div class="flex flex-col ml- mt-2 items-center lg:items-left">
             <div class="hidden lg:flex flex-col ml-4 mt-0 items-left">
               <p
-                class="invisible md:visible font-inter select-none text-base -mt-2 font-semibold leading-2 text-slate-700"
+                class="invisible md:visible font-arial select-none text-base -mt-2 font-semibold leading-2 text-slate-700"
               >
                 {{ dictionary.step_five }}
               </p>
               <!-- <p>Window Width: {{ windowWidth }}</p> -->
               <h1
-                class="invisible md:visible font-inter select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
+                class="invisible md:visible font-arial select-none font-extrabold leading-none tracking-tight text-slate-900 text-5xl sm:leading-[3.5rem]"
               >
                 {{ dictionary.step_five_title }}
               </h1>
@@ -2027,7 +2096,7 @@
 
             <p
               v-if="selectedType && selectedCasePrice"
-              class="visible font-inter select-none w-[280px] my-5 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+              class="visible font-arial select-none w-[280px] my-5 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
             >
               {{ dictionary.alert_box_cart_full }}
             </p>
@@ -2035,7 +2104,7 @@
             v-else="
               casesTypes[selectedCaseType] && casesTypes[selectedCaseType].price
             "
-            class="font-inter select-none w-[200px] pl-12 m-6 text-xs whitespace-wrap font-medium text-center leading-5 text-slate-700"
+            class="font-arial select-none w-[200px] pl-12 m-6 text-xs whitespace-wrap font-medium text-center leading-5 text-slate-700"
           >
             {{ dictionary.alert_box_stepper }}
           </p> -->
@@ -2147,14 +2216,14 @@
 
               <div
                 v-if="this.emptyCanvas === true"
-                class="relative left-[0] top-0 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
+                class="relative left-[0] top-0 px-2 py-2 text-white text-xl button-zoom bg-white/10 shadow-lg"
               >
                 <div
-                  class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-inter ring-1 ring-slate-900/10"
+                  class="z-50 cursor-pointer px-8 py-2 border-purple-600/5 bg-main-color-bg hover:bg-main-color-bg/80 shadow-lg font-arial ring-1 ring-slate-900/10"
                 >
                   <p
                     @click="exportPNG()"
-                    class="px-4 py-1 animate-pulse text-center select-none text-[16px] font-inter font-bold leading-none tracking-tight text-slate-100"
+                    class="px-4 py-1 animate-pulse text-center select-none text-[16px] font-arial font-bold leading-none tracking-tight text-slate-100"
                   >
                     {{ dictionary.action_checkout }}
                   </p>
@@ -2232,7 +2301,7 @@
             </svg>
           </div>
           <p
-            class="font-inter select-none m-2 text-sm font-semibold text-justify no-whitespace leading-6 text-slate-700"
+            class="font-arial select-none m-2 text-sm font-semibold text-justify no-whitespace leading-6 text-slate-700"
           >
             Započnite s dizajniranjem vaše maske odabirom modela vašeg uređaja
             sa leve strane.
@@ -2738,6 +2807,10 @@ export default {
       activeCategory: 1,
       activeTabText: 1,
       activeIndex: null,
+      activeProduct: null,
+      activeBrand: null,
+      activeModel: null,
+      activeCase: null,
 
       activeIndexColor: 7,
       models: [],
@@ -2766,6 +2839,9 @@ export default {
       alertMessageImageTooSmall: false,
       alertMessageItemStock: false,
       alertMessageNoInterntet: false,
+      alertMessageMaximumImageUpload: false,
+      
+
       itemStockCount: [],
       loading: false,
       canvas: null,
@@ -2815,6 +2891,18 @@ export default {
         }
       });
     },
+    removeFakeRectFromCanvas(){
+      const objects = this.canvas.getObjects();
+      objects.forEach((obj, index) => {
+     
+        if (obj && obj.type === "rect" && obj.name === "fake-rectangle") {
+          this.canvas.remove(obj);
+          this.canvas.renderAll();
+          console.log("fake rect removed");
+        }
+       
+      });
+    },
 
     removeObjectsForClipPath() {
       const objects = this.canvas.getObjects();
@@ -2856,7 +2944,7 @@ export default {
       const textWidth = 48; // assuming the text width is 20px
       const textHeight = 48; // assuming the text height is 20px
       const addSquareImage = new Image();
-      addSquareImage.src = "../images/add-square.svg";
+      addSquareImage.src = "src/assets/images/add-square.svg";
 
       var image = new fabric.Image(addSquareImage, {
         name: "fake-image",
@@ -2887,7 +2975,7 @@ export default {
         opacity: 1,
 
         borderStyle: "dashed",
-
+        evented:false,
         cornerStyle: "round",
         fill: "rgba(5, 5, 5, 0.2)",
         stroke: "black",
@@ -2906,6 +2994,7 @@ export default {
       this.canvas.add(image);
       this.canvas.renderAll();
       image.on("mousedown", (obj) => {
+        this.removeFakeRectFromCanvas();
         this.canvas.setActiveObject(clipPath);
         this.canvas.remove(obj.target);
         this.canvas.add(rectangle);
@@ -3092,6 +3181,7 @@ export default {
 
     uploadImageFromCollection(event) {
       this.activeTabImages = 1;
+
       const src = event.src;
       if (this.imageIndex <= 6) {
         this.uploadedImages.push({
@@ -3099,8 +3189,9 @@ export default {
           id: this.imageIndex + 1,
         });
         this.imageIndex = this.imageIndex + 1;
-        this.addClipPathToSelectedObject(this.uploadedImages.length - 1);
+        // this.addClipPathToSelectedObject(this.uploadedImages.length - 1);
       } else {
+        this.alertMessageMaximumImageUpload = true;
         return;
       }
     },
@@ -3418,8 +3509,12 @@ export default {
       this.alertMessageItemStock = false;
     },
     alertMessageNoInternetClose() {
-      this.noInternerConnection = false;
+      this.alertMessageNoInterntet = false;
     },
+    alertMessageMaximumImageUploadClose() {
+      this.alertMessageMaximumImageUpload = false;
+    },
+
     async fetchTranslationsData() {
       try {
         let response = await fetch(
@@ -3434,7 +3529,7 @@ export default {
         this.translationsData = await response.json();
         console.log(this.translationsData.translations.actions_back);
       } catch (error) {
-        this.noInternetConnection = true;
+        this.alertMessageNoInterntet = true;
         console.error("Error fetching translations data:", error);
         // You can also add additional error handling logic here, such as:
         // this.translationsData = {}; // set a default value
@@ -3573,6 +3668,18 @@ export default {
     setActiveColorIndex(key) {
       this.activeIndexColor = key;
       // Set the clicked item as active
+    },
+    setActiveProductIndex(key) {
+      this.activeProduct = key;
+    },
+    setActiveBrandIndex(key) {
+      this.activeBrand = key;
+    },
+    setActiveModelIndex(key) {
+      this.activeModel = key;
+    },
+    setActiveCaseIndex(key) {
+      this.activeCase = key;
     },
 
     moveLeft() {
@@ -4382,7 +4489,7 @@ export default {
       //   this.selectedModel === "" ||
       //   this.selectedCaseType === ""
       // ) {
-      //   return;
+      //   return;a
       // }
 
       this.setActiveItemIndex(key);
@@ -5303,7 +5410,9 @@ export default {
       // Add new event listener
       if (
         !this.alertMessageImageTooSmall === false ||
-        !this.alertMessageImageType === false
+        !this.alertMessageImageType === false ||
+        this.alertMessageMaximumImageUpload === false 
+        
       ) {
         this.uploadButtonChangeListener = () => {
           console.log("add clip path executed");
@@ -5311,6 +5420,9 @@ export default {
             this.addClipPathToSelectedObject(this.uploadedImages.length - 1);
           }, 500);
         };
+      } else {
+        this.alertMessageMaximumImageUpload = true
+        return
       }
 
       this.$refs.uploadButton.addEventListener(
@@ -6057,7 +6169,7 @@ export default {
     },
 
     render(ctx, left, top, styleOverride, fabricObject) {
-      fabric.Image.fromURL("../images/add-square.svg", (img) => {
+      fabric.Image.fromURL("src/assets/images/add-square.svg", (img) => {
         img.scaleToWidth(48);
         img.scaleToHeight(48);
         ctx.drawImage(img._element, left - 16, top - 16, 48, 48);
@@ -6478,17 +6590,17 @@ export default {
     // }
 
     const rotateSquareImage = new Image();
-    rotateSquareImage.src = "../images/rotate-left.svg";
+    rotateSquareImage.src = "src/assets/images/rotate-left.svg";
     const scaleSquareImage = new Image();
-    scaleSquareImage.src = "../images/arrow-scale-square.svg";
+    scaleSquareImage.src = "src/assets/images/arrow-scale-square.svg";
     const closeSquareImage = new Image();
-    closeSquareImage.src = "../images/close-square-black.svg";
+    closeSquareImage.src = "src/assets/images/close-square-black.svg";
     const zoomInImage = new Image();
-    zoomInImage.src = "../images/zoom-in.svg";
+    zoomInImage.src = "src/assets/images/zoom-in.svg";
     const addSquareImage = new Image();
-    addSquareImage.src = "../images/add-square.svg";
+    addSquareImage.src = "src/assets/images/add-square.svg";
     const moveSquareImage = new Image();
-    moveSquareImage.src = "../images/command-square.svg";
+    moveSquareImage.src = "src/assets/images/command-square.svg";
 
     this.canvas.on(
       "object:added",
