@@ -3269,7 +3269,7 @@ enableEventsOnAllObjects(canvas) {
     },
 
     uploadImageFromCollection(event) {
-      
+      this.alertMessageUserImagesEmpty = false;
 
       const src = event.src;
       if (this.imageIndex <= 6) {
