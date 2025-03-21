@@ -1,6 +1,6 @@
 <template class="flex flex-col">
-  <div
-    class="flex-row flex items-center justify-start relative w-[100vw] p-1 h-[55px] shadow-inner bg-main-color-bg ring-1 ring-slate-900/5"
+  <!-- <div
+    class="flex-row  flex items-center justify-start relative w-[100vw] p-1 h-[55px] shadow-inner bg-main-color-bg ring-1 ring-slate-900/5"
   >
     <div
       class="relative ml-4 w-[40px] h-[40px] bg-white main-color-bg rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center align-middle"
@@ -63,12 +63,12 @@
         </p>
       </div>
     </div>
-  </div>
+  </div> -->
   <div
     class="z-0 items-start justify-between lg:justify-normal flex flex-col lg:flex-row h-[calc(100vh-70px)] lg:h-[ 100vh]"
   >
     <ul
-      class="absolute z-50 bg-white lg:relative flex bottom-0 flex-row lg:flex-col text-md h-[50px] text-sm font-xl text-gray-100"
+      class="absolute z-50 bg-white lg:relative flex bottom-0 flex-row lg:flex-col text-md h-[70px] lg:h-[60px] text-sm font-xl text-gray-100"
     >
       <li class="w-[20vw] h-[50px] lg:w-full lg:h-[calc(20vh-14px)]">
         <a
@@ -150,12 +150,12 @@
             :initial="{ opacity: 0.5 }"
             :enter="{ opacity: 1 }"
             :delay="300"
-            class="hidden lg:block pl-3 text-xl select-none font-bold"
+            class="absolute text-justify bottom-1 text-xs lg:relative p-0 lg:pl-3 lg:text-xl select-none font-bold"
             >{{ dictionary.step_one_title }}</span
           >
           <span
             v-else
-            class="hidden lg:block pl-3 font-bold select-none text-xl opacity-50 transition-all"
+            class="absolute bottom-1 text-xs  lg:relative p-0 lg:pl-3 lg:font-bold select-none lg:text-xl opacity-50 transition-all"
             >{{ dictionary.step_one_title }}</span
           >
         </a>
@@ -167,8 +167,8 @@
           :class="[
             'inline-flex place-items-center pl-3 py-6 text-gray-900  active  w-[60px] lg:w-[200px] h-full bg-white',
             { activeTab: activeTabIndex === 2 },
-            { 'pointer-events-none': !selectedCaseTitle },
-            { 'opacity-50': !selectedCaseTitle },
+            { 'pointer-events-none': !activeCaseButton },
+            { 'opacity-50': !activeCaseButton },
           ]"
         >
           <div class="relative">
@@ -258,12 +258,12 @@
             :initial="{ opacity: 0.5 }"
             :enter="{ opacity: 1 }"
             :delay="300"
-            class="hidden lg:block pl-3 text-xl font-bold select-none"
+            class="absolute bottom-1 text-xs lg:relative p-0 lg:pl-3 lg:text-xl select-none font-bold"
             >{{ dictionary.step_two_title }}</span
           >
           <span
             v-else
-            class="hidden lg:block pl-3 font-bold select-none text-xl opacity-50 transition-all"
+            class="absolute bottom-1 text-xs lg:relative lg:block p-0 lg:pl-3 lg:font-bold select-none lg:text-xl opacity-50 transition-all"
             >{{ dictionary.step_two_title }}</span
           >
         </a>
@@ -275,7 +275,7 @@
           :class="[
             'inline-flex place-items-center pl-3 py-6 text-gray-900  active  w-[60px] lg:w-[200px] h-full bg-white',
             { activeTab: activeTabIndex === 3 },
-            { 'pointer-events-none': !selectedCaseTitle },
+            { 'pointer-events-none': !activeCaseButton },
             { 'pointer-events-none': !activeIndex },
             { 'opacity-50': !activeIndex },
           ]"
@@ -354,12 +354,12 @@
             :initial="{ opacity: 0.5 }"
             :enter="{ opacity: 1 }"
             :delay="300"
-            class="hidden lg:block pl-3 text-xl select-none font-bold"
+            class="absolute bottom-1 text-xs lg:relative p-0 lg:pl-3 lg:text-xl select-none font-bold"
             >{{ dictionary.steper_image }}</span
           >
           <span
             v-else
-            class="hidden lg:block pl-3 font-bold text-xl select-none opacity-50 transition-all"
+            class="absolute bottom-1 text-xs lg:relative lg:block p-0 lg:pl-3 lg:font-bold select-none lg:text-xl opacity-50 transition-all"
             >{{ dictionary.steper_image }}</span
           >
         </a>
@@ -468,12 +468,12 @@
             :initial="{ opacity: 0.5 }"
             :enter="{ opacity: 1 }"
             :delay="300"
-            class="hidden lg:block pl-3 text-xl select-none font-bold"
+            class="absolute bottom-1 text-xs lg:relative p-0 lg:pl-3 lg:text-xl select-none font-bold"
             >{{ dictionary.steper_text }}</span
           >
           <span
             v-else
-            class="hidden lg:block pl-3 font-bold text-xl select-none opacity-50 transition-all"
+            class="absolute bottom-1 text-xs lg:relative lg:block p-0 lg:pl-3 lg:font-bold select-none lg:text-xl opacity-50 transition-all"
             >{{ dictionary.steper_text }}</span
           >
         </a>
@@ -554,12 +554,12 @@
             :initial="{ opacity: 0.5 }"
             :enter="{ opacity: 1 }"
             :delay="300"
-            class="hidden lg:block pl-3 text-xl select-none font-bold"
+            class="absolute bottom-1 text-xs lg:relative p-0 lg:pl-3 lg:text-xl select-none font-bold"
             >Finish</span
           >
           <span
             v-else
-            class="hidden lg:block pl-3 font-bold select-none text-xl opacity-50 transition-all"
+            class="absolute  bottom-1 text-xs lg:relative lg:block p-0 lg:pl-3 lg:font-bold select-none lg:text-xl opacity-50 transition-all"
             >Finish</span
           >
         </a>
@@ -577,7 +577,7 @@
           "
           class="z-40 absolute lg:relative bg-gray-100 text-gray-400 bottom-[0px] w-[100vw] lg:w-full"
         >
-          <div class="relative z-40 w-[100vw] lg:w-[360px] h-[480px]">
+          <div class="relative z-40 w-[100vw] lg:w-[360px] h-[460px]">
             <div class="hidden lg:flex flex-col ml-8 m-2 items-left">
               <p
                 class="font-arial text-base select-none mt-0 font-semibold leading-2 text-slate-700"
@@ -690,8 +690,10 @@
                         @click="
                           selectedType = 1;
                           getDeviceType(selectedType);
-                          setActiveProductTabIndex(2);
+                          
                           setActiveProductIndex(1);
+                          setActiveProductTabIndex(2);
+                          
                         "
                       >
                         <div
@@ -939,6 +941,8 @@
                         @click="
                           getPhoneCase(model.id);
                           updateSelectedModelTitle(model);
+                          setActiveCaseIndex(null);
+                          setActiveCaseButton(null);
                           setActiveProductTabIndex(4);
                           setActiveModelIndex(model.id);
                         "
@@ -952,26 +956,25 @@
                       </p>
                     </div>
                   </div>
-                  <div
-                    class="relative flex flex-col items-start m-2 valid"
-                    v-if="activeProductTabIndex === 4"
+                  <div  class="relative flex flex-col items-center  h-[400px] w-full"   v-if="activeProductTabIndex === 4"
                     v-motion
                     :initial="{ opacity: 0.5 }"
                     :enter="{ opacity: 1 }"
-                    :delay="300"
+                    :delay="300">
+                  <div
+                    class="relative flex flex-col items-start m-2 h-[330px] valid overflow-y-auto"
+                    
                   >
                     <div
-                      class=" relative hover:scale-105 flex flex-row bg-gray-50 items-start border-2 mt-1 mx-4 h-[130px] w-[280px]"
+                      class=" relative  flex flex-row bg-gray-50 items-start border-2 mt-1 mb-2 mx-2 h-[130px] w-[280px]"
                       v-for="(caseType, index) in casesTypes"
                       :key="caseType.id"
                       :value="index"
                       @click="
-		        removeObjectsForClipPath();
+                      removeObjectsForClipPath();
                         addPhoneToCanvas(caseType);
                         updateSelectedCaseTitle(caseType);
-                          mobileMode &&
-                          (activeTabIndex = 2) &&
-                          setActiveProductTabIndex(1);
+                      
                           setActiveCaseIndex(caseType.id);
                       "
                     >
@@ -1002,8 +1005,33 @@
                         </div>
                       </div>
                     </div>
+                    
                   </div>
+                  <div
+                        :class="[
+                        'absolute bottom-6 lg:bottom-0 px-4 py-1 border-purple-600/5 bg-main-color-bg hover:bg-main-color-bg/80 shadow-lg font-arial ring-1 ring-slate-900/10',
+                        { 'opacity-50': !this.selectedCase },
+                        { 'pointer-events-none': !this.selectedCase },
+                        ]"
+                      >
+                        <p
+                          @click="  
+                           (activeTabIndex = 2) &&
+                          setActiveProductTabIndex(1);
+                          this.setActiveCaseButton(true);
+                          addCollage1(1);
+                          showDialog = false;
+
+                          "
+                          
+                          class="px-2 py-2  text-center text-lg font-arial font-semibold leading-none tracking-tight text-slate-100"
+                        >
+                          Confirm
+                        </p>
+                      </div>
                 </div>
+                </div>
+                
               </div>
             </div>
           </div>
@@ -1016,11 +1044,12 @@
               ? showDialog && activeTabIndex === 2
               : activeTabIndex === 2
           "
-          class="lg:p-6 text-gray-400 bg-gray-100 h-fit w-max lg:w-full"
+          class=" text-gray-400 bg-gray-100 h-fit w-max lg:w-full"
         >
           <div
-            class="z-40 absolute lg:relative mx-auto w-full lg:w-[360px] h-[460px]"
+            class="z-40 lg:p-3 absolute lg:relative mx-auto w-full lg:w-[360px] h-[460px]"
           >
+          <!-- stepper -->
             <div class="hidden lg:flex flex-col ml-4 mt-0 items-left">
               <p
                 class="font-arial text-base select-none mt-0 font-semibold leading-2 text-slate-700"
@@ -1038,14 +1067,15 @@
                 {{ dictionary.step_two_description }}
               </p>
             </div>
+             <!-- end of stepper -->
             <div
               class="relative bg-transparent w-[320px] h-[355px] mt-2 ring-slate-900/5"
             >
               <div
-                class="absolute lg:relative flex flex-col bottom-0 items-center lg:items-start bg-gray-50 shadow-inner ring-1 ring-slate-900/5 w-[100vw] lg:w-[320px] h-[440px] ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
+                class="absolute lg:relative flex flex-col bottom-0 items-center lg:items-start bg-gray-50 shadow-inner ring-1 ring-slate-900/5 w-[100vw] lg:w-[320px] h-[300px] lg:h-[440px] ml-[7px] mt-[7px] bg-fit bg-bottom bg-no-repeat"
               >
                 <div
-                  class="flex flex-col mt-[30px] items-center w-[320px] h-[320px]"
+                  class="flex flex-row items-start lg:flex-col mt-[20px] lg:items-center w-[320px] h-[300px] lg:h-[320px]"
                 >
                   <p
                     v-if="this.selectedType == ''"
@@ -1056,7 +1086,7 @@
 
                   <div
                     v-if="this.selectedType == 1 || this.selectedType == 2"
-                    class="flex flex-row mt-[50px] w-[200px] gap-8 items-center"
+                    class="flex flex-row lg:mt-[50px] w-[150px] lg:w-[200px] gap-2 lg:gap-8 items-center"
                   >
                     <div
                       @click="addCollage1(1)"
@@ -1065,7 +1095,7 @@
                       <div
                         v-if="activeIndex === 1"
                         v-motion-pop
-                        class="absolute -left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[60px] h-[75px] border-slate-600"
+                        class="absolute -left-2 lg:-left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[43px] lg:w-[50px] h-[75px] border-slate-600"
                       ></div>
                       <img
                         class=" "
@@ -1103,7 +1133,7 @@
                   </div>
                   <div
                     v-if="this.selectedType == 1 || this.selectedType == 2"
-                    class="flex flex-row mt-[50px] w-[200px] gap-8 items-center"
+                    class="flex flex-row lg:mt-[50px] w-[150px] lg:w-[200px] gap-2 lg:gap-8 items-center"
                   >
                     <div
                       @click="addCollage4(4)"
@@ -1167,6 +1197,16 @@
                       />
                     </div>
                   </div>
+                  <div
+                        class="absolute left-24 top-[100px] lg:bottom-6 lg:top-[370px]   px-8 py-1 border-purple-600/5 bg-main-color-bg hover:bg-main-color-bg/80 shadow-lg font-arial ring-1 ring-slate-900/10"
+                      >
+                        <p
+                          @click="setActiveTabIndex(3), showDialog = false;"
+                          class="px-2 py-2  animate-pulse text-center text-lg font-arial font-semibold leading-none tracking-tight text-slate-100"
+                        >
+                          Confirm
+                        </p>
+                      </div>
                 </div>
               </div>
             </div>
@@ -1296,9 +1336,9 @@
                     { activeProductTab: activeTabImages === 1 },
                   ]"
                 >
-                  {{ dictionary.images }}
+                  {{ dictionary.your_images }}
                 </div>
-                <div
+                <!-- <div
                   @click="setActiveTabImages(3)"
                   :class="[
                     'w-full border-x-2 border-y-2  border-gray-100 p-2 text-sm  text-center inline-block align-middle bg-gray-100',
@@ -1306,7 +1346,7 @@
                   ]"
                 >
                   {{ dictionary.steper_text }}
-                </div>
+                </div> -->
 
                 <div
                   @click="setActiveTabImages(2)"
@@ -1378,7 +1418,7 @@
               </div>
             </div>
 
-            <div
+            <!-- <div
               v-if="activeTabImages === 3"
               class="bg-transparent relative w-[300px] h-[300px]"
             >
@@ -1392,7 +1432,7 @@
                         class="relative w-[280px] h-fit flex flex-row items-center flex-wrap"
                       >
                         <div
-                          v-for="(text, index) in uploadedText"
+                          v-for="(text, addTextindex) in uploadedText"
                           @click="addTextCanvas(index)"
                           v-motion
                           :initial="{ opacity: 1, scale: 1 }"
@@ -1413,7 +1453,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <div
               v-if="activeTabImages === 2"
@@ -1571,7 +1611,7 @@
               class="bg-transparent w-[300px] h-[335px] mx-auto lg:mx-0 ring-slate-900/5"
             >
               <div
-                class="absolute lg:relative flex flex-col bottom-0 items-start bg-slate-50 ring-1 ring-slate-900/5 w-[300px] h-[540px] bg-fit bg-bottom bg-no-repeat"
+                class="absolute lg:relative flex flex-col bottom-0 items-start bg-slate-50 ring-1 ring-slate-900/5 w-[300px] h-[480px] bg-fit bg-bottom bg-no-repeat"
               >
                 <div
                   class="flex flex-row w-[300px] h-[40px] justify-evenly bg-gray-100"
@@ -1585,7 +1625,7 @@
                   >
                     {{ dictionary.steper_text }}
                   </div>
-                  <div
+                  <!-- <div
                     @click="setActiveTabText(2)"
                     :class="[
                       'w-full border-x-2 border-y-2  border-gray-100 p-2 text-sm  text-center inline-block align-middle bg-gray-100',
@@ -1593,10 +1633,10 @@
                     ]"
                   >
                     {{ dictionary.collections }}
-                  </div>
+                  </div> -->
                 </div>
 
-                <div
+                <!-- <div
                   v-if="activeTabText === 2"
                   class="bg-transparent relative w-[305px] h-[206px] mt-2"
                 >
@@ -1631,7 +1671,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
 
                 <div v-if="activeTabText === 1" class="pt-0 space-y-5">
                   <div class="flex flex-col items-start ml-2 gap-2">
@@ -1641,12 +1681,54 @@
                       >
                         {{ dictionary.action_enter_text_decription }}
                       </span>
-                      <input
-                        class="w-[250px] m-3 mt-0 p-2 bg-slate-50/40 text-gray-700 focus:bg-slate-50/20 outline-slate-700/20 outline-offset-8 focus:text-cyan-700 shadow-md focus-visible:ring-1 -my-4 ring-slate-900/5 font-arial text-md font-light px-5 leading-7"
-                        type="text"
-                        v-model="inputText"
+                      <div class="w-full px-4 py-2 ">
+      <div class="mb-2">
+         
+         <div class="relative">
+            <input type="text"
+            v-model="inputText"
                         @keyup.enter="updateSelectedText"
-                      />
+             placeholder="Unesite tekst" class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2" />
+            <span class="absolute top-1/2 left-4 -translate-y-1/2">
+              <svg
+              width="16px"
+              height="16px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M7.93417 2C7.95604 2 7.97799 2 8 2L16.0658 2C16.9523 1.99995 17.7161 1.99991 18.3278 2.08215C18.9833 2.17028 19.6117 2.36902 20.1213 2.87868C20.631 3.38835 20.8297 4.0167 20.9179 4.67221C21.0001 5.28388 21.0001 6.0477 21 6.9342L21 7.95C21 8.50229 20.5523 8.95 20 8.95C19.4477 8.95 19 8.50229 19 7.95V7.00001C19 6.02893 18.9979 5.40122 18.9357 4.93871C18.8774 4.50497 18.7832 4.36902 18.7071 4.2929C18.631 4.21677 18.495 4.12263 18.0613 4.06431C17.5988 4.00213 16.9711 4 16 4H13V21C13 21.5523 12.5523 22 12 22C11.4477 22 11 21.5523 11 21V4H8C7.02893 4 6.40122 4.00213 5.93871 4.06431C5.50497 4.12263 5.36902 4.21677 5.2929 4.2929C5.21677 4.36902 5.12263 4.50497 5.06431 4.93871C5.00213 5.40122 5 6.02893 5 7.00001V7.95C5 8.50229 4.55229 8.95 4 8.95C3.44772 8.95 3 8.50229 3 7.95V7.00001C3 6.97799 3 6.95604 3 6.93418C2.99995 6.04769 2.99991 5.28387 3.08215 4.67221C3.17028 4.0167 3.36902 3.38835 3.87868 2.87868C4.38835 2.36902 5.0167 2.17028 5.67221 2.08215C6.28387 1.99991 7.04769 1.99995 7.93417 2Z"
+                  fill="#1C274C"
+                ></path>
+                <path
+                  d="M7 21H17"
+                  stroke="#1C274C"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </g>
+            </svg>
+            </span>
+            <div class="absolute top-2 right-2">
+                
+                <button @click="uploadText" class="h-8 w-16 leading-6  text-white rounded-sm bg-main-color-bg hover:bg-main-color-bg/80">Dodaj</button>
+                
+            </div> 
+         </div>
+      </div>
+   </div>
+                  
                     </div>
                     <p
                       class="font-arial select-none ml-4 mt-2 text-base whitespace-nowrap font-medium text-left leading-7 text-slate-700"
@@ -1880,179 +1962,12 @@
                     <div
                       class="relative w-[300px] h-[10px] flex flex-row items-center flex-wrap"
                     ></div>
-                    <!-- <div class="flex flex-row">
-                    <div
-                      class="relative w-[30px] h-[30px] m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
-                    >
-                      <div
-                        v-if="activeIndexColor === 1"
-                        v-motion-pop
-                        class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
-                      ></div>
-
-                      <div
-                        @click="addFontColor('red', 1)"
-                        class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-red-100 bg-red-600"
-                      ></div>
-                    </div>
-                    <div
-                      class="relative w-[30px] h-[30px] m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
-                    >
-                      <div
-                        v-if="activeIndexColor === 2"
-                        v-motion-pop
-                        class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
-                      ></div>
-
-                      <div
-                        @click="addFontColor('orange', 2)"
-                        class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-orange-100 bg-orange-600"
-                      ></div>
-                    </div>
-
-                    <div
-                      @click="addFontColor('yellow', 3)"
-                      class="relative w-[30px] h-[30px] m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
-                    >
-                      <div
-                        v-if="activeIndexColor === 3"
-                        v-motion-pop
-                        class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
-                      ></div>
-
-                      <div
-                        class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-yellow-100 bg-yellow-600"
-                      ></div>
-                    </div>
-                    <div
-                      @click="addFontColor('green', 4)"
-                      class="relative w-[30px] h-[30px] m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
-                    >
-                      <div
-                        v-if="activeIndexColor === 4"
-                        v-motion-pop
-                        class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
-                      ></div>
-
-                      <div
-                        class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-green-100 bg-green-600"
-                      ></div>
-                    </div>
-                    <div
-                      @click="addFontColor('blue', 5)"
-                      class="relative w-[30px] h-[30px] m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
-                    >
-                      <div
-                        v-if="activeIndexColor === 5"
-                        v-motion-pop
-                        class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
-                      ></div>
-
-                      <div
-                        class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-blue-100 bg-blue-600"
-                      ></div>
-                    </div>
-                    <div
-                      @click="addFontColor('purple', 6)"
-                      class="relative w-[30px] h-[30px] m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
-                    >
-                      <div
-                        v-if="activeIndexColor === 6"
-                        v-motion-pop
-                        class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
-                      ></div>
-                      <div
-                        class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-violet-100 bg-violet-600"
-                      ></div>
-                    </div>
-                  </div> -->
-                    <!-- <div class="flex flex-row">
-                    <div
-                      @click="addFontColor('black', 7)"
-                      class="relative w-[30px] h-[30px] mt-0 m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
-                    >
-                      <div
-                        v-if="activeIndexColor === 7"
-                        v-motion-pop
-                        class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
-                      ></div>
-                      <div
-                        class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-gray-100 bg-gray-900"
-                      ></div>
-                    </div>
-                    <div
-                      @click="addFontColor('white', 8)"
-                      class="relative w-[30px] h-[30px] mt-0 m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
-                    >
-                      <div
-                        v-if="activeIndexColor === 8"
-                        v-motion-pop
-                        class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
-                      ></div>
-                      <div
-                        class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-gray-100 bg-gray-200"
-                      ></div>
-                    </div>
-
-                    <div
-                      @click="addFontColor('gray', 9)"
-                      class="relative w-[30px] h-[30px] mt-0 m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
-                    >
-                      <div
-                        v-if="activeIndexColor === 9"
-                        v-motion-pop
-                        class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
-                      ></div>
-                      <div
-                        class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-gray-100 bg-gray-400"
-                      ></div>
-                    </div>
-                    <div
-                      @click="addFontColor('pink', 10)"
-                      class="relative w-[30px] h-[30px] mt-0 m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
-                    >
-                      <div
-                        v-if="activeIndexColor === 10"
-                        v-motion-pop
-                        class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
-                      ></div>
-                      <div
-                        class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-pink-100 bg-pink-500"
-                      ></div>
-                    </div>
-                    <div
-                      @click="addFontColor('cyan', 11)"
-                      class="relative w-[30px] h-[30px] mt-0 m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
-                    >
-                      <div
-                        v-if="activeIndexColor === 11"
-                        v-motion-pop
-                        class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
-                      ></div>
-
-                      <div
-                        class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-blue-100 bg-cyan-500"
-                      ></div>
-                    </div>
-                    <div
-                      @click="addFontColor('violet', 12)"
-                      class="relative w-[30px] h-[30px] mt-0 m-2 rounded-md shadow-xl ring-1 ring-slate-900/5"
-                    >
-                      <div
-                        v-if="activeIndexColor === 12"
-                        v-motion-pop
-                        class="absolute left-0 -top-0 border-spacing-6 border-[2px] rounded-md w-[30px] h-[30px] border-slate-500"
-                      ></div>
-                      <div
-                        class="absolute top-[5px] left-[5px] w-[20px] h-[20px] rounded-sm ring-2 ring-violet-100 bg-violet-900"
-                      ></div>
-                    </div>
-                  </div> -->
+                   
 
                     <div
                       class="mt-0 ml-[20%] px-2 py-2 text-white text-xl button-zoom bg-white/10 ring-slate-900/5"
                     >
-                      <div
+                      <!-- <div
                         @click="uploadText"
                         class="z-50 cursor-pointer px-8 py-2 border-purple-600/5 bg-main-color-bg hover:bg-main-color-bg/80 shadow-lg font-arial ring-1 ring-slate-900/10"
                       >
@@ -2061,7 +1976,7 @@
                         >
                           {{ dictionary.action_add_text }}
                         </p>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -2214,31 +2129,67 @@
                   >
                 </p>
               </div>
+              <button v-if="this.emptyCanvas === true" @click="exportPNG()" type="button" class="text-white bg-[#73d841] hover:bg-[#73d841]/90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 text-center inline-flex items-center me-2  dark:focus:ring-blue-800">
+<svg class="w-3.5 h-3.5 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
+<path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"/>
+</svg>
+{{ dictionary.action_checkout }}
+</button>
 
-              <div
-                v-if="this.emptyCanvas === true"
-                class="relative left-[0] top-0 px-2 py-2 text-white text-xl button-zoom bg-white/10 shadow-lg"
-              >
-                <div
-                  class="z-50 cursor-pointer px-8 py-2 border-purple-600/5 bg-main-color-bg hover:bg-main-color-bg/80 shadow-lg font-arial ring-1 ring-slate-900/10"
-                >
-                  <p
-                    @click="exportPNG()"
-                    class="px-4 py-1 animate-pulse text-center select-none text-[16px] font-arial font-bold leading-none tracking-tight text-slate-100"
-                  >
-                    {{ dictionary.action_checkout }}
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </Transition>
     </div>
-
     <div
-      class="absolute z-0 lg:relative w-[100vw] h-[500px] lg:w-[500px] mt-[50px] lg:flex flex-col justify-center justify-items-center items-start"
+      class="absolute z-0 mt-[50px] lg:mt-[0px] lg:relative w-[100vw] h-[500px] lg:w-full   items-start"
     >
+    <div class="z-50 hidden lg:flex lg bg-gray-100 relative w-full h-[50px]">
+      <div class="w-max h-max mx-auto flex flex-row text-center">
+      <div
+        class="lg:flex gap-3 flex-row items-center align-middle justify-center m-3 z-20"
+      >
+        <p
+          v-if="selectedBrand"
+          class="whitespace-wrap font-medium ml-6 select-none text-sm text-center leading-12 text-black"
+        >
+          {{ selectedBrand }}
+        </p>
+        <p
+          v-if="selectedBrand"
+          class="whitespace-wrap font-medium select-none text-sm text-center leading-12 text-black"
+        >
+          /
+        </p>
+        <p
+          v-if="selectedModel"
+          class="whitespace-wrap font-medium text-sm select-none text-center text-black"
+        >
+          {{ selectedModel }}
+        </p>
+        <p
+          v-if="selectedModel"
+          class="whitespace-wrap font-medium select-none text-sm text-center leading-12 text-black"
+        >
+          /
+        </p>
+        <p
+          v-if="selectedCasePrice"
+          class="whitespace-wrap font-medium select-none text-sm text-center leading-12 text-black"
+        >
+          {{ selectedCasePrice }}
+          <span
+            class="whitespace-wrap font-medium select-none text-sm text-center leading-12 text-black"
+            >{{ dictionary.currency }}</span
+          >
+        </p>
+      </div>
+    </div>
+    </div>
+    <div
+      class="absolute z-0 lg:relative w-[100vw] h-[500px] lg:w-[500px]  lg:flex flex-col justify-center justify-items-center items-start"
+    >
+    
       <canvas
         id="start"
         class="z-0 relative w-[100vw] lg:w-[400px]"
@@ -2315,23 +2266,38 @@
         :delay="600"
         class="absolute w-[30px] right-[0px] top-[0px] gap-3 flex flex-col m-3 z-20"
       >
-        <!-- <button @click="clearCanvas">
+        <button @click="setLockMode">
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.8"
-            stroke="currentColor"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button> -->
+                
+                width="32px"
+                height="32px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    opacity="0.5"
+                    d="M2 16C2 13.1716 2 11.7574 2.87868 10.8787C3.75736 10 5.17157 10 8 10H16C18.8284 10 20.2426 10 21.1213 10.8787C22 11.7574 22 13.1716 22 16C22 18.8284 22 20.2426 21.1213 21.1213C20.2426 22 18.8284 22 16 22H8C5.17157 22 3.75736 22 2.87868 21.1213C2 20.2426 2 18.8284 2 16Z"
+                    fill="#1C274C"
+                  ></path>
+                  <path
+                    d="M12.75 14C12.75 13.5858 12.4142 13.25 12 13.25C11.5858 13.25 11.25 13.5858 11.25 14V18C11.25 18.4142 11.5858 18.75 12 18.75C12.4142 18.75 12.75 18.4142 12.75 18V14Z"
+                    fill="#1C274C"
+                  ></path>
+                  <path
+                    d="M6.75 8C6.75 5.10051 9.10051 2.75 12 2.75C14.8995 2.75 17.25 5.10051 17.25 8V10.0036C17.8174 10.0089 18.3135 10.022 18.75 10.0546V8C18.75 4.27208 15.7279 1.25 12 1.25C8.27208 1.25 5.25 4.27208 5.25 8V10.0546C5.68651 10.022 6.18264 10.0089 6.75 10.0036V8Z"
+                    fill="#1C274C"
+                  ></path>
+                </g>
+              </svg>
+        </button>
         <button @click="moveLeftSelectedImage">
           <svg
             width="32px"
@@ -2670,12 +2636,12 @@
             v-motion-pop
             class="absolute -left-0 -top-0 -z-40 border-spacing-6 border-[2px] border-dashed rounded-md w-[53px] h-[53px] border-slate-600"
           >
-            <div>
+            <div v-if="lockMode === true">
               <svg
                 class="z-50 absolute left-[50px] top-[10px]"
                 width="24px"
                 height="24px"
-                viewBox="0 0 24 24"
+                viewBox="0 0 28 28"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -2766,6 +2732,7 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
 </template>
 
@@ -2781,6 +2748,8 @@ import collection from "/src/collection.json";
 export default {
   data() {
     return {
+      lockMode: false,
+      toggleState: true,
       emptyCanvas: "",
       noInternetConnection: false,
       selectedBrandTitle: "",
@@ -2812,7 +2781,8 @@ export default {
       activeBrand: null,
       activeModel: null,
       activeCase: null,
-
+      activeCaseButton:null,
+      activePatternButton:null,
       activeIndexColor: 7,
       models: [],
 
@@ -2834,6 +2804,7 @@ export default {
       selectedCasePrice: "",
       selectedImage: [],
       selectedText: [],
+      currentIndex: 0,
       objectsWithName: [],
       nextButtonProduct: false,
       alertMessageImageType: false,
@@ -2874,6 +2845,104 @@ export default {
   },
 
   methods: {
+    setFakeImagesOnCanvasVisibleNot(){
+      const objects = this.canvas.getObjects();
+      objects.forEach((obj, index) => {
+     
+        if (obj && obj.type === "image" && obj.name === "fake-image") {
+          this.canvas.remove(obj);
+          this.canvas.renderAll();
+          console.log("fake rect removed");
+        }
+        if (obj && obj.type === "rect" && obj.name === "fake-rect") {
+          this.canvas.remove(obj);
+          this.canvas.renderAll();
+          console.log("fake rect removed");
+        }
+        if (obj && obj.type === "rect" && obj.name === "pattern") {
+          this.canvas.remove(obj);
+          this.canvas.renderAll();
+        }
+       
+      });
+    },
+
+    setActiveTabIndexAfterDelay() {
+  setTimeout(() => {
+    this.activeTabIndex = 1;
+  }, 3000);
+},
+    setLockMode() {
+      
+      this.canvas.discardActiveObject();
+      this.lockMode = !this.lockMode;
+      console.log(this.lockMode);
+    },
+
+
+    disableEventsOnAllObjects(canvas) {
+  const objects = this.canvas.getObjects();
+  
+  
+  
+
+  objects.forEach((object) => {
+    if (object && object.type === "image" && object.name === "canvas image") {
+      object.evented = false;
+    }
+    if (object && object.type === "i-text" && object.name === "text") {
+      object.evented = false;
+    }
+
+    if (object && object.type === "rect" && object.name === "pattern") {
+      object.evented = false;
+    }
+    if (object && object.type === "rect" && object.name === "fake-rectangle") {
+      object.evented = false;
+    }
+    if (object && object.type === "image" && object.name === "fake-image") {
+      object.evented = false;
+    }
+    
+  });
+},
+enableEventsOnAllObjects(canvas) {
+  const objects = this.canvas.getObjects();
+ 
+  
+  
+
+  objects.forEach((object) => {
+    if (object && object.type === "image" && object.name === "canvas image") {
+      object.evented = true;
+    }
+    if (object && object.type === "i-text" && object.name === "text") {
+      object.evented = true;
+    }
+
+    if (object && object.type === "rect" && object.name === "pattern") {
+      object.evented = true;
+    }
+    if (object && object.type === "rect" && object.name === "fake-rectangle") {
+      object.evented = true;
+    }
+    if (object && object.type === "image" && object.name === "fake-image") {
+      object.evented = true;
+    }
+
+    
+  });
+},
+
+    setActiveCaseButton(logic) {
+     this.activeCaseButton = logic; 
+    },
+    setActivePatternButton(logic) {
+     this.activePatternButton = logic; 
+    },
+    pauseFunction(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+      },
     checkPatternObject() {
       const canvas = this.canvas;
       const objects = canvas.getObjects();
@@ -3018,7 +3087,7 @@ export default {
     animateLeave() {
       this.$motion.leave({
         opacity: 1,
-        y: 600,
+        y: 500,
         delay: 300,
         duration: 1300,
         easing: "ease-out",
@@ -3131,7 +3200,7 @@ export default {
       this.emptyCanvas = emptyCanvas;
 
       console.log(this.emptyCanvas);
-      this.showDialog = false;
+      // this.showDialog = false;
     },
 
     clickLastUploadedImage() {
@@ -3181,7 +3250,7 @@ export default {
     },
 
     uploadImageFromCollection(event) {
-      this.activeTabImages = 1;
+      
 
       const src = event.src;
       if (this.imageIndex <= 6) {
@@ -3189,7 +3258,11 @@ export default {
           url: src,
           id: this.imageIndex + 1,
         });
+        console.log( this.uploadedImages);
+        const lastIndex = this.uploadedImages.length === 0 ? 0 : this.uploadedImages.length - 1;
+this.addClipPathToSelectedObject(lastIndex);
         this.imageIndex = this.imageIndex + 1;
+        console.log(this.imageIndex);
         // this.addClipPathToSelectedObject(this.uploadedImages.length - 1);
       } else {
         this.alertMessageMaximumImageUpload = true;
@@ -3199,6 +3272,7 @@ export default {
 
     uploadText() {
       if (this.textIndex <= 5 && this.inputText !== "") {
+        this.showDialog = false;
         this.uploadedText.push({
           id: this.imageIndex + 1,
           text: this.inputText,
@@ -3206,8 +3280,10 @@ export default {
           textColor: this.fontColor,
         });
         this.textIndex = this.textIndex + 1;
-        this.activeTabText = 2;
+        // this.activeTabText = 2;
         console.log(this.uploadedText);
+        this.addTextCanvas(this.uploadedText.length - 1);
+        console.log(this.uploadedText.length - 1);
       } else {
         return;
       }
@@ -3634,7 +3710,9 @@ export default {
     },
 
     setActiveProductTabIndex(key) {
+      setTimeout(() => {
       this.activeProductTabIndex = key;
+    }, 1000);
     },
 
     setActiveTabIndex(key) {
@@ -3833,6 +3911,7 @@ export default {
     },
 
     addTextCanvas(index) {
+      console.log(index);
       this.checkEmptyCanvas();
       const objects = this.canvas.getObjects();
       objects.forEach((obj, index) => {
@@ -3846,17 +3925,17 @@ export default {
         }
       });
       const selectedObject = this.canvas.getActiveObject();
-      if (!selectedObject || selectedObject.type === null) {
-        return;
-      }
+      // if (!selectedObject || selectedObject.type === null) {
+      //   return;
+      // }
 
       if (
-        selectedObject.type === "rect" &&
-        selectedObject.name === "pattern" &&
+        // selectedObject.type === "rect" &&
+        // selectedObject.name === "pattern" &&
         this.uploadedLayers.length < 6
       ) {
-        console.log(selectedObject.left + selectedObject.width / 2);
-        console.log(selectedObject.top + selectedObject.height / 2);
+        // console.log(selectedObject.left + selectedObject.width / 2);
+        // console.log(selectedObject.top + selectedObject.height / 2);
 
         const clipRect = new fabric.Rect({
           top: 30,
@@ -3870,14 +3949,14 @@ export default {
           // globalCompositeOperation: "destination-out",
           hasBorders: true,
           borderColor: "#3ff4ff",
-          clipPath: selectedObject.clipPath,
+          
           evented: false,
         });
 
         const newText = new fabric.IText(this.uploadedText[index].text, {
           // Set the properties for the text object here
-          left: selectedObject.left + selectedObject.width / 2,
-          top: selectedObject.top + selectedObject.height / 2,
+          left: clipRect.left + clipRect.width / 2,
+          top: clipRect.top + clipRect.height / 2,
           id: `rect-${this.uploadedLayers.length}`,
           // // scaleX: 0.12,
           // //   scaleY: 0.12,
@@ -3959,7 +4038,7 @@ export default {
     },
 
     addPhoneToCanvas(caseType) {
-      this.showDialog = false;
+      // this.showDialog = false;
       this.clearAllCanvas();
 
       console.table(this.selectedType);
@@ -4100,6 +4179,7 @@ export default {
       img.src = selectedImage.url;
     },
     setActiveObjectById(id) {
+      
       console.log(id);
       const objects = this.canvas.getObjects();
       //find the object with the matching id from layer id
@@ -4109,14 +4189,20 @@ export default {
       if (targetObject) {
         if (this.canvas.getActiveObject() === targetObject) {
           this.deselectObject(targetObject);
-
+         
+          // this.enableEventsOnAllObjects();
           this.canvas.renderAll();
         } else {
           this.canvas.setActiveObject(targetObject);
+          // this.disableEventsOnAllObjects();
+          
+          
           this.canvas.renderAll();
         }
+        
         this.canvas.renderAll();
       }
+      
       this.canvas.renderAll();
     },
 
@@ -4134,11 +4220,23 @@ export default {
         }
       });
 
-      const selectedObject = this.canvas.getActiveObject();
-      if (!selectedObject || selectedObject.type === null) {
-        console.log(selectedObject);
-        return;
-      }
+      var selectedObject = this.canvas.getActiveObject();
+if (!selectedObject || selectedObject.type === null) {
+  console.log(selectedObject);
+  const objects = this.canvas.getObjects();
+  console.log('No object selected');
+  const rectObjects = objects.filter((obj) => obj.type === "rect" && obj.name === "pattern");
+
+  // Keep track of the current index
+  
+
+  // Set the current object as the active object
+  this.canvas.setActiveObject(rectObjects[this.currentIndex]);
+  selectedObject = rectObjects[this.currentIndex];
+
+  // Increment the index for the next time
+  this.currentIndex = (this.currentIndex + 1) % rectObjects.length;
+}
 
       if (selectedObject.type === "rect" && selectedObject.name === "pattern") {
         const selectedImage = this.uploadedImages[index];
@@ -4228,7 +4326,7 @@ export default {
             fabricImg.scaleToWidth(selectedObject.width);
             fabricImg.scaleToHeight(selectedObject.height);
 
-            this.canvas.moveTo(fabricImg, 4);
+            this.canvas.moveTo(fabricImg, 8);
 
             const objects = this.canvas.getObjects();
             objects.forEach((obj, index) => {
@@ -4355,7 +4453,7 @@ export default {
     },
 
     addCollage2(key) {
-      this.showDialog = false;
+      // this.showDialog = false;
       this.uploadedLayers = [];
       this.activeLayerIndex = null;
       // if (
@@ -4482,7 +4580,7 @@ export default {
       this.canvas.renderAll();
     },
     addCollage1(key) {
-      this.showDialog = false;
+      // this.showDialog = false;
       this.uploadedLayers = [];
       this.activeLayerIndex = null;
       // if (
@@ -4585,7 +4683,7 @@ export default {
     },
 
     addCollage3(key) {
-      this.showDialog = false;
+      // this.showDialog = false;
       this.uploadedLayers = [];
       this.activeLayerIndex = null;
       // if (
@@ -4766,7 +4864,7 @@ export default {
       this.canvas.renderAll();
     },
     addCollage4(key) {
-      this.showDialog = false;
+      // this.showDialog = false;
       this.uploadedLayers = [];
       this.activeLayerIndex = null;
       // if (
@@ -5004,7 +5102,7 @@ export default {
       // this.canvas.renderAll();
     },
     addCollage5(key) {
-      this.showDialog = false;
+      // this.showDialog = false;
       this.uploadedLayers = [];
       this.activeLayerIndex = null;
 
@@ -5090,7 +5188,7 @@ export default {
       // this.canvas.renderAll();
     },
     addCollage6(key) {
-      this.showDialog = false;
+      // this.showDialog = false;
       this.uploadedLayers = [];
       this.activeLayerIndex = null;
       // if (
@@ -6534,7 +6632,8 @@ export default {
       this.windowWidth <= 760 ? this.$refs.canvasRef : this.$refs.canvasRef;
     this.mobileMode = this.windowWidth <= 760 ? true : false;
     if (this.mobileMode === true) {
-      this.activeTabIndex = null;
+      
+      this.setActiveTabIndexAfterDelay();
     } else {
       this.activeTabIndex = 1;
     }
@@ -6621,23 +6720,32 @@ export default {
     );
 
     this.canvas.on("selection:cleared", (obj) => {
+      if (this.lockMode === true) {
       if (obj.deselected && obj.deselected[0] && obj.deselected[0].id) {
-        const patternObjects = this.canvas
-          .getObjects()
-          .filter((obj) => obj.name === "pattern");
-        patternObjects.forEach((patternObject) => {
-          if (patternObject) {
-            patternObject.selectable = false;
-            patternObject.evented = false;
-            this.canvas.renderAll();
-          }
-        });
+        
+        // const patternObjects = this.canvas
+        //   .getObjects()
+        //   .filter((obj) => obj.name === "pattern");
+        // patternObjects.forEach((patternObject) => {
+        //   if (patternObject) {
+        //     patternObject.selectable = false;
+        //     patternObject.evented = false;
+        //     this.canvas.renderAll();
+        //   }
+        // });
+        
         console.log("Pattern deselected");
         console.log(obj.deselected[0]);
         console.log(obj.deselected[0].id);
+    
         this.setActiveObjectById(obj.deselected[0].id);
+        this.disableEventsOnAllObjects();
+        this.canvas.renderAll();
+    
       }
-    });
+    }else {
+      this.enableEventsOnAllObjects();
+    }});
     // show add button on patterns on hover if canvas is empty
     this.canvas.on("mouse:down", (options) => {
       //console.log(options.target);
@@ -6989,6 +7097,11 @@ export default {
 // ++++clip path custom command visibility
 // icons color
 // +++alert boxes redesign
+// dugme confirm na prvom koraku
+// stepper on moblie 
+
+
+
 </script>
 
 <style scoped>
@@ -7006,6 +7119,14 @@ export default {
   transform: translateY(600px);
   opacity: 0;
 }
+
+@media (max-width: 350px) { /* adjust the breakpoint as needed */
+  .slide-fade-enter-from,
+  .slide-fade-leave-to {
+    transform: translateY(600px);
+  }
+}
+
 
 .box-fade-enter-active {
   transition: all 0.5s ease-out;
