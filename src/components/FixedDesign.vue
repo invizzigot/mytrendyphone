@@ -1363,6 +1363,22 @@
               v-if="activeTabImages === 1"
               class="bg-transparent relative w-[300px] h-[300px]"
             >
+		    <div
+                v-motion-pop
+                v-if="alertMessageUserImagesEmpty"
+                class="absolute  mx-auto lg:m-2 w-[280px] h-[220px] shadow-sm ring-1 ring-slate-900/5 bg-slate-50 z-10"
+              >
+                <p
+                  class="font-arial select-none w-[300px] mt-12 px-6 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+                >
+                  Vaše slike su trenutno prazne! Dodajte slike sa vašeg uređaja pritiskom na dugme Uvezi slike i dodajte do šest slika ovde.Slike iz kolekcije će takođe da se prenesu ovde.
+                </p>
+                <div
+                  class="absolute left-[80px] bottom-5 px-2 py-2  text-white text-xl button-zoom bg-white/10  "
+                >
+                  
+                </div>
+              </div>
               <div
                 class="absolute flex flex-col items-start bg-slate-50 border-l-2 border-r-2 border-b-2 border-slate-900/5 w-[300px] h-[260px] bg-fit bg-bottom bg-no-repeat"
               >
@@ -2266,7 +2282,7 @@
         :delay="600"
         class="absolute w-[30px] right-[0px] top-[0px] gap-3 flex flex-col m-3 z-20"
       >
-        <button @click="setLockMode">
+        <button :class="{ 'animate-bounce': lockMode }" @click="setLockMode">
           <svg
                 
                 width="32px"
@@ -2812,7 +2828,7 @@ export default {
       alertMessageItemStock: false,
       alertMessageNoInterntet: false,
       alertMessageMaximumImageUpload: false,
-      
+      alertMessageUserImagesEmpty:true,
 
       itemStockCount: [],
       loading: false,
@@ -5501,7 +5517,7 @@ if (!selectedObject || selectedObject.type === null) {
 
     addButton() {
       this.activeTabIndex = 3;
-
+	this.alertMessageUserImagesEmpty = false;
       this.$refs.uploadButton?.click();
       // Remove any existing event listeners
       this.$refs.uploadButton.removeEventListener(
