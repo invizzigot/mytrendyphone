@@ -2873,11 +2873,14 @@ export default {
   }, 3000);
 },
     setLockMode() {
-      
-      this.canvas.discardActiveObject();
-      this.lockMode = !this.lockMode;
-      console.log(this.lockMode);
-    },
+  this.lockMode = !this.lockMode;
+  if (this.lockMode) {
+    const activeObject = this.canvas.getActiveObject();
+    this.canvas.discardActiveObject();
+    this.canvas.setActiveObject(activeObject);
+  }
+  console.log(this.lockMode);
+},
 
 
     disableEventsOnAllObjects(canvas) {
