@@ -577,7 +577,8 @@
           "
           class="z-40 absolute lg:relative bg-gray-100 text-gray-400 bottom-[0px] w-[100vw] lg:w-full"
         >
-          <div class="relative z-40 w-[100vw] lg:w-[360px] h-[460px]">
+        
+          <div class="relative z-40 w-[100vw] lg:w-[360px] h-[450px]">
             <div class="hidden lg:flex flex-col ml-8 m-2 items-left">
               <p
                 class="font-arial text-base select-none mt-0 font-semibold leading-2 text-slate-700"
@@ -1044,9 +1045,134 @@
               ? showDialog && activeTabIndex === 2
               : activeTabIndex === 2
           "
-          class=" text-gray-400 bg-gray-100 h-fit w-max lg:w-full"
+          class="z-40 absolute  lg:relative  bottom-0 text-gray-400 bg-gray-100 h-fit w-full lg:w-full"
         >
+        <div v-if="mobileMode === true" class="absolute  z-50 bottom-[55px] h-[150px] border-x-2 border-y-2  border-gray-100 flex w-full flex-col items-center bg-white">  
+          <div class="w-full h-[20px] border-x-1 border-y-2 border-2 bg-main-color-bg/60   border-white  "><p class="text-xs text-white w-full mx-auto text-center">{{ dictionary.step_two }}</p></div>
           <div
+                    v-if="this.selectedType == 1 || this.selectedType == 2"
+                    class="flex flex-row  w-full  gap-6 p-4  items-center"
+                  >
+                  <div
+                      @click="addCollage1(1)"
+                      class="relative w-[50px] h-[50px]"
+                    >
+                      <div
+                        v-if="activeIndex === 1"
+                        v-motion-pop
+                        class="absolute -left-2 lg:-left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[43px] lg:w-[50px] h-[75px] border-slate-600"
+                      ></div>
+                      <img
+                        class=" "
+                        src="/src/assets/images/phoneColection.png"
+                      />
+                    </div>
+                    <div
+                      @click="addCollage2(2)"
+                      class="relative w-[50px] h-[50px]"
+                    >
+                      <div
+                        d
+                        v-if="activeIndex === 2"
+                        v-motion-pop
+                        class="absolute -left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[60px] h-[75px] border-slate-600"
+                      ></div>
+                      <img
+                        class=""
+                        src="/src/assets/images/phoneColection1.png"
+                      />
+                    </div>
+                    <div
+                      @click="addCollage3(3)"
+                      class="relative w-[50px] h-[50px]"
+                    >
+                      <div
+                        v-if="activeIndex === 3"
+                        class="absolute -left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[60px] h-[75px] border-slate-600"
+                      ></div>
+                      <img
+                        class=""
+                        src="/src/assets/images/phoneColection2.png"
+                      />
+                    </div>
+                    <div
+                      @click="addCollage4(4)"
+                      class="relative w-[50px] h-[50px]"
+                    >
+                      <div
+                        v-if="activeIndex === 4"
+                        v-motion-pop
+                        class="absolute -left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[60px] h-[75px] border-slate-600"
+                      ></div>
+                      <img
+                        class=""
+                        src="/src/assets/images/phoneColection4.png"
+                      />
+                    </div>
+                    <div
+                      @click="addCollage5(5)"
+                      class="relative w-[50px] h-[50px]"
+                    >
+                      <div
+                        v-if="activeIndex === 5"
+                        v-motion-pop
+                        class="absolute -left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[60px] h-[75px] border-slate-600"
+                      ></div>
+                      <img
+                        class=""
+                        src="/src/assets/images/phoneColection5.png"
+                      />
+                    </div>
+                    <div
+                      @click="addCollage6(6)"
+                      class="relative w-[50px] h-[50px]"
+                    >
+                      <div
+                        v-if="activeIndex === 6"
+                        v-motion-pop
+                        class="absolute -left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[60px] h-[75px] border-slate-600"
+                      ></div>
+                      <img
+                        class=""
+                        src="/src/assets/images/phoneColection6.png"
+                      />
+                    </div>
+                  
+                  </div>
+                  <div
+                    v-if="this.selectedType == 4"
+                    class="flex flex-row  w-full  gap-6 p-4  items-center"
+                  >
+                    <div
+                      @click="addCollage1(7)"
+                      class="relative w-[50px] h-[50px]"
+                    >
+                      <div
+                        v-if="activeIndex === 7"
+                        v-motion-pop
+                        class="absolute -left-2 lg:-left-4 -top-3 border-spacing-6 border-[2px] border-dashed rounded-xl w-[43px] lg:w-[50px] h-[75px] border-slate-600"
+                      ></div>
+                      <img
+                        class=""
+                        src="/src/assets/images/gadgetColection7.png"
+                      />
+                    </div>
+                  </div>
+                  <div
+                        class="relative  px-8 py-1 border-purple-600/5 bg-main-color-bg hover:bg-main-color-bg/80 shadow-lg font-arial ring-1 ring-slate-900/10"
+                      >
+                        <p
+                          @click="setActiveTabIndex(3), showDialog = false;"
+                          class="px-2 py-1   text-center text-md font-arial font-semibold leading-none tracking-tight text-slate-100"
+                        >
+                          Confirm
+                        </p>
+                      </div>
+
+        </div>
+
+
+          <div 
             class="z-40 lg:p-3 absolute lg:relative mx-auto w-full lg:w-[360px] h-[460px]"
           >
           <!-- stepper -->
@@ -1220,10 +1346,144 @@
               ? showDialog && activeTabIndex === 3
               : activeTabIndex === 3
           "
-          class="z-40 absolute bg-gray-100 lg:relative text-gray-400 w-[100vw] lg:w-full"
+          class="z-40 absolute bottom-0 bg-gray-100 lg:relative text-gray-400 w-[100vw] lg:w-full"
         >
+        <div v-if="mobileMode === true" class="absolute  z-50 bottom-[50px] h-[190px] border-x-2 border-y-2  border-gray-100 flex w-full flex-col items-center bg-white">
+          <div class="w-full h-[20px] border-x-1 border-y-2 border-2 bg-main-color-bg/60   border-white  "><p class="text-xs text-white w-full mx-auto text-center">{{ dictionary.step_three }}</p></div>
+
           <div
-            class="box-border bg-gray-100 lg:bg-transparent flex flex-col items-center relative w-[100vw] lg:w-[360px] lg:p-2 h-[480px]"
+                class="flex flex-row w-full  border-2 h-[50px] justify-evenly bg-gray-100"
+              >
+                <div
+                  @click="setActiveTabImages(1)"
+                  :class="[
+                    'w-full border-x-2 border-y-2  border-gray-100 p-2 text-sm  text-center inline-block align-middle bg-gray-100',
+                    { activeProductTab: activeTabImages === 1 },
+                  ]"
+                >
+                  {{ dictionary.your_images }}
+                </div>
+                <div
+                  @click="setActiveTabImages(2)"
+                  :class="[
+                    'w-full border-x-2 border-y-2  border-gray-100 p-2 text-sm  text-center inline-block align-middle bg-gray-100',
+                    { activeTabImages: activeTabImages === 2 },
+                  ]"
+                >
+                  {{ dictionary.collections }}
+                </div>
+          </div>
+          <div
+              v-if="activeTabImages === 1"
+              class="bg-transparent relative w-full "
+            >
+            <div
+                        class="flex flex-row overflow-x-auto overflow-y-hidden h-[80px] snap-x w-full bg-transparent "
+                      >
+                        <div
+                          v-for="(image, index) in this.uploadedImages"
+                          v-motion
+                          :initial="{ opacity: 1, scale: 1 }"
+                          :enter="{ opacity: 1, scale: 1 }"
+                          :variants="{ custom: { opacity: 1, scale: 1 } }"
+                          :delay="300"
+                          :key="image.id"
+                          class="relative m-1  w-[50px] h-[50px]"
+                        >
+                          <img
+                            class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
+                            :src="image.url"
+                            :key="image.id"
+                            alt="Uploaded Image"
+                            @click="addClipPathToSelectedObject(index)"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="w-[40vw] mx-auto px-4 py-1 border-purple-600/5 bg-main-color-bg hover:bg-main-color-bg/80  font-arial ring-1 ring-slate-900/10"
+                      >
+                        <p
+                          @click="addButton"
+                          class="px-2 py-2 animate-pulse text-center text-lg font-arial font-semibold leading-none tracking-tight text-slate-100"
+                        >
+                          Uvezi slike
+                        </p>
+                      </div>
+          </div>
+          <div
+              v-if="activeTabImages === 2"
+              class="bg-transparent relative w-full h-[100px]"
+            >
+              <div
+                class="absolute flex flex-col items-start bg-slate-50 border-l-2 border-r-2 border-b-2 border-slate-900/5 w-full h-[120px] bg-fit bg-bottom bg-no-repeat"
+              >
+                <div class="pt-0 m-1 w-full space-y-5">
+                  <div
+                    class="relative w-full h-fit flex flex-row items-center flex-wrap"
+                  >
+                    <div
+                      v-for="item in this.filteredItems"
+                      :key="item.id"
+                      v-motion
+                      :initial="{ opacity: 0, scale: 0 }"
+                      :enter="{ opacity: 1, scale: 1 }"
+                      :variants="{ custom: { scale: 1 } }"
+                      :delay="300"
+                      class="relative m-1 w-[50px] h-[50px]"
+                    >
+                      <img
+                        class="border-[2px] w-[90%] h-[90%] m-1 rounded-md border-gray-600/30"
+                        :src="item.src"
+                        :key="item.id"
+                        alt="Collection Image"
+                        @click="uploadImageFromCollection(item)"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    v-motion
+                    :initial="{ opacity: 0, scale: 0, translateY: 100 }"
+                    :enter="{ opacity: 1, scale: 1, translateY: 0, delay: 100 }"
+                    class="box-border absolute bottom-0 w-full h-[40px] bg-gray-100 flex flex-col"
+                  >
+                    <div class="flex flex-row w-full">
+                      <div
+                        @click="filterByCategory('a'), setActiveCategory(1)"
+                        :class="[
+                          'w-full box-border border-x-2 border-y-2  border-gray-100 py-2 text-sm  text-center inline-block align-middle bg-gray-100',
+                          { activeCategory: activeCategory === 1 },
+                        ]"
+                      >
+                        Animals
+                      </div>
+                      <div
+                        @click="filterByCategory('b'), setActiveCategory(2)"
+                        :class="[
+                          'w-full box-border border-x-2 border-y-2  border-gray-100 py-2 text-sm  text-center inline-block align-middle bg-gray-100',
+                          { activeCategory: activeCategory === 2 },
+                        ]"
+                      >
+                        Space
+                      </div>
+                      <div
+                        @click="filterByCategory('c'), setActiveCategory(3)"
+                        :class="[
+                          'w-full box-border border-x-2 border-y-2  border-gray-100 py-2 text-sm  text-center inline-block align-middle bg-gray-100',
+                          { activeCategory: activeCategory === 3 },
+                        ]"
+                      >
+                        Cats
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              
+              </div>
+            </div>
+        </div>
+          <div v-if="mobileMode === false"
+            class="box-border bg-gray-100 lg:bg-transparent lg:flex flex-col items-center relative w-[100vw] lg:w-[360px] lg:p-2 h-[480px]"
           >
             <div class="block lg:hidden h-[50px]"></div>
             <div class="hidden lg:flex flex-col items-left">
@@ -1271,7 +1531,7 @@
                   </div>
                 </div>
               </div>
-
+              
 
 
 
@@ -1327,7 +1587,7 @@
                 </div>
               </div>
               <div
-                class="flex flex-row w-[95vw] lg:w-[300] border-2 h-[50px] justify-evenly bg-gray-100"
+                class="flex flex-row w-[95vw] lg:w-[300] border-2 h-[40px] justify-evenly bg-gray-100"
               >
                 <div
                   @click="setActiveTabImages(1)"
@@ -1363,7 +1623,7 @@
               v-if="activeTabImages === 1"
               class="bg-transparent relative w-[300px] h-[300px]"
             >
-		    <div
+            <div
                 v-motion-pop
                 v-if="alertMessageUserImagesEmpty"
                 class="absolute  mx-auto lg:m-2 w-[280px] h-[220px] shadow-sm ring-1 ring-slate-900/5 bg-slate-50 z-10"
@@ -1399,6 +1659,7 @@
                       </div>
                     </div>
                     <div class="pt-0 m-1 space-y-5">
+                      
                       <div
                         class="relative w-[300px] h-fit flex flex-row items-center flex-wrap"
                       >
@@ -1599,10 +1860,232 @@
               ? showDialog && activeTabIndex === 4
               : activeTabIndex === 4
           "
-          class="z-40 absolute bottom-4 lg:relative text-gray-400 w-[100vw] lg:w-full"
+          class="z-40 absolute bottom-[55px] lg:relative text-gray-400 w-[100vw] lg:w-full bg-gray-100"
         >
-          <div
-            class="box-border bg-gray-100 lg:bg-transparent relative w-full lg:p-6 lg:w-[360px] h-[530px]"
+        <div v-if="mobileMode === true"  class="absolute  z-50 bottom-0 h-[120px] border-x-2 border-y-2  border-gray-100 flex w-full flex-col items-center bg-white"> 
+          <div class="w-full h-[20px] border-x-1 border-y-2 border-2 bg-main-color-bg/60   border-white  "><p class="text-xs text-white w-full mx-auto text-center">{{ dictionary.step_four }}</p></div>
+          <div class="flex flex-row justify-between  w-full h-[35px] bg-transparent">
+  <button @click="setActiveTextControlsTab(1)"
+                    :class="[
+                      'w-full border-x-2    border-gray-100  text-sm  text-center inline-block p-2 align-middle bg-gray-100',
+                      { activeTextControlsTab: activeTextControlsTab === 1 },
+                    ]" >Izmeni</button>
+  <button class="w-full " @click="setActiveTextControlsTab(2)"
+                    :class="[
+                      'w-full border-x-2    border-gray-100  text-sm  text-center inline-block p-2 align-middle bg-gray-100',
+                      { activeTextControlsTab: activeTextControlsTab === 2 },
+                    ]">Boja</button>
+  <button @click="setActiveTextControlsTab(3)"
+                    :class="[
+                      'w-full border-x-2    border-gray-100  text-sm  text-center inline-block p-2 align-middle bg-gray-100',
+                      { activeTextControlsTab: activeTextControlsTab === 3 },
+                    ]" >Font</button>
+  <button @click="setActiveTextControlsTab(4)"
+                    :class="[
+                      'w-full border-x-2   border-gray-100  text-sm  text-center inline-block p-2 align-middle bg-gray-100',
+                      { activeTextControlsTab: activeTextControlsTab === 4 },
+                    ]" >Poravnanje</button>
+
+
+
+</div>
+<div v-if="activeTextControlsTab === 1" v-motion-slide-bottom  class="relative  m-3 w-[75%]">
+            <input type="text"
+            v-model="inputText"
+                        @keyup.enter="updateSelectedText"
+             placeholder="Unesite tekst" class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2" />
+            <span class="absolute top-1/2 left-4 -translate-y-1/2">
+              <svg
+              width="16px"
+              height="16px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M7.93417 2C7.95604 2 7.97799 2 8 2L16.0658 2C16.9523 1.99995 17.7161 1.99991 18.3278 2.08215C18.9833 2.17028 19.6117 2.36902 20.1213 2.87868C20.631 3.38835 20.8297 4.0167 20.9179 4.67221C21.0001 5.28388 21.0001 6.0477 21 6.9342L21 7.95C21 8.50229 20.5523 8.95 20 8.95C19.4477 8.95 19 8.50229 19 7.95V7.00001C19 6.02893 18.9979 5.40122 18.9357 4.93871C18.8774 4.50497 18.7832 4.36902 18.7071 4.2929C18.631 4.21677 18.495 4.12263 18.0613 4.06431C17.5988 4.00213 16.9711 4 16 4H13V21C13 21.5523 12.5523 22 12 22C11.4477 22 11 21.5523 11 21V4H8C7.02893 4 6.40122 4.00213 5.93871 4.06431C5.50497 4.12263 5.36902 4.21677 5.2929 4.2929C5.21677 4.36902 5.12263 4.50497 5.06431 4.93871C5.00213 5.40122 5 6.02893 5 7.00001V7.95C5 8.50229 4.55229 8.95 4 8.95C3.44772 8.95 3 8.50229 3 7.95V7.00001C3 6.97799 3 6.95604 3 6.93418C2.99995 6.04769 2.99991 5.28387 3.08215 4.67221C3.17028 4.0167 3.36902 3.38835 3.87868 2.87868C4.38835 2.36902 5.0167 2.17028 5.67221 2.08215C6.28387 1.99991 7.04769 1.99995 7.93417 2Z"
+                  fill="#1C274C"
+                ></path>
+                <path
+                  d="M7 21H17"
+                  stroke="#1C274C"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </g>
+            </svg>
+            </span>
+            <div class="absolute top-2 right-2">
+                
+                <button @click="uploadText" class="h-8 w-16 leading-6  text-white rounded-sm bg-main-color-bg hover:bg-main-color-bg/80">Dodaj</button>
+                
+            </div> 
+         </div>
+<div v-if="activeTextControlsTab=== 2" v-motion-slide-bottom class="relative w-full h-full flex flex-row items-center justify-center"
+>
+
+                    <div class="w-full h-full flex flex-row items-center justify-center">
+                      
+                        <input
+                          class=" relative w-[130px] h-[30px]"
+                          type="color"
+                          id="favcolor"
+                          name="favcolor"
+                          v-model="fontColor"
+                          @change="updateSelectedTextColor"
+                        />
+                      
+                    </div>
+</div>
+
+<div v-if ="activeTextControlsTab === 3" v-motion-slide-bottom  class="relative w-full h-full flex flex-row items-center justify-center"> 
+
+  <ul
+  :class="`flex flex-row overflow-x-auto overflow-y-hidden h-[40px] snap-x w-[300px] bg-transparent `"
+>
+  <li
+    v-for="(font, index) in fonts"
+    :key="index"
+    :class="[`font-${font.value} snap-center px-8 py-2 mx-4 w-[120px] text-nowrap cursor-pointer`,
+    { 'text-blue-400': selectedTextIndex === index,
+      'font-semibold': selectedTextIndex === index,
+     },
+    
+    ]"
+    @click="updateSelectedTextFont(font) ;updateSelectedTextIndex(index)"
+  >
+    {{ font.text }}
+  </li>
+</ul>
+</div>
+<div v-if="activeTextControlsTab === 4" v-motion-slide-bottom  class="relative m-3 w-full"> 
+  <div class="flex flex-row items-center justify-center m-2 gap-3">
+                      
+                      <div
+                        class="flex flex-row place-items-center items-center gap-6 pl-4 mt-0"
+                      >
+                        <button @click="alignTextLeft">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.8"
+                            stroke="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              d="M3 3L3 21"
+                              stroke="#323232"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M7 10.32C7 7.58598 7.58598 7 10.32 7H13.68C16.414 7 17 7.58598 17 10.32V13.68C17 16.414 16.414 17 13.68 17H10.32C7.58598 17 7 16.414 7 13.68V10.32Z"
+                              stroke="#323232"
+                              stroke-width="2"
+                            />
+                          </svg>
+                        </button>
+                        <button @click="alignTextCenter">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.8"
+                            stroke="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              d="M3 3L3 21"
+                              stroke="#323232"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M21 3L21 21"
+                              stroke="#323232"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M7 10.32C7 7.58598 7.58598 7 10.32 7H13.68C16.414 7 17 7.58598 17 10.32V13.68C17 16.414 16.414 17 13.68 17H10.32C7.58598 17 7 16.414 7 13.68V10.32Z"
+                              stroke="#323232"
+                              stroke-width="2"
+                            />
+                          </svg>
+                        </button>
+                       
+                        <button @click="alignTextTop">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.8"
+                            stroke="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              d="M21 3L3 3"
+                              stroke="#323232"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M7 10.32C7 7.58598 7.58598 7 10.32 7H13.68C16.414 7 17 7.58598 17 10.32V13.68C17 16.414 16.414 17 13.68 17H10.32C7.58598 17 7 16.414 7 13.68V10.32Z"
+                              stroke="#323232"
+                              stroke-width="2"
+                            />
+                          </svg>
+                        </button>
+                        <button @click="alignTextBottom">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.8"
+                            stroke="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              d="M3 21L21 21"
+                              stroke="#323232"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M7 10.32C7 7.58598 7.58598 7 10.32 7H13.68C16.414 7 17 7.58598 17 10.32V13.68C17 16.414 16.414 17 13.68 17H10.32C7.58598 17 7 16.414 7 13.68V10.32Z"
+                              stroke="#323232"
+                              stroke-width="2"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+
+                      
+
+                    
+                    </div>
+</div>
+
+        
+</div>
+          <div v-if="mobileMode === false" 
+            class="box-border  bg-gray-800 lg:bg-transparent relative w-full lg:p-6 lg:w-[360px] h-[530px]"
           >
             <div class="block lg:hidden h-[10px]"></div>
             <div class="hidden lg:flex flex-col ml-2 mt-0 items-left">
@@ -2009,9 +2492,54 @@
               ? showDialog && activeTabIndex === 5
               : activeTabIndex === 5
           "
-          class="z-40 absolute lg:relative p-6 bg-gray-100 text-medium text-gray-400 w-full h-[100vh-70px] lg:w-full"
+          class="z-40 absolute bottom-0 bg-gray-100 lg:relative text-gray-400 w-[100vw] lg:w-full"
         >
-          <div class="flex flex-col ml- mt-2 items-center lg:items-left">
+        <div v-if="mobileMode === true" class="absolute lg:hidden z-50 bottom-[55px]  h-[155px] border-x-2 border-y-2  border-gray-100 flex w-full flex-col items-center bg-white">
+            <div class="w-full h-[20px] border-x-1 border-y-2 border-2 bg-main-color-bg/60   border-white  "><p class="text-xs text-white w-full mx-auto text-center">{{ dictionary.step_five }}</p></div>
+          <div class="flex flex-col mt-2 items-start">
+                <p
+                  v-if="selectedType && selectedCasePrice"
+                  class="whitespace-wrap mt-2 font-extrabold text-sm text-center leading-12 text-slate-700"
+                >
+                  {{ this.selectedModelTitle }}
+                </p>
+                <p
+                  v-if="selectedType && selectedCasePrice"
+                  class="whitespace-wrap font-medium text-sm text-center text-slate-400"
+                >
+                  {{ this.selectedCaseTitle }}
+                </p>
+                <p
+                  v-if="selectedType && selectedCasePrice"
+                  class="whitespace-wrap  font-extrabold select-none text-sm text-center leading-12 text-slate-700"
+                >
+                  {{ dictionary.price }}:<span
+                  v-if="selectedType && selectedCasePrice"
+                  class="  py-0 whitespace-wrap font-extrabold text-lg text-center leading-7 text-slate-400"
+                >
+                  {{ parseFloat(selectedCasePrice).toFixed(2) }}
+                  <span
+                    class="select-none  text-justify text-lg text-slate-700"
+                    >{{ dictionary.currency }}</span
+                  >
+              </span>
+                </p>
+                <p
+                  v-else="selectedType && selectedCasePrice"
+                  class="whitespace-wrap font-extrabold select-none text-md text-center leading-12 text-slate-700"
+                >
+                  {{ dictionary.alert_box_cart }}
+                </p>
+                
+              </div>
+              <button v-if="this.emptyCanvas === true" @click="exportPNG()" type="button" class="text-white bg-[#73d841] hover:bg-[#73d841]/90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm mt-1 px-6 py-2 text-center inline-flex items-center me-2  dark:focus:ring-blue-800">
+<svg class="w-3.5 h-3.5 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
+<path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"/>
+</svg>
+{{ dictionary.action_checkout }}
+</button>
+        </div>
+          <div v-if="mobileMode === false"  class="box-border bg-gray-100 lg:bg-transparent lg:flex flex-col items-center relative w-[100vw] lg:w-[360px] lg:p-2 h-[480px]">
             <div class="hidden lg:flex flex-col ml-4 mt-0 items-left">
               <p
                 class="invisible md:visible font-arial select-none text-base -mt-2 font-semibold leading-2 text-slate-700"
@@ -2280,7 +2808,7 @@
       <div
         v-motion-pop
         :delay="600"
-        class="absolute w-[30px] right-[0px] top-[0px] gap-3 flex flex-col m-3 z-20"
+        class="absolute w-[30px] right-[0px] top-0 gap-3 flex flex-col m-3 z-20"
       >
         <button :class="{ 'animate-bounce': lockMode }" @click="setLockMode">
           <svg
@@ -2764,6 +3292,20 @@ import collection from "/src/collection.json";
 export default {
   data() {
     return {
+      fonts: [
+      
+      { value: "roboto", text: "Roboto" },
+      { value: "montserrat", text: "Montserrat" },
+      { value: "nova-mono", text: "Nova Mono" },
+      { value: "dancing-script", text: "Dancing Script" },
+      { value: "caveat", text: "Caveat" },
+      { value: "pacifico", text: "Pacifico" },
+      { value: "plaster", text: "Plaster" },
+      { value: "lobster", text: "Lobster" },
+      { value: "bangers", text: "Bangers" },
+      { value: "indie-flower", text: "Indie Flower" },
+    ],
+    selectedTextIndex: 0,
       lockMode: false,
       toggleState: true,
       emptyCanvas: "",
@@ -2789,7 +3331,7 @@ export default {
       activeTabIndex: null,
       activeProductTabIndex: 1,
       showDialog: true,
-      activeTabImages: 1,
+      activeTabImages: 2,
       activeCategory: 3,
       activeTabText: 1,
       activeIndex: null,
@@ -2800,6 +3342,7 @@ export default {
       activeCaseButton:null,
       activePatternButton:null,
       activeIndexColor: 7,
+      activeTextControlsTab: 1,
       models: [],
 
       casesTypes: [],
@@ -2829,6 +3372,7 @@ export default {
       alertMessageNoInterntet: false,
       alertMessageMaximumImageUpload: false,
       alertMessageUserImagesEmpty:true,
+      
 
       itemStockCount: [],
       loading: false,
@@ -2861,6 +3405,10 @@ export default {
   },
 
   methods: {
+
+    updateSelectedTextIndex(index) {
+    this.selectedTextIndex = index;
+  },
     setFakeImagesOnCanvasVisibleNot(){
       const objects = this.canvas.getObjects();
       objects.forEach((obj, index) => {
@@ -2888,7 +3436,7 @@ export default {
     this.activeTabIndex = 1;
   }, 3000);
 },
-    setLockMode() {
+setLockMode() {
   this.lockMode = !this.lockMode;
   if (this.lockMode) {
     const activeObject = this.canvas.getActiveObject();
@@ -3759,6 +4307,11 @@ this.addClipPathToSelectedObject(lastIndex);
       // Set the clicked item as active
     },
 
+    setActiveTextControlsTab(key) {
+      this.activeTextControlsTab = key;
+      // Set the clicked item as active
+    },
+
     setActiveItemIndex(key) {
       this.activeIndex = key;
       // Set the clicked item as active
@@ -3921,10 +4474,10 @@ this.addClipPathToSelectedObject(lastIndex);
         this.canvas.renderAll();
       }
     },
-    updateSelectedTextFont() {
+    updateSelectedTextFont(fontValue) {
       const selectedTextObject = this.canvas.getActiveObject();
       if (selectedTextObject) {
-        selectedTextObject.fontFamily = this.textFamily;
+        selectedTextObject.fontFamily = fontValue.text;
         this.canvas.renderAll();
       }
     },
@@ -5517,7 +6070,7 @@ if (!selectedObject || selectedObject.type === null) {
 
     addButton() {
       this.activeTabIndex = 3;
-	this.alertMessageUserImagesEmpty = false;
+      this.alertMessageUserImagesEmpty = false;
       this.$refs.uploadButton?.click();
       // Remove any existing event listeners
       this.$refs.uploadButton.removeEventListener(
@@ -6739,6 +7292,7 @@ if (!selectedObject || selectedObject.type === null) {
     );
 
     this.canvas.on("selection:cleared", (obj) => {
+      
       if (this.lockMode === true) {
       if (obj.deselected && obj.deselected[0] && obj.deselected[0].id) {
         
@@ -7189,6 +7743,12 @@ if (!selectedObject || selectedObject.type === null) {
 }
 .activeTabText {
   @apply bg-gray-50;
+  @apply text-gray-600;
+  @apply shadow-inner;
+}
+
+.activeTextControlsTab{
+  @apply bg-white;
   @apply text-gray-600;
   @apply shadow-inner;
 }
