@@ -1010,7 +1010,7 @@
                   </div>
                   <div
                         :class="[
-                        'absolute bottom-6 lg:bottom-0 px-4 py-1 border-purple-600/5 bg-main-color-bg hover:bg-main-color-bg/80 shadow-lg font-arial ring-1 ring-slate-900/10',
+                        'absolute bottom-0 lg:bottom-0 px-4 py-1 border-purple-600/5 bg-main-color-bg hover:bg-main-color-bg/80 shadow-lg font-arial ring-1 ring-slate-900/10',
                         { 'opacity-50': !this.selectedCase },
                         { 'pointer-events-none': !this.selectedCase },
                         ]"
