@@ -6,7 +6,7 @@
       class="relative ml-4 w-[40px] h-[40px] bg-white main-color-bg rounded-full ring-slate-300 ring-1 text-lg text-white flex items-center align-middle"
     >
       <span class="text-center ml-3 text-white w-[50px]">
-        <svg
+        <svgf
           fill="#1C274C"
           height="16px"
           width="16px"
@@ -3217,7 +3217,7 @@ export default {
       selectedBrandTitle: "",
       selectedModelTitle: "",
       selectedCaseTitle: "",
-      language: "eu",
+      language: "rs",
       categories: [],
       fetchCollection: [],
       items: collection,
