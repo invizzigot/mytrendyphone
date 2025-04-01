@@ -26,9 +26,9 @@ export default defineConfig({
         pathRewrite: { '^/uploads': '' },
       },
     },
-    cors: {
-      origin: ['https://image-backend-zvjc.onrender.com'],
-      methods: ['GET'],
+     cors: {
+      origin: ['https://your-render-com-app-url.com'],
+      methods: ['GET', 'POST', 'PUT', 'DELETE'],
       allowedHeaders: ['Content-Type', 'Authorization'],
     },
   },
