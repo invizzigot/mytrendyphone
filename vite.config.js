@@ -16,7 +16,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/images': {
-        target: 'https://image-backend-zvjc.onrender.com/images',
+        target: 'https://image-backend-zvjc.onrender.com',
         changeOrigin: true,
         pathRewrite: { '^/images': '' },
       },
