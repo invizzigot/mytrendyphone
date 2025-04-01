@@ -3745,10 +3745,11 @@ async fetchDataForCollection() {
     const url = window.location.href;
 const hostname = window.location.hostname;
 const port = window.location.port;
-const apiUrlBase = `http://${hostname}:${port}/`;
-const apiUrl = `http://${hostname}:${port}/images`;
+const apiUrlBase = `https://${hostname}:${port}/`;
+const apiUrl = `https://${hostname}:${port}/images`;
+	  console.log(apiUrl);
 	
-    const response = await fetch('https://image-backend-zvjc.onrender.com/images', {
+    const response = await fetch(apiUrl, {
       method: "GET",
     });
     if (!response.ok) {
