@@ -27,7 +27,7 @@ export default defineConfig({
       },
     },
      cors: {
-      origin: ['https://your-render-com-app-url.com'],
+      origin: ['https://image-backend-zvjc.onrender.com'],
       methods: ['GET', 'POST', 'PUT', 'DELETE'],
       allowedHeaders: ['Content-Type', 'Authorization'],
     },
