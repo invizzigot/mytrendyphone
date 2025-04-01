@@ -38,10 +38,11 @@
         "action_enter_text_decription": "Enter Text",
 
         "action_select_font_decription": "Font",
-        "action_font_allign_text": "Allign text",
+        "action_font_allign_text": "Allign",
         "action_select_color": "Color",
-        "action_select_font": "Select font",
-        "action_add_text": "Add Text",
+        "action_edit": "Edit",
+        "action_select_font": "Fonts",
+        "action_add_text": "Add",
         "images": "Images",
         "collections": "Collections",
         "alert_box_stepper": " In order to complete this step, you have to select product to customize on first step.",
@@ -50,12 +51,18 @@
         "alert_box_out_of_stock": "Dear customer!\n\nThis type of case for selected phone model is currently out of stock and currently unavailable but will be in stock in 10 days.\n\nYou can continue to customize it and it will be sent to your address as soon as it is available.",
         "alert_box_cart": "Cart is empty!",
         "alert_box_cart_full": "Dear customer!\n\nOrders placed before 3 pm on working days are dispatched the same day. Orders placed between 3 pm on Friday and 1 pm on Sunday will be dispatched on Sunday.",
+        "alert_box_cart_finish": "Dear customer!\n\n Your custom case for your device is successfully created.\n\n Continue to CHECKOUT button to complete your order.",
         "price": "Total Price",
         "currency": "€",
         "phone_device": "Phone device",
         "tablet_device": "Tablet device",
         "gadget_device": "Gadget device",
-        "your_images": "Your images"
+        "your_images": "Your images",
+        "product": "Product",
+        "brand": "Brand",
+        "model": "Model",
+        "cover": "Cover",
+        "confirm": "Confirm"
       }
     },
     {
@@ -94,11 +101,12 @@
         "action_close": "Zatvori",
         "action_checkout": "Kupovina",
         "action_enter_text_decription": "Unesite tekst",
-        "action_select_font_decription": "Tip Slova",
-        "action_font_allign_text": "Poravnanje teksta",
-        "action_select_color": "Boja teksta",
-        "action_select_font": "Odaberite slova",
-        "action_add_text": "Dodajte tekst",
+        "action_select_font_decription": "Slova",
+        "action_font_allign_text": "Poravnanje",
+        "action_edit": "Izmeni",
+        "action_select_color": "Boja",
+        "action_select_font": "Slova",
+        "action_add_text": "Dodajte",
         "images": "Slike",
         "collections": "Kolekcija",
         "alert_box_stepper": " Da biste nastavili sa prilagođavanjem, morate zavrišiti prvi korak i izabrati model telefona.",
@@ -107,12 +115,18 @@
         "alert_box_out_of_stock": "Dragi korisniče!\n\nOvaj artikal trenutno nije na stanju.\n\nMožete da nastavite sa prilagođavanjem ali će navedeni artikal biti dostupan u roku od 10 dana.",
         "alert_box_cart": "Korpa je prazna!",
         "alert_box_cart_full": "Dragi korisniče!\n\nNarudžbe napravljene pre 3 u ponoć radnim danima dostavljaju se isti dan . Narudžbe pre 3 posle ponoći petkok  i u 1 nakon ponoći  nedeljom biće dostavljene u naredni ponedeljak.",
+        "alert_box_cart_finish": "Dragi korisniče!\n\nUspešno ste dizajnirali maskicu za vaš telefon.\n\nNastavite proces kupovne pritiskom na dugme KUPOVINA.",
         "price": "Ukupna cena",
         "currency": "€",
         "phone_device": "Telefoni",
         "tablet_device": "Tableti",
         "gadget_device": "Uređaji",
-        "your_images": "Vaše slike"
+        "your_images": "Vaše slike",
+        "product": "Proizvod",
+        "brand": "Brend",
+        "model": "Model",
+        "cover": "Maskica",
+        "confirm": "Potvrdi"
       }
     }
   ]
