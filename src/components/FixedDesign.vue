@@ -1,4 +1,4 @@
-<template class="flex flex-col">
+<template  class="flex flex-col">
   <!-- <div
     class="flex-row  flex items-center justify-start relative w-[100vw] p-1 h-[55px] shadow-inner bg-main-color-bg ring-1 ring-slate-900/5"
   >
@@ -481,7 +481,7 @@
 
       <li class="w-[20vw] h-[50px] lg:w-full lg:h-[calc(20vh-14px)]">
         <a
-          @click="setActiveTabIndex(5)"
+          @click="setActiveTabIndex(5), createPrintLink()"
           href="#"
           :class="[
             'inline-flex place-items-center pl-3 py-6 text-gray-900 bg-white active  w-[60px] lg:w-[200px] h-full ',
@@ -555,12 +555,12 @@
             :enter="{ opacity: 1 }"
             :delay="300"
             class="absolute bottom-1 text-xs lg:relative p-0 lg:pl-3 lg:text-xl select-none font-bold"
-            >Finish</span
+            >{{ dictionary.steper_finish }}</span
           >
           <span
             v-else
             class="absolute  bottom-1 text-xs lg:relative lg:block p-0 lg:pl-3 lg:font-bold select-none lg:text-xl opacity-50 transition-all"
-            >Finish</span
+            >{{ dictionary.steper_finish }}</span
           >
         </a>
       </li>
@@ -579,6 +579,7 @@
         >
         
           <div class="relative z-40 w-[100vw] lg:w-[360px] h-[450px]">
+         
             <div class="hidden lg:flex flex-col ml-8 m-2 items-left">
               <p
                 class="font-arial text-base select-none mt-0 font-semibold leading-2 text-slate-700"
@@ -627,11 +628,13 @@
                 </div>
 
                 <div
-                  class="flex flex-col items-center w-[95vw] lg:w-[320px] h-[500px]"
+                  class="flex flex-col items-center w-[100vw] lg:w-[320px] h-[500px]"
                 >
+                <div v-if="mobileMode === true" class="absolute -top-[20px] w-full h-[20px] border-x-1 border-y-2 border-2 bg-main-color-bg/60   border-white  "><p class="text-xs text-white w-full mx-auto text-center">{{ dictionary.step_one }}</p></div>
                   <div
                     class="flex flex-row w-[95vw] lg:w-[320px] h-[50px] justify-evenly bg-gray-100"
                   >
+                  
                     <div
                       @click="activeProductTabIndex = 1"
                       :class="[
@@ -639,7 +642,7 @@
                         { activeProductTab: activeProductTabIndex === 1 },
                       ]"
                     >
-                      <p>Product</p>
+                      <p>{{ dictionary.product }}</p>
                     </div>
                     <div
                       @click="activeProductTabIndex = 2"
@@ -650,7 +653,7 @@
                         { 'opacity-50': !selectedType },
                       ]"
                     >
-                      <p>Brand</p>
+                      <p>{{ dictionary.brand }}</p>
                     </div>
                     <div
                       @click="activeProductTabIndex = 3"
@@ -661,7 +664,7 @@
                         { 'opacity-50': !selectedBrand },
                       ]"
                     >
-                      <p>Model</p>
+                      <p>{{ dictionary.model }}</p>
                     </div>
                     <div
                       @click="activeProductTabIndex = 4"
@@ -672,7 +675,7 @@
                         { 'opacity-50': !selectedModel },
                       ]"
                     >
-                      <p>Cover</p>
+                      <p>{{ dictionary.cover }}</p>
                     </div>
                   </div>
 
@@ -736,7 +739,7 @@
                             />
                           </g>
                         </svg>
-                        <p class="mt-2">Mobile cover</p>
+                        <p class="mt-2">{{dictionary.phone_device}}</p>
                       </div>
 
                       <div
@@ -784,7 +787,7 @@
                             />
                           </g>
                         </svg>
-                        <p class="mt-2">Tablet cover</p>
+                        <p class="mt-2">{{dictionary.tablet_device}}</p>
                       </div>
                       <div
                         class="flex relative flex-col items-center justify-center m-2 p-2 h-[140px] w-[140px]"
@@ -860,7 +863,7 @@
                           </g>
                         </svg>
 
-                        <p>Gadget cover</p>
+                        <p>{{dictionary.gadget_device}}</p>
                       </div>
                     </div>
                   </div>
@@ -988,7 +991,7 @@
                        
 
                         <img
-                          class="hover:sca p-1 w-fit h-fit bg-gray-50 font-arial mb-1 text-base select-none font-medium text-left leading-7 text-slate-700"
+                          class=" p-1  bg-gray-50 font-arial mb-1 text-base select-none font-medium text-left leading-7 text-slate-700"
                           :src="caseType.info_image"
                         />
                       </div>
@@ -997,12 +1000,14 @@
                           class="h-[120px] w-[130px] flex flex-col items-center"
                         >
                           <h3
-                            class="w-full bg-gray-50 font-arial my-8 text-base select-none font-medium text-left leading-2 text-slate-700"
+                            class="w-full bg-gray-50  my-2 text-base select-none font-medium text-left leading-2 text-slate-700"
                           >
                             {{ caseType.translated_title }}
 
                             {{ selectedCaseType }}
+                            
                           </h3>
+                          <h2 class="w-full bg-gray-50  my-2 text-base select-none font-medium text-left leading-2 text-slate-700"  >{{ caseType.price }} {{ dictionary.currency }}</h2>
                         </div>
                       </div>
                     </div>
@@ -1027,7 +1032,7 @@
                           
                           class="px-2 py-2  text-center text-lg font-arial font-semibold leading-none tracking-tight text-slate-100"
                         >
-                          Confirm
+                        {{ dictionary.confirm }}
                         </p>
                       </div>
                 </div>
@@ -1165,7 +1170,7 @@
                           @click="setActiveTabIndex(3), showDialog = false;"
                           class="px-2 py-1   text-center text-md font-arial font-semibold leading-none tracking-tight text-slate-100"
                         >
-                          Confirm
+                        {{ dictionary.confirm }}
                         </p>
                       </div>
 
@@ -1349,7 +1354,7 @@
           class="z-40 absolute bottom-0 bg-gray-100 lg:relative text-gray-400 w-[100vw] lg:w-full"
         >
         <div v-if="mobileMode === true" class="absolute  z-50 bottom-[50px] h-[190px] border-x-2 border-y-2  border-gray-100 flex w-full flex-col items-center bg-white">
-          <div class="w-full h-[20px] border-x-1 border-y-2 border-2 bg-main-color-bg/60   border-white  "><p class="text-xs text-white w-full mx-auto text-center">{{ dictionary.step_three }}</p></div>
+          <div class="w-full select-none h-[20px] border-x-1 border-y-2 border-2 bg-main-color-bg/60   border-white  "><p class="text-xs text-white w-full mx-auto text-center">{{ dictionary.step_three }}</p></div>
 
           <div
                 class="flex flex-row w-full  border-2 h-[50px] justify-evenly bg-gray-100"
@@ -1357,7 +1362,7 @@
                 <div
                   @click="setActiveTabImages(1)"
                   :class="[
-                    'w-full border-x-2 border-y-2  border-gray-100 p-2 text-sm  text-center inline-block align-middle bg-gray-100',
+                    'w-full border-x-2 border-y-2 select-none  border-gray-100 p-2 text-sm  text-center inline-block align-middle bg-gray-100',
                     { activeProductTab: activeTabImages === 1 },
                   ]"
                 >
@@ -1366,7 +1371,7 @@
                 <div
                   @click="setActiveTabImages(2)"
                   :class="[
-                    'w-full border-x-2 border-y-2  border-gray-100 p-2 text-sm  text-center inline-block align-middle bg-gray-100',
+                    'w-full border-x-2 border-y-2 select-none  border-gray-100 p-2 text-sm  text-center inline-block align-middle bg-gray-100',
                     { activeTabImages: activeTabImages === 2 },
                   ]"
                 >
@@ -1447,33 +1452,17 @@
                     class="box-border absolute bottom-0 w-full h-[40px] bg-gray-100 flex flex-col"
                   >
                     <div class="flex flex-row w-full">
-                      <div
-                        @click="filterByCategory('a'), setActiveCategory(1)"
-                        :class="[
-                          'w-full box-border border-x-2 border-y-2  border-gray-100 py-2 text-sm  text-center inline-block align-middle bg-gray-100',
-                          { activeCategory: activeCategory === 1 },
-                        ]"
-                      >
-                        Animals
-                      </div>
-                      <div
-                        @click="filterByCategory('b'), setActiveCategory(2)"
-                        :class="[
-                          'w-full box-border border-x-2 border-y-2  border-gray-100 py-2 text-sm  text-center inline-block align-middle bg-gray-100',
-                          { activeCategory: activeCategory === 2 },
-                        ]"
-                      >
-                        Space
-                      </div>
-                      <div
-                        @click="filterByCategory('c'), setActiveCategory(3)"
-                        :class="[
-                          'w-full box-border border-x-2 border-y-2  border-gray-100 py-2 text-sm  text-center inline-block align-middle bg-gray-100',
-                          { activeCategory: activeCategory === 3 },
-                        ]"
-                      >
-                        Cats
-                      </div>
+                      <div v-for="(category, index) in categories.categories" :key="index" :value="index">
+  <div
+    @click="filterByCategory(category.category), setActiveCategory(index + 1 )"
+    :class="[
+      'w-max box-border select-none border-x-2 border-y-2  border-gray-100 py-2 px-6 text-sm  text-center inline-block align-middle bg-gray-100',
+      { activeCategory: activeCategory === index + 1 },
+    ]"
+  >
+    {{ category.category }}
+  </div>
+</div>
                     </div>
                   </div>
                 </div>
@@ -1770,84 +1759,37 @@
                   >
                     <div class="flex flex-row w-full">
                       <div
-                        @click="filterByCategory('a'), setActiveCategory(1)"
+                        @click="filterByCategory('Abstract'), setActiveCategory(1)"
                         :class="[
                           'w-full box-border border-x-2 border-y-2  border-gray-100 py-2 text-sm  text-center inline-block align-middle bg-gray-100',
                           { activeCategory: activeCategory === 1 },
                         ]"
                       >
-                        Animals
+                        Abstract
                       </div>
                       <div
-                        @click="filterByCategory('b'), setActiveCategory(2)"
+                        @click="filterByCategory('Cats'), setActiveCategory(2)"
                         :class="[
                           'w-full box-border border-x-2 border-y-2  border-gray-100 py-2 text-sm  text-center inline-block align-middle bg-gray-100',
                           { activeCategory: activeCategory === 2 },
                         ]"
                       >
-                        Space
+                        Cats
                       </div>
                       <div
-                        @click="filterByCategory('c'), setActiveCategory(3)"
+                        @click="filterByCategory('Nature'), setActiveCategory(3)"
                         :class="[
                           'w-full box-border border-x-2 border-y-2  border-gray-100 py-2 text-sm  text-center inline-block align-middle bg-gray-100',
                           { activeCategory: activeCategory === 3 },
                         ]"
                       >
-                        Cats
+                        Nature
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <!-- filter menu  -->
-
-                <!-- <div
-                  class="absolute left-[40%] -bottom-10 px-2 py-2 rounded-full text-white text-xl button-zoom bg-white/10 ring-1 ring-slate-900/5 shadow-lg"
-                >
-                  <div
-                    class="px-2 py-1 border-purple-600/5 bg-slate-900/70 hover:bg-slate-900/80 rounded-full shadow-lg font-arial ring-1 ring-slate-900/10"
-                  >
-                    <p
-                      class="px-1 mb-2 animate-pulse text-center text-3xl font-arial font-extrabold leading-none tracking-tight text-slate-100"
-                    >
-                      <svg
-                        @click="toggleFilterMenu"
-                        class="w-[30px] h-[30px] mt-2"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g
-                          id="SVGRepo_tracerCarrier"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        ></g>
-                        <g id="SVGRepo_iconCarrier">
-                          <path
-                            opacity="0.5"
-                            d="M2 6.5C2 4.37868 2 3.31802 2.65901 2.65901C3.31802 2 4.37868 2 6.5 2C8.62132 2 9.68198 2 10.341 2.65901C11 3.31802 11 4.37868 11 6.5C11 8.62132 11 9.68198 10.341 10.341C9.68198 11 8.62132 11 6.5 11C4.37868 11 3.31802 11 2.65901 10.341C2 9.68198 2 8.62132 2 6.5Z"
-                            fill="#d1d1d1"
-                          ></path>
-                          <path
-                            opacity="0.5"
-                            d="M13 17.5C13 15.3787 13 14.318 13.659 13.659C14.318 13 15.3787 13 17.5 13C19.6213 13 20.682 13 21.341 13.659C22 14.318 22 15.3787 22 17.5C22 19.6213 22 20.682 21.341 21.341C20.682 22 19.6213 22 17.5 22C15.3787 22 14.318 22 13.659 21.341C13 20.682 13 19.6213 13 17.5Z"
-                            fill="#d1d1d1"
-                          ></path>
-                          <path
-                            d="M2 17.5C2 15.3787 2 14.318 2.65901 13.659C3.31802 13 4.37868 13 6.5 13C8.62132 13 9.68198 13 10.341 13.659C11 14.318 11 15.3787 11 17.5C11 19.6213 11 20.682 10.341 21.341C9.68198 22 8.62132 22 6.5 22C4.37868 22 3.31802 22 2.65901 21.341C2 20.682 2 19.6213 2 17.5Z"
-                            fill="#d1d1d1"
-                          ></path>
-                          <path
-                            d="M13 6.5C13 4.37868 13 3.31802 13.659 2.65901C14.318 2 15.3787 2 17.5 2C19.6213 2 20.682 2 21.341 2.65901C22 3.31802 22 4.37868 22 6.5C22 8.62132 22 9.68198 21.341 10.341C20.682 11 19.6213 11 17.5 11C15.3787 11 14.318 11 13.659 10.341C13 9.68198 13 8.62132 13 6.5Z"
-                            fill="#d1d1d1"
-                          ></path>
-                        </g>
-                      </svg>
-                    </p>
-                  </div>
-                </div> -->
+                
               </div>
             </div>
           </div>
@@ -1869,22 +1811,22 @@
                     :class="[
                       'w-full border-x-2    border-gray-100  text-sm  text-center inline-block p-2 align-middle bg-gray-100',
                       { activeTextControlsTab: activeTextControlsTab === 1 },
-                    ]" >Izmeni</button>
+                    ]" >{{ dictionary.action_edit }}</button>
   <button class="w-full " @click="setActiveTextControlsTab(2)"
                     :class="[
                       'w-full border-x-2    border-gray-100  text-sm  text-center inline-block p-2 align-middle bg-gray-100',
                       { activeTextControlsTab: activeTextControlsTab === 2 },
-                    ]">Boja</button>
+                    ]">{{ dictionary.action_select_color }}</button>
   <button @click="setActiveTextControlsTab(3)"
                     :class="[
                       'w-full border-x-2    border-gray-100  text-sm  text-center inline-block p-2 align-middle bg-gray-100',
                       { activeTextControlsTab: activeTextControlsTab === 3 },
-                    ]" >Font</button>
+                    ]" >{{ dictionary.action_select_font }}</button>
   <button @click="setActiveTextControlsTab(4)"
                     :class="[
                       'w-full border-x-2   border-gray-100  text-sm  text-center inline-block p-2 align-middle bg-gray-100',
                       { activeTextControlsTab: activeTextControlsTab === 4 },
-                    ]" >Poravnanje</button>
+                    ]" >{{ dictionary.action_font_allign_text }}</button>
 
 
 
@@ -1893,7 +1835,7 @@
             <input type="text"
             v-model="inputText"
                         @keyup.enter="updateSelectedText"
-             placeholder="Unesite tekst" class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2" />
+                        :placeholder="dictionary.action_enter_text_decription" class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2" />
             <span class="absolute top-1/2 left-4 -translate-y-1/2">
               <svg
               width="16px"
@@ -1927,7 +1869,7 @@
             </span>
             <div class="absolute top-2 right-2">
                 
-                <button @click="uploadText" class="h-8 w-16 leading-6  text-white rounded-sm bg-main-color-bg hover:bg-main-color-bg/80">Dodaj</button>
+                <button @click="uploadText" class="h-8 w-16 leading-6  text-white rounded-sm bg-main-color-bg hover:bg-main-color-bg/80">{{ dictionary.action_add_text }}</button>
                 
             </div> 
          </div>
@@ -2494,9 +2436,16 @@
           "
           class="z-40 absolute bottom-0 bg-gray-100 lg:relative text-gray-400 w-[100vw] lg:w-full"
         >
-        <div v-if="mobileMode === true" class="absolute lg:hidden z-50 bottom-[55px]  h-[155px] border-x-2 border-y-2  border-gray-100 flex w-full flex-col items-center bg-white">
+        <div v-if="mobileMode === true" class="absolute lg:hidden z-50 bottom-[55px]  h-[560px] border-x-2 border-y-2  border-gray-100 flex w-full flex-col items-center bg-white">
             <div class="w-full h-[20px] border-x-1 border-y-2 border-2 bg-main-color-bg/60   border-white  "><p class="text-xs text-white w-full mx-auto text-center">{{ dictionary.step_five }}</p></div>
-          <div class="flex flex-col mt-2 items-start">
+          <div class="flex flex-col h-[300px] mt-2 items-center">
+            <p
+              v-if="selectedType && selectedCasePrice"
+              class="visible font-arial select-none w-[280px] my-5 text-sm whitespace-wrap font-medium text-left leading-5 text-slate-700"
+            >
+              {{ dictionary.alert_box_cart_finish }}
+            </p>
+            <div class="w-[200px] h-[300px]"><img :src="this.printImage" alt="" /></div>
                 <p
                   v-if="selectedType && selectedCasePrice"
                   class="whitespace-wrap mt-2 font-extrabold text-sm text-center leading-12 text-slate-700"
@@ -2513,7 +2462,13 @@
                   v-if="selectedType && selectedCasePrice"
                   class="whitespace-wrap  font-extrabold select-none text-sm text-center leading-12 text-slate-700"
                 >
-                  {{ dictionary.price }}:<span
+                  {{ dictionary.price }}:
+                </p>
+                <p
+                  v-if="selectedType && selectedCasePrice"
+                  class="whitespace-wrap font-extrabold select-none text-sm text-center leading-12 text-slate-700"
+                >
+                <span
                   v-if="selectedType && selectedCasePrice"
                   class="  py-0 whitespace-wrap font-extrabold text-lg text-center leading-7 text-slate-400"
                 >
@@ -2530,17 +2485,18 @@
                 >
                   {{ dictionary.alert_box_cart }}
                 </p>
-                
-              </div>
-              <button v-if="this.emptyCanvas === true" @click="exportPNG()" type="button" class="text-white bg-[#73d841] hover:bg-[#73d841]/90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm mt-1 px-6 py-2 text-center inline-flex items-center me-2  dark:focus:ring-blue-800">
+                <button v-if="this.emptyCanvas === true" @click="createPrintLink()" type="button" class="text-white bg-[#73d841] hover:bg-[#73d841]/90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm mt-6 px-6 py-2 text-center inline-flex items-center me-2  dark:focus:ring-blue-800">
 <svg class="w-3.5 h-3.5 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
 <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"/>
 </svg>
 {{ dictionary.action_checkout }}
 </button>
+              </div>
+              
         </div>
           <div v-if="mobileMode === false"  class="box-border bg-gray-100 lg:bg-transparent lg:flex flex-col items-center relative w-[100vw] lg:w-[360px] lg:p-2 h-[480px]">
             <div class="hidden lg:flex flex-col ml-4 mt-0 items-left">
+              
               <p
                 class="invisible md:visible font-arial select-none text-base -mt-2 font-semibold leading-2 text-slate-700"
               >
@@ -2636,6 +2592,7 @@
                   transform="rotate(42.88728)"
                 />
               </svg>
+              
 
               <div>
                 <p
@@ -2673,7 +2630,7 @@
                   >
                 </p>
               </div>
-              <button v-if="this.emptyCanvas === true" @click="exportPNG()" type="button" class="text-white bg-[#73d841] hover:bg-[#73d841]/90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 text-center inline-flex items-center me-2  dark:focus:ring-blue-800">
+              <button v-if="this.emptyCanvas === true" @click="createPrintLink()" type="button" class="text-white bg-[#73d841] hover:bg-[#73d841]/90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 text-center inline-flex items-center me-2  dark:focus:ring-blue-800">
 <svg class="w-3.5 h-3.5 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
 <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"/>
 </svg>
@@ -2750,60 +2707,7 @@
         style="display: none"
         @change="handleImageUpload"
       />
-      <!-- <div
-        v-if="!casesTypes[selectedCaseType] && this.selectedType === ''"
-        class="absolute p-3 w-[210px] h-[420px] left-[110px] top-[100px] flex flex-col items-center justify-items-center align-center m-3 z-20"
-      >
-        <div v-motion-pop class="flex flex-col justify-center items-center">
-          <div>
-            <svg
-              height="60px"
-              width="60px"
-              version="1.1"
-              id="Layer_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              viewBox="0 0 512.007 512.007"
-              xml:space="preserve"
-            >
-              <path
-                d="M313.364,9.94C97.3,59.364-36.684,194.612,8.884,335.268C61.892,498.9,400.692,551.924,491.412,476.644
-	S336.98,302.788,449.684,169.748C518.228,88.868,490.58-30.604,313.364,9.94z"
-              />
-              <circle
-                style="fill: #e04f5f"
-                cx="346.34"
-                cy="89.396"
-                r="41.072"
-              />
-              <circle
-                style="fill: #32bea6"
-                cx="223.572"
-                cy="154.148"
-                r="41.072"
-              />
-              <circle
-                style="fill: #25b6d2"
-                cx="121.828"
-                cy="254.372"
-                r="41.072"
-              />
-              <circle
-                style="fill: #f2b851"
-                cx="199.124"
-                cy="371.364"
-                r="41.072"
-              />
-            </svg>
-          </div>
-          <p
-            class="font-arial select-none m-2 text-sm font-semibold text-justify no-whitespace leading-6 text-slate-700"
-          >
-            Započnite s dizajniranjem vaše maske odabirom modela vašeg uređaja
-            sa leve strane.
-          </p>
-        </div>
-      </div> -->
+     
 
       <div
         v-motion-pop
@@ -3287,7 +3191,7 @@ import { fabric } from "fabric";
 import fs from "fs";
 import { ref, toHandlers } from "vue";
 import translations from "/src/translations.json";
-import collection from "/src/collection.json";
+ import collection from "/src/collection.json";
 
 export default {
   data() {
@@ -3313,7 +3217,8 @@ export default {
       selectedBrandTitle: "",
       selectedModelTitle: "",
       selectedCaseTitle: "",
-      language: "rs",
+      language: "eu",
+      categories: [],
       fetchCollection: [],
       items: collection,
       filterMenu: false,
@@ -3434,7 +3339,7 @@ export default {
     setActiveTabIndexAfterDelay() {
   setTimeout(() => {
     this.activeTabIndex = 1;
-  }, 3000);
+  }, 1500);
 },
 setLockMode() {
   this.lockMode = !this.lockMode;
@@ -3807,7 +3712,7 @@ enableEventsOnAllObjects(canvas) {
     },
     filterByCategory(category) {
       this.filteredItems = this.filterItemsByCategory(
-        collection.items,
+        this.collection.items,
         category
       );
       this.toggleFilterMenu();
@@ -3815,6 +3720,68 @@ enableEventsOnAllObjects(canvas) {
     filterItemsByCategory(items, category) {
       return items.filter((item) => item.category === category);
     },
+
+//     async fetchDataForCollection() {
+//   fetch("http://localhost:5173/images", {
+//     method: "GET",
+//   })
+//   .then(response => {
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
+//     return response.json();
+//   })
+//   .then(fetchCollection => {
+//     console.log('Get Collection');
+//     console.log(fetchCollection);
+//   })
+//   .catch(error => {
+//     console.error('Error fetching data:', error);
+//   });
+// },
+
+async fetchDataForCollection() {
+  try {
+    const url = window.location.href;
+const hostname = window.location.hostname;
+const port = window.location.port;
+const apiUrlBase = `http://${hostname}:${port}/`;
+const apiUrl = `http://${hostname}:${port}/images`;
+    const response = await fetch(apiUrl, {
+      method: "GET",
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    const mappedData = data.map((item) => {
+      return {
+        src: apiUrlBase + item.path.replace(/\\/g, '/'),
+        category: item.category
+      };
+    });
+    const mappedCategories = data.map((item) => {
+  return {
+    category: item.category
+  };
+});
+this.collection = {
+      items: mappedData
+    };
+const uniqueCategories = [...new Set(mappedCategories.map(category => category.category))];
+const uniqueMappedCategories = uniqueCategories.map(category => ({ category }));
+this.categories = {
+  categories: uniqueMappedCategories
+};
+    this.items = this.collection;
+    console.log('Get Collection');
+    console.log(this.collection);
+    console.log(this.items);
+    console.log(this.categories);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+},
 
     uploadImageFromCollection(event) {
       this.alertMessageUserImagesEmpty = false;
@@ -3839,7 +3806,7 @@ this.addClipPathToSelectedObject(lastIndex);
 
     uploadText() {
       if (this.textIndex <= 5 && this.inputText !== "") {
-        this.showDialog = false;
+        // this.showDialog = false;
         this.uploadedText.push({
           id: this.imageIndex + 1,
           text: this.inputText,
@@ -4895,11 +4862,11 @@ if (!selectedObject || selectedObject.type === null) {
               customControl5: true,
             });
             this.canvas.add(fabricImg);
-            fabricImg.scaleToWidth(selectedObject.width);
-            fabricImg.scaleToHeight(selectedObject.height);
+            fabricImg.scaleToWidth(220);
+            
 
             this.canvas.moveTo(fabricImg, 8);
-
+            this.canvas.renderAll();
             const objects = this.canvas.getObjects();
             objects.forEach((obj, index) => {
               if (obj && obj.type === "image" && obj.name === "transparent") {
@@ -6628,21 +6595,51 @@ if (!selectedObject || selectedObject.type === null) {
         quality: 50,
       });
 
-      // // Create a link element to download the PNG image
-      // const link = document.createElement("a");
-      // link.href = dataURL;
-      // link.download = "preview_image.png";
-      // // Trigger the download
-      // link.click();
+      // Create a link element to download the PNG image
+      const link = document.createElement("a");
+      link.href = dataURL;
+      link.download = "preview_image.png";
+      // Trigger the download
+      link.click();
     },
     createPrintLink() {
       // Export the canvas to a PNG image
+      this.canvas.getObjects().forEach((obj) => {
+        if (obj.name === "fake-image") {
+          obj.visible = false;
+          const objects = this.canvas.getObjects();
+      objects.forEach((obj, index) => {
+     
+        if (obj && obj.type === "image" && obj.name === "fake-image") {
+          obj.visible = false;
+          
+         
+        }
+        if (obj && obj.type === "rect" && obj.name === "fake-rect") {
+          obj.visible = false;
+        }
+        if (obj && obj.type === "rect" && obj.name === "pattern") {
+          obj.visible = false;
+        }
+       
+      });
+          // obj.globalCompositeOperation = "source-atop";
+          // obj.fill = 'transparent';
+          // obj.left = 120;
+          // obj.width = 210;
+          // obj.center();  
+          // obj.fill = "rgba(5, 5, 5, 0.1)";
+          // obj.strokeWidth = 0;
 
+          this.canvas.renderAll();
+        }});
       this.printImage = this.canvas.toDataURL({
         format: "png",
         multiplier: 3,
         quality: 50,
       });
+      console.log(this.printImage);
+
 
       // // Create a link element to download the PNG image
       // const link = document.createElement("a");
@@ -7011,19 +7008,6 @@ if (!selectedObject || selectedObject.type === null) {
         this.activeLayerIndex = null;
       });
 
-      // objects.forEach((obj, index) => {
-      //   if (obj && obj.type === "image" && obj.name === "back") {
-      //     this.canvas.remove(obj);
-      //     this.canvas.renderAll();
-      //   }
-      // });
-
-      // objects.forEach((obj, index) => {
-      //   if (obj && obj.type === "image" && obj.name === "transparent") {
-      //     this.canvas.remove(obj);
-      //     this.canvas.renderAll();
-      //   }
-      // });
 
       objects.forEach((obj, index) => {
         this.canvas.renderAll();
@@ -7063,19 +7047,7 @@ if (!selectedObject || selectedObject.type === null) {
         }
       });
 
-      // objects.forEach((obj, index) => {
-      //   if (obj && obj.type === "image" && obj.name === "back") {
-      //     this.canvas.remove(obj);
-      //     this.canvas.renderAll();
-      //   }
-      // });
 
-      // objects.forEach((obj, index) => {
-      //   if (obj && obj.type === "image" && obj.name === "transparent") {
-      //     this.canvas.remove(obj);
-      //     this.canvas.renderAll();
-      //   }
-      // });
 
       objects.forEach((obj, index) => {
         this.canvas.renderAll();
@@ -7121,19 +7093,7 @@ if (!selectedObject || selectedObject.type === null) {
           this.canvas.renderAll();
         });
 
-        // objects.forEach((obj, index) => {
-        //   if (obj && obj.type === "image" && obj.name === "back") {
-        //     this.canvas.remove(obj);
-        //     this.canvas.renderAll();
-        //   }
-        // });
 
-        // objects.forEach((obj, index) => {
-        //   if (obj && obj.type === "image" && obj.name === "transparent") {
-        //     this.canvas.remove(obj);
-        //     this.canvas.renderAll();
-        //   }
-        // });
 
         objects.forEach((obj, index) => {
           this.canvas.renderAll();
@@ -7181,6 +7141,7 @@ if (!selectedObject || selectedObject.type === null) {
     },
   },
   created() {
+    this.fetchDataForCollection();
     axios
       .get(
         "https://cors-anywhere.herokuapp.com/https://image-backend-lqbq.onrender.com/images"
@@ -7191,11 +7152,13 @@ if (!selectedObject || selectedObject.type === null) {
       .catch((error) => {
         console.log("error");
       });
+      
+    
     this.fetchTranslationsData();
     this.findLanguageAndDictionary();
     console.log(this.dictionary);
-    this.filteredItems = this.filterItemsByCategory(collection.items, "c");
-    console.log("Filtered Items:", this.filteredItems);
+    // this.filteredItems = this.filterItemsByCategory(collection.items, "Abstract");
+    // console.log("Filtered Items:", this.filteredItems);
   },
   mounted() {
     this.windowWidth = window.innerWidth; // Update windowWidth when the window is resized
@@ -7212,54 +7175,7 @@ if (!selectedObject || selectedObject.type === null) {
     console.log(this.mobileMode);
     this.initCanvas(newDivId);
 
-    //window.addEventListener("resize", this.toggleShowDialog);
 
-    // if (this.windowWidth <= 600) {
-    //   this.canvas = new fabric.Canvas(
-    //     newDivId,
-    //     {
-    //       width: 450,
-    //       height: 500,
-    //       // minScaleLimit: 0.1,
-    //       // maxScaleLimit: 0.3,
-    //       // backgroundColor: "gray",
-    //       getContext: "2d",
-    //       // cornerStyle: "round",
-    //       // objectCaching: true,
-    //       willReadFrequently: true,
-    //       renderOnAddRemove: false,
-    //       backgroundColor: "red",
-    //       // isDrawingMode: false,
-    //       // controlsAboveOverlay: true,
-    //       preserveObjectStacking: true,
-    //       selectable: false,
-    //       selection: false,
-    //     },
-    //     { passive: true }
-    //   );
-    // } else {
-    //   this.canvas = new fabric.Canvas(
-    //     this.$refs.canvasRef,
-    //     {
-    //       width: 450,
-    //       height: 500,
-    //       // minScaleLimit: 0.1,
-    //       // maxScaleLimit: 0.3,
-    //       // backgroundColor: "gray",
-    //       getContext: "2d",
-    //       // cornerStyle: "round",
-    //       // objectCaching: true,
-    //       willReadFrequently: true,
-    //       renderOnAddRemove: false,
-    //       // isDrawingMode: false,
-    //       // controlsAboveOverlay: true,
-    //       preserveObjectStacking: true,
-    //       selectable: false,
-    //       selection: false,
-    //     },
-    //     { passive: true }
-    //   );
-    // }
 
     const rotateSquareImage = new Image();
     rotateSquareImage.src = "../images/rotate-left.svg";
@@ -7323,6 +7239,11 @@ if (!selectedObject || selectedObject.type === null) {
     this.canvas.on("mouse:down", (options) => {
       //console.log(options.target);
       var activeObject = options.target;
+      if (options.target === null) {
+        this.showDialog = false;
+        this.removeFakeRectFromCanvas();
+    console.log('Clicked on canvas background');
+  }
       if (
         this.emptyCanvas === false &&
         activeObject?.type === "image" &&
@@ -7430,44 +7351,7 @@ if (!selectedObject || selectedObject.type === null) {
       { passive: true }
     );
 
-    // const activeObject = this.canvas.getActiveObject();
-
-    // // Check if an active object exists
-    // if (activeObject) {
-    //   // Enable dragging for the active object
-    //   activeObject.selectable = true;
-    //   // this.canvas.renderAll();
-    // }
-    // Empty shape device
-
-    // const flipRect = new fabric.Rect({
-
-    //   width: 270,
-    //   height: 360,
-
-    //   top: 70,
-    //   left: 90,
-    //   name: "flip",
-    //   opacity: 0.5,
-    //   // globalCompositeOperation: "destination-out",
-    //   selectable: false,
-    //   evented: false,
-    //   fill: "rgba(5, 255, 5, 1)",
-    //   strokeWidth: 2,
-    //   cornerStyle: "round",
-    //   strokeDashArray: [8, 16],
-    //   stroke: "rgba(5, 5, 5, 1)",
-    //   lockMovementX: true, // Object cannot be moved horizontally
-    //   lockMovementY: true, // Object cannot be moved vertically
-    // });
-    // this.canvas.add(flipRect);
-    // flipRect.visible = true;
-    // // flipRect.center();
-    // // this.canvas.clipPath = clipRect;
-    // this.canvas.moveTo(flipRect, 1);
-
-    // this.canvas.renderAll();
-
+  
     this.canvas.controlsAboveOverlay = false;
 
     // Create a custom control as an icon
@@ -7640,39 +7524,6 @@ if (!selectedObject || selectedObject.type === null) {
     });
   },
 };
-
-// TO DO //
-//++++Enable next button if item is low and add other text
-//++++ Dialog box for too small image and not image file
-// History functionality
-
-//++++Flip functionality
-// +++++Set print image size to 2000x2000
-// Change UI color
-// ++++Fix Collection functionality
-// +++++ Better mobile view (another box for mobile double canvas)
-// ++++Image cutting
-// ++++clear canvas text ?
-// ++++zoom text command ?
-// +++translate ?
-// +++image add to cavnvas scale to width
-// image loader spinner
-// +++ alert if canvas is empty
-// +++ first step alert box message
-// +++ reset canvas on new device selection remove text from canvas
-// +++ikone fill
-// +++objekat deselection
-// +++rotatior
-// +++zoom objekta na canvas mora da bude veci
-// +++kada postoji aktivan canvas image objekat iskljuciti komande na svim pattern objektima
-// na mobilnoj verziji vrati zoom
-// text ima samo jednu vrstu clipPatha
-// ++++clip path custom command visibility
-// icons color
-// +++alert boxes redesign
-// dugme confirm na prvom koraku
-// stepper on moblie 
-
 
 
 </script>
