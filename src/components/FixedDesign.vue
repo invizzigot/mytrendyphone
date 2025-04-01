@@ -3747,6 +3747,17 @@ const hostname = window.location.hostname;
 const port = window.location.port;
 const apiUrlBase = `http://${hostname}:${port}/`;
 const apiUrl = `http://${hostname}:${port}/images`;
+	  fetch('/images')
+  .then(response => {
+    console.log('Response:', response);
+    return response.json();
+  })
+  .then(data => {
+    console.log('Data:', data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
     const response = await fetch('/images/', {
       method: "GET",
     });
