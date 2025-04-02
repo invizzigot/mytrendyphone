@@ -3744,13 +3744,19 @@ async fetchDataForCollection() {
   try {
     const url = window.location.href;
 const hostname = window.location.hostname;
-const port = 10000;
+const port = window.location.port;
 const apiUrlBase = `https://${hostname}:${port}/`;
 const apiUrl = `https://${hostname}:${port}/images`;
 	  console.log(apiUrl);
 	
     const response = await fetch(apiUrl, {
       method: "GET",
+	      headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+  }
+	    
     });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
