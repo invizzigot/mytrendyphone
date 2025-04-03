@@ -3746,7 +3746,7 @@ async fetchDataForCollection() {
 const hostname = window.location.hostname;
 const port = window.location.port;
 const apiUrlBase = `https://${hostname}:${port}`;
-const apiUrl = process.env.API_URL + '/images';
+const apiUrl = '/images';
 	  console.log(apiUrl);
 	
     const response = await fetch(apiUrl, {
