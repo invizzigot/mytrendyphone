@@ -3741,60 +3741,38 @@ enableEventsOnAllObjects(canvas) {
 // },
 
 async fetchDataForCollection() {
-  
   try {
-    const url = window.location.href;
-const hostname = window.location.hostname;
-const port = window.location.port;
-const apiUrlBase = `https://image-backend-zvjc.onrender.com/`;
-const apiUrl = `https://image-backend-zvjc.onrender.com/images`;
- console.log(apiUrl);
-    const response = await   axios
-      .get(
-        "https://image-backend-zvjc.onrender.com/images"
-      )
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log("error");
-      });
-
-	  
-
-    if (response.status !== 200) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
+    const response = await axios.get(
+      "https://image-backend-zvjc.onrender.com/images"
+    );
     const data = response.data;
     const mappedData = data.map((item) => {
       return {
-        src: apiUrlBase + item.path.replace(/\\/g, '/'),
+        src: `https://image-backend-zvjc.onrender.com/` + item.path.replace(/\\/g, '/'),
         category: item.category
       };
     });
-
     const mappedCategories = data.map((item) => {
       return {
         category: item.category
       };
     });
-
     this.collection = {
       items: mappedData
     };
-
     const uniqueCategories = [...new Set(mappedCategories.map(category => category.category))];
     const uniqueMappedCategories = uniqueCategories.map(category => ({ category }));
     this.categories = {
       categories: uniqueMappedCategories
     };
-
     this.items = this.collection;
     this.filterByCategory(this.categories.categories[0].category);
     console.log('Get Collection');
+    console.log(this.collection);
+    console.log(this.items);
+    console.log(this.categories);
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error('Error fetching data:', error.message);
   }
 },
 
