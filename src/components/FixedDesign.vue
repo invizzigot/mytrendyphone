@@ -3749,13 +3749,16 @@ const port = window.location.port;
 const apiUrlBase = `https://image-backend-zvjc.onrender.com/`;
 const apiUrl = `https://image-backend-zvjc.onrender.com/images`;
  console.log(apiUrl);
-    const response = await fetch(apiUrl, {
-      method: "GET",
-      headers: {
- 
-    'Accept': '*/*'
-  }
-    });
+    const response = await   axios
+      .get(
+        "https://image-backend-zvjc.onrender.com/images"
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log("error");
+      });
 
 	  
 
@@ -7154,16 +7157,7 @@ if (!selectedObject || selectedObject.type === null) {
   },
   created() {
     this.fetchDataForCollection();
-    axios
-      .get(
-        "https://image-backend-zvjc.onrender.com/images"
-      )
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log("error");
-      });
+  
       
     
     this.fetchTranslationsData();
