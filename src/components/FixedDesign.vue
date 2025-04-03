@@ -3749,7 +3749,7 @@ const apiUrlBase = `https://${hostname}:${port}`;
 const apiUrl = `https://${hostname}:${port}/images`;
 	  console.log(apiUrl);
 	
-    const response = await fetch(apiUrl, {
+    const response = await fetch('https://image-backend-zvjc.onrender.com/images', {
       method: "GET",
 	      headers: {
     'Access-Control-Allow-Origin': '*',
