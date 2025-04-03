@@ -3745,9 +3745,7 @@ async fetchDataForCollection() {
     const apiUrl = 'https://image-backend-zvjc.onrender.com/images';
     const response = axios.get('https://image-backend-zvjc.onrender.com/images', {
   headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+    'Accept': '*/*'
   }
 });
 
