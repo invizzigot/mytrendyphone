@@ -5,6 +5,8 @@ services:
       PROXY_URL: https://image-backend-zvjc.onrender.com
     proxy:
       /images:
-        target: https://image-backend-zvjc.onrender.com
+        target: ${PROXY_URL}
         changeOrigin: true
         pathRewrite: { '^/images': '' }
+        headers:
+          Host: ${PROXY_URL}
