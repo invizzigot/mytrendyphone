@@ -3742,48 +3742,51 @@ enableEventsOnAllObjects(canvas) {
 
 async fetchDataForCollection() {
   try {
-       const url = window.location.href;
-const hostname = window.location.hostname;
-const port = window.location.port;
-const apiUrlBase = `https://${hostname}`;
-const apiUrl = `https://${hostname}/images`;
- console.log(apiUrl);
-    const response = await fetch(apiUrl, {
-      method: "GET",
+    const url = window.location.href;
+    const hostname = window.location.hostname;
+    const port = window.location.port;
+    const apiUrlBase = `http://${hostname}/`;
+    const apiUrl = `http://${hostname}/images`;
+
+    const response = await axios.get(apiUrl, {
       headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization'
-  }
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+      }
     });
-    if (!response.ok) {
+
+    if (response.status !== 200) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const data = await response.json();
+
+    const data = response.data;
     const mappedData = data.map((item) => {
       return {
         src: apiUrlBase + item.path.replace(/\\/g, '/'),
         category: item.category
       };
     });
+
     const mappedCategories = data.map((item) => {
-  return {
-    category: item.category
-  };
-});
-this.collection = {
+      return {
+        category: item.category
+      };
+    });
+
+    this.collection = {
       items: mappedData
     };
-const uniqueCategories = [...new Set(mappedCategories.map(category => category.category))];
-const uniqueMappedCategories = uniqueCategories.map(category => ({ category }));
-this.categories = {
-  categories: uniqueMappedCategories
-};
+
+    const uniqueCategories = [...new Set(mappedCategories.map(category => category.category))];
+    const uniqueMappedCategories = uniqueCategories.map(category => ({ category }));
+    this.categories = {
+      categories: uniqueMappedCategories
+    };
+
     this.items = this.collection;
+    this.filterByCategory(this.categories.categories[0].category);
     console.log('Get Collection');
-    console.log(this.collection);
-    console.log(this.items);
-    console.log(this.categories);
   } catch (error) {
     console.error('Error fetching data:', error);
   }
