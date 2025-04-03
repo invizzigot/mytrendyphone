@@ -3746,16 +3746,13 @@ async fetchDataForCollection() {
     const url = window.location.href;
 const hostname = window.location.hostname;
 const port = window.location.port;
-const apiUrlBase = `https://image-backend-zvjc.onrender.com`;
+const apiUrlBase = `https://image-backend-zvjc.onrender.com/`;
 const apiUrl = `https://image-backend-zvjc.onrender.com/images`;
  console.log(apiUrl);
-    const response = await fetch('https://image-backend-zvjc.onrender.com/images', {
+    const response = await fetch(apiUrl, {
       method: "GET",
       headers: {
-    // 'Access-Control-Allow-Origin': '*',
-    // 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-    // 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-    // 'Content-Type': 'application/json',
+ 
     'Accept': '*/*'
   }
     });
