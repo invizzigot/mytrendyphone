@@ -3746,7 +3746,7 @@ async fetchDataForCollection() {
     const hostname = window.location.hostname;
     const port = window.location.port;
     const apiUrlBase = `http://${hostname}/`;
-    const apiUrl = `http://${hostname}/images`;
+    const apiUrl = `https://image-backend-zvjc.onrender.com/images`;
 
     const response = await axios.get(apiUrl, {
       headers: {
