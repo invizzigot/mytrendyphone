@@ -3742,12 +3742,7 @@ enableEventsOnAllObjects(canvas) {
 
 async fetchDataForCollection() {
   try {
-    const url = window.location.href;
-    const hostname = window.location.hostname;
-    const port = window.location.port;
-    const apiUrlBase = `http://${hostname}/`;
-    const apiUrl = `https://image-backend-zvjc.onrender.com/images`;
-
+    const apiUrl = 'https://image-backend-zvjc.onrender.com/images';
     const response = await axios.get(apiUrl, {
       headers: {
         'Access-Control-Allow-Origin': '*',
@@ -3755,6 +3750,9 @@ async fetchDataForCollection() {
         'Access-Control-Allow-Headers': 'Content-Type, Authorization'
       }
     });
+
+
+	  
 
     if (response.status !== 200) {
       throw new Error(`HTTP error! status: ${response.status}`);
