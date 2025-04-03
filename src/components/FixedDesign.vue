@@ -7156,7 +7156,7 @@ if (!selectedObject || selectedObject.type === null) {
     this.fetchDataForCollection();
     axios
       .get(
-        "https://cors-anywhere.herokuapp.com/https://image-backend-lqbq.onrender.com/images"
+        "https://image-backend-zvjc.onrender.com/images"
       )
       .then((response) => {
         console.log(response);
