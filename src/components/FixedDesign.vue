@@ -3742,14 +3742,19 @@ enableEventsOnAllObjects(canvas) {
 
 async fetchDataForCollection() {
   try {
-   const url = `${process.env.FRONTEND_URL}/images`;
-    console.log(url);
-    const response = await fetch(url, {
+       const url = window.location.href;
+const hostname = window.location.hostname;
+const port = window.location.port;
+const apiUrlBase = `http://${hostname}/`;
+const apiUrl = `http://${hostname}/images`;
+ console.log(apiUrl);
+    const response = await fetch(apiUrl, {
       method: "GET",
       headers: {
-        'Access-Control-Allow-Origin': process.env.FRONTEND_URL,
-      }
-	    
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+  }
     });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
