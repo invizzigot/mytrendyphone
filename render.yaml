@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: mytrendyphone
+    env:
+      PROXY_URL: https://image-backend-zvjc.onrender.com
+    proxy:
+      /images:
+        target: https://image-backend-zvjc.onrender.com
+        changeOrigin: true
+        pathRewrite: { '^/images': '' }
