@@ -17,12 +17,12 @@ export default defineConfig({
      cors: true,
     proxy: {
       '/images': {
-        target: 'https://image-backend-zvjc.onrender.com',
+        target: 'http://image-backend-zvjc.onrender.com',
         changeOrigin: true,
         pathRewrite: { '^/images': '' },
       },
       '/uploads': {
-        target: 'https://image-backend-zvjc.onrender.com',
+        target: 'http://image-backend-zvjc.onrender.com',
         changeOrigin: true,
         pathRewrite: { '^/uploads': '' },
       },
