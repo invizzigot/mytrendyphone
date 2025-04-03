@@ -3745,8 +3745,8 @@ async fetchDataForCollection() {
     const url = window.location.href;
 const hostname = window.location.hostname;
 const port = window.location.port;
-const apiUrlBase = `https://${hostname}:${port}`;
-const apiUrl = '/images';
+const apiUrlBase = `https://${hostname}:${port}/`;
+const apiUrl = `https://${hostname}:${port}/images`;
 	  console.log(apiUrl);
 	
     const response = await fetch(apiUrl, {
