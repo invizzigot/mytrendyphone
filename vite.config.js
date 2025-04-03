@@ -13,7 +13,8 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  render: {
+  server: {
+     cors: true,
     proxy: {
       '/images': {
         target: 'https://image-backend-zvjc.onrender.com',
