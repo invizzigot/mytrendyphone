@@ -4683,34 +4683,36 @@ this.addClipPathToSelectedObject(lastIndex);
       );
     },
 
+    
     addUploadedImageToCanvas(index) {
-      const selectedImage = this.uploadedImages[index];
-      const img = new Image();
-      img.crossOrigin = 'anonymous';
-      img.onload = () => {
-        const fabricImg = new fabric.Image(img, {
-          // Set the properties for the fabric image here
-          left: 200,
-          top: 100,
-          scaleX: 0.3,
-          scaleY: 0.3,
-          selectable: true,
-          hasControls: true,
-          hasBorders: true,
-          perPixelTargetFind: true,
-          id: index,
-          // globalCompositeOperation: "xor",
-          centerH: true,
-          centerV: true,
-          name: "canvas image",
-        });
-        this.canvas.add(fabricImg);
-        this.canvas.moveTo(fabricImg, 2);
-        this.canvas.setActiveObject(fabricImg);
-        // this.canvas.renderAll();
-      };
-      img.src = selectedImage.url;
-    },
+  const selectedImage = this.uploadedImages[index];
+  
+  fabric.Image.fromURL(selectedImage.url, (img) => {
+    const fabricImg = img.set({
+      // Set the properties for the fabric image here
+      left: 200,
+      top: 100,
+      scaleX: 0.3,
+      scaleY: 0.3,
+      selectable: true,
+      hasControls: true,
+      hasBorders: true,
+      perPixelTargetFind: true,
+      id: index,
+      // globalCompositeOperation: "xor",
+      centerH: true,
+      centerV: true,
+      name: "canvas image",
+    });
+    this.canvas.add(fabricImg);
+    this.canvas.moveTo(fabricImg, 2);
+    this.canvas.setActiveObject(fabricImg);
+    // this.canvas.renderAll();
+  }, {
+    crossOrigin: 'anonymous',
+    allowTaint: true
+  });
+},
     setActiveObjectById(id) {
       
       console.log(id);
