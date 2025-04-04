@@ -13,24 +13,24 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  // server: {
-  //    cors: true,
-  //   proxy: {
-  //     '/images': {
-  //       target: 'https://image-backend-zvjc.onrender.com',
-  //       changeOrigin: true,
-  //       pathRewrite: { '^/images': '' },
-  //     },
-  //     '/uploads': {
-  //       target: 'https://image-backend-zvjc.onrender.com',
-  //       changeOrigin: true,
-  //       pathRewrite: { '^/uploads': '' },
-  //     },
-  //   },
-  //   cors: {
-  //     origin: ['https://image-backend-zvjc.onrender.com'],
-  //     methods: ['GET'],
-  //     allowedHeaders: ['Content-Type', 'Authorization'],
-  //   },
-  // },
+  server: {
+     cors: true,
+    proxy: {
+      '/images': {
+        target: 'https://image-backend-zvjc.onrender.com',
+        changeOrigin: true,
+        pathRewrite: { '^/images': '' },
+      },
+      '/uploads': {
+        target: 'https://image-backend-zvjc.onrender.com',
+        changeOrigin: true,
+        pathRewrite: { '^/uploads': '' },
+      },
+    },
+    cors: {
+      origin: ['https://image-backend-zvjc.onrender.com'],
+      methods: ['GET'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+    },
+  },
 })
