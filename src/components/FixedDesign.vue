@@ -4686,6 +4686,7 @@ this.addClipPathToSelectedObject(lastIndex);
     addUploadedImageToCanvas(index) {
       const selectedImage = this.uploadedImages[index];
       const img = new Image();
+      img.crossOrigin = 'anonymous';
       img.onload = () => {
         const fabricImg = new fabric.Image(img, {
           // Set the properties for the fabric image here
