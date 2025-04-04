@@ -4687,7 +4687,7 @@ this.addClipPathToSelectedObject(lastIndex);
     addUploadedImageToCanvas(index) {
   const selectedImage = this.uploadedImages[index];
   
-  fabric.Image.fromURL(selectedImage.url, (img) => {
+  fabric.util.loadImage(selectedImage.url, (img) => {
     const fabricImg = img.set({
       // Set the properties for the fabric image here
       left: 200,
