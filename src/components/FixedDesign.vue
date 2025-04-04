@@ -1449,9 +1449,9 @@
                     v-motion
                     :initial="{ opacity: 0, scale: 0, translateY: 100 }"
                     :enter="{ opacity: 1, scale: 1, translateY: 0, delay: 100 }"
-                    class="box-border absolute bottom-0 w-full h-[40px] bg-gray-100 flex flex-col"
+                    class="box-border absolute bottom-0 w-full h-[50px] bg-gray-100 flex flex-col"
                   >
-                    <div class="flex flex-row w-full">
+                    <div class="overflow-auto overflow-y-hidden flex flex-row w-full bottom-0">
                       <div v-for="(category, index) in categories.categories" :key="index" :value="index">
   <div
     @click="filterByCategory(category.category), setActiveCategory(index + 1 )"
