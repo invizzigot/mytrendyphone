@@ -5,6 +5,9 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    env: {
+    PROXY_URL: 'https://image-backend-zvjc.onrender.com/images',
+  },
   plugins: [
     vue(),
   ],
