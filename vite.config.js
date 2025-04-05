@@ -30,7 +30,7 @@ resolve: {
       '/images': {
         target: 'https://image-backend-zvjc.onrender.com',
         changeOrigin: true,
-        pathRewrite: { '^/images': '' },
+        pathRewrite: { '^/images': '/images' },
       },
       '/uploads': {
         target: 'https://image-backend-zvjc.onrender.com',
