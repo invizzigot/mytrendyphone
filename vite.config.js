@@ -11,14 +11,19 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+    build: {
+  outDir: 'dist',
+  sourcemap: true,
+},
+resolve: {
+  alias: {
+    "@": fileURLToPath(new URL("./src", import.meta.url)),
   },
+  extensions: ['.js', '.ts', '.jsx', '.tsx', '.json'],
+},
   server: {
      host: '0.0.0.0',
-  port: 80,
+  port: 1000,
   cors: true,
      
     proxy: {
