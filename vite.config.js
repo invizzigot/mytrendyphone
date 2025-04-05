@@ -22,9 +22,9 @@ resolve: {
   extensions: ['.js', '.ts', '.jsx', '.tsx', '.json'],
 },
   server: {
-     host: '0.0.0.0',
-  port: 10000,
-  cors: true,
+  //    host: '0.0.0.0',
+  // port: 10000,
+  // cors: true,
      
     proxy: {
     "/images": {
@@ -38,10 +38,10 @@ resolve: {
         pathRewrite: { '^/uploads': '' },
       },
     },
-    // cors: {
-    //   origin: ['https://image-backend-zvjc.onrender.com'],
-    //   methods: ['GET'],
-    //   allowedHeaders: ['Content-Type', 'Authorization'],
-    // },
+    cors: {
+      origin: ['https://image-backend-zvjc.onrender.com'],
+      methods: ['GET'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+    },
   },
 })
