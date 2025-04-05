@@ -1,8 +1,9 @@
 services:
   - type: web
-    name: my-app
+    name: vue-app
     runtime: node
     buildCommand: npm run build
+    startCommand: npm run start
     envVars:
-      - key: API_URL
+      - key: BACKEND_URL
         value: https://image-backend-zvjc.onrender.com
