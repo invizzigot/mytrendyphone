@@ -23,7 +23,7 @@ resolve: {
 },
   server: {
      host: '0.0.0.0',
-  port: 1000,
+  port: 10000,
   cors: true,
      
     proxy: {
