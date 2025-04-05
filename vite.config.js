@@ -17,7 +17,7 @@ export default defineConfig({
      host: '0.0.0.0',
   port: 80,
   cors: true,
-     cors: true,
+     
     proxy: {
       '/images': {
         target: 'https://image-backend-zvjc.onrender.com',
