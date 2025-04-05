@@ -27,10 +27,10 @@ resolve: {
   cors: true,
      
     proxy: {
-      '/images': {
-        target: 'https://image-backend-zvjc.onrender.com',
+    "/images": {
+        target: "https://image-backend-zvjc.onrender.com/images",
         changeOrigin: true,
-        pathRewrite: { '^/images': '/images' },
+        rewrite: (path) => path.replace(/^\/images/, ""),
       },
       '/uploads': {
         target: 'https://image-backend-zvjc.onrender.com',
