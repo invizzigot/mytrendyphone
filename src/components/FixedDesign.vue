@@ -3741,15 +3741,23 @@ enableEventsOnAllObjects(canvas) {
 // },
 
 async fetchDataForCollection() {
-  try {
+ try {
     const response = await axios.get(
-      "https://image-backend-zvjc.onrender.com/images"
+      "/images?format=json",
+      {
+        headers: {
+          'Content-Type': 'application/json',
+    'Accept': 'application/json'
+        },
+      }
+   
     );
     const data = response.data;
     const mappedData = data.map((item) => {
       return {
-        src: `https://image-backend-zvjc.onrender.com/` + item.path.replace(/\\/g, '/'),
-        category: item.category
+        src: `${window.location.origin}/${item.path.replace(/\\/g, '/')}`,
+        category: item.category,
+        
       };
     });
     const mappedCategories = data.map((item) => {
