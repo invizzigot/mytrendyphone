@@ -1,11 +1,8 @@
 services:
   - type: web
     name: my-app
-    env: node
-    build:
-      command: "npm run build"
-    proxy:
-      /images:
-        target: [https://image-backend-zvjc.onrender.com](https://image-backend-zvjc.onrender.com)
-        changeOrigin: true
-        pathRewrite: "^/images"
+    runtime: node
+    buildCommand: npm run build
+    envVars:
+      - key: API_URL
+        value: https://image-backend-zvjc.onrender.com
