@@ -3741,6 +3741,8 @@ enableEventsOnAllObjects(canvas) {
 // },
 
 async fetchDataForCollection() {
+	const apiUrl = process.env.API_URL;
+	console.log(apiUrl);
  try {
     const response = await axios.get(
       "/images?format=json",
