@@ -3741,7 +3741,7 @@ enableEventsOnAllObjects(canvas) {
 // },
 
 async fetchDataForCollection() {
-	const apiUrl = process.env.API_URL;
+	const apiUrl = process.env.PROXY_URL;
 	console.log(apiUrl);
  try {
     const response = await axios.get(
