@@ -29,10 +29,10 @@ resolve: {
       baseURL: '[https://image-backend-zvjc.onrender.com](https://image-backend-zvjc.onrender.com)'
     },
     proxy: {
-    "/images": {
+    "/api": {
         target: "https://image-backend-zvjc.onrender.com/images",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/images/, ""),
+        rewrite: (path) => path.replace(/^\/api/, ""),
       },
       '/uploads': {
         target: 'https://image-backend-zvjc.onrender.com',
