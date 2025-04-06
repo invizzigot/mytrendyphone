@@ -3751,7 +3751,7 @@ async fetchDataForCollection() {
     //   }
    
     // );
-    const response = await fetch(apiUrl, {
+    const response = await fetch('https://image-backend-zvjc.onrender.com/images', {
        method: "GET",
        headers: {
      // 'Access-Control-Allow-Origin': '*',
@@ -3760,7 +3760,7 @@ async fetchDataForCollection() {
      // 'Content-Type': 'application/json',
   
      'Accept': '*/*'
-   }	 
+   }	   });
     const data = response.data;
     const mappedData = data.map((item) => {
       return {
