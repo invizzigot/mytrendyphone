@@ -3748,8 +3748,8 @@ async fetchDataForCollection() {
       "https://image-backend-zvjc.onrender.com/images?format=json",
       {
         headers: {
-          'Content-Type': 'application/json',
-    'Accept': 'application/json'
+          
+    'Accept': '*/*'
         },
       }
    
