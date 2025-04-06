@@ -3745,7 +3745,7 @@ async fetchDataForCollection() {
 	console.log(apiUrl);
  try {
     const response = await axios.get(
-      "https://image-backend-zvjc.onrender.com/images?format=json",
+      "https://image-backend-zvjc.onrender.com/images",
       {
         headers: {
           
