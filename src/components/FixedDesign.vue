@@ -3744,23 +3744,17 @@ async fetchDataForCollection() {
 	const apiUrl = process.env.BACKEND_URL;
 	console.log(apiUrl);
  try {
-    // const response = await axios.get(
-    //   "https://image-backend-zvjc.onrender.com/images",
-    //   {
-    //   mode: 'cors'
-    //   }
+      const imageUrl = "https://image-backend-zvjc.onrender.com/images";
+    const response = await axios.get(
+      imageUrl,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+    'Accept': 'application/json'
+        },
+      }
    
-    // );
-    const response = await fetch('https://image-backend-zvjc.onrender.com/images', {
-       method: "GET",
-       headers: {
-     // 'Access-Control-Allow-Origin': '*',
-     // 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-     // 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-     // 'Content-Type': 'application/json',
-  
-     'Accept': '*/*'
-   }	   });
+    );
     const data = response.data;
     const mappedData = data.map((item) => {
       return {
