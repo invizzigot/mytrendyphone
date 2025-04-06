@@ -25,7 +25,9 @@ resolve: {
   //    host: '0.0.0.0',
   // port: 10000,
   // cors: true,
-     
+       axios: {
+      baseURL: '[https://image-backend-zvjc.onrender.com](https://image-backend-zvjc.onrender.com)'
+    },
     proxy: {
     "/images": {
         target: "https://image-backend-zvjc.onrender.com/images",
