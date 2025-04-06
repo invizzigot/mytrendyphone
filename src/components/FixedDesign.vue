@@ -3747,10 +3747,7 @@ async fetchDataForCollection() {
     const response = await axios.get(
       "https://image-backend-zvjc.onrender.com/images",
       {
-      headers: {
-          'Content-Type': 'application/json',
-          'Accept': '*/*'
-        },
+      mode: 'cors'
       }
    
     );
