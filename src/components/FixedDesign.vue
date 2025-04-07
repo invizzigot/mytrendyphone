@@ -3741,7 +3741,7 @@ enableEventsOnAllObjects(canvas) {
 // },
 
 async fetchDataForCollection() {
-	const apiUrl = process.env.BACKEND_URL;
+	const apiUrl = process.env.RENDER_EXTERNAL_URL;
 	console.log(apiUrl);
  try {
       const imageUrl = "https://image-backend-zvjc.onrender.com/images";
