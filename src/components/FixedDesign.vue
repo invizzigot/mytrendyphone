@@ -3741,20 +3741,31 @@ enableEventsOnAllObjects(canvas) {
 // },
 
 async fetchDataForCollection() {
-	const apiUrl = process.env.RENDER_EXTERNAL_URL;
-	console.log(apiUrl);
- try {
-      const imageUrl = "https://image-backend-zvjc.onrender.com/images";
-    const response = await axios.get(
-      imageUrl,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-    'Accept': 'application/json'
-        },
-      }
-   
-    );
+  try {
+    const axiosInstance = axios.create({
+  baseURL: "https://mytrendyphone.onrender.com/",
+  proxy: {
+    host: "100.20.92.101",
+    port: 1000,
+    protocol: "https"
+  }
+})
+
+
+    let headersList = {
+ "Accept": "*/*",
+ 
+}
+
+let reqOptions = {
+  url: "/images",
+  method: "GET",
+  headers: headersList,
+ 
+}
+
+let response = await axiosInstance.request(reqOptions);
+    
     const data = response.data;
     const mappedData = data.map((item) => {
       return {
@@ -3783,7 +3794,7 @@ async fetchDataForCollection() {
     console.log(this.items);
     console.log(this.categories);
   } catch (error) {
-    console.error('Error fetching data:', error.message);
+    console.error('Error fetching data:', error);
   }
 },
 
