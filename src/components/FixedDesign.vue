@@ -3758,7 +3758,7 @@ async fetchDataForCollection() {
 }
 
 let reqOptions = {
-  url: "https://100.20.92.101",
+  url: "https://100.20.92.101/images",
   method: "GET",
   headers: headersList,
  
