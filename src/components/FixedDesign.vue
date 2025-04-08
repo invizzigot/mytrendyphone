@@ -3769,7 +3769,7 @@ let response = await axiosInstance.request(reqOptions);
     const data = response.data;
     const mappedData = data.map((item) => {
       return {
-         src: `${window.location.origin}/uploads/${item.path.replace(/\\/g, '/')}`,
+         src: `/uploads${item.path.replace(/\\/g, '/')}`,
         category: item.category,
         
       };
