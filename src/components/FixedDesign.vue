@@ -4173,6 +4173,8 @@ this.addClipPathToSelectedObject(lastIndex);
     async fetchStockData(product_id) {
       let headersList2 = {
  "Accept": "*/*",
+   Accept: "application/json",
+        "Control-Allow-Origin": "*",	      
  "Authorization": "Basic OmRkZmRkYzdkLTVhNTEtNGExYy04NmQ0LTc4YTY2ZmFkNTY0Yg==",
  // "Access-Control-Allow-Origin": "*" ,
 }
