@@ -4175,8 +4175,6 @@ this.addClipPathToSelectedObject(lastIndex);
  "Accept": "*/*",
  "Authorization": "Basic OmRkZmRkYzdkLTVhNTEtNGExYy04NmQ0LTc4YTY2ZmFkNTY0Yg==",
  "Access-Control-Allow-Origin": "*" ,
- 
- "Access-Control-Request-Method" : "GET"
 }
 
 let reqOptions2 = {
