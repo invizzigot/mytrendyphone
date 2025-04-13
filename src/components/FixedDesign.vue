@@ -4183,6 +4183,7 @@ let reqOptions2 = {
   url: `https://mytrendyphone.dk/admin/WEBAPI/v2/products/${product_id}`,
   method: "GET",
   headers: headersList2,
+  withCredentials: true
 }
 
 let response2 = await axios.request(reqOptions2);
