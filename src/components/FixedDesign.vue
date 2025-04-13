@@ -4175,7 +4175,7 @@ this.addClipPathToSelectedObject(lastIndex);
  "Accept": "*/*",
  "Authorization": "Basic OmRkZmRkYzdkLTVhNTEtNGExYy04NmQ0LTc4YTY2ZmFkNTY0Yg==",
  "Access-Control-Allow-Origin": "*" ,
- "Access-Control-Request-Headers": "access-control-allow-origin,authorization",
+ 
  "Access-Control-Request-Method" : "GET"
 }
 
