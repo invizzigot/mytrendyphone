@@ -4171,6 +4171,23 @@ this.addClipPathToSelectedObject(lastIndex);
     },
 
     async fetchStockData(product_id) {
+      let headersList2 = {
+ "Accept": "*/*",
+ "Authorization": "Basic OmRkZmRkYzdkLTVhNTEtNGExYy04NmQ0LTc4YTY2ZmFkNTY0Yg==",
+ "Access-Control-Allow-Origin": "*" ,
+ "Access-Control-Request-Headers": "access-control-allow-origin,authorization",
+ "Access-Control-Request-Method" : "GET"
+}
+
+let reqOptions2 = {
+  url: `https://mytrendyphone.dk/admin/WEBAPI/v2/products/${product_id}`,
+  method: "OPTIONS",
+  headers: headersList2,
+}
+
+let response2 = await axios.request(reqOptions2);
+console.log('Cart:',response2.data);			
+	    
       let headersList = {
         Accept: "application/json",
         "Control-Allow-Origin": "*",
