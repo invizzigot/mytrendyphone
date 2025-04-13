@@ -4174,7 +4174,7 @@ this.addClipPathToSelectedObject(lastIndex);
       let headersList2 = {
  "Accept": "*/*",
  "Authorization": "Basic OmRkZmRkYzdkLTVhNTEtNGExYy04NmQ0LTc4YTY2ZmFkNTY0Yg==",
- "Access-Control-Allow-Origin": "*" ,
+ // "Access-Control-Allow-Origin": "*" ,
 }
 
 let reqOptions2 = {
