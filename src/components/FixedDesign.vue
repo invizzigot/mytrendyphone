@@ -4179,7 +4179,7 @@ this.addClipPathToSelectedObject(lastIndex);
 
 let reqOptions2 = {
   url: `https://mytrendyphone.dk/admin/WEBAPI/v2/products/${product_id}`,
-  method: "OPTIONS",
+  method: "GET",
   headers: headersList2,
 }
 
